@@ -1,0 +1,56 @@
+@import "../base/global";
+
+.link{
+    --link-color: currentColor;
+    --link-text-decor: none;
+    --link-text-trans: none;
+    --icon-trans-x: 0;
+    --link-font-size: 1em;
+    @include flex-set(inline-flex, row, nowrap, 1.2rem);
+    font-family: $font-text;
+    font-size: var(--link-font-size);
+    color: var(--link-color);
+    text-decoration: var(--link-text-decor);
+    text-transform: underline;
+    transition: color var(--trans-time) var(--trans-fnc);
+
+    @include res-max-tablet{
+        --trans-time: 0;
+    }
+
+    &--uppercase{
+        --link-text-trans: uppercase;
+    }
+
+    &--primary{
+        --link-color: var(--color-primary);
+        --link-text-decor: underline;
+
+        &:hover{
+            --link-color: var(--color-primary--hover);
+        }
+    }
+    &--header{
+        padding: $gap-m $gap-xxl;
+    }
+
+    &:hover{
+        --link-text-decor: underline;
+        --icon-trans-x: #{$gap-s};
+    }
+
+    >span{
+        font-size: 1em;
+        color: currentColor;
+    }
+
+    >.icon{
+        --icon-size: #{$gap-xl};
+        transform: translateX(var(--icon-trans-x));
+        transition: transform $trans-time ease-in-out;
+        
+        @include res-max-mobile-m{
+            --icon-size: #{$gap-l};
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@import "../base/global";
+
+.icon{  
+    --icon-size: #{$gap-xl};
+   display: block;
+   inline-size: var(--icon-size);
+   aspect-ratio: 1;  
+   fill: currentColor;
+}

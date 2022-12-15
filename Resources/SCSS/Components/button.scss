@@ -1,0 +1,36 @@
+@import "../base/global";
+
+.button{
+    --btn-color: var(--color-white);
+    --btn-bg-color: #{$color-black--trans-dark};
+    --btn-padding-x: #{$gap-xxl};
+    --btn-padding-y: #{$gap-l};
+    --btn-width: 20rem;
+    --btn-font-size: large;
+    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
+    @include border('def', 1px, var(--color-trans));
+    min-width: var(--btn-width);
+    padding-block: var(--btn-padding-y);
+    padding-inline: var(--btn-padding-x);
+    background-color: var(--btn-bg-color);
+    font-family: $font-text;
+    font-size: var(--btn-font-size);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--btn-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--trans-time) var(--trans-fnc);
+    cursor: pointer;
+
+    @include res-max-laptop-s{
+        --btn-padding-x: #{$gap-l};
+        --btn-padding-y: 1.2rem;
+        --btn-font-size: medium;
+        --btn-width: 16rem;
+    }
+
+    @include hover{
+        --btn-bg-color: var(--color-black);
+    }
+}

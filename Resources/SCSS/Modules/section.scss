@@ -1,0 +1,41 @@
+@import "../base/global";
+
+section{
+    --sec-bg: #{$color-bg};
+    --sec-pad-y: 10vh;
+    scroll-margin-top: var(--sec_scroll-mg, 0);
+    padding: var(--sec-pad-y) 0;
+    background-color: var(--sec-bg);
+
+    @include res-max-laptop-m{
+        --sec-pad-y: 5rem;
+    }
+
+    @include res-max-tablet{
+        --sec-pad-y: 8vh;
+        --sec_scroll-mg: var(--nav-height);
+    }
+
+    &.dark{
+        --sec-bg: #{$color-bg-darken};
+    }
+    &.no-pt{
+        padding-top: 0;
+    }
+
+    &.no-p{
+        padding: 0;
+    }
+
+    &.full-height{
+        min-height: 100vh;
+
+        > .container{
+            @include position;
+        }
+    }
+}
+
+.nav + main > section:first-of-type{
+    padding-top: calc(var(--sec-pad-y) + var(--nav-height));
+}

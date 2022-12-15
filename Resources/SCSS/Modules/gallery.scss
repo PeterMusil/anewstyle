@@ -1,0 +1,97 @@
+@import "../base/global";
+
+.gallery {
+  @include grid-columns(
+    grid,
+    repeat(var(--col-count, 4), minmax($gap-m, 1fr)),
+    var(--gap, #{$gap-s}),
+    var(--align-items, flex-start)
+  );
+
+  @include res-max-laptop-s {
+    --gap: #{$gap-l};
+    --col-count: 3;
+  }
+
+  @include res-max-tablet {
+    --col-count: 2;
+  }
+
+  @include res-max-mobile-l {
+    --col-count: 1;
+    --gap: #{$gap-xl};
+  }
+}
+
+.gitem {
+  --photo_scale: 1;
+  --text_translate-x: calc(-100% - #{$gap-xxl});
+  --content_backgdrop-filter: blur(0);
+  position: relative;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:first-child{
+    @include grid-col-span(var(--gitem_colspan, 2));
+    @include grid-row-span(var(--gitem_rowspan, 2));
+
+    @include res-max-mobile-l{
+      --gitem_colspan: 1;
+      --gitem_rowspan: 1;
+    }
+  }
+
+  @include hover {
+    --photo_scale: 1.1;
+    --text_translate-x: 0;
+    --content_backgdrop-filter: blur(.1em);
+  }
+
+  &__photo {
+    position: relative;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+
+    img {
+      @include position;
+      display: block;
+      inline-size: 100%;
+      scale: var(--photo_scale);
+      transition: scale .5s ease-in-out;
+    }
+  }
+
+  &__content {
+    @include flex-set(flex, column, nowrap, .5em, flex-start, flex-start);
+    position: absolute;
+    inset: 0;
+    padding: #{$gap-xl};
+    background-color: hsla(0, 0%, 0%, .3);
+    font-size: medium;
+    color: white;
+    transition: backdrop-filter .2s linear;
+    backdrop-filter: var(--content_backgdrop-filter);
+
+    > strong {
+      display: block;
+      margin-block-end: .5em;
+      font-size: 1.5em;
+      text-shadow: var(--color-black) 0 0 .5rem;
+    }
+
+    > p{
+      display: inline-block;
+      padding: #{$gap-s} #{$gap-m};  
+      margin: 0;  
+      background-color: var(--color-white);
+      color: var(--color-black);
+      translate: var(--text_translate-x);
+      transition: translate .2s linear;
+
+      &:last-child{
+        transition-delay: .05s;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "../base/global";
+
+.contact {
+    &__wrapper {
+        @include grid-columns(
+            grid,
+            var(--contact_col-temp, 150px minmax(#{$gap-l}, 1fr)),
+            var(--contact_gap, 10vw),
+            flex-start
+        );
+
+        @include res-max-tablet {
+            --contact_col-temp: 100px minmax(#{$gap-l}, 1fr);
+        }
+
+        img{
+            @include res-max-tablet {
+               max-inline-size: 100px;
+            } 
+        }
+    }
+    &__grid {
+        @include grid-columns(
+            grid,
+            repeat(var(--col-count, 2), minmax($gap-l, 1fr)),
+            var(--contact_gap, 5vw),
+            flex-start
+        );
+        @include res-max-tablet {
+            --col-count: 1;
+        }
+        .button {
+            margin-block-start: $gap-xxl;
+        }
+    }
+}

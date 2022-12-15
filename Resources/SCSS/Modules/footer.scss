@@ -1,0 +1,15 @@
+@import "../base/global";
+
+footer {
+  padding: $gap-l;
+  background-color: $color-black;
+
+  > small {
+    display: block;
+    width: 100%;
+    font-family: $font-text;
+    font-size: small;
+    color: $color-white;
+    text-align: center;
+  }
+}

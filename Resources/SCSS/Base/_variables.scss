@@ -1,0 +1,41 @@
+﻿//colors
+$color-black: hsla(0, 0%, 0%, 1);
+$color-black--trans: hsla(0, 0%, 0%, .6);
+$color-black--trans-dark: hsla(0, 0%, 0%, .8);
+$color-white: hsla(0, 0%, 100%, 1);
+$color-white--trans: hsla(0, 0%, 100%, .7);
+$color-trans: hsla(0, 0%, 0%, 0);
+$color-bg: hsla(120, 2%, 17%, 1);
+$color-bg-darken: hsla(120, 2%, 10%, 1);
+$color-bg-dark: hsl(200, 18%, 8%);
+$color-bg--light: hsla(200, 18%, 10%, .85);
+$color-bg-nav: hsla(200, 18%, 8%, .25);
+$color-bg-nav-mobile: hsl(200, 18%, 8%);
+$color-primary: hsl(51, 100%, 50%);
+$color-primary--hover: darken($color-primary, 10%);
+$color-primary--lighten: lighten($color-primary, 15%);
+$color-secondary: hsla(120, 2%, 17%, 1);
+$color-footer-bg: hsl(0, 0%, 11%);
+$color-font: $color-white;
+
+$trans-time: .25s;
+$animate-all: all ease-in-out var($trans-time);
+$gap-m: .8rem;
+$gap-s: ($gap-m / 2);
+$gap-l: ($gap-m * 2);
+$gap-xl: ($gap-m * 3);
+$gap-xxl: ($gap-m * 4);
+$font-text: system-ui;
+$font-title: ratiomodern, serif;
+
+// All devices width for MediaQuery
+$width-mobile-s: 320px;
+$width-mobile-m: 375px;
+$width-mobile-l: 425px;
+$width-tablet: 768px;
+$width-laptop-s: 1024px;
+$width-laptop-m: 1366px;
+$width-laptop-l: 1440px;
+$width-laptop-xl: 1920px;
+$width-4k: 2560px;
+$height-4k: 2160px;
