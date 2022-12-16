@@ -1067,7 +1067,7 @@ ul:not([class]) {
 
 .tags {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   align-content: normal;
   justify-content: flex-start;
