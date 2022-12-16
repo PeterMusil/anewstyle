@@ -1229,6 +1229,8 @@ ul:not([class]) {
       position: relative;
       display: block;
       min-inline-size: 100%;
+      max-inline-size: 100%;
+      block-size: auto;
       min-block-size: 100%; }
   .c-item__content {
     display: flex;
