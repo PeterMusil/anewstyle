@@ -28,11 +28,11 @@ p, span, small{
     color: var(--title-color);
 
     @include res-max-laptop-l{
-        --title-font-size: 3.2em;
+        --title-font-size: 4em;
     }
 
     @include res-max-laptop-s{
-        --title-font-size: 2.4em;
+        --title-font-size: 3.2em;
     }
 
     @include res-max-tablet{

@@ -32,5 +32,10 @@
         .button {
             margin-block-start: $gap-xxl;
         }
+
+        img{
+            max-inline-size: 200px;
+            block-size: auto;
+        }
     }
 }
