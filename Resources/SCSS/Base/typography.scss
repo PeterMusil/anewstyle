@@ -19,16 +19,16 @@ p, span, small{
     --title-justify-content: flex-start;
     --title-font-size: 6em;
     --title-color: #{$color-font};
-    --title-mg-bottom: #{$gap-xl}; 
+    --title-mg-bottom: #{$gap-xxl}; 
     @include flex-set(flex, row, wrap, 0, center, var(--title-justify-content));
     margin-bottom: var(--title-mg-bottom);
     font-family: $font-title;
     font-size: var(--title-font-size);
+    line-height: 1.2;
     color: var(--title-color);
 
     @include res-max-laptop-l{
         --title-font-size: 3.2em;
-        --title-mg-bottom: #{$gap-xxl}; 
     }
 
     @include res-max-laptop-s{
@@ -121,7 +121,13 @@ address{
 }
 
 ul:not([class]){
+    @include grid-columns(grid, minmax($gap-xxl, auto), $gap-m);
     margin-block-end: $gap-l;
-    font-size: 2vh;
+    font-family: $font-text;
+    font-size: var(--list_font-size, large);
     color: $color-font;
+
+    @include res-max-tablet{
+        --list_font-size: medium;
+    }
 }

@@ -31,6 +31,7 @@ header {
         font-size: clamp($gap-xxl, 5em, 10vh);
         font-weight: 400;
         line-height: 1;
+        line-height: 1.2;
         color: var(--color-white);
         text-shadow: var(--color-black) 0 0 1.5rem;
     }

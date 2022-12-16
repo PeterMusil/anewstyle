@@ -48,3 +48,11 @@
     font-size: 0;
     z-index: -999;
 }
+
+.grid{
+    @include grid-columns(grid, repeat(var(--col-count, 2), minmax($gap-xxl, 1fr)), var(--gap, #{$gap-xxl}), flex-start);
+
+    @include res-max-tablet{
+        --col-count: 1;
+    }
+}
