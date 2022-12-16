@@ -10,6 +10,7 @@
     img {
         display: block;
         inline-size: var(--ba-inline-size);
+        min-inline-size: var(--ba-inline-size);
       }
   }
 
@@ -26,8 +27,10 @@
   }
   
   .slider-image {
-    inline-size: 100%;
+    max-inline-size: 100%;
     block-size: 100%;
+    min-block-size: 100%;
+    max-block-size: 100%;
     object-fit: cover;
     object-position: left;
   }
