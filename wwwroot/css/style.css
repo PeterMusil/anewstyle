@@ -884,6 +884,8 @@ p, span, small {
     --border-width: .2rem; }
   .desc--no-mg {
     --mg-b: 0; }
+  .desc--mg-s {
+    --mg-b: 3.2rem; }
   .desc strong, .desc a:not(.button), .desc b, .desc span {
     font-family: inherit;
     font-size: inherit; }
@@ -1062,6 +1064,26 @@ ul:not([class]) {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #111618; } }
+
+.tags {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  align-content: normal;
+  justify-content: flex-start;
+  gap: 1.6rem;
+  padding: 0;
+  margin-block-end: var(--mg-b, 5rem);
+  list-style: none; }
+  @media only screen and (max-width: 425px) {
+    .tags {
+      --mg-b: 3.2rem; } }
+  .tags > li {
+    padding: 0.4rem 0.8rem;
+    background-color: white;
+    font-size: medium;
+    color: black;
+    text-transform: uppercase; }
 
 .ba-slider {
   --ba-position: 50%;

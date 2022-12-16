@@ -104,6 +104,10 @@ p, span, small{
         --mg-b: 0;
     }
 
+    &--mg-s{
+        --mg-b: #{$gap-xxl};
+    }
+
     strong, a:not(.button), b, span{
         font-family: inherit;
         font-size: inherit;

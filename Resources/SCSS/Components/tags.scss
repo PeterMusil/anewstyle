@@ -1,0 +1,20 @@
+@import "../base/global";
+
+.tags{
+    @include flex-set(flex, row, wrap, $gap-l, center, flex-start);
+    padding: 0;
+    margin-block-end: var(--mg-b, 5rem);
+    list-style: none;
+
+    @include res-max-mobile-l{
+        --mg-b: #{$gap-xxl};
+    }
+
+    > li{
+        padding: #{$gap-s} #{$gap-m};
+        background-color: $color-white;  
+        font-size: medium;
+        color: $color-black;
+        text-transform: uppercase;
+    }
+} 
