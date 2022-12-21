@@ -29,7 +29,6 @@
 
         img {
             @include position;
-            position: relative;
             display: block;
             min-inline-size: 100%;
             max-inline-size: 100%;
