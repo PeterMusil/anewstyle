@@ -7,6 +7,7 @@
     var(--gap, #{$gap-s}),
     var(--align-items, flex-start)
   );
+  margin-block-end: $gap-xxl;
 
   @include res-max-laptop-s {
     --gap: #{$gap-l};

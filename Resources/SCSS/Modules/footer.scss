@@ -13,27 +13,5 @@ footer {
     text-align: center;
   }
 
-  .social {
-    
-    @include grid-columns(inline-grid, repeat(auto-fit, $gap-xxl), $gap-m, center);
-    
-    a {
-      --item-scale: 1;
-      display: grid;
-      place-items: center;
-      inline-size: $gap-xxl;
-      aspect-ratio: 1;
-      color: var(--color-white);
-      text-decoration: none;
-      
-      @include hover {
-        --item-scale: 1.1;
-      }
-
-      > svg {
-        transition: scale var(--trans-time) (--trans-fnc);
-        fill: currentColor;
-      }
-    }
-  }
+  
 }

@@ -7,6 +7,7 @@
     --btn-padding-y: #{$gap-l};
     --btn-width: 20rem;
     --btn-font-size: large;
+    --icon-size: #{$gap-m};
     @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
     @include border('def', 1px, var(--color-trans));
     min-width: var(--btn-width);
