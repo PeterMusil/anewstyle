@@ -1208,7 +1208,7 @@ ul:not([class]) {
     inset: 0;
     opacity: 0.9;
     scale: var(--c-item-photo_scale);
-    transition: scale 5s linear;
+    transition: scale 7s linear;
     z-index: 1; }
     .c-item__photo img {
       position: absolute;
@@ -1300,6 +1300,27 @@ footer {
     font-size: small;
     color: white;
     text-align: center; }
+  footer .social {
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fit, 3.2rem);
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 0.8rem; }
+    footer .social a {
+      --item-scale: 1;
+      display: grid;
+      place-items: center;
+      inline-size: 3.2rem;
+      aspect-ratio: 1;
+      color: var(--color-white);
+      text-decoration: none; }
+      @media (hover: hover) {
+        footer .social a:hover {
+          --item-scale: 1.1; } }
+      footer .social a > svg {
+        transition: scale var(--trans-time) --trans-fnc;
+        fill: currentColor; }
 
 .gallery {
   display: grid;

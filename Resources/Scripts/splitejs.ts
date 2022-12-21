@@ -5,6 +5,7 @@ export function initSplide(){
     var splide = new Splide( '.splide', {
         type: 'loop',
         perPage: 1,
+        interval: 7000,
         autoplay: true,
         });
         
