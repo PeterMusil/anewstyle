@@ -2,7 +2,7 @@
 
 section{
     --sec-bg: #{$color-bg};
-    --sec-pad-y: 10vh;
+    --sec-pad-y: 10dvb;
     scroll-margin-top: var(--sec_scroll-mg, 0);
     padding: var(--sec-pad-y) 0;
     background-color: var(--sec-bg);
@@ -12,7 +12,7 @@ section{
     }
 
     @include res-max-tablet{
-        --sec-pad-y: 8vh;
+        --sec-pad-y: 8dvb;
         --sec_scroll-mg: var(--nav-height);
     }
 

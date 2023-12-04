@@ -56,3 +56,15 @@
         --col-count: 1;
     }
 }
+
+.space{
+    padding-block-end: var(--space-pad-bottom, 10dvb);
+
+    @include res-max-laptop-m{
+        --space-pad-bottom: 5rem;
+    }
+
+    @include res-max-tablet{
+        --space-pad-bottom: 8dvb;
+    }
+}

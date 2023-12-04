@@ -5,6 +5,7 @@
     padding: 0;
     margin-block-end: var(--mg-b, 5rem);
     list-style: none;
+    font-family: $font-title;
 
     @include res-max-mobile-l{
         --mg-b: #{$gap-xxl};

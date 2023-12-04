@@ -4,7 +4,7 @@
   @include grid-columns(
     grid,
     repeat(var(--col-count, 4), minmax($gap-m, 1fr)),
-    var(--gap, #{$gap-s}),
+    var(--gap, #{$gap-l}),
     var(--align-items, flex-start)
   );
   margin-block-end: $gap-xxl;
