@@ -21,10 +21,10 @@ $color-font: $color-white;
 $trans-time: .25s;
 $animate-all: all ease-in-out var($trans-time);
 $gap-m: .8rem;
-$gap-s: ($gap-m / 2);
-$gap-l: ($gap-m * 2);
-$gap-xl: ($gap-m * 3);
-$gap-xxl: ($gap-m * 4);
+$gap-s: calc($gap-m / 2);
+$gap-l: calc($gap-m * 2);
+$gap-xl: calc($gap-m * 3);
+$gap-xxl: calc($gap-m * 4);
 $font-text: system-ui;
 $font-title: ratiomodern, serif;
 

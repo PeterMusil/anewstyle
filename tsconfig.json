@@ -1,4 +1,4 @@
-{
+﻿{
     "compileOnSave": false,
     "compilerOptions": {
         "noImplicitAny": false,
@@ -12,9 +12,13 @@
             "ES2021",
             "ESNext"
         ],
+        "strict": true,
+        "forceConsistentCasingInFileNames": true
     },
     "include": [
-        "./Resources/**/*"
+        "./Resources/**/*",
+        "scripts",
+        "Scripts"
     ],
     "exclude": [
         "node_modules"
