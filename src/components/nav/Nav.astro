@@ -1,0 +1,46 @@
+---
+import NavItem from "./NavItem.astro";
+---
+
+<nav>
+  <div class="nav__container">
+    <a href="/" class="logo" rel="noopener">
+      <img src="./images/logos/logo.svg" alt="Anew Style Logo" height="96" />
+    </a>
+    <ul class="menu">
+      <NavItem href="#about" text="Rozsviť mě" icon="bulp" />
+      <NavItem href="#features" text="Vlastnosti" />
+      <NavItem href="#products" text="Produkty" />
+      <NavItem href="#showroom" text="Galerie" />
+      <NavItem href="#mounting-and-price" text="Montáž a cena" />
+      <NavItem href="#contact" text="Kontakt" />
+    </ul>
+    <button aria-label="Mobilní menu" class="burger" id="menuBtn">
+      <svg class="icon icon-menu">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const menu = document.querySelector(".menu") as HTMLUListElement;
+  const burger = document.querySelector("#menuBtn") as HTMLButtonElement;
+  const body = document.body as HTMLBodyElement;
+  const navItems = document.querySelectorAll(".menu > li > a") as NodeListOf<HTMLAnchorElement>;
+
+  burger &&
+    menu &&
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("menu--open");
+      body.classList.toggle("overflow-hidden");
+    });
+
+  menu &&
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        menu.classList.remove("menu--open");
+        body.classList.remove("overflow-hidden");
+      });
+    });
+</script>

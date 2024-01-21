@@ -1,0 +1,41 @@
+@import "../Base/global";
+
+.dialog {
+    @include border("def", $gap-s, $color-dialog-border);
+    container-type: inline-size;
+    inline-size: min($width-tablet, 100%);
+    max-block-size: calc(100svb - $gap-xxl);
+    background-color: $color-black;
+    border-radius: $gap-xl;
+    padding: 0;
+
+    &::backdrop {
+        backdrop-filter: blur($gap-m);
+        background-color: $color-dialog-backdrop;
+    }
+
+    &__close {
+        position: absolute;
+        inset: 0 0 auto auto;
+        translate: calc($gap-l * -1) $gap-l;
+        z-index: 1;
+        background-color: unset;
+        padding: 0;
+        color: var(--close_color, $color-white);
+        scale: var(--close_scale, 1);
+        cursor: pointer;
+        border-color: $color-trans;
+        transition:
+            scale $trans-time ease-in-out,
+            color $trans-time ease-in-out;
+
+        @include hover {
+            --close_scale: 1.1;
+            --close_color: #{$color-primary};
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@import "../Base/global";
+
+.contact {
+    &__wrapper {
+        --logo_size: 150px;
+        @include grid-columns(
+            grid,
+            var(--contact_col-temp, var(--logo_size) minmax(#{$gap-l}, 1fr)),
+            var(--contact_gap, 10vw),
+            flex-start
+        );
+
+        @include res-max-tablet {
+            --logo_size: 100px;
+            --contact_gap: #{$gap-xl};
+        }
+
+        @include res-max-mobile-l {
+            --logo_size: 50px;
+        }
+
+        > img {
+            max-inline-size: var(--logo_size);
+        }
+    }
+    &__grid {
+        @include grid-columns(
+            grid,
+            var(--col-temp, minmax(#{$gap-l}, 8fr) minmax(#{$gap-l}, 5fr)),
+            var(--contact-inner_gap, 5vw),
+            flex-start
+        );
+
+        @include res-max-tablet {
+            --col-temp: minmax(#{$gap-l}, 1fr);
+            --contact-inner_gap: #{$gap-xxl};
+        }
+
+        address {
+            display: block;
+            font-size: $gap-l;
+            font-weight: 600;
+            margin-block: $gap-l;
+        }
+
+        img {
+            display: block;
+            max-inline-size: 100%;
+            border-radius: $gap-m;
+        }
+    }
+}

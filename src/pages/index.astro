@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/nav/Nav.astro";
+import Showcase from "../components/sections/Showcase.astro";
+import Piktograms from "../components/sections/Piktograms.astro";
+import BeforeAfter from "../components/sections/BeforeAfter.astro";
+import Showroom from "../components/sections/Showroom.astro";
+import Mounting from "../components/sections/Mounting.astro";
+import Contact from "../components/sections/Contact.astro";
+import Products from "../components/sections/Products.astro";
+---
+
+<Layout title="ANEW STYLE | Svítící kamenné desky" description="Designové interiérové osvětlení.">
+  <Nav />
+  <header>
+    <video class="header__video" loop aria-label="Anew style header video" muted preload="metadata" autoplay>
+      <source src="./videos/main-video.mp4" type="video/mp4" />
+      <source src="./videos/main-video.webm" type="video/webm" />
+      <source src="./videos/main-video.ogv" type="video/ogg" />
+    </video>
+    <div class="header__content">
+      <div>
+        <h1>Anew Style</h1>
+      </div>
+      <strong>Designové interiérové osvetlení</strong>
+      <a class="button" href="#about" aria-label="Přejít na sekci o nás" rel="noopener">Chci vědet více</a>
+    </div>
+  </header>
+  <main>
+    <Showcase id="about" />
+    <Piktograms id="features" />
+    <BeforeAfter />
+    <Products id="products" />
+    <Showroom id="showroom" />
+    <Mounting id="mounting-and-price" />
+    <Contact id="contact" />
+  </main>
+</Layout>

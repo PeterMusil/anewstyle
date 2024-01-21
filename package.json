@@ -6,34 +6,30 @@
   "license": "ISC",
   "author": "Lukáš Chylík",
   "type": "module",
-  "devDependencies": {
-    "@fancyapps/ui": "^5.0.28",
-    "@splidejs/splide": "^4.1.4",
-    "autoprefixer": "^10.4.16",
-    "esbuild": "^0.19.8",
-    "esbuild-sass-plugin": "^2.16.0",
-    "postcss": "^8.4.32",
-    "postcss-preset-env": "^9.3.0",
-    "postcss-scss": "^4.0.9",
-    "stylelint": "^15.11.0",
-    "stylelint-order": "^6.0.3",
-    "typescript": "^5.3.2",
-    "webp-avif-browsers-support-detection": "^1.2.3"
-  },
-  "browserslist": {
-    "production": [
-      "defaults",
-      "not IE 11",
-      "not IE_Mob 11"
-    ],
-    "development": [
-      "defaults"
-    ]
-  },
   "scripts": {
-    "build": "node ./build.js",
-    "watch": "npm run lint:style && node ./build.js --watch",
-    "lint": "npm run lint:style",
-    "lint:style": "stylelint --fix **/*.scss --custom-syntax postcss-scss"
+    "dev": "astro dev",
+    "start": "pnpm run dev",
+    "build": "npm run scss && astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "scss": "sass src/styles/style.scss public/css/style.css",
+    "scss:watch": "sass --watch src/styles/style.scss public/css/style.css"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.4",
+    "@fancyapps/ui": "^5.0.33",
+    "@google/model-viewer": "^3.3.0",
+    "astro": "^4.1.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.33",
+    "postcss-preset-env": "^9.3.0",
+    "postcss-scss": "^4.0.2",
+    "sass": "^1.69.7",
+    "stylelint": "^14.2.0"
   }
 }

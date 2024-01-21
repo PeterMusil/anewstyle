@@ -1,0 +1,49 @@
+<section>
+  <div id="baSlider" class="ba-slider container">
+    <div class="image-container">
+      <div class="image-before">
+        <picture>
+          <source type="image/webp" sizes="(min-width: 1367px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1440.webp" />
+          <source type="image/webp" sizes="(max-width: 1366px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1366.webp" />
+          <source type="image/webp" sizes="(max-width: 1024px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp" />
+          <source type="image/webp" sizes="(max-width: 768px)" srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp" />
+          <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp" />
+          <img src="./images/backgrounds/Rockfoil_viz5_before_1440.webp" loading="lazy" width="1440" height="1019" class="slider-image" alt="Kámen ve dne" />
+        </picture>
+        <strong>Ve dne</strong>
+      </div>
+      <div class="image-after">
+        <picture>
+          <source type="image/webp" sizes="(min-width: 1367px)" srcset="./images/backgrounds/Rockfoil_viz5_after_1440.webp" />
+          <source type="image/webp" sizes="(max-width: 1366px)" srcset="./images/backgrounds/Rockfoil_viz5_after_1366.webp" />
+          <source type="image/webp" sizes="(max-width: 1024px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp" />
+          <source type="image/webp" sizes="(max-width: 768px)" srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp" />
+          <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp" />
+          <img src="./images/backgrounds/Rockfoil_viz5_after_1440.webp" loading="lazy" width="1440" height="1019" class="slider-image" alt="Kámen v noci" />
+        </picture>
+        <strong>V noci</strong>
+      </div>
+    </div>
+    <span>Vždy elegantní</span>
+    <input type="range" min="0" max="100" value="70" step="0.1" aria-label="Percentage of before photo shown" class="slider" />
+    <div class="slider-line" aria-hidden="true"></div>
+    <div class="slider-button" aria-hidden="true">
+      <svg class="icon icon-move" fill="currentColor" width="30" height="30">
+        <use xlink:href="#icon-move"></use>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<script>
+  const baSlider = document.querySelector("#baSlider") as HTMLDivElement;
+  const baSliderInput = document.querySelector("input[type=range]") as HTMLInputElement;
+  baSlider.style.setProperty("--ba-position", `${baSliderInput.value}%`);
+  baSlider.style.setProperty("--ba-inline-size", `${baSlider.clientWidth}px`);
+
+  baSliderInput.addEventListener("input", (e) => {
+    let input = e.target as HTMLInputElement;
+    baSlider.style.setProperty("--ba-position", `${input.value}%`);
+    baSlider.style.setProperty("--ba-inline-size", `${baSlider.clientWidth}px`);
+  });
+</script>

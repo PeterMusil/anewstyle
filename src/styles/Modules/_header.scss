@@ -1,0 +1,133 @@
+@import "../Base/global";
+
+header {
+  position: relative;
+  display: grid;
+  place-items: center;
+  block-size: 100dvb;
+  background-color: var(--color-black);
+  overflow: hidden;
+}
+
+.header {
+  &__video {
+    position: absolute;
+    inset: 0;
+    inline-size: 100dvi;
+    z-index: 1;
+
+    @include res-max-laptop-s {
+      inline-size: auto;
+      block-size: 100%;
+    }
+  }
+
+  &__content {
+    @include flex-set(flex, column, wrap, var(--c_gap, 3em), center, center);
+    animation:
+      headerTitleAnim 0.5s ease-in-out forwards,
+      headerDescAnim 0.5s ease-in-out 0.25s forwards,
+      headerBtnAnim 0.5s ease-in-out 1s forwards;
+    z-index: 3;
+
+    @include res-max-tablet {
+      inline-size: 100%;
+      padding-inline: $gap-l;
+      text-align: center;
+    }
+
+    > div:has(> h1) {
+      mix-blend-mode: soft-light;
+    }
+
+    h1 {
+      position: relative;
+      display: inline-block;
+      opacity: var(--c-item-title_opacity);
+      opacity: var(--header-title_opacity, 0);
+      font-family: $font-title;
+      font-size: clamp($gap-xxl, 10dvi, 16rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.1em;
+      color: $color-white;
+      filter: opacity(0.5);
+      text-transform: uppercase;
+      text-shadow: var(--color-black) 0 0 1.5rem;
+      translate: 0 var(--header-title_translate-y, 1rem);
+      transition:
+        opacity 1s var(--trans-fnc),
+        translate 1s var(--trans-fnc);
+
+      @include res-max-laptop-s {
+        font-size: clamp($gap-xxl, 6dvi, 10rem);
+      }
+
+      @include res-max-tablet {
+        font-size: clamp($gap-xl, 5em, 10dvb);
+      }
+    }
+
+    > strong {
+      opacity: var(--header-desc_opacity, 0);
+      font-family: $font-title;
+      font-size: clamp($gap-xl, 5svi, 4rem);
+      line-height: 1;
+      letter-spacing: 0.2em;
+      color: $color-white;
+      text-shadow: var(--color-black) 0 0 1.5rem;
+      translate: 0 -2.5svb;
+      translate: 0 var(--header-desc_translate-y, -1svb);
+      transition:
+        opacity 1s var(--trans-fnc),
+        translate 1s var(--trans-fnc);
+
+      @include res-max-laptop-s {
+        font-size: clamp($gap-l, 4vi, $gap-xl);
+      }
+    }
+
+    > .button {
+      margin-block-start: 2.5svb;
+      opacity: var(--header-btn_opacity, 0);
+      translate: 0 var(--btn_trans-y, -1svb);
+      transition:
+        opacity 0.5s var(--trans-fnc),
+        translate 0.5s var(--trans-fnc),
+        box-shadow var(--trans-time) var(--trans-fnc);
+    }
+  }
+}
+
+@keyframes headerTitleAnim {
+  from {
+    --header-title_opacity: 0;
+    --header-title_translate-y: 1rem;
+  }
+  to {
+    --header-title_opacity: 1;
+    --header-title_translate-y: 0;
+  }
+}
+
+@keyframes headerDescAnim {
+  from {
+    --header-desc_opacity: 0;
+    --header-desc_translate-y: -1svb;
+  }
+  to {
+    --header-desc_opacity: 1;
+    --header-desc_translate-y: -2.5svb;
+  }
+}
+
+@keyframes headerBtnAnim {
+  from {
+    --header-btn_opacity: 0;
+    --btn_trans-y: -1svb;
+  }
+  to {
+    --header-btn_opacity: 1;
+    --btn_trans-y: 0;
+  }
+}

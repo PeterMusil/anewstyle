@@ -1,0 +1,37 @@
+@import "../Base/global";
+
+.container {
+	inline-size: var(--container-width, $width-laptop-m);
+	padding-inline: var(--container-pad-x, #{$gap-xxl});
+	margin-inline: auto;
+
+	@include res-max-laptop-l {
+		--container-width: 75%;
+		--container-min-width: 0;
+	}
+
+	@include res-max-laptop-m {
+		--container-width: 85%;
+	}
+
+	@include res-max-laptop-s {
+		--container-width: 90%;
+	}
+
+	@include res-max-tablet {
+		--container-width: 100%;
+	}
+
+	@include res-max-mobile-l {
+		--container-pad-x: #{$gap-xl};
+	}
+
+	@include res-max-mobile-m {
+		--container-pad-x: #{$gap-l};
+	}
+
+	&--s {
+		--container-width: min(#{$width-laptop-s}, calc(100% - #{$gap-xxl}));
+		--container-min-width: 0;
+	}
+}

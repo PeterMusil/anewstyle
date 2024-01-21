@@ -1,27 +1,3 @@
-﻿{
-    "compileOnSave": false,
-    "compilerOptions": {
-        "noImplicitAny": false,
-        "noEmitOnError": true,
-        "noEmitHelpers": false,
-        "module": "CommonJS",
-        "target": "ES2021",
-        "esModuleInterop": true,
-        "lib": [
-            "DOM",
-            "ES2021",
-            "ESNext"
-        ],
-        "strict": true,
-        "forceConsistentCasingInFileNames": true
-    },
-    "include": [
-        "./Resources/**/*",
-        "scripts",
-        "Scripts"
-    ],
-    "exclude": [
-        "node_modules"
-    ],
-    "sourceMap": true
+{
+  "extends": "astro/tsconfigs/strict"
 }

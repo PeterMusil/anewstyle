@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: number;
+  title: string;
+  img: string;
+}
+
+const { id, title, img } = Astro.props;
+---
+
+<div id={`productCard${id}`} role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu">
+  <strong>
+    {title}
+  </strong>
+  <img src={`./images/products/${img}`} alt={title} loading="lazy" />
+  <div class="text-center">
+    <div class="button button--s">Zobrazit detail</div>
+  </div>
+</div>

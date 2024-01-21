@@ -1,0 +1,114 @@
+@import "../Base/global";
+.piktogram {
+    @include grid-columns(
+        var(--piktogtam-display, grid),
+        var(--template-columns, minmax($gap-xxl, 5fr) minmax($gap-xxl, 8fr)),
+        var(--gap, #{$gap-xxl}),
+        center
+    );
+    @include res-max-laptop-s {
+        grid-template-columns: repeat(2, minmax(1rem, 1fr));
+    }
+
+    @include res-max-tablet {
+        grid-template-columns: minmax(1rem, 1fr);
+    }
+
+    &:not(:last-of-type) {
+        margin-block-end: 5svb;
+    }
+
+    @include res-max-mobile-l {
+        --template-columns: minmax(#{$gap-xxl}, 1fr);
+    }
+
+    &--invert {
+        --template-columns: minmax(#{$gap-xxl}, 8fr) minmax(#{$gap-xxl}, 5fr);
+
+        @include res-max-laptop-s {
+            grid-template-columns: repeat(2, minmax(1rem, 1fr));
+        }
+
+        @include res-max-tablet {
+            grid-template-columns: minmax(1rem, 1fr);
+        }
+
+        > .piktogram__box {
+            @include res-max-tablet {
+                grid-row-start: 1;
+            }
+        }
+    }
+
+    &--hidden:not(.visible) {
+        --piktogtam-display: none;
+    }
+
+    &__box {
+        display: grid;
+        place-items: center;
+        inline-size: 175px;
+        aspect-ratio: 1 / 1.33;
+        margin-inline: auto;
+        overflow: hidden;
+    }
+
+    &__circle {
+        display: grid;
+        place-items: center;
+        align-content: center;
+        inline-size: inherit;
+        gap: $gap-l;
+        aspect-ratio: 1;
+        background-color: $color-white;
+        border-radius: 50%;
+        color: $color-black;
+        text-align: center;
+
+        > img {
+            display: block;
+            inline-size: auto;
+            block-size: 75px;
+            &:is([alt="LED"]) {
+                block-size: 100px;
+            }
+        }
+        > small {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        + div {
+            position: relative;
+            scale: 1 -1;
+            &:after {
+                position: absolute;
+                inset: 0;
+                content: "";
+                background-image: linear-gradient(
+                    0,
+                    $color-trans,
+                    $color-bg-trans 11%,
+                    $color-bg-trans-dark 22%,
+                    $color-bg 33%
+                );
+            }
+        }
+    }
+
+    &__desc > p {
+        margin: 0;
+        font-size: clamp($gap-l, 3dvb, $gap-xl);
+        line-height: 1.7;
+        color: $color-font;
+
+        @include res-max-tablet {
+            text-align: center;
+        }
+
+        > strong {
+            color: $color-primary;
+        }
+    }
+}
