@@ -19,7 +19,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: anewstyle.cz
+      url: http://anewstyle.cz/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
