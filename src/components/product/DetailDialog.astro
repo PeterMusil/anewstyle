@@ -64,7 +64,6 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, model3d } 
       const productCard = product.querySelector('div[role="button"]') as HTMLButtonElement;
       const productDetail = product.querySelector("dialog") as HTMLDialogElement;
       const closeBtn = productDetail.querySelector("#closeBtn") as HTMLButtonElement;
-      const closeImg = productDetail.querySelector(".product-detail__img img") as HTMLButtonElement;
 
       productCard.addEventListener("click", () => {
         productDetail.showModal();
@@ -73,11 +72,6 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, model3d } 
 
       closeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        productDetail.close();
-        body?.style.setProperty("overflow", "initial");
-      });
-
-      closeImg.addEventListener("click", (e) => {
         productDetail.close();
         body?.style.setProperty("overflow", "initial");
       });
