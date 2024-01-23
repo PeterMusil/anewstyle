@@ -44,7 +44,7 @@ jobs:
         run: ls -la
 
       - name: Archive files
-        run: zip -r dist.zip ./dist
+        run: zip -r dist.zip ./
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
