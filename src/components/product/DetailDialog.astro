@@ -4,11 +4,14 @@ interface Props {
   id: number;
   title?: string;
   desc?: string;
-  content?: string;
-  img?: string;
+  imgDark?: string;
+  imgFrame?: string;
+  imgLight?: string;
   model3d?: string;
+  content?: string;
+  price?: number;
 }
-const { id, title, desc, content, img, model3d } = Astro.props;
+const { id, title, desc, content, price, imgDark, imgFrame, imgLight, model3d } = Astro.props;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -17,55 +20,82 @@ const { id, title, desc, content, img, model3d } = Astro.props;
   </button>
   <div class="product-detail">
     <strong>{title}</strong>
-    <!-- <img src={`./images/products/${img}`} alt={`Kamenná deska ${title}`} width="1024" /> -->
-    <div class="product-detail__model">
-      <model-viewer src={`./3d/products/${model3d}`} ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 3m"></model-viewer>
+    <div class="product-detail__img">
+      <a href={`#3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
+        <img src={`./images/products/${imgFrame}`} alt={`Kamenná deska ${title}`} width="1024" />
+      </a>
+    </div>
+    <div class="product-detail__hidden">
+      <a href={`./images/products/${imgDark}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
+      <a href={`./images/products/${imgLight}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
+      <a href={`./images/products/${imgFrame}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
+      <model-viewer id={`3dModel${id}`} src={`./3d/products/${model3d}`} ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer>
     </div>
     <div class="product-detail__content">
       <p class="desc desc--no-mg">{desc}</p>
       <div class="tags" set:html={content} />
+      <div class="product-detail__footer">
+        {
+          price && (
+            <>
+              <strong class="product-detail__price">
+                {price.toLocaleString("cs-CZ")}&nbsp;Kč
+                <small>Cena bez DPH (21%)</small>
+              </strong>
+              <a class="button button--s" href="mailto:info@anewstyle.cz">
+                Mám zájem
+                <Icon name="email" />
+              </a>
+            </>
+          )
+        }
+      </div>
     </div>
   </div>
-  <!-- <div class="text-to-center">
-        <a class="button button--s" href="mailto:info@anewstyle.cz">
-          Mám zájem
-          <Icon name="email" />
-        </a>
-      </div> -->
+
+  <script>
+    import { Fancybox } from "@fancyapps/ui";
+
+    Fancybox.bind("[data-fancybox]", {});
+
+    const products = document.querySelectorAll(".product");
+    const body = document.querySelector("body");
+    products.forEach((product) => {
+      const productCard = product.querySelector('div[role="button"]') as HTMLButtonElement;
+      const productDetail = product.querySelector("dialog") as HTMLDialogElement;
+      const closeBtn = productDetail.querySelector("#closeBtn") as HTMLButtonElement;
+      const closeImg = productDetail.querySelector(".product-detail__img img") as HTMLButtonElement;
+
+      productCard.addEventListener("click", () => {
+        productDetail.showModal();
+        body?.style.setProperty("overflow", "hidden");
+      });
+
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        productDetail.close();
+        body?.style.setProperty("overflow", "initial");
+      });
+
+      closeImg.addEventListener("click", (e) => {
+        productDetail.close();
+        body?.style.setProperty("overflow", "initial");
+      });
+
+      const tags = productDetail.querySelector(".tags") as HTMLDivElement;
+      const ulElement = tags.querySelector("ul") as HTMLUListElement;
+      const liElement = document.createElement("li");
+      const showMoreBtn = document.createElement("button");
+      showMoreBtn.innerHTML = "Zobrazit více  ▼";
+      showMoreBtn.classList.add("button", "button--xs");
+      showMoreBtn.setAttribute("type", "button");
+      showMoreBtn.setAttribute("aria-label", "Zobrazit více");
+      showMoreBtn?.addEventListener("click", () => {
+        tags?.classList.toggle("tags--all");
+        showMoreBtn.innerText = tags.classList.contains("tags--all") ? "Zobrazit méně  ▲" : "Zobrazit více  ▼";
+      });
+      liElement.appendChild(showMoreBtn);
+      ulElement.appendChild(liElement);
+    });
+  </script>
 </dialog>
-
-<script>
-  const products = document.querySelectorAll(".product");
-  const body = document.querySelector("body");
-  products.forEach((product) => {
-    const productCard = product.querySelector('div[role="button"]') as HTMLButtonElement;
-    const productDetail = product.querySelector("dialog") as HTMLDialogElement;
-    const closeBtn = productDetail.querySelector("#closeBtn") as HTMLButtonElement;
-
-    productCard.addEventListener("click", () => {
-      productDetail.showModal();
-      body?.style.setProperty("overflow", "hidden");
-    });
-
-    closeBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      productDetail.close();
-      body?.style.setProperty("overflow", "initial");
-    });
-
-    const tags = productDetail.querySelector(".tags") as HTMLDivElement;
-    const ulElement = tags.querySelector("ul") as HTMLUListElement;
-    const liElement = document.createElement("li");
-    const showMoreBtn = document.createElement("button");
-    showMoreBtn.innerHTML = "Zobrazit více  ▼";
-    showMoreBtn.classList.add("button", "button--xs");
-    showMoreBtn.setAttribute("type", "button");
-    showMoreBtn.setAttribute("aria-label", "Zobrazit více");
-    showMoreBtn?.addEventListener("click", () => {
-      tags?.classList.toggle("tags--all");
-      showMoreBtn.innerText = tags.classList.contains("tags--all") ? "Zobrazit méně  ▲" : "Zobrazit více  ▼";
-    });
-    liElement.appendChild(showMoreBtn);
-    ulElement.appendChild(liElement);
-  });
-</script>

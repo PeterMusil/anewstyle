@@ -78,6 +78,7 @@ small {
     &--s {
         --title-font-size: 3.2em;
         --title-mg-bottom: #{$gap-xxl};
+        --title-color: #{$color-primary};
 
         @include res-max-laptop-l {
             --title-font-size: 2.4em;
@@ -95,6 +96,13 @@ small {
         @include res-max-mobile-l {
             --title-font-size: 2.4em;
         }
+    }
+
+    &--xs {
+        --title-font-size: #{$gap-l};
+        --title-mg-bottom: #{$gap-l};
+        --title-color: #{$color-primary};
+        margin-block-start: 5svb;
     }
 }
 

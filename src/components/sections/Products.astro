@@ -9,16 +9,15 @@ const products = await Astro.glob("../../content/products/*.md");
 <section id={id} class="dark">
   <div class="container">
     <h2 class="title title--center">Produkty</h2>
-    <p class="desc text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. <b>Eligendi asperiores</b>, ut possimus, tenetur itaque aliquam, atque laudantium quibusdam vero amet rerum ab pariatur unde minus?</p>
+    <p class="desc text-center">Nový design osvětlení pro interiéry přináší inovativní celoplošné svítící panely, které osvětlují přírodní <strong>kamennou desku</strong>. Tyto panely jsou nejen lehké, snadno montovatelné a energeticky úsporné, ale také se vyznačují jedinečnou a nezaměnitelnou elegancí.</p>
     <div class="product-list">
       {
         products.map((product) => {
           const data = product.frontmatter;
-
           return (
             <div class="product">
-              <Card id={data.id} title={data.title} img={data.img} />
-              <DetailDialog id={data.id} title={data.title} desc={data.desc} content={product.compiledContent()} img={data.img} model3d={data.model3d} />
+              <Card id={data.id} title={data.title} imgFame={data.imgFrame} />
+              <DetailDialog id={data.id} title={data.title} desc={data.desc} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} model3d={data.model3d} />
             </div>
           );
         })

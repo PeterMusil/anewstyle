@@ -1,4 +1,6 @@
 ---
+import Palette from "../palette/Palette.astro";
+
 const { id } = Astro.props;
 ---
 
@@ -207,6 +209,14 @@ const { id } = Astro.props;
           <img src="./images/symbols/Repair.svg" alt="Repair" height="75px" loading="lazy" />
           <small>Easy to repair</small>
         </div>
+      </div>
+    </div>
+    <div class="piktogram">
+      <div class="piktogram__box"><Palette /></div>
+      <div class="piktogram__desc">
+        <p>
+          Nabízíme širokou paletu barevných odstínů kamene, včetně elegantních variant <strong>RAL 140M</strong>, <strong>RAL 150M</strong>, <strong>RAL 260M</strong> a <strong>RAL 280M</strong>.
+        </p>
       </div>
     </div>
     <div class="text-center">

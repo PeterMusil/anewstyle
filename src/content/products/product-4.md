@@ -2,7 +2,10 @@
 id: 4
 title: Darkgold
 desc: Tmavá svítící kamenná deska DARKGOLD je výjimečná svou zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a zlatavými ostrůvky kresby kamene.
-img: Rockfoil_DARKGOLD_light_frame.webp
+price: 58900
+imgDark: Rockfoil_DARKGOLD_dark.webp
+imgLight: Rockfoil_DARKGOLD_light.webp
+imgFrame: Rockfoil_DARKGOLD_light_frame.webp
 model3d: Rock_sheet_DARKGOLD.glb
 ---
 - **rozměr**: 2450 x 1220 mm

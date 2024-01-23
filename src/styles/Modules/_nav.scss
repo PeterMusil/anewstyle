@@ -55,7 +55,7 @@ nav {
     background-color: var(--menu-bg, var(--color-trans));
     list-style: none;
 
-    @include res-max-laptop-s {
+    @include res-max-laptop-m {
         --menu-gap: #{$gap-xl};
         --menu-temp-col: repeat(auto-fit, minmax(110px, auto));
     }
@@ -65,9 +65,10 @@ nav {
         --menu-height: calc(100vh - var(--nav-height));
         --menu-gap: #{$gap-xxl};
         --menu-align-content: flex-start;
-        --menu-bg: #{$color-bg};
+        --menu-bg: var(--color-bg-nav);
         --menu-pad-top: 15vh;
         position: absolute;
+        backdrop-filter: blur($gap-m);
         justify-content: center;
         inset: 100% 0 auto 0;
     }
@@ -93,13 +94,19 @@ nav {
         text-transform: uppercase;
         white-space: nowrap;
 
+        @include res-max-laptop-s {
+            font-size: medium;
+        }
+
         @include res-max-tablet {
             --nav-item-min-font-size: 18px;
             text-align: center;
+            font-size: x-large;
         }
 
         &:hover {
             text-decoration: underline;
+            color: $color-primary;
         }
     }
 }

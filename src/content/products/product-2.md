@@ -1,8 +1,11 @@
 ---
 id: 2
 title: Pink
-img: Rockfoil_PINK_light_frame.webp
 desc: Jedinečná narůžovělá kresba kamene předurčuje svítící kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její svit výrazný i za denního světla. 
+price: 58900
+imgDark: Rockfoil_PINK_dark.webp
+imgLight: Rockfoil_PINK_light.webp
+imgFrame: Rockfoil_PINK_light_frame.webp
 model3d: Rock_sheet_PINK.glb
 ---
 - **rozměr**: 2450 x 1220 mm

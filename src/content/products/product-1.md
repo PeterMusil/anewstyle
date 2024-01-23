@@ -1,8 +1,11 @@
 ---
 id: 1
-title: Wildfire
+title: WILDLIFE
 desc: Raritní svítící kamenná deska WILDLIFE je díky své živé kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený divoký vzor, Vám nikdy nezevšední.
-img: Rockfoil_WILDLIFE_light_frame.webp
+price: 58900
+imgDark: Rockfoil_WILDLIFE_dark.webp
+imgLight: Rockfoil_WILDLIFE_light.webp
+imgFrame: Rockfoil_WILDLIFE_light_frame.webp
 model3d: Rock_sheet_WILDLIFE.glb
 ---
 - **rozměr**: 2450 x 1220 mm

@@ -1,6 +1,6 @@
 @import "../Base/global";
 
-section:has(> .gallery){
+section:has(> .gallery) {
   padding-inline: $gap-xxl;
 }
 
@@ -41,11 +41,11 @@ section:has(> .gallery){
   text-decoration: none;
   overflow: hidden;
 
-  &:first-child{
+  &:first-child {
     @include grid-col-span(var(--gitem_colspan, 2));
     @include grid-row-span(var(--gitem_rowspan, 2));
 
-    @include res-max-mobile-l{
+    @include res-max-mobile-l {
       --gitem_colspan: 1;
       --gitem_rowspan: 1;
     }
@@ -53,22 +53,23 @@ section:has(> .gallery){
 
   @include hover {
     --photo_scale: 1.1;
+    --icon-scale: 1.1;
     --gitem_text-opacity: 1;
-    --content_backgdrop-filter: blur(.1em);
+    --content_backgdrop-filter: blur(0.1em);
   }
 
   &__photo {
     position: relative;
     inline-size: 100%;
     aspect-ratio: 16 / 9;
-    
+
     img {
       @include position;
       display: block;
       min-inline-size: 100%;
       min-block-size: 100%;
       scale: var(--photo_scale);
-      transition: scale .5s ease-in-out;
+      transition: scale 0.5s ease-in-out;
     }
   }
 
@@ -78,11 +79,12 @@ section:has(> .gallery){
     display: grid;
     place-items: center;
     padding: #{$gap-xl};
-    background-color: hsla(0, 0%, 0%, .3);
+    background-color: hsla(0, 0%, 0%, 0.3);
     font-size: clamp($gap-l, 8cqi, 5svb);
-    transition: backdrop-filter .2s linear;
+    transition: backdrop-filter 0.2s linear;
     backdrop-filter: var(--content_backgdrop-filter);
-    
+    color: $color-white;
+
     > strong {
       display: block;
       max-inline-size: 100%;
@@ -91,12 +93,24 @@ section:has(> .gallery){
       font-family: $font-title;
       font-weight: 900;
       line-height: 1.25;
-      letter-spacing: .2em;
-      color: $color-white;
+      letter-spacing: 0.2em;
       text-align: center;
       text-transform: uppercase;
       text-shadow: var(--color-black) 0 0 1.5rem;
-      transition: opacity .5s var(--trans-fnc);
+      transition: opacity 0.5s var(--trans-fnc);
+    }
+
+    > .icon {
+      --icon-size: clamp(#{$gap-xxl}, 10svb, 8rem);
+      scale: var(--icon-scale, 1);
+      transition:
+        scale 0.5s ease-in-out,
+        fill $trans-time ease-in-out;
+      cursor: pointer;
+
+      @include hover {
+        fill: #{$color-primary};
+      }
     }
   }
 }

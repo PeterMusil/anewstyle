@@ -1,130 +1,108 @@
 ---
-    const {id} = Astro.props;
+import Icon from "../icons/Icon.astro";
+const { id } = Astro.props;
 ---
-<section id={id} class="light no-pb">
-    <div class="container">
-        <h2 class="title text-center title--mg-s">Galerie</h3>
-            <p class="desc desc--center">
-                Pro <strong>inspiraci</strong> si prohlédněte naši galerii fotografií. Jak by se tenhle krásný
-                designový prvek
-                mohl vyjímat u <strong>Vás doma</strong>, či v kanceláři?
-            </p>
-    </div>
-    <div class="gallery">
-        <a href="./images/gallery/2023/Rockfoil_viz1_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <picture>
-                    <source type="image/webp" sizes="(min-width: 426px)"
-                        srcset="./images/gallery/2023/Rockfoil_viz1_768.webp">
-                    <source type="image/webp" sizes="(max-width: 425px)"
-                        srcset="./images/gallery/2023/Rockfoil_viz1_425.webp">
-                    <img src="./images/gallery/2023/Rockfoil_viz1_768.webp" loading="lazy" width="768"
-                        height="446" alt="Kámen 1">
-                </picture>
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>WILDLIFE</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz2_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 2">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>PINK</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz3_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 3">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>DARKGOLD</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz4_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 4">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>SUNLIGHT</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz5_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 5">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>GOLDENBARK</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz6_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 6">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>DARKGOLD</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz7_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 7">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>SUNLIGHT</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz8_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 8">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>SUNLIGHT</strong>
-            </div>
-        </a>
-        <a href="./images/gallery/2023/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-            data-fancybox="gallery" class="gitem" rel="noopener">
-            <div class="gitem__photo">
-                <img src="./images/gallery/2023/Rockfoil_viz9_425.webp" loading="lazy" width="425"
-                    height="247" alt="Kámen 9">
-            </div>
-            <div class="gitem__content">
-                <strong>Kámen<br>GOLDENBARK</strong>
-            </div>
-        </a>
-    </div>
-    <div class="container">
-        <p class="desc desc--mg-s desc--center">
-            Vizualizace interiérů jsou použity se souhlasem společnosti <a href="https://www.designatak.cz/"
-                aria-label="Preˇjí na stránky společnosti ATAK Design" class="link"
-                style="text-decoration: underline;" rel="external">ATAK Design</a>.
-            <br><br>
-            <picture>
-                <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif">
-                <source type="image/webp" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.webp">
-                <img src="./images/logos/atak-logo.webp" loading="lazy" width="250"
-                    alt="Logo společnosti ATAK Design">
-            </picture>
-    </div>
-</section>
 
-<script>
+<section id={id} class="light">
+  <div class="container">
+    <h2 class="title text-center title--mg-s">Galerie</h2>
+    <p class="desc desc--center">
+      Pro <strong>inspiraci</strong> si prohlédněte naši galerii fotografií. Jak by se tenhle krásný designový prvek mohl vyjímat u <strong>Vás doma</strong>, či v kanceláři?
+    </p>
+  </div>
+  <div class="gallery">
+    <a href="./videos/Rock_sheet_animation_WILDLIFE.mp4" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <picture>
+          <source type="image/webp" sizes="(min-width: 426px)" srcset="./images/gallery/2023/Rockfoil_viz1_768.webp" />
+          <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/gallery/2023/Rockfoil_viz1_425.webp" />
+          <img src="./images/gallery/2023/Rockfoil_viz1_768.webp" loading="lazy" width="768" height="446" alt="Kámen 1" />
+        </picture>
+      </div>
+      <div class="gitem__content">
+        <Icon name="play" />
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz2_425.webp" loading="lazy" width="425" height="247" alt="Kámen 2" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />PINK</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz3_425.webp" loading="lazy" width="425" height="247" alt="Kámen 3" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />DARKGOLD</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz4_425.webp" loading="lazy" width="425" height="247" alt="Kámen 4" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />SUNLIGHT</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz5_425.webp" loading="lazy" width="425" height="247" alt="Kámen 5" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />GOLDENBARK</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz6_425.webp" loading="lazy" width="425" height="247" alt="Kámen 6" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />DARKGOLD</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz7_425.webp" loading="lazy" width="425" height="247" alt="Kámen 7" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />SUNLIGHT</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz8_425.webp" loading="lazy" width="425" height="247" alt="Kámen 8" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />SUNLIGHT</strong>
+      </div>
+    </a>
+    <a href="./images/gallery/2023/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+      <div class="gitem__photo">
+        <img src="./images/gallery/2023/Rockfoil_viz9_425.webp" loading="lazy" width="425" height="247" alt="Kámen 9" />
+      </div>
+      <div class="gitem__content">
+        <strong>Kámen<br />GOLDENBARK</strong>
+      </div>
+    </a>
+  </div>
+  <div class="container">
+    <p class="desc desc--mg-s desc--center">
+      Vizualizace interiérů jsou použity se souhlasem společnosti <a href="https://www.designatak.cz/" aria-label="Preˇjí na stránky společnosti ATAK Design" class="link" style="text-decoration: underline;" rel="external">ATAK Design</a>.
+      <br /><br />
+      <picture>
+        <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif" />
+        <source type="image/webp" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.webp" />
+        <img src="./images/logos/atak-logo.webp" loading="lazy" width="250" alt="Logo společnosti ATAK Design" />
+      </picture>
+    </p>
+  </div>
+
+  <script>
     import { Fancybox } from "@fancyapps/ui";
 
-    Fancybox.bind("[data-fancybox]", {})
-</script>
+    Fancybox.bind("[data-fancybox]", {});
+  </script>
+</section>

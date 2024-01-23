@@ -51,6 +51,10 @@
         aspect-ratio: 1 / 1.33;
         margin-inline: auto;
         overflow: hidden;
+
+        &:has(> .palette) {
+            overflow: initial;
+        }
     }
 
     &__circle {
