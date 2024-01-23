@@ -1,0 +1,27 @@
+---
+import Card from "../product/Card.astro";
+import DetailDialog from "../product/DetailDialog.astro";
+
+const { id } = Astro.props;
+const products = await Astro.glob("../../content/products/*.md");
+---
+
+<section id={id} class="dark">
+  <div class="container">
+    <h2 class="title title--center">Produkty</h2>
+    <p class="desc text-center">Nový design osvětlení pro interiéry přináší inovativní celoplošné svítící panely, které osvětlují přírodní <strong>kamennou desku</strong>. Tyto panely jsou nejen lehké, snadno montovatelné a energeticky úsporné, ale také se vyznačují jedinečnou a nezaměnitelnou elegancí.</p>
+    <div class="product-list">
+      {
+        products.map((product) => {
+          const data = product.frontmatter;
+          return (
+            <div class="product">
+              <Card id={data.id} title={data.title} imgFame={data.imgFrame} />
+              <DetailDialog id={data.id} title={data.title} desc={data.desc} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} model3d={data.model3d} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+@import "../Base/global";
+.product-detail {
+    @include grid-columns(grid, minmax(1rem, 1fr), 0, flex-start, stretch);
+    max-inline-size: 100%;
+    align-items: center;
+    background-color: inherit;
+    padding-inline: clamp($gap-xl, 8dvi, 5rem);
+    padding-block: clamp($gap-xl, 8dvi, 5rem);
+    color: $color-white;
+
+    > strong {
+        text-align: center;
+        font-size: 6svb;
+        font-weight: 900;
+        line-height: 1.25;
+        letter-spacing: 0.1em;
+        font-family: $font-title;
+        text-wrap: pretty;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    &__img {
+        aspect-ratio: 16 / 9;
+        position: relative;
+        display: var(--model-display, block);
+        margin-block-start: clamp($gap-xl, 4svb, $gap-xxl);
+        margin-block-end: clamp($gap-xl, 3svb, $gap-xl);
+
+        @include res-max-laptop-s {
+            --model-display: block;
+        }
+
+        > a > img {
+            position: absolute;
+            inset: 0;
+            inline-size: 100%;
+            block-size: 100%;
+        }
+    }
+
+    &__hidden {
+        display: none;
+    }
+
+    &__content {
+        @include grid-columns(grid, minmax(1rem, 1fr), clamp($gap-l, 5dvi, $gap-xl), flex-start, flex-start);
+
+        > .desc {
+            font-size: max(1.6rem, min(3dvb, 2.4rem));
+            line-height: 1.7;
+            text-wrap: pretty;
+
+            > strong {
+                color: $color-primary;
+            }
+        }
+    }
+    &__footer {
+        @include flex-set(flex, row, nowrap, $gap-l, center, space-between);
+    }
+
+    &__price {
+        @include flex-set(flex, column, nowrap, $gap-s, flex-start, flex-start);
+        font-size: clamp($gap-xl, 3.5svb, 5rem);
+        font-weight: 900;
+        font-family: $font-title;
+        line-height: 1;
+
+        > small {
+            font-size: clamp($gap-l, 0.5em, $gap-xl);
+            font-weight: 400;
+        }
+    }
+}
+
+model-viewer {
+    --fancybox-content-bg: transparent;
+    inline-size: 100%;
+    block-size: 100%;
+}

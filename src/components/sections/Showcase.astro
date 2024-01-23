@@ -1,0 +1,54 @@
+---
+import Icon from "../icons/Icon.astro";
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="dark inline-container">
+  <div class="showcase">
+    <div class="showcase__img">
+      <img src="./images/showcase/rockfoil_pink_dark_mirror.webp" alt="Kamenná deska Goldenbark" width="1200" />
+      <img src="./images/showcase/rockfoil_pink_dark_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícený rám" width="1200" />
+      <img src="./images/showcase/rockfoil_pink_light_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícená" class="active" width="1200" />
+    </div>
+    <div class="showcase__content">
+      <h2><span>Designové</span> interiérové osvetlení</h2>
+      <p>Celoplošné svítící panely prosvětlující <strong>přírodní kamennou desku</strong>, se vyznačují malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy jedinečnou a nepomíjivou elegancí.</p>
+      <div class="showcase__buttons">
+        <button class="button" type="button" aria-label="Zhasni obraz" title="Zhasni obraz">
+          <Icon name="turn-off" />
+          <small>Zhaslá deska</small>
+        </button>
+        <button class="button" type="button" aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu">
+          <Icon name="frame" />
+          <small>Svítící rám</small>
+        </button>
+        <button class="button active" type="button" aria-label="Rozsvíť obraz" title="Rozsvíť obraz">
+          <Icon name="bulp" />
+          <small>Svítící deska</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll(".showcase__buttons > button") as NodeListOf<HTMLButtonElement>;
+  const images = document.querySelectorAll(".showcase__img > img") as NodeListOf<HTMLImageElement>;
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      images.forEach((image) => {
+        image.classList.remove("active");
+      });
+
+      images[index].classList.add("active");
+    });
+  });
+</script>

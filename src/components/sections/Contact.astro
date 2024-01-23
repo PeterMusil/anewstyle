@@ -1,0 +1,71 @@
+---
+import Icon from "../icons/Icon.astro";
+const { id } = Astro.props;
+---
+
+<section id={id}>
+  <div class="container">
+    <div class="contact__wrapper">
+      <img src="./images/logos/logo.svg" alt="Anew Style Logo" width="150" loading="lazy" />
+      <div>
+        <h2 class="title">Kontakujte nás</h2>
+        <div class="contact__grid">
+          <div>
+            <p class="desc desc--mg-s">
+              Pro více informací nás neváhejte kontaktovat přes email <strong><a href="mailto:info@anewstyle.cz" class="link"> info@anewstyle.cz</a></strong>, nebo sociální sítě.
+            </p>
+            <div class="social">
+              <a href="https://www.facebook.com/profile.php?id=100088855596654" rel="external" aria-label="Přejít na facebook Anew Style" target="_blank">
+                <Icon name="facebook" />
+              </a>
+              <a href="https://www.instagram.com/anewstyle.cz/" rel="external" aria-label="Přejít na instagram Anew Style" target="_blank">
+                <Icon name="instagram" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <a class="button" href="mailto:info@anewstyle.cz">
+              Napsat zprávu
+              <Icon name="email" />
+            </a>
+          </div>
+
+          <div>
+            <h3 class="title title--s">Showroom</h3>
+            <p class="desc desc--no-mg">
+              Jak naše světla vypadají v reálu si můžete prohlédnout na adrese:
+              <address>
+                <a href="https://www.google.cz/maps/place/Hybe%C5%A1ova+308%2F61,+602+00+Brno-st%C5%99ed/@49.1887768,16.5968647,17z/data=!3m1!4b1!4m5!3m4!1s0x471294529732ae65:0x75c148bfafac76!8m2!3d49.1887733!4d16.5990534" rel="external" aria-label="Adresa showroomu" target="_blank" class="link">
+                  Hybešova 61<br />
+                  602 00, Brno
+                </a>
+              </address>
+              <img src="./images/gallery/Showroom.webp" alt="Showroom" width="250px" loading="lazy" />
+            </p>
+          </div>
+          <div>
+            <h3 class="title title--s">Fakturační adresa</h3>
+            <address>
+              OSM s.r.o.<br />
+              Hudcova 86/54<br />
+              621 00, Brno<br /><br />
+              IČ: 47903180<br />
+              DIČ: CZ47903180<br />
+            </address>
+
+            <h4 class="title title--xs">Materiály ke stažení</h4>
+            <a href="./downloads/MIBOXER__K1_K1-B_EN_V1.0.pdf" class="link link--light" target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor 1 s materiály">
+              <Icon name="pdf" />
+              Návod - RF dálkové ovládání
+            </a>
+            <br /><br />
+            <a href="./downloads/MIBOXER_FUT035W-FUT036W_EN_V1.0.pdf" class="link link--light" target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor s materiály MiBOXER light">
+              <Icon name="pdf" />
+              Návod - LED controller
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

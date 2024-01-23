@@ -1,0 +1,73 @@
+@import "../Base/global";
+
+.button {
+    --btn-color: #{$color-black};
+    --btn-bg-color: #{$color-white};
+    --btn-padding-x: #{$gap-xxl};
+    --btn-padding-y: #{$gap-l};
+    --btn-width: 20rem;
+    --btn-font-size: clamp(#{$gap-l}, 2svb, 18px);
+    --icon-size: #{$gap-m};
+    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
+    @include border("def", 1px, var(--color-trans));
+    min-width: var(--btn-width);
+    padding-block: var(--btn-padding-y);
+    padding-inline: var(--btn-padding-x);
+    background-color: var(--btn-bg-color);
+    border-radius: 0.25em;
+    font-family: $font-text;
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn_font-weight, 600);
+    line-height: 1;
+    color: var(--btn-color);
+    text-decoration: none;
+    text-transform: var(--btn-text-transform, uppercase);
+    translate: 0 var(--btn_trans-y, 0);
+    transition:
+        box-shadow var(--trans-time) var(--trans-fnc),
+        translate var(--trans-time) var(--trans-fnc);
+    cursor: pointer;
+    box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
+
+    @include res-max-laptop-s {
+        --btn-padding-x: #{$gap-l};
+        --btn-padding-y: 1.2rem;
+        --btn-font-size: medium;
+        --btn-width: 16rem;
+    }
+
+    @include hover {
+        --btn_shadow-color: #{$color-white--trans};
+        --btn_trans-y: calc(#{$gap-s} * -1);
+    }
+    &:is(.active) {
+        --btn_shadow-color: #{$color-primary};
+        --btn-shadow_size: #{$gap-xxl};
+        --btn_font-weight: 900;
+        --btn-bg-color: #{$color-primary};
+    }
+
+    &--s {
+        --btn-padding-x: #{$gap-l};
+        --btn-padding-y: #{$gap-m};
+        --btn-width: unset;
+        --btn-font-size: clamp(14px, 2svb, #{$gap-l});
+    }
+
+    &--xs {
+        --btn-padding-x: #{$gap-m};
+        --btn-padding-y: #{$gap-s};
+        --btn-width: unset;
+        --btn-text-transform: initial;
+        --btn-font-size: small;
+
+        @include hover {
+            --btn_trans-y: -2px;
+        }
+    }
+
+    > small {
+        font-weight: inherit;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,91 @@
+@import "mixins";
+
+.element-to-middle {
+    @include position;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.relative {
+    position: relative;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.invisible {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    font-size: 0;
+    z-index: -999;
+}
+
+.grid {
+    @include grid-columns(
+        grid,
+        repeat(var(--col-count, 2), minmax($gap-xxl, 1fr)),
+        var(--gap, #{$gap-xxl}),
+        flex-start
+    );
+
+    @include res-max-tablet {
+        --col-count: 1;
+    }
+}
+
+.space {
+    padding-block-end: var(--space-pad-bottom, 10dvb);
+
+    @include res-max-laptop-m {
+        --space-pad-bottom: 5rem;
+    }
+
+    @include res-max-tablet {
+        --space-pad-bottom: 8dvb;
+    }
+}
+
+.no-pb {
+    padding-bottom: 0 !important;
+}
+
+.no-pt {
+    padding-top: 0 !important;
+}
+
+.inline-container {
+    container-type: inline-size;
+}
+
+.h-100 {
+    min-block-size: 100svb;
+}

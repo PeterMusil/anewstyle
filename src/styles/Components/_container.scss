@@ -1,0 +1,27 @@
+@import "../Base/global";
+
+.container {
+	inline-size: var(--container-width, $width-laptop-m);
+	padding-inline: var(--container-pad-x, calc(#{$gap-xl} * 2));
+	margin-inline: auto;
+
+	@include res-max-laptop-l {
+		--container-width: 75%;
+	}
+
+	@include res-max-laptop-m {
+		--container-width: 85%;
+	}
+
+	@include res-max-laptop-s {
+		--container-width: 90%;
+	}
+
+	@include res-max-tablet {
+		--container-width: calc(100% - calc(#{$gap-xl} * 2));
+	}
+
+	&--s {
+		--container-width: min(#{$width-laptop-s}, calc(100% - calc(#{$gap-xl} * 2)));
+	}
+}

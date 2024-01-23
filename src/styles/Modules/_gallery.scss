@@ -1,0 +1,116 @@
+@import "../Base/global";
+
+section:has(> .gallery) {
+  padding-inline: $gap-xxl;
+}
+
+.gallery {
+  @include grid-columns(
+    grid,
+    repeat(var(--col-count, 4), minmax($gap-m, 1fr)),
+    var(--gap, #{$gap-l}),
+    var(--align-items, flex-start)
+  );
+  max-inline-size: $width-laptop-xl;
+  margin-block-end: $gap-xxl;
+  margin-inline: auto;
+
+  @include res-max-laptop-s {
+    --gap: #{$gap-l};
+    --col-count: 3;
+  }
+
+  @include res-max-tablet {
+    --col-count: 2;
+  }
+
+  @include res-max-mobile-l {
+    --col-count: 1;
+    --gap: #{$gap-xl};
+  }
+}
+
+.gitem {
+  --photo_scale: 1;
+  --text_translate-x: calc(-100% - #{$gap-xxl});
+  --content_backgdrop-filter: blur(0);
+  container-type: inline-size;
+  position: relative;
+  display: block;
+  border-radius: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+
+  &:first-child {
+    @include grid-col-span(var(--gitem_colspan, 2));
+    @include grid-row-span(var(--gitem_rowspan, 2));
+
+    @include res-max-mobile-l {
+      --gitem_colspan: 1;
+      --gitem_rowspan: 1;
+    }
+  }
+
+  @include hover {
+    --photo_scale: 1.1;
+    --icon-scale: 1.1;
+    --gitem_text-opacity: 1;
+    --content_backgdrop-filter: blur(0.1em);
+  }
+
+  &__photo {
+    position: relative;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+
+    img {
+      @include position;
+      display: block;
+      min-inline-size: 100%;
+      min-block-size: 100%;
+      scale: var(--photo_scale);
+      transition: scale 0.5s ease-in-out;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: #{$gap-xl};
+    background-color: hsla(0, 0%, 0%, 0.3);
+    font-size: clamp($gap-l, 8cqi, 5svb);
+    transition: backdrop-filter 0.2s linear;
+    backdrop-filter: var(--content_backgdrop-filter);
+    color: $color-white;
+
+    > strong {
+      display: block;
+      max-inline-size: 100%;
+      padding: #{$gap-xl};
+      opacity: var(--gitem_text-opacity, 0);
+      font-family: $font-title;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: 0.2em;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: var(--color-black) 0 0 1.5rem;
+      transition: opacity 0.5s var(--trans-fnc);
+    }
+
+    > .icon {
+      --icon-size: clamp(#{$gap-xxl}, 10svb, 8rem);
+      scale: var(--icon-scale, 1);
+      transition:
+        scale 0.5s ease-in-out,
+        fill $trans-time ease-in-out;
+      cursor: pointer;
+
+      @include hover {
+        fill: #{$color-primary};
+      }
+    }
+  }
+}
