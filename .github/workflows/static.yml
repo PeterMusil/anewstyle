@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["test"]
 
   workflow_dispatch:
 
@@ -37,6 +37,7 @@ jobs:
         run: pnpm install
 
       - name: Build
+        run: pnpm run scss
         run: pnpm run build
         if: success()
 
