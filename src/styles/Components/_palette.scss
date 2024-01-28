@@ -24,7 +24,7 @@ body {
     place-items: center;
     position: relative;
     inline-size: 175px;
-    aspect-ratio: 1;
+    block-size: 175px;
     background-color: unset;
     border-radius: 100vmax;
     border-color: transparent;
@@ -68,7 +68,7 @@ body {
         place-items: inherit;
         position: absolute;
         inline-size: 100%;
-        aspect-ratio: inherit;
+        block-size: 100%;
         border-radius: 100vmax;
         background-color: var(--bg-color);
         translate: calc(cos(var(--angle)) * var(--radius)) calc(sin(var(--angle) * -1) * var(--radius));
