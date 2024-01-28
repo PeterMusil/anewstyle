@@ -16,11 +16,15 @@
         }
 
         @include res-max-mobile-l {
-            --logo_size: 50px;
+            --logo_size: 100px;
+            --contact_col-temp: minmax(#{$gap-l}, 1fr);
         }
 
         > img {
             max-inline-size: var(--logo_size);
+            @include res-max-mobile-l {
+                margin-inline: auto;
+            }
         }
     }
     &__grid {

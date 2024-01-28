@@ -1,52 +1,53 @@
 @import "../Base/global";
 
-section{
+section {
     --sec-bg: #{$color-bg};
     --sec-pad-y: 10dvb;
-    // scroll-margin-top: var(--sec_scroll-mg, 0);
-    padding: var(--sec-pad-y) 0;
+    scroll-margin-top: var(--sec_scroll-mg, 0);
+    padding-block: var(--sec-pad-y);
     background-color: var(--sec-bg);
 
-    @include res-max-laptop-m{
+    @include res-max-laptop-m {
         --sec-pad-y: 5rem;
     }
 
-    @include res-max-tablet{
+    @include res-max-tablet {
         --sec-pad-y: 8dvb;
         --sec_scroll-mg: var(--nav-height);
     }
 
-    &.dark{
+    &.dark {
         --sec-bg: #{$color-black};
     }
-    &.no-pt{
+    &.no-pt {
         padding-top: 0;
     }
 
-    &.light{
+    &.light {
         --sec-bg: #{$color-white};
-        .title, .desc{
+        .title,
+        .desc {
             color: $color-black !important;
         }
 
-        .desc{
+        .desc {
             font-weight: 400;
         }
     }
 
-    &.no-p{
+    &.no-p {
         padding: 0;
     }
 
-    &.full-height{
+    &.full-height {
         min-height: 100vh;
 
-        > .container{
+        > .container {
             @include position;
         }
     }
 }
 
-.nav + main > section:first-of-type{
+.nav + main > section:first-of-type {
     padding-top: calc(var(--sec-pad-y) + var(--nav-height));
 }

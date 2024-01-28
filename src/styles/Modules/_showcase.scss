@@ -8,7 +8,7 @@ section:has(> .showcase) {
   display: grid;
   grid-template-columns: minmax(1rem, 8fr) minmax(1rem, 5fr);
   align-items: center;
-  inline-size: max(calc(100cqi - $gap-xxl), 100px);
+  inline-size: max(calc(100cqi - calc($gap-xl * 2)), 100px);
   max-inline-size: $width-laptop-xl;
   margin-inline: auto;
   background-color: inherit;
@@ -28,6 +28,7 @@ section:has(> .showcase) {
     aspect-ratio: 1024 / 813;
 
     @include res-max-laptop-s {
+      grid-column-start: 1;
       grid-column-start: 1;
     }
 
@@ -96,8 +97,9 @@ section:has(> .showcase) {
   }
 
   &__buttons {
-    @include grid-columns(grid, repeat(auto-fit, minmax($gap-xl, 1fr)), $gap-l, stretch, center);
+    @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-l, stretch, stretch);
     container-type: inline-size;
+
     @include res-max-laptop-s {
       grid-row-start: 1;
       margin-block-end: 5svb;

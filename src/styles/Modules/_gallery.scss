@@ -2,6 +2,10 @@
 
 section:has(> .gallery) {
   padding-inline: $gap-xxl;
+
+  @include res-max-mobile-l {
+    padding-inline: $gap-xl;
+  }
 }
 
 .gallery {

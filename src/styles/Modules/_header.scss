@@ -64,7 +64,11 @@ header {
       }
 
       @include res-max-tablet {
-        font-size: clamp($gap-xl, 5em, 10dvb);
+        font-size: clamp($gap-xl, 8dvi, 7rem);
+      }
+
+      @include res-max-mobile-l {
+        font-size: clamp($gap-xl, 10svb, 4rem);
       }
     }
 
