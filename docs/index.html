@@ -1,859 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>ANEW STYLE | Svítící kamenné desky</title>
-    <meta name="description" content="Designové interiérové osvětlení.">
-    <meta name="author" content="Lukáš Chylík">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="keywords" content="Designové interiérové osvětlení.">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
-    <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff"><!-- Schema.org markup for Google -->
-    <meta itemprop="name" content="ANEW STYLE | Svítící kamenné desky">
-    <meta itemprop="description" content="Designové interiérové osvětlení.">
-    <meta itemprop="image" content="./images/meta/meta-google.png"><!-- Open Graph data -->
-    <meta property="og:title" content="ANEW STYLE | Svítící kamenné desky">
-    <meta property="og:description" content="Designové interiérové osvětlení.">
-    <meta property="og:url" content="https://anewstyle.cz/">
-    <meta property="og:image" content="./images/meta/meta-fb.png"><!-- Twitter Card data -->
-    <meta name="twitter:title" content="ANEW STYLE | Svítící kamenné desky">
-    <meta name="twitter:description" content="Designové interiérové osvětlení.">
-    <meta name="twitter:image" content="./images/meta/meta-twitter.png">
-    <link rel="stylesheet" href="https://use.typekit.net/mcf8cbw.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <meta name="generator" content="Astro v4.1.2">
-    <script type="module" src="./scripts/main.js" type="text/javascript" defer></script>
-</head>
-
-<body> <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
-        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-            <symbol id="icon-play" viewBox="0 0 32 32">
-                <path
-                    d="M31.992 15.478c-0.268-8.406-7.063-15.201-15.469-15.469-4.574-0.145-8.853 1.596-12.016 4.861-3.040 3.139-4.638 7.277-4.498 11.653 0.268 8.406 7.063 15.201 15.469 15.469 0.175 0.006 0.348 0.008 0.522 0.008 4.37 0 8.452-1.729 11.493-4.869 3.040-3.139 4.638-7.277 4.498-11.652zM25.073 24.786c-2.401 2.479-5.623 3.844-9.073 3.844-0.138 0-0.276-0.002-0.415-0.006-6.634-0.212-11.997-5.575-12.209-12.209-0.11-3.455 1.151-6.723 3.551-9.201 2.401-2.479 5.623-3.844 9.073-3.844 0.138 0 0.276 0.002 0.415 0.006 6.634 0.212 11.997 5.575 12.209 12.209 0.11 3.455-1.151 6.723-3.551 9.201z">
-                </path>
-                <path
-                    d="M21.248 15.070l-7.095-5.087c-0.757-0.543-1.81-0.002-1.81 0.93v10.175c0 0.931 1.054 1.472 1.81 0.93l7.095-5.088c0.637-0.456 0.637-1.403 0-1.859z">
-                </path>
-            </symbol>
-            <symbol id="icon-pdf" viewBox="0 0 32 32">
-                <path
-                    d="M7.984 13.063h-1.984c-0.249 0-0.488 0.099-0.664 0.276s-0.274 0.416-0.274 0.665l0.014 7.122c0 0.518 0.42 0.938 0.938 0.938s0.938-0.42 0.938-0.938v-2.162c0.383-0.002 0.793-0.004 1.032-0.004 1.647 0 2.987-1.323 2.987-2.948s-1.34-2.948-2.987-2.948zM7.984 17.084c-0.242 0-0.653 0.002-1.038 0.004-0.002-0.399-0.004-0.829-0.004-1.077 0-0.212-0.001-0.656-0.002-1.073h1.043c0.603 0 1.112 0.491 1.112 1.073s-0.509 1.073-1.112 1.073z">
-                </path>
-                <path
-                    d="M15.958 13.063h-1.958c-0.249 0-0.488 0.099-0.664 0.275s-0.274 0.415-0.274 0.664c0 0 0.014 6.89 0.014 6.915 0.001 0.249 0.101 0.487 0.277 0.662s0.413 0.272 0.66 0.272h0.004c0.059-0 1.456-0.006 2.014-0.015 2.118-0.037 3.656-1.879 3.656-4.379-0-2.628-1.499-4.394-3.73-4.394zM15.999 19.961c-0.243 0.004-0.661 0.008-1.051 0.010-0.003-0.814-0.008-4.188-0.009-5.034h1.019c1.721 0 1.854 1.928 1.854 2.519 0 1.231-0.561 2.482-1.814 2.504z">
-                </path>
-                <path
-                    d="M25.866 14.865c0.518 0 0.938-0.42 0.938-0.938s-0.42-0.938-0.938-0.938h-2.866c-0.518 0-0.938 0.42-0.938 0.938v7.072c0 0.518 0.42 0.938 0.938 0.938s0.938-0.42 0.938-0.938v-2.666h1.701c0.518 0 0.938-0.42 0.938-0.938s-0.42-0.938-0.938-0.938h-1.701v-1.594z">
-                </path>
-                <path
-                    d="M28.625 9.063h-0.688v-0.267c0-1.205-0.457-2.35-1.286-3.225l-3.894-4.108c-0.881-0.929-2.121-1.462-3.402-1.462h-12.481c-1.551 0-2.813 1.262-2.813 2.813v6.25h-0.688c-1.551 0-2.813 1.262-2.813 2.813v11.25c0 1.551 1.262 2.813 2.813 2.813h0.688v3.25c0 1.551 1.262 2.813 2.813 2.813h18.25c1.551 0 2.813-1.262 2.813-2.813v-3.25h0.688c1.551 0 2.813-1.262 2.813-2.813v-11.25c0-1.551-1.262-2.813-2.813-2.813zM5.938 2.813c0-0.517 0.421-0.938 0.938-0.938h12.481c0.768 0 1.512 0.32 2.041 0.877l3.894 4.108c0.497 0.525 0.771 1.212 0.771 1.935v0.267h-20.125zM26.063 29.188c0 0.517-0.421 0.938-0.938 0.938h-18.25c-0.517 0-0.938-0.421-0.938-0.938v-3.25h20.125zM29.563 23.125c0 0.517-0.421 0.938-0.938 0.938h-25.25c-0.517 0-0.938-0.421-0.938-0.938v-11.25c0-0.517 0.421-0.938 0.938-0.938h25.25c0.517 0 0.938 0.421 0.938 0.938z">
-                </path>
-            </symbol>
-            <symbol id="icon-bulp" viewBox="0 0 32 32">
-                <path
-                    d="M18 32h-4c-0.933 0-2-0.8-2-2.4v-2.8c0-1.333-0.667-2.533-1.733-3.467-2.4-1.867-3.6-4.533-3.6-7.467 0.133-5.067 4.267-9.067 9.2-9.2 2.533 0 4.933 0.933 6.667 2.667s2.8 4.133 2.8 6.667c0 2.8-1.2 5.467-3.467 7.2-1.2 0.933-1.867 2.4-1.867 3.733v3.067c0 1.067-0.933 2-2 2zM16 8c-4.267 0-7.867 3.6-8 7.867 0 2.533 1.067 4.933 3.067 6.4 1.467 1.2 2.267 2.8 2.267 4.533v2.8c0 0.267 0 1.067 0.667 1.067h4c0.4 0 0.667-0.267 0.667-0.667v-3.067c0-1.733 0.933-3.6 2.4-4.8 1.867-1.467 2.933-3.733 2.933-6.133 0-2.133-0.8-4.133-2.4-5.733-1.467-1.467-3.467-2.267-5.6-2.267z">
-                </path>
-                <path
-                    d="M19.333 28h-6.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h6.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z">
-                </path>
-                <path
-                    d="M16 4c-0.4 0-0.667-0.267-0.667-0.667v-2.667c0-0.4 0.267-0.667 0.667-0.667s0.667 0.267 0.667 0.667v2.667c0 0.4-0.267 0.667-0.667 0.667z">
-                </path>
-                <path
-                    d="M24.933 7.733c-0.133 0-0.4 0-0.533-0.133-0.267-0.267-0.267-0.667 0-0.933l1.867-1.867c0.267-0.267 0.667-0.267 0.933 0s0.267 0.667 0 0.933l-1.867 1.867s-0.267 0.133-0.4 0.133z">
-                </path>
-                <path
-                    d="M31.333 16.667h-2.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h2.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z">
-                </path>
-                <path
-                    d="M26.8 27.467c-0.133 0-0.4 0-0.533-0.133l-1.867-1.867c-0.267-0.267-0.267-0.667 0-0.933s0.667-0.267 0.933 0l1.867 1.867c0.267 0.267 0.267 0.667 0 0.933 0 0.133-0.133 0.133-0.4 0.133z">
-                </path>
-                <path
-                    d="M5.2 27.467c-0.133 0-0.4 0-0.533-0.133-0.267-0.267-0.267-0.667 0-0.933l1.867-1.867c0.267-0.267 0.667-0.267 0.933 0s0.267 0.667 0 0.933l-1.867 1.867c-0.133 0.133-0.267 0.133-0.4 0.133z">
-                </path>
-                <path
-                    d="M3.333 16.667h-2.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h2.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z">
-                </path>
-                <path
-                    d="M7.067 7.733c-0.133 0-0.4 0-0.533-0.133l-1.867-2c-0.267-0.267-0.267-0.667 0-0.933s0.667-0.267 0.933 0l1.867 1.867c0.267 0.267 0.267 0.667 0 0.933-0.133 0.133-0.267 0.267-0.4 0.267z">
-                </path>
-                <path
-                    d="M21.333 16.667c-0.4 0-0.667-0.267-0.667-0.667 0-2.533-2.133-4.667-4.667-4.667-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667c3.333 0 6 2.667 6 6 0 0.4-0.267 0.667-0.667 0.667z">
-                </path>
-            </symbol>
-            <symbol id="icon-frame" viewBox="0 0 32 32">
-                <path
-                    d="M31.525 3.313h-25.453c-0.262 0-0.475 0.213-0.475 0.475s0.213 0.475 0.475 0.475h24.306l-2.535 2.535h-23.686l-2.535-2.535h2.548c0.262 0 0.475-0.213 0.475-0.475s-0.213-0.475-0.475-0.475h-3.695c-0.262 0-0.475 0.213-0.475 0.475v24.401c0 0.262 0.213 0.475 0.475 0.475h31.049c0.263 0 0.475-0.213 0.475-0.475v-24.401c0-0.262-0.213-0.475-0.475-0.475zM28.515 24.507v-17.037l2.535-2.535v22.107zM4.436 7.748h23.129v16.481h-4.895c-0.262 0-0.475 0.213-0.475 0.475s0.213 0.475 0.475 0.475h5.173l2.535 2.535h-28.755l2.535-2.535h16.611c0.263 0 0.475-0.213 0.475-0.475s-0.213-0.475-0.475-0.475h-16.333zM3.485 24.507l-2.535 2.535v-22.107l2.535 2.535z">
-                </path>
-            </symbol>
-            <symbol id="icon-turn-off" viewBox="0 0 32 32">
-                <path
-                    d="M26.001 7.853c-0.472-0.472-1.236-0.472-1.708 0s-0.472 1.236 0 1.708c2.216 2.216 3.437 5.163 3.437 8.297s-1.22 6.081-3.437 8.297c-2.287 2.287-5.291 3.431-8.296 3.431s-6.010-1.144-8.298-3.431c-4.574-4.574-4.574-12.017 0.001-16.592 0.472-0.472 0.472-1.236 0-1.708s-1.236-0.472-1.708 0c-5.516 5.516-5.517 14.492-0.001 20.008 2.759 2.759 6.382 4.138 10.006 4.138s7.246-1.379 10.004-4.137c2.672-2.672 4.144-6.225 4.144-10.005s-1.472-7.333-4.144-10.006z">
-                </path>
-                <path
-                    d="M15.996 15.647c0.667 0 1.208-0.541 1.208-1.208v-13.231c0-0.667-0.541-1.208-1.208-1.208s-1.208 0.541-1.208 1.208v13.231c0 0.667 0.541 1.208 1.208 1.208z">
-                </path>
-            </symbol>
-            <symbol id="icon-close" viewBox="0 0 32 32">
-                <path
-                    d="M18.927 16l12.467-12.467c0.375-0.373 0.607-0.889 0.607-1.46 0-0.002 0-0.005 0-0.007v0c0-0.007 0-0.016 0-0.025 0-0.563-0.232-1.071-0.606-1.434l-0-0c-0.364-0.374-0.872-0.607-1.435-0.607-0.009 0-0.018 0-0.026 0h0.001c-0.002 0-0.004 0-0.007 0-0.57 0-1.087 0.232-1.46 0.607l-12.467 12.467-12.467-12.467c-0.373-0.375-0.889-0.607-1.46-0.607-0.002 0-0.005 0-0.007 0h0c-0.007-0-0.016-0-0.025-0-0.563 0-1.071 0.232-1.434 0.606l-0 0c-0.374 0.364-0.607 0.872-0.607 1.435 0 0.009 0 0.018 0 0.026v-0.001c0 0.002 0 0.004 0 0.007 0 0.571 0.232 1.087 0.607 1.46l12.467 12.467-12.467 12.467c-0.375 0.373-0.607 0.889-0.607 1.46 0 0.002 0 0.005 0 0.007v-0c-0 0.007-0 0.016-0 0.025 0 0.563 0.232 1.071 0.606 1.434l0 0c0.364 0.374 0.872 0.607 1.435 0.607 0.009 0 0.018-0 0.026-0h-0.001c0.002 0 0.004 0 0.007 0 0.571 0 1.087-0.232 1.46-0.607l12.467-12.467 12.467 12.467c0.373 0.375 0.889 0.607 1.46 0.607 0.002 0 0.005 0 0.007 0h-0c1.14-0.004 2.063-0.927 2.067-2.066v-0c0-0.002 0-0.004 0-0.007 0-0.57-0.232-1.087-0.607-1.46l-0-0z">
-                </path>
-            </symbol>
-            <symbol id="icon-send" viewBox="0 0 32 32">
-                <path
-                    d="M31.337 14.961l-29.714-13.714c-0.473-0.215-1.038-0.087-1.367 0.32-0.331 0.407-0.343 0.985-0.027 1.403l9.771 13.028-9.771 13.028c-0.315 0.418-0.304 0.999 0.025 1.403 0.222 0.277 0.553 0.425 0.889 0.425 0.162 0 0.325-0.034 0.478-0.105l29.714-13.714c0.407-0.187 0.665-0.592 0.665-1.038s-0.258-0.85-0.663-1.038z">
-                </path>
-            </symbol>
-            <symbol id="icon-email" viewBox="0 0 32 32">
-                <path
-                    d="M18.674 19.606c-0.796 0.531-1.721 0.811-2.674 0.811s-1.878-0.281-2.674-0.811l-13.113-8.742c-0.073-0.049-0.144-0.099-0.213-0.151v14.325c0 1.642 1.333 2.946 2.946 2.946h26.108c1.642 0 2.946-1.333 2.946-2.946v-14.325c-0.070 0.052-0.141 0.103-0.213 0.151z">
-                </path>
-                <path
-                    d="M1.253 9.304l13.113 8.742c0.496 0.331 1.065 0.496 1.634 0.496s1.138-0.166 1.634-0.496l13.113-8.742c0.785-0.523 1.253-1.398 1.253-2.342 0-1.624-1.321-2.945-2.945-2.945h-26.11c-1.624 0-2.945 1.321-2.945 2.946 0 0.943 0.469 1.818 1.253 2.341z">
-                </path>
-            </symbol>
-            <symbol id="icon-marker" viewBox="0 0 32 32">
-                <path
-                    d="M16 0c-6.39 0-11.589 5.199-11.589 11.589 0 7.93 10.371 19.573 10.813 20.065 0.415 0.462 1.139 0.461 1.553 0 0.442-0.492 10.813-12.134 10.813-20.065-0-6.39-5.199-11.589-11.589-11.589zM16 17.42c-3.215 0-5.831-2.616-5.831-5.831s2.616-5.831 5.831-5.831 5.831 2.616 5.831 5.831-2.616 5.831-5.831 5.831z">
-                </path>
-            </symbol>
-            <symbol id="icon-move" viewBox="0 0 32 32">
-                <path
-                    d="M13.718 5.217c-0.226-0.109-0.495-0.079-0.691 0.078l-12.78 10.191c-0.155 0.124-0.246 0.312-0.246 0.511s0.091 0.387 0.246 0.511l12.78 10.195c0.118 0.094 0.262 0.143 0.408 0.143 0.096 0 0.193-0.021 0.283-0.065 0.226-0.109 0.37-0.338 0.37-0.589v-20.386c0-0.251-0.144-0.48-0.37-0.589z">
-                </path>
-                <path
-                    d="M31.754 15.486l-12.78-10.194c-0.196-0.157-0.465-0.187-0.691-0.078s-0.37 0.338-0.37 0.589v20.395c0 0.251 0.143 0.48 0.37 0.589 0.090 0.044 0.187 0.065 0.283 0.065 0.145 0 0.29-0.048 0.408-0.143l12.78-10.2c0.156-0.124 0.246-0.312 0.246-0.511 0-0.2-0.091-0.388-0.246-0.512z">
-                </path>
-            </symbol>
-            <symbol id="icon-menu" viewBox="0 0 32 32">
-                <path d="M30 28h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
-                <path d="M30 18h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
-                <path d="M30 8h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
-            </symbol>
-            <symbol id="icon-instagram" viewBox="0 0 32 32">
-                <path
-                    d="M18.813 16c0 1.553-1.259 2.813-2.813 2.813s-2.813-1.259-2.813-2.813 1.259-2.813 2.813-2.813 2.813 1.259 2.813 2.813z">
-                </path>
-                <path
-                    d="M20.75 7.5h-9.5c-2.068 0-3.75 1.682-3.75 3.75v9.5c0 2.068 1.682 3.75 3.75 3.75h9.5c2.068 0 3.75-1.682 3.75-3.75v-9.5c0-2.068-1.682-3.75-3.75-3.75zM16 20.688c-2.585 0-4.688-2.103-4.688-4.688s2.103-4.688 4.688-4.688 4.688 2.103 4.688 4.688-2.103 4.688-4.688 4.688zM21.375 11.563c-0.518 0-0.938-0.42-0.938-0.938s0.42-0.938 0.938-0.938 0.938 0.42 0.938 0.938-0.42 0.938-0.938 0.938z">
-                </path>
-                <path
-                    d="M23.563 0h-15.125c-4.652 0-8.438 3.785-8.438 8.438v15.125c0 4.652 3.785 8.438 8.438 8.438h15.125c4.652 0 8.438-3.785 8.438-8.438v-15.125c0-4.652-3.785-8.438-8.438-8.438zM26.375 20.75c0 3.102-2.523 5.625-5.625 5.625h-9.5c-3.102 0-5.625-2.523-5.625-5.625v-9.5c0-3.102 2.523-5.625 5.625-5.625h9.5c3.102 0 5.625 2.523 5.625 5.625z">
-                </path>
-            </symbol>
-            <symbol id="icon-facebook" viewBox="0 0 32 32">
-                <path
-                    d="M23.975 0h-15.975c-4.394 0-8 3.606-8 8.025v15.975c0 4.394 3.606 8 8 8h15.975c4.419 0 8.025-3.606 8.025-8.025v-15.949c0-4.419-3.606-8.025-8.025-8.025zM20.292 16h-3.022v9.905h-3.81v-9.905h-2.032v-4.064h1.778v-1.727c0-1.625 0.813-4.19 4.241-4.19h3.124v3.378h-2.21c-0.356 0-0.838 0.229-0.838 1.016v1.524h3.124l-0.356 4.064z">
-                </path>
-            </symbol>
-        </defs>
-    </svg>
-    <nav>
-        <div class="nav__container"> <a href="/" class="logo" rel="noopener"> <img src="./images/logos/logo.svg"
-                    alt="Anew Style Logo" height="96"> </a>
-            <ul class="menu">
-                <li> <a href="#about" rel="noopener"> <svg class="icon icon-bulp">
-                            <use xlink:href="#icon-bulp"></use>
-                        </svg> Rozsviť mě </a> </li>
-                <li> <a href="#features" rel="noopener"> Vlastnosti </a> </li>
-                <li> <a href="#products" rel="noopener"> Produkty </a> </li>
-                <li> <a href="#showroom" rel="noopener"> Galerie </a> </li>
-                <li> <a href="#mounting-and-price" rel="noopener"> Montáž a cena </a> </li>
-                <li> <a href="#contact" rel="noopener"> Kontakt </a> </li>
-            </ul> <button aria-label="Mobilní menu" class="burger" id="menuBtn"> <svg class="icon icon-menu">
-                    <use xlink:href="#icon-menu"></use>
-                </svg> </button>
-        </div>
-    </nav>
-    <header> <video class="header__video" loop aria-label="Anew style header video" muted preload="metadata" autoplay>
-            <source src="./videos/main-video.mp4" type="video/mp4">
-            <source src="./videos/main-video.webm" type="video/webm">
-            <source src="./videos/main-video.ogv" type="video/ogg">
-        </video>
-        <div class="header__content">
-            <div>
-                <h1>Anew Style</h1>
-            </div> <strong>Designové interiérové osvetlení</strong> <a class="button" href="#about"
-                aria-label="Přejít na sekci o nás" rel="noopener">Chci vědet více</a>
-        </div>
-    </header>
-    <main>
-        <section id="about" class="dark inline-container">
-            <div class="showcase">
-                <div class="showcase__img"> <img src="./images/showcase/rockfoil_pink_dark_mirror.webp"
-                        alt="Kamenná deska Goldenbark" width="1200"> <img
-                        src="./images/showcase/rockfoil_pink_dark_frame_mirror.webp"
-                        alt="Kamenná deska Goldenbark - rozsvícený rám" width="1200"> <img
-                        src="./images/showcase/rockfoil_pink_light_frame_mirror.webp"
-                        alt="Kamenná deska Goldenbark - rozsvícená" class="active" width="1200"> </div>
-                <div class="showcase__content">
-                    <h2><span>Designové</span> interiérové osvetlení</h2>
-                    <p>Celoplošné svítící panely prosvětlující <strong>přírodní kamennou desku</strong>, se vyznačují
-                        malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy
-                        jedinečnou a nepomíjivou elegancí.</p>
-                    <div class="showcase__buttons"> <button class="button" type="button" aria-label="Zhasni obraz"
-                            title="Zhasni obraz"> <svg class="icon icon-turn-off">
-                                <use xlink:href="#icon-turn-off"></use>
-                            </svg> <small>Zhaslá deska</small> </button> <button class="button" type="button"
-                            aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu"> <svg class="icon icon-frame">
-                                <use xlink:href="#icon-frame"></use>
-                            </svg> <small>Svítící rám</small> </button> <button class="button active" type="button"
-                            aria-label="Rozsvíť obraz" title="Rozsvíť obraz"> <svg class="icon icon-bulp">
-                                <use xlink:href="#icon-bulp"></use>
-                            </svg> <small>Svítící deska</small> </button> </div>
-                </div>
-            </div>
-        </section>
-        <section id="features">
-            <div class="container container--s">
-                <h2 class="title title--white text-center">Vlastnosti</h2>
-                <div class="piktogram">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/Mounting.svg" alt="Mounting"
-                                height="75px" loading="lazy"> <small>Vert/Horiz<br>mounting</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/Mounting.svg" alt="Mounting"
-                                height="75px" loading="lazy"> <small>Vert/Horiz<br>mounting</small> </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Rámy kamenných desek jsou připraveny pro <strong>svislou</strong> i
-                            <strong>vodorovnou</strong> montáž, s využitím například jako svítící čelo postele.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert">
-                    <div class="piktogram__desc">
-                        <p>
-                            Pro zpříjemnění atmosféry, umožňuje rám svítící kamenné desky využití efektního,
-                            stmívatelného <strong>zadního podsvětlení</strong>.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/Blacklight.svg" alt="Blacklight"
-                                height="75px" loading="lazy"> <small>Blacklight<br>control</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/Blacklight.svg" alt="Blacklight"
-                                height="75px" loading="lazy"> <small>Blacklight<br>control</small> </div>
-                    </div>
-                </div>
-                <div class="piktogram">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/RF_control.svg" alt="RF_control"
-                                height="75px" loading="lazy"> <small>RF Wirless<br>Control</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/RF_control.svg" alt="RF_control"
-                                height="75px" loading="lazy"> <small>RF Wirless<br>Control</small> </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Ovládání zapínání a vypínání, stejně jako intenzitu prosvětlení kamene a zadního
-                            podsvětlení, můžete ovládat přiloženým <strong>RF dálkovým ovladačem</strong>.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert">
-                    <div class="piktogram__desc">
-                        <p>
-                            Veškeré funkce dálkového ovladače lze plně nahradit nebo kombinovat s Vašim <strong>chytrým
-                                telefonem</strong>.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/MobileControl.svg"
-                                alt="MobileControl" height="75px" loading="lazy"> <small>Smartphone<br>control</small>
-                        </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/MobileControl.svg"
-                                alt="MobileControl" height="75px" loading="lazy"> <small>Smartphone<br>control</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--hidden">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/14mm.svg" alt="14mm" height="75px"
-                                loading="lazy"> <small>14 mm</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/14mm.svg" alt="14mm" height="75px"
-                                loading="lazy"> <small>14 mm</small> </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Elegantní verze SLIM, s tloušťkou pouhých <strong>14mm</strong>.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert piktogram--hidden">
-                    <div class="piktogram__desc">
-                        <p>
-                            Oblíbená verze o síle 25mm, obsahující <strong>zabudovaný</strong> jak <strong>AC/DC
-                                zdroj</strong>, tak i
-                            <strong>LED controler</strong>. Odpadá tedy nutnost dodatečného řešení umístění napájecích a
-                            řídících komponentů.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/25mm.svg" alt="25mm" height="75px"
-                                loading="lazy"> <small>25 mm</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/25mm.svg" alt="25mm" height="75px"
-                                loading="lazy"> <small>25 mm</small> </div>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--hidden">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/QuickMounting.svg"
-                                alt="QuickMounting" height="75px" loading="lazy"> <small>Quick<br>mounting</small>
-                        </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/QuickMounting.svg"
-                                alt="QuickMounting" height="75px" loading="lazy"> <small>Quick<br>mounting</small>
-                        </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Obě verze svítících kamenných desek jsou připraveny pro snadnou montáž, která Vám nezabere
-                            déle než <strong>10 minut</strong>.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert piktogram--hidden">
-                    <div class="piktogram__desc">
-                        <p>
-                            V případě zájmu, je možná zakázková výroba svítící kamenné desky o <strong>menším
-                                rozměru</strong> než standardně dodávaným.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/CustomSize.svg" alt="CustomSize"
-                                height="75px" loading="lazy"> <small>Custom<br>size</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/CustomSize.svg" alt="CustomSize"
-                                height="75px" loading="lazy"> <small>Custom<br>size</small> </div>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--hidden">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/LED.svg" alt="LED" height="75px"
-                                loading="lazy"> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/LED.svg" alt="LED" height="75px"
-                                loading="lazy"> </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Pro nasvícení jsou použity <strong>vysokosvítivé LED pásky</strong> s minimální spotřebou.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert piktogram--hidden">
-                    <div class="piktogram__desc">
-                        <p>
-                            Plynule <strong>stmívatelné osvětlení</strong>, zajistí vždy tu správnou atmosféru.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/Dimmable.svg" alt="Dimmable"
-                                height="75px" loading="lazy"> <small>Dimmable</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/Dimmable.svg" alt="Dimmable"
-                                height="75px" loading="lazy"> <small>Dimmable</small> </div>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--hidden">
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/Waterproof.svg" alt="Waterproof"
-                                height="75px" loading="lazy"> <small>Water<br>resistant</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/Waterproof.svg" alt="Waterproof"
-                                height="75px" loading="lazy"> <small>Water<br>resistant</small> </div>
-                    </div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Na dotek drsný a reliéfní povrch kamenné desky, je impregnován profesionální <strong>nano
-                                impregnací proti vlhkosti</strong> a znečištění.
-                        </p>
-                    </div>
-                </div>
-                <div class="piktogram piktogram--invert piktogram--hidden">
-                    <div class="piktogram__desc">
-                        <p>
-                            Všechny věci mají svou životnost, která se dá opravou prodlužovat. Přestože se moderní LED
-                            technologie pyšní dobou životnosti dosahující <strong>50 000 hodin</strong>, jsou naše
-                            svítící kamenné desky kompletovány tak, aby je bylo možné vždy opravit a tak vystoupit z
-                            řady dnes vyráběných LED svítidel.
-                        </p>
-                    </div>
-                    <div class="piktogram__box">
-                        <div class="piktogram__circle"> <img src="./images/symbols/Repair.svg" alt="Repair"
-                                height="75px" loading="lazy"> <small>Easy to repair</small> </div>
-                        <div class="piktogram__circle"> <img src="./images/symbols/Repair.svg" alt="Repair"
-                                height="75px" loading="lazy"> <small>Easy to repair</small> </div>
-                    </div>
-                </div>
-                <div class="piktogram">
-                    <div class="piktogram__box"><button class="palette" type="button" aria-label="Show colors"
-                            data-text="Zobrait odstíny">
-                            <div class="palette__color" data-text="140M"></div>
-                            <div class="palette__color" data-text="150M"></div>
-                            <div class="palette__color" data-text="260M"></div>
-                            <div class="palette__color" data-text="280M"></div>
-                        </button></div>
-                    <div class="piktogram__desc">
-                        <p>
-                            Nabízíme širokou paletu barevných odstínů kamene, včetně elegantních variant <strong>RAL
-                                140M</strong>, <strong>RAL 150M</strong>, <strong>RAL 260M</strong> a <strong>RAL
-                                280M</strong>.
-                        </p>
-                    </div>
-                </div>
-                <div class="text-center"> <button class="button" id="piktogramsBtn" type="button">Show More</button>
-                </div>
-            </div>
-        </section>
-        <section class="no-pt">
-            <div id="baSlider" class="ba-slider container">
-                <div class="image-container">
-                    <div class="image-before">
-                        <picture>
-                            <source type="image/webp" sizes="(min-width: 1367px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_1440.webp">
-                            <source type="image/webp" sizes="(max-width: 1366px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_1366.webp">
-                            <source type="image/webp" sizes="(max-width: 1024px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp">
-                            <source type="image/webp" sizes="(max-width: 768px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp">
-                            <source type="image/webp" sizes="(max-width: 425px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp"> <img
-                                src="./images/backgrounds/Rockfoil_viz5_before_1440.webp" loading="lazy" width="1440"
-                                height="1019" class="slider-image" alt="Kámen ve dne">
-                        </picture> <strong>Ve dne</strong>
-                    </div>
-                    <div class="image-after">
-                        <picture>
-                            <source type="image/webp" sizes="(min-width: 1367px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_after_1440.webp">
-                            <source type="image/webp" sizes="(max-width: 1366px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_after_1366.webp">
-                            <source type="image/webp" sizes="(max-width: 1024px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp">
-                            <source type="image/webp" sizes="(max-width: 768px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp">
-                            <source type="image/webp" sizes="(max-width: 425px)"
-                                srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp"> <img
-                                src="./images/backgrounds/Rockfoil_viz5_after_1440.webp" loading="lazy" width="1440"
-                                height="1019" class="slider-image" alt="Kámen v noci">
-                        </picture> <strong>V noci</strong>
-                    </div>
-                </div> <span>Vždy elegantní</span> <input type="range" min="0" max="100" value="70" step="0.1"
-                    aria-label="Percentage of before photo shown" class="slider">
-                <div class="slider-line" aria-hidden="true"></div>
-                <div class="slider-button" aria-hidden="true"> <svg class="icon icon-move" fill="currentColor"
-                        width="30" height="30">
-                        <use xlink:href="#icon-move"></use>
-                    </svg> </div>
-            </div>
-        </section>
-        <section id="products" class="dark">
-            <div class="container">
-                <h2 class="title title--center">Produkty</h2>
-                <p class="desc text-center">Nový design osvětlení pro interiéry přináší inovativní celoplošné svítící
-                    panely, které osvětlují přírodní <strong>kamennou desku</strong>. Tyto panely jsou nejen lehké,
-                    snadno montovatelné a energeticky úsporné, ale také se vyznačují jedinečnou a nezaměnitelnou
-                    elegancí.</p>
-                <div class="product-list">
-                    <div class="product">
-                        <div id="productCard1" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> WILDLIFE </strong> <img
-                                src="./images/products/Rockfoil_WILDLIFE_light_frame.webp" alt="WILDLIFE"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div>
-                        </div>
-                        <dialog id="myDialog1" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>WILDLIFE</strong>
-                                <div class="product-detail__img"> <a href="#3dModel1"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"> <img
-                                            src="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
-                                            alt="Kamenná deska WILDLIFE" width="1024"> </a> </div>
-                                <div class="product-detail__hidden"> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a>
-                                    <model-viewer id="3dModel1" src="./3d/products/Rock_sheet_WILDLIFE.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Raritní svítící kamenná deska WILDLIFE je díky své živé
-                                        kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený
-                                        divoký vzor, Vám nikdy nezevšední.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard2" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Pink </strong> <img
-                                src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Pink" loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div>
-                        </div>
-                        <dialog id="myDialog2" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Pink</strong>
-                                <div class="product-detail__img"> <a href="#3dModel2"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"> <img
-                                            src="./images/products/Rockfoil_PINK_light_frame.webp"
-                                            alt="Kamenná deska Pink" width="1024"> </a> </div>
-                                <div class="product-detail__hidden"> <a href="./images/products/Rockfoil_PINK_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
-                                        href="./images/products/Rockfoil_PINK_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
-                                        href="./images/products/Rockfoil_PINK_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a>
-                                    <model-viewer id="3dModel2" src="./3d/products/Rock_sheet_PINK.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Jedinečná narůžovělá kresba kamene předurčuje svítící
-                                        kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její
-                                        svit výrazný i za denního světla.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard3" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Goldenbark </strong> <img
-                                src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" alt="Goldenbark"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div>
-                        </div>
-                        <dialog id="myDialog3" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Goldenbark</strong>
-                                <div class="product-detail__img"> <a href="#3dModel3"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"> <img
-                                            src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
-                                            alt="Kamenná deska Goldenbark" width="1024"> </a> </div>
-                                <div class="product-detail__hidden"> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a>
-                                    <model-viewer id="3dModel3" src="./3d/products/Rock_sheet_GOLDENBARK.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí
-                                        univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED
-                                        prosvětlení, zvýrazňuje zlatavé žilkování kamene.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard4" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Darkgold </strong> <img
-                                src="./images/products/Rockfoil_DARKGOLD_light_frame.webp" alt="Darkgold"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div>
-                        </div>
-                        <dialog id="myDialog4" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Darkgold</strong>
-                                <div class="product-detail__img"> <a href="#3dModel4"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"> <img
-                                            src="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
-                                            alt="Kamenná deska Darkgold" width="1024"> </a> </div>
-                                <div class="product-detail__hidden"> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a>
-                                    <model-viewer id="3dModel4" src="./3d/products/Rock_sheet_DARKGOLD.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Tmavá svítící kamenná deska DARKGOLD je výjimečná svou
-                                        zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně
-                                        navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a
-                                        zlatavými ostrůvky kresby kamene.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="showroom" class="light">
-            <div class="container">
-                <h2 class="title text-center title--mg-s">Galerie</h2>
-                <p class="desc desc--center">
-                    Pro <strong>inspiraci</strong> si prohlédněte naši galerii fotografií. Jak by se tenhle krásný
-                    designový prvek mohl vyjímat u <strong>Vás doma</strong>, či v kanceláři?
-                </p>
-            </div>
-            <div class="gallery"> <a href="./videos/Rock_sheet_animation_WILDLIFE.mp4"
-                    aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo">
-                        <picture>
-                            <source type="image/webp" sizes="(min-width: 426px)"
-                                srcset="./images/gallery/2023/Rockfoil_viz1_768.webp">
-                            <source type="image/webp" sizes="(max-width: 425px)"
-                                srcset="./images/gallery/2023/Rockfoil_viz1_425.webp"> <img
-                                src="./images/gallery/2023/Rockfoil_viz1_768.webp" loading="lazy" width="768"
-                                height="446" alt="Kámen 1">
-                        </picture>
-                    </div>
-                    <div class="gitem__content"> <svg class="icon icon-play">
-                            <use xlink:href="#icon-play"></use>
-                        </svg> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz2_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 2"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>PINK</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz3_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 3"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>DARKGOLD</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz4_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 4"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz5_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 5"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>GOLDENBARK</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz6_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 6"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>DARKGOLD</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz7_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 7"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz8_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 8"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div>
-                </a> <a href="./images/gallery/2023/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru"
-                    data-fancybox="gallery" class="gitem" rel="noopener">
-                    <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz9_425.webp" loading="lazy"
-                            width="425" height="247" alt="Kámen 9"> </div>
-                    <div class="gitem__content"> <strong>Kámen<br>GOLDENBARK</strong> </div>
-                </a> </div>
-            <div class="container">
-                <p class="desc desc--mg-s desc--center">
-                    Vizualizace interiérů jsou použity se souhlasem společnosti <a href="https://www.designatak.cz/"
-                        aria-label="Preˇjí na stránky společnosti ATAK Design" class="link"
-                        style="text-decoration: underline;" rel="external">ATAK Design</a>.
-                    <br><br>
-                    <picture>
-                        <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif">
-                        <source type="image/webp" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.webp">
-                        <img src="./images/logos/atak-logo.webp" loading="lazy" width="250"
-                            alt="Logo společnosti ATAK Design">
-                    </picture>
-                </p>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="container">
-                <div class="contact__wrapper"> <img src="./images/logos/logo.svg" alt="Anew Style Logo" width="150"
-                        loading="lazy">
-                    <div>
-                        <h2 class="title">Kontakujte nás</h2>
-                        <div class="contact__grid">
-                            <div>
-                                <p class="desc desc--mg-s">
-                                    Pro více informací nás neváhejte kontaktovat přes email <strong><a
-                                            href="mailto:info@anewstyle.cz" class="link">
-                                            info@anewstyle.cz</a></strong>, nebo sociální sítě.
-                                </p>
-                                <div class="social"> <a href="https://www.facebook.com/profile.php?id=100088855596654"
-                                        rel="external" aria-label="Přejít na facebook Anew Style" target="_blank"> <svg
-                                            class="icon icon-facebook">
-                                            <use xlink:href="#icon-facebook"></use>
-                                        </svg> </a> <a href="https://www.instagram.com/anewstyle.cz/" rel="external"
-                                        aria-label="Přejít na instagram Anew Style" target="_blank"> <svg
-                                            class="icon icon-instagram">
-                                            <use xlink:href="#icon-instagram"></use>
-                                        </svg> </a> </div>
-                            </div>
-                            <div> <a class="button" href="mailto:info@anewstyle.cz">
-                                    Napsat zprávu
-                                    <svg class="icon icon-email">
-                                        <use xlink:href="#icon-email"></use>
-                                    </svg> </a> </div>
-                            <div>
-                                <h3 class="title title--s">Showroom</h3>
-                                <p class="desc desc--no-mg">
-                                    Jak naše světla vypadají v reálu si můžete prohlédnout na adrese:
-                                </p>
-                                <address> <a
-                                        href="https://www.google.cz/maps/place/Hybe%C5%A1ova+308%2F61,+602+00+Brno-st%C5%99ed/@49.1887768,16.5968647,17z/data=!3m1!4b1!4m5!3m4!1s0x471294529732ae65:0x75c148bfafac76!8m2!3d49.1887733!4d16.5990534"
-                                        rel="external" aria-label="Adresa showroomu" target="_blank" class="link">
-                                        Hybešova 61<br>
-                                        602 00, Brno
-                                    </a> </address> <img src="./images/gallery/Showroom.webp" alt="Showroom"
-                                    width="250px" loading="lazy">
-                            </div>
-                            <div>
-                                <h3 class="title title--s">Fakturační adresa</h3>
-                                <address>
-                                    OSM s.r.o.<br>
-                                    Hudcova 86/54<br>
-                                    621 00, Brno<br><br>
-                                    IČ: 47903180<br>
-                                    DIČ: CZ47903180<br> </address>
-                                <h4 class="title title--xs">Materiály ke stažení</h4> <a
-                                    href="./downloads/MIBOXER__K1_K1-B_EN_V1.0.pdf" class="link link--light"
-                                    target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor 1 s materiály">
-                                    <svg class="icon icon-pdf">
-                                        <use xlink:href="#icon-pdf"></use>
-                                    </svg>
-                                    Návod - RF dálkové ovládání
-                                </a> <br><br> <a href="./downloads/MIBOXER_FUT035W-FUT036W_EN_V1.0.pdf"
-                                    class="link link--light" target="_blank" rel="noopener"
-                                    aria-label="Ke stažení pdf soubor s materiály MiBOXER light"> <svg
-                                        class="icon icon-pdf">
-                                        <use xlink:href="#icon-pdf"></use>
-                                    </svg>
-                                    Návod - LED controller
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer> <small>©2022 - 2023 anewstyle.cz | Všechna práva vyhrazena.</small> </footer>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-</body>
-
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><title>ANEW STYLE | Svítící kamenné desky</title><meta name="description" content="Designové interiérové osvětlení."><meta name="author" content="Lukáš Chylík"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="keywords" content="Designové interiérové osvětlení."><link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png"><link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#ffffff"><meta name="theme-color" content="#ffffff"><!-- Schema.org markup for Google --><meta itemprop="name" content="ANEW STYLE | Svítící kamenné desky"><meta itemprop="description" content="Designové interiérové osvětlení."><meta itemprop="image" content="./images/meta/meta-google.png"><!-- Open Graph data --><meta property="og:title" content="ANEW STYLE | Svítící kamenné desky"><meta property="og:description" content="Designové interiérové osvětlení."><meta property="og:url" content="https://anewstyle.cz/"><meta property="og:image" content="./images/meta/meta-fb.png"><!-- Twitter Card data --><meta name="twitter:title" content="ANEW STYLE | Svítící kamenné desky"><meta name="twitter:description" content="Designové interiérové osvětlení."><meta name="twitter:image" content="./images/meta/meta-twitter.png"><link rel="stylesheet" href="https://use.typekit.net/mcf8cbw.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"><link rel="stylesheet" href="./css/style.css" type="text/css"><meta name="generator" content="Astro v4.1.2"><script type="module" src="./_astro/hoisted.sAlICOg0.js"></script></head> <body> <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <symbol id="icon-play" viewBox="0 0 32 32"> <path d="M31.992 15.478c-0.268-8.406-7.063-15.201-15.469-15.469-4.574-0.145-8.853 1.596-12.016 4.861-3.040 3.139-4.638 7.277-4.498 11.653 0.268 8.406 7.063 15.201 15.469 15.469 0.175 0.006 0.348 0.008 0.522 0.008 4.37 0 8.452-1.729 11.493-4.869 3.040-3.139 4.638-7.277 4.498-11.652zM25.073 24.786c-2.401 2.479-5.623 3.844-9.073 3.844-0.138 0-0.276-0.002-0.415-0.006-6.634-0.212-11.997-5.575-12.209-12.209-0.11-3.455 1.151-6.723 3.551-9.201 2.401-2.479 5.623-3.844 9.073-3.844 0.138 0 0.276 0.002 0.415 0.006 6.634 0.212 11.997 5.575 12.209 12.209 0.11 3.455-1.151 6.723-3.551 9.201z"></path> <path d="M21.248 15.070l-7.095-5.087c-0.757-0.543-1.81-0.002-1.81 0.93v10.175c0 0.931 1.054 1.472 1.81 0.93l7.095-5.088c0.637-0.456 0.637-1.403 0-1.859z"></path> </symbol> <symbol id="icon-pdf" viewBox="0 0 32 32"> <path d="M7.984 13.063h-1.984c-0.249 0-0.488 0.099-0.664 0.276s-0.274 0.416-0.274 0.665l0.014 7.122c0 0.518 0.42 0.938 0.938 0.938s0.938-0.42 0.938-0.938v-2.162c0.383-0.002 0.793-0.004 1.032-0.004 1.647 0 2.987-1.323 2.987-2.948s-1.34-2.948-2.987-2.948zM7.984 17.084c-0.242 0-0.653 0.002-1.038 0.004-0.002-0.399-0.004-0.829-0.004-1.077 0-0.212-0.001-0.656-0.002-1.073h1.043c0.603 0 1.112 0.491 1.112 1.073s-0.509 1.073-1.112 1.073z"></path> <path d="M15.958 13.063h-1.958c-0.249 0-0.488 0.099-0.664 0.275s-0.274 0.415-0.274 0.664c0 0 0.014 6.89 0.014 6.915 0.001 0.249 0.101 0.487 0.277 0.662s0.413 0.272 0.66 0.272h0.004c0.059-0 1.456-0.006 2.014-0.015 2.118-0.037 3.656-1.879 3.656-4.379-0-2.628-1.499-4.394-3.73-4.394zM15.999 19.961c-0.243 0.004-0.661 0.008-1.051 0.010-0.003-0.814-0.008-4.188-0.009-5.034h1.019c1.721 0 1.854 1.928 1.854 2.519 0 1.231-0.561 2.482-1.814 2.504z"></path> <path d="M25.866 14.865c0.518 0 0.938-0.42 0.938-0.938s-0.42-0.938-0.938-0.938h-2.866c-0.518 0-0.938 0.42-0.938 0.938v7.072c0 0.518 0.42 0.938 0.938 0.938s0.938-0.42 0.938-0.938v-2.666h1.701c0.518 0 0.938-0.42 0.938-0.938s-0.42-0.938-0.938-0.938h-1.701v-1.594z"></path> <path d="M28.625 9.063h-0.688v-0.267c0-1.205-0.457-2.35-1.286-3.225l-3.894-4.108c-0.881-0.929-2.121-1.462-3.402-1.462h-12.481c-1.551 0-2.813 1.262-2.813 2.813v6.25h-0.688c-1.551 0-2.813 1.262-2.813 2.813v11.25c0 1.551 1.262 2.813 2.813 2.813h0.688v3.25c0 1.551 1.262 2.813 2.813 2.813h18.25c1.551 0 2.813-1.262 2.813-2.813v-3.25h0.688c1.551 0 2.813-1.262 2.813-2.813v-11.25c0-1.551-1.262-2.813-2.813-2.813zM5.938 2.813c0-0.517 0.421-0.938 0.938-0.938h12.481c0.768 0 1.512 0.32 2.041 0.877l3.894 4.108c0.497 0.525 0.771 1.212 0.771 1.935v0.267h-20.125zM26.063 29.188c0 0.517-0.421 0.938-0.938 0.938h-18.25c-0.517 0-0.938-0.421-0.938-0.938v-3.25h20.125zM29.563 23.125c0 0.517-0.421 0.938-0.938 0.938h-25.25c-0.517 0-0.938-0.421-0.938-0.938v-11.25c0-0.517 0.421-0.938 0.938-0.938h25.25c0.517 0 0.938 0.421 0.938 0.938z"></path> </symbol> <symbol id="icon-bulp" viewBox="0 0 32 32"> <path d="M18 32h-4c-0.933 0-2-0.8-2-2.4v-2.8c0-1.333-0.667-2.533-1.733-3.467-2.4-1.867-3.6-4.533-3.6-7.467 0.133-5.067 4.267-9.067 9.2-9.2 2.533 0 4.933 0.933 6.667 2.667s2.8 4.133 2.8 6.667c0 2.8-1.2 5.467-3.467 7.2-1.2 0.933-1.867 2.4-1.867 3.733v3.067c0 1.067-0.933 2-2 2zM16 8c-4.267 0-7.867 3.6-8 7.867 0 2.533 1.067 4.933 3.067 6.4 1.467 1.2 2.267 2.8 2.267 4.533v2.8c0 0.267 0 1.067 0.667 1.067h4c0.4 0 0.667-0.267 0.667-0.667v-3.067c0-1.733 0.933-3.6 2.4-4.8 1.867-1.467 2.933-3.733 2.933-6.133 0-2.133-0.8-4.133-2.4-5.733-1.467-1.467-3.467-2.267-5.6-2.267z"></path> <path d="M19.333 28h-6.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h6.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z"></path> <path d="M16 4c-0.4 0-0.667-0.267-0.667-0.667v-2.667c0-0.4 0.267-0.667 0.667-0.667s0.667 0.267 0.667 0.667v2.667c0 0.4-0.267 0.667-0.667 0.667z"></path> <path d="M24.933 7.733c-0.133 0-0.4 0-0.533-0.133-0.267-0.267-0.267-0.667 0-0.933l1.867-1.867c0.267-0.267 0.667-0.267 0.933 0s0.267 0.667 0 0.933l-1.867 1.867s-0.267 0.133-0.4 0.133z"></path> <path d="M31.333 16.667h-2.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h2.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z"></path> <path d="M26.8 27.467c-0.133 0-0.4 0-0.533-0.133l-1.867-1.867c-0.267-0.267-0.267-0.667 0-0.933s0.667-0.267 0.933 0l1.867 1.867c0.267 0.267 0.267 0.667 0 0.933 0 0.133-0.133 0.133-0.4 0.133z"></path> <path d="M5.2 27.467c-0.133 0-0.4 0-0.533-0.133-0.267-0.267-0.267-0.667 0-0.933l1.867-1.867c0.267-0.267 0.667-0.267 0.933 0s0.267 0.667 0 0.933l-1.867 1.867c-0.133 0.133-0.267 0.133-0.4 0.133z"></path> <path d="M3.333 16.667h-2.667c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h2.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667z"></path> <path d="M7.067 7.733c-0.133 0-0.4 0-0.533-0.133l-1.867-2c-0.267-0.267-0.267-0.667 0-0.933s0.667-0.267 0.933 0l1.867 1.867c0.267 0.267 0.267 0.667 0 0.933-0.133 0.133-0.267 0.267-0.4 0.267z"></path> <path d="M21.333 16.667c-0.4 0-0.667-0.267-0.667-0.667 0-2.533-2.133-4.667-4.667-4.667-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667c3.333 0 6 2.667 6 6 0 0.4-0.267 0.667-0.667 0.667z"></path> </symbol> <symbol id="icon-frame" viewBox="0 0 32 32"> <path d="M31.525 3.313h-25.453c-0.262 0-0.475 0.213-0.475 0.475s0.213 0.475 0.475 0.475h24.306l-2.535 2.535h-23.686l-2.535-2.535h2.548c0.262 0 0.475-0.213 0.475-0.475s-0.213-0.475-0.475-0.475h-3.695c-0.262 0-0.475 0.213-0.475 0.475v24.401c0 0.262 0.213 0.475 0.475 0.475h31.049c0.263 0 0.475-0.213 0.475-0.475v-24.401c0-0.262-0.213-0.475-0.475-0.475zM28.515 24.507v-17.037l2.535-2.535v22.107zM4.436 7.748h23.129v16.481h-4.895c-0.262 0-0.475 0.213-0.475 0.475s0.213 0.475 0.475 0.475h5.173l2.535 2.535h-28.755l2.535-2.535h16.611c0.263 0 0.475-0.213 0.475-0.475s-0.213-0.475-0.475-0.475h-16.333zM3.485 24.507l-2.535 2.535v-22.107l2.535 2.535z"></path> </symbol> <symbol id="icon-turn-off" viewBox="0 0 32 32"> <path d="M26.001 7.853c-0.472-0.472-1.236-0.472-1.708 0s-0.472 1.236 0 1.708c2.216 2.216 3.437 5.163 3.437 8.297s-1.22 6.081-3.437 8.297c-2.287 2.287-5.291 3.431-8.296 3.431s-6.010-1.144-8.298-3.431c-4.574-4.574-4.574-12.017 0.001-16.592 0.472-0.472 0.472-1.236 0-1.708s-1.236-0.472-1.708 0c-5.516 5.516-5.517 14.492-0.001 20.008 2.759 2.759 6.382 4.138 10.006 4.138s7.246-1.379 10.004-4.137c2.672-2.672 4.144-6.225 4.144-10.005s-1.472-7.333-4.144-10.006z"></path> <path d="M15.996 15.647c0.667 0 1.208-0.541 1.208-1.208v-13.231c0-0.667-0.541-1.208-1.208-1.208s-1.208 0.541-1.208 1.208v13.231c0 0.667 0.541 1.208 1.208 1.208z"></path> </symbol> <symbol id="icon-close" viewBox="0 0 32 32"> <path d="M18.927 16l12.467-12.467c0.375-0.373 0.607-0.889 0.607-1.46 0-0.002 0-0.005 0-0.007v0c0-0.007 0-0.016 0-0.025 0-0.563-0.232-1.071-0.606-1.434l-0-0c-0.364-0.374-0.872-0.607-1.435-0.607-0.009 0-0.018 0-0.026 0h0.001c-0.002 0-0.004 0-0.007 0-0.57 0-1.087 0.232-1.46 0.607l-12.467 12.467-12.467-12.467c-0.373-0.375-0.889-0.607-1.46-0.607-0.002 0-0.005 0-0.007 0h0c-0.007-0-0.016-0-0.025-0-0.563 0-1.071 0.232-1.434 0.606l-0 0c-0.374 0.364-0.607 0.872-0.607 1.435 0 0.009 0 0.018 0 0.026v-0.001c0 0.002 0 0.004 0 0.007 0 0.571 0.232 1.087 0.607 1.46l12.467 12.467-12.467 12.467c-0.375 0.373-0.607 0.889-0.607 1.46 0 0.002 0 0.005 0 0.007v-0c-0 0.007-0 0.016-0 0.025 0 0.563 0.232 1.071 0.606 1.434l0 0c0.364 0.374 0.872 0.607 1.435 0.607 0.009 0 0.018-0 0.026-0h-0.001c0.002 0 0.004 0 0.007 0 0.571 0 1.087-0.232 1.46-0.607l12.467-12.467 12.467 12.467c0.373 0.375 0.889 0.607 1.46 0.607 0.002 0 0.005 0 0.007 0h-0c1.14-0.004 2.063-0.927 2.067-2.066v-0c0-0.002 0-0.004 0-0.007 0-0.57-0.232-1.087-0.607-1.46l-0-0z"></path> </symbol> <symbol id="icon-send" viewBox="0 0 32 32"> <path d="M31.337 14.961l-29.714-13.714c-0.473-0.215-1.038-0.087-1.367 0.32-0.331 0.407-0.343 0.985-0.027 1.403l9.771 13.028-9.771 13.028c-0.315 0.418-0.304 0.999 0.025 1.403 0.222 0.277 0.553 0.425 0.889 0.425 0.162 0 0.325-0.034 0.478-0.105l29.714-13.714c0.407-0.187 0.665-0.592 0.665-1.038s-0.258-0.85-0.663-1.038z"></path> </symbol> <symbol id="icon-email" viewBox="0 0 32 32"> <path d="M18.674 19.606c-0.796 0.531-1.721 0.811-2.674 0.811s-1.878-0.281-2.674-0.811l-13.113-8.742c-0.073-0.049-0.144-0.099-0.213-0.151v14.325c0 1.642 1.333 2.946 2.946 2.946h26.108c1.642 0 2.946-1.333 2.946-2.946v-14.325c-0.070 0.052-0.141 0.103-0.213 0.151z"></path> <path d="M1.253 9.304l13.113 8.742c0.496 0.331 1.065 0.496 1.634 0.496s1.138-0.166 1.634-0.496l13.113-8.742c0.785-0.523 1.253-1.398 1.253-2.342 0-1.624-1.321-2.945-2.945-2.945h-26.11c-1.624 0-2.945 1.321-2.945 2.946 0 0.943 0.469 1.818 1.253 2.341z"></path> </symbol> <symbol id="icon-marker" viewBox="0 0 32 32"> <path d="M16 0c-6.39 0-11.589 5.199-11.589 11.589 0 7.93 10.371 19.573 10.813 20.065 0.415 0.462 1.139 0.461 1.553 0 0.442-0.492 10.813-12.134 10.813-20.065-0-6.39-5.199-11.589-11.589-11.589zM16 17.42c-3.215 0-5.831-2.616-5.831-5.831s2.616-5.831 5.831-5.831 5.831 2.616 5.831 5.831-2.616 5.831-5.831 5.831z"></path> </symbol> <symbol id="icon-move" viewBox="0 0 32 32"> <path d="M13.718 5.217c-0.226-0.109-0.495-0.079-0.691 0.078l-12.78 10.191c-0.155 0.124-0.246 0.312-0.246 0.511s0.091 0.387 0.246 0.511l12.78 10.195c0.118 0.094 0.262 0.143 0.408 0.143 0.096 0 0.193-0.021 0.283-0.065 0.226-0.109 0.37-0.338 0.37-0.589v-20.386c0-0.251-0.144-0.48-0.37-0.589z"></path> <path d="M31.754 15.486l-12.78-10.194c-0.196-0.157-0.465-0.187-0.691-0.078s-0.37 0.338-0.37 0.589v20.395c0 0.251 0.143 0.48 0.37 0.589 0.090 0.044 0.187 0.065 0.283 0.065 0.145 0 0.29-0.048 0.408-0.143l12.78-10.2c0.156-0.124 0.246-0.312 0.246-0.511 0-0.2-0.091-0.388-0.246-0.512z"></path> </symbol> <symbol id="icon-menu" viewBox="0 0 32 32"> <path d="M30 28h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path> <path d="M30 18h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path> <path d="M30 8h-28c-1.105 0-2-0.895-2-2s0.895-2 2-2h28c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path> </symbol> <symbol id="icon-instagram" viewBox="0 0 32 32"> <path d="M18.813 16c0 1.553-1.259 2.813-2.813 2.813s-2.813-1.259-2.813-2.813 1.259-2.813 2.813-2.813 2.813 1.259 2.813 2.813z"></path> <path d="M20.75 7.5h-9.5c-2.068 0-3.75 1.682-3.75 3.75v9.5c0 2.068 1.682 3.75 3.75 3.75h9.5c2.068 0 3.75-1.682 3.75-3.75v-9.5c0-2.068-1.682-3.75-3.75-3.75zM16 20.688c-2.585 0-4.688-2.103-4.688-4.688s2.103-4.688 4.688-4.688 4.688 2.103 4.688 4.688-2.103 4.688-4.688 4.688zM21.375 11.563c-0.518 0-0.938-0.42-0.938-0.938s0.42-0.938 0.938-0.938 0.938 0.42 0.938 0.938-0.42 0.938-0.938 0.938z"></path> <path d="M23.563 0h-15.125c-4.652 0-8.438 3.785-8.438 8.438v15.125c0 4.652 3.785 8.438 8.438 8.438h15.125c4.652 0 8.438-3.785 8.438-8.438v-15.125c0-4.652-3.785-8.438-8.438-8.438zM26.375 20.75c0 3.102-2.523 5.625-5.625 5.625h-9.5c-3.102 0-5.625-2.523-5.625-5.625v-9.5c0-3.102 2.523-5.625 5.625-5.625h9.5c3.102 0 5.625 2.523 5.625 5.625z"></path> </symbol> <symbol id="icon-facebook" viewBox="0 0 32 32"> <path d="M23.975 0h-15.975c-4.394 0-8 3.606-8 8.025v15.975c0 4.394 3.606 8 8 8h15.975c4.419 0 8.025-3.606 8.025-8.025v-15.949c0-4.419-3.606-8.025-8.025-8.025zM20.292 16h-3.022v9.905h-3.81v-9.905h-2.032v-4.064h1.778v-1.727c0-1.625 0.813-4.19 4.241-4.19h3.124v3.378h-2.21c-0.356 0-0.838 0.229-0.838 1.016v1.524h3.124l-0.356 4.064z"></path> </symbol> </defs> </svg>  <nav> <div class="nav__container"> <a href="/" class="logo" rel="noopener"> <img src="./images/logos/logo.svg" alt="Anew Style Logo" height="96"> </a> <ul class="menu"> <li> <a href="#about" rel="noopener"> <svg class="icon icon-bulp"> <use  xlink:href="#icon-bulp"></use> </svg> Rozsviť mě </a> </li> <li> <a href="#features" rel="noopener">  Vlastnosti </a> </li> <li> <a href="#products" rel="noopener">  Produkty </a> </li> <li> <a href="#showroom" rel="noopener">  Galerie </a> </li> <li> <a href="#mounting-and-price" rel="noopener">  Montáž a cena </a> </li> <li> <a href="#contact" rel="noopener">  Kontakt </a> </li> </ul> <button aria-label="Mobilní menu" class="burger" id="menuBtn"> <svg class="icon icon-menu"> <use xlink:href="#icon-menu"></use> </svg> </button> </div> </nav>  <header> <video class="header__video" loop aria-label="Anew style header video" muted preload="metadata" autoplay> <source src="./videos/main-video.mp4" type="video/mp4"> <source src="./videos/main-video.webm" type="video/webm"> <source src="./videos/main-video.ogv" type="video/ogg"> </video> <div class="header__content"> <div> <h1>Anew Style</h1> </div> <strong>Designové interiérové osvetlení</strong> <a class="button" href="#about" aria-label="Přejít na sekci o nás" rel="noopener">Chci vědet více</a> </div> </header> <main> <section id="about" class="dark inline-container"> <div class="showcase"> <div class="showcase__img"> <img src="./images/showcase/rockfoil_pink_dark_mirror.webp" alt="Kamenná deska Goldenbark" width="1200"> <img src="./images/showcase/rockfoil_pink_dark_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícený rám" width="1200"> <img src="./images/showcase/rockfoil_pink_light_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícená" class="active" width="1200"> </div> <div class="showcase__content"> <h2><span>Designové</span> interiérové osvetlení</h2> <p>Celoplošné svítící panely prosvětlující <strong>přírodní kamennou desku</strong>, se vyznačují malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy jedinečnou a nepomíjivou elegancí.</p> <div class="showcase__buttons"> <button class="button" type="button" aria-label="Zhasni obraz" title="Zhasni obraz"> <svg class="icon icon-turn-off"> <use  xlink:href="#icon-turn-off"></use> </svg> <small>Zhaslá deska</small> </button> <button class="button" type="button" aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu"> <svg class="icon icon-frame"> <use  xlink:href="#icon-frame"></use> </svg> <small>Svítící rám</small> </button> <button class="button active" type="button" aria-label="Rozsvíť obraz" title="Rozsvíť obraz"> <svg class="icon icon-bulp"> <use  xlink:href="#icon-bulp"></use> </svg> <small>Svítící deska</small> </button> </div> </div> </div> </section>  <section id="features"> <div class="container container--s"> <h2 class="title title--white text-center">Vlastnosti</h2> <div class="piktogram"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/Mounting.svg" alt="Mounting" height="75px" loading="lazy"> <small>Vert/Horiz<br>mounting</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/Mounting.svg" alt="Mounting" height="75px" loading="lazy"> <small>Vert/Horiz<br>mounting</small> </div> </div> <div class="piktogram__desc"> <p>
+Rámy kamenných desek jsou připraveny pro <strong>svislou</strong> i
+<strong>vodorovnou</strong> montáž, s využitím například jako svítící čelo postele.
+</p> </div> </div> <div class="piktogram piktogram--invert"> <div class="piktogram__desc"> <p>
+Pro zpříjemnění atmosféry, umožňuje rám svítící kamenné desky využití efektního, stmívatelného <strong>zadního podsvětlení</strong>.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/Blacklight.svg" alt="Blacklight" height="75px" loading="lazy"> <small>Blacklight<br>control</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/Blacklight.svg" alt="Blacklight" height="75px" loading="lazy"> <small>Blacklight<br>control</small> </div> </div> </div> <div class="piktogram"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/RF_control.svg" alt="RF_control" height="75px" loading="lazy"> <small>RF Wirless<br>Control</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/RF_control.svg" alt="RF_control" height="75px" loading="lazy"> <small>RF Wirless<br>Control</small> </div> </div> <div class="piktogram__desc"> <p>
+Ovládání zapínání a vypínání, stejně jako intenzitu prosvětlení kamene a zadního podsvětlení, můžete ovládat přiloženým <strong>RF dálkovým ovladačem</strong>.
+</p> </div> </div> <div class="piktogram piktogram--invert"> <div class="piktogram__desc"> <p>
+Veškeré funkce dálkového ovladače lze plně nahradit nebo kombinovat s Vašim <strong>chytrým telefonem</strong>.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/MobileControl.svg" alt="MobileControl" height="75px" loading="lazy"> <small>Smartphone<br>control</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/MobileControl.svg" alt="MobileControl" height="75px" loading="lazy"> <small>Smartphone<br>control</small> </div> </div> </div> <div class="piktogram piktogram--hidden"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/14mm.svg" alt="14mm" height="75px" loading="lazy"> <small>14 mm</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/14mm.svg" alt="14mm" height="75px" loading="lazy"> <small>14 mm</small> </div> </div> <div class="piktogram__desc"> <p>
+Elegantní verze SLIM, s tloušťkou pouhých <strong>14mm</strong>.
+</p> </div> </div> <div class="piktogram piktogram--invert piktogram--hidden"> <div class="piktogram__desc"> <p>
+Oblíbená verze o síle 25mm, obsahující <strong>zabudovaný</strong> jak <strong>AC/DC zdroj</strong>, tak i
+<strong>LED controler</strong>. Odpadá tedy nutnost dodatečného řešení umístění napájecích a řídících komponentů.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/25mm.svg" alt="25mm" height="75px" loading="lazy"> <small>25 mm</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/25mm.svg" alt="25mm" height="75px" loading="lazy"> <small>25 mm</small> </div> </div> </div> <div class="piktogram piktogram--hidden"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/QuickMounting.svg" alt="QuickMounting" height="75px" loading="lazy"> <small>Quick<br>mounting</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/QuickMounting.svg" alt="QuickMounting" height="75px" loading="lazy"> <small>Quick<br>mounting</small> </div> </div> <div class="piktogram__desc"> <p>
+Obě verze svítících kamenných desek jsou připraveny pro snadnou montáž, která Vám nezabere déle než <strong>10 minut</strong>.
+</p> </div> </div> <div class="piktogram piktogram--invert piktogram--hidden"> <div class="piktogram__desc"> <p>
+V případě zájmu, je možná zakázková výroba svítící kamenné desky o <strong>menším rozměru</strong> než standardně dodávaným.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/CustomSize.svg" alt="CustomSize" height="75px" loading="lazy"> <small>Custom<br>size</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/CustomSize.svg" alt="CustomSize" height="75px" loading="lazy"> <small>Custom<br>size</small> </div> </div> </div> <div class="piktogram piktogram--hidden"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/LED.svg" alt="LED" height="75px" loading="lazy"> </div> <div class="piktogram__circle"> <img src="./images/symbols/LED.svg" alt="LED" height="75px" loading="lazy"> </div> </div> <div class="piktogram__desc"> <p>
+Pro nasvícení jsou použity <strong>vysokosvítivé LED pásky</strong> s minimální spotřebou.
+</p> </div> </div> <div class="piktogram piktogram--invert piktogram--hidden"> <div class="piktogram__desc"> <p>
+Plynule <strong>stmívatelné osvětlení</strong>, zajistí vždy tu správnou atmosféru.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/Dimmable.svg" alt="Dimmable" height="75px" loading="lazy"> <small>Dimmable</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/Dimmable.svg" alt="Dimmable" height="75px" loading="lazy"> <small>Dimmable</small> </div> </div> </div> <div class="piktogram piktogram--hidden"> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/Waterproof.svg" alt="Waterproof" height="75px" loading="lazy"> <small>Water<br>resistant</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/Waterproof.svg" alt="Waterproof" height="75px" loading="lazy"> <small>Water<br>resistant</small> </div> </div> <div class="piktogram__desc"> <p>
+Na dotek drsný a reliéfní povrch kamenné desky, je impregnován profesionální <strong>nano impregnací proti vlhkosti</strong> a znečištění.
+</p> </div> </div> <div class="piktogram piktogram--invert piktogram--hidden"> <div class="piktogram__desc"> <p>
+Všechny věci mají svou životnost, která se dá opravou prodlužovat. Přestože se moderní LED technologie pyšní dobou životnosti dosahující <strong>50 000 hodin</strong>, jsou naše svítící kamenné desky kompletovány tak, aby je bylo možné vždy opravit a tak vystoupit z řady dnes vyráběných LED svítidel.
+</p> </div> <div class="piktogram__box"> <div class="piktogram__circle"> <img src="./images/symbols/Repair.svg" alt="Repair" height="75px" loading="lazy"> <small>Easy to repair</small> </div> <div class="piktogram__circle"> <img src="./images/symbols/Repair.svg" alt="Repair" height="75px" loading="lazy"> <small>Easy to repair</small> </div> </div> </div> <div class="piktogram"> <div class="piktogram__box"><button class="palette" type="button" aria-label="Show colors" data-text="Zobrait odstíny"> <div class="palette__color" data-text="140M"></div> <div class="palette__color" data-text="150M"></div> <div class="palette__color" data-text="260M"></div> <div class="palette__color" data-text="280M"></div> </button></div> <div class="piktogram__desc"> <p>
+Nabízíme širokou paletu barevných odstínů kamene, včetně elegantních variant <strong>RAL 140M</strong>, <strong>RAL 150M</strong>, <strong>RAL 260M</strong> a <strong>RAL 280M</strong>.
+</p> </div> </div> <div class="text-center"> <button class="button" id="piktogramsBtn" type="button">Show More</button> </div> </div> </section>  <section class="no-pt"> <div id="baSlider" class="ba-slider container"> <div class="image-container"> <div class="image-before"> <picture> <source type="image/webp" sizes="(min-width: 1367px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1440.webp"> <source type="image/webp" sizes="(max-width: 1366px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1366.webp"> <source type="image/webp" sizes="(max-width: 1024px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp"> <source type="image/webp" sizes="(max-width: 768px)" srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp"> <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp"> <img src="./images/backgrounds/Rockfoil_viz5_before_1440.webp" loading="lazy" width="1440" height="1019" class="slider-image" alt="Kámen ve dne"> </picture> <strong>Ve dne</strong> </div> <div class="image-after"> <picture> <source type="image/webp" sizes="(min-width: 1367px)" srcset="./images/backgrounds/Rockfoil_viz5_after_1440.webp"> <source type="image/webp" sizes="(max-width: 1366px)" srcset="./images/backgrounds/Rockfoil_viz5_after_1366.webp"> <source type="image/webp" sizes="(max-width: 1024px)" srcset="./images/backgrounds/Rockfoil_viz5_before_1024.webp"> <source type="image/webp" sizes="(max-width: 768px)" srcset="./images/backgrounds/Rockfoil_viz5_before_768.webp"> <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/backgrounds/Rockfoil_viz5_before_425.webp"> <img src="./images/backgrounds/Rockfoil_viz5_after_1440.webp" loading="lazy" width="1440" height="1019" class="slider-image" alt="Kámen v noci"> </picture> <strong>V noci</strong> </div> </div> <span>Vždy elegantní</span> <input type="range" min="0" max="100" value="70" step="0.1" aria-label="Percentage of before photo shown" class="slider"> <div class="slider-line" aria-hidden="true"></div> <div class="slider-button" aria-hidden="true"> <svg class="icon icon-move" fill="currentColor" width="30" height="30"> <use xlink:href="#icon-move"></use> </svg> </div> </div> </section>  <section id="products" class="dark"> <div class="container"> <h2 class="title title--center">Produkty</h2> <p class="desc text-center">Nový design osvětlení pro interiéry přináší inovativní celoplošné svítící panely, které osvětlují přírodní <strong>kamennou desku</strong>. Tyto panely jsou nejen lehké, snadno montovatelné a energeticky úsporné, ale také se vyznačují jedinečnou a nezaměnitelnou elegancí.</p> <div class="product-list"> <div class="product"> <div id="productCard1" role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu"> <strong> WILDLIFE </strong> <img src="./images/products/Rockfoil_WILDLIFE_light_frame.webp" alt="WILDLIFE" loading="lazy"> <div class="text-center"> <div class="button button--s">Zobrazit detail</div> </div> </div> <dialog id="myDialog1" class="dialog"> <button type="button" id="closeBtn" class="dialog__close" aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close"> <use  xlink:href="#icon-close"></use> </svg> </button> <div class="product-detail"> <strong>WILDLIFE</strong> <div class="product-detail__img"> <a href="#3dModel1" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"> <img src="./images/products/Rockfoil_WILDLIFE_light_frame.webp" alt="Kamenná deska WILDLIFE" width="1024"> </a> </div> <div class="product-detail__hidden"> <a href="./images/products/Rockfoil_WILDLIFE_dark.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a href="./images/products/Rockfoil_WILDLIFE_light.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a href="./images/products/Rockfoil_WILDLIFE_light_frame.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <model-viewer id="3dModel1" src="./3d/products/Rock_sheet_WILDLIFE.glb" ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true" touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div> <div class="product-detail__content"> <p class="desc desc--no-mg">Raritní svítící kamenná deska WILDLIFE je díky své živé kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený divoký vzor, Vám nikdy nezevšední.</p> <div class="tags"><ul>
+<li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+<li><strong>tloušťka</strong>: 25 mm</li>
+<li><strong>hmotnost</strong>: 34 kg</li>
+<li><strong>napájecí napěti</strong>: 230V</li>
+<li><strong>zabudovaný zdroj</strong>: 12V</li>
+<li><strong>max: spotreba</strong>: 63W</li>
+<li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+<li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+<li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby kamene)</li>
+<li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+<li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+</ul></div> <div class="product-detail__footer">  <strong class="product-detail__price"> 58 900&nbsp;Kč
+<small>Cena bez DPH (21%)</small> </strong> <a class="button button--s" href="mailto:info@anewstyle.cz">
+Mám zájem
+<svg class="icon icon-email"> <use  xlink:href="#icon-email"></use> </svg> </a>  </div> </div> </div>  </dialog> </div><div class="product"> <div id="productCard2" role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu"> <strong> Pink </strong> <img src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Pink" loading="lazy"> <div class="text-center"> <div class="button button--s">Zobrazit detail</div> </div> </div> <dialog id="myDialog2" class="dialog"> <button type="button" id="closeBtn" class="dialog__close" aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close"> <use  xlink:href="#icon-close"></use> </svg> </button> <div class="product-detail"> <strong>Pink</strong> <div class="product-detail__img"> <a href="#3dModel2" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"> <img src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Kamenná deska Pink" width="1024"> </a> </div> <div class="product-detail__hidden"> <a href="./images/products/Rockfoil_PINK_dark.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a href="./images/products/Rockfoil_PINK_light.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a href="./images/products/Rockfoil_PINK_light_frame.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <model-viewer id="3dModel2" src="./3d/products/Rock_sheet_PINK.glb" ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true" touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div> <div class="product-detail__content"> <p class="desc desc--no-mg">Jedinečná narůžovělá kresba kamene předurčuje svítící kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její svit výrazný i za denního světla.</p> <div class="tags"><ul>
+<li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+<li><strong>tloušťka</strong>: 25 mm</li>
+<li><strong>hmotnost</strong>: 34 kg</li>
+<li><strong>napájecí napěti</strong>: 230V</li>
+<li><strong>zabudovaný zdroj</strong>: 12V</li>
+<li><strong>max: spotreba</strong>: 63W</li>
+<li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+<li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+<li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby kamene)</li>
+<li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+<li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+</ul></div> <div class="product-detail__footer">  <strong class="product-detail__price"> 58 900&nbsp;Kč
+<small>Cena bez DPH (21%)</small> </strong> <a class="button button--s" href="mailto:info@anewstyle.cz">
+Mám zájem
+<svg class="icon icon-email"> <use  xlink:href="#icon-email"></use> </svg> </a>  </div> </div> </div>  </dialog> </div><div class="product"> <div id="productCard3" role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu"> <strong> Goldenbark </strong> <img src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" alt="Goldenbark" loading="lazy"> <div class="text-center"> <div class="button button--s">Zobrazit detail</div> </div> </div> <dialog id="myDialog3" class="dialog"> <button type="button" id="closeBtn" class="dialog__close" aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close"> <use  xlink:href="#icon-close"></use> </svg> </button> <div class="product-detail"> <strong>Goldenbark</strong> <div class="product-detail__img"> <a href="#3dModel3" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"> <img src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" alt="Kamenná deska Goldenbark" width="1024"> </a> </div> <div class="product-detail__hidden"> <a href="./images/products/Rockfoil_GOLDENBARK_dark.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a href="./images/products/Rockfoil_GOLDENBARK_light.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a href="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <model-viewer id="3dModel3" src="./3d/products/Rock_sheet_GOLDENBARK.glb" ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true" touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div> <div class="product-detail__content"> <p class="desc desc--no-mg">Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED prosvětlení, zvýrazňuje zlatavé žilkování kamene.</p> <div class="tags"><ul>
+<li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+<li><strong>tloušťka</strong>: 25 mm</li>
+<li><strong>hmotnost</strong>: 34 kg</li>
+<li><strong>napájecí napěti</strong>: 230V</li>
+<li><strong>zabudovaný zdroj</strong>: 12V</li>
+<li><strong>max: spotreba</strong>: 63W</li>
+<li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+<li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+<li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby kamene)</li>
+<li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+<li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+</ul></div> <div class="product-detail__footer">  <strong class="product-detail__price"> 58 900&nbsp;Kč
+<small>Cena bez DPH (21%)</small> </strong> <a class="button button--s" href="mailto:info@anewstyle.cz">
+Mám zájem
+<svg class="icon icon-email"> <use  xlink:href="#icon-email"></use> </svg> </a>  </div> </div> </div>  </dialog> </div><div class="product"> <div id="productCard4" role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu"> <strong> Darkgold </strong> <img src="./images/products/Rockfoil_DARKGOLD_light_frame.webp" alt="Darkgold" loading="lazy"> <div class="text-center"> <div class="button button--s">Zobrazit detail</div> </div> </div> <dialog id="myDialog4" class="dialog"> <button type="button" id="closeBtn" class="dialog__close" aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close"> <use  xlink:href="#icon-close"></use> </svg> </button> <div class="product-detail"> <strong>Darkgold</strong> <div class="product-detail__img"> <a href="#3dModel4" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"> <img src="./images/products/Rockfoil_DARKGOLD_light_frame.webp" alt="Kamenná deska Darkgold" width="1024"> </a> </div> <div class="product-detail__hidden"> <a href="./images/products/Rockfoil_DARKGOLD_dark.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a href="./images/products/Rockfoil_DARKGOLD_light.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a href="./images/products/Rockfoil_DARKGOLD_light_frame.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <model-viewer id="3dModel4" src="./3d/products/Rock_sheet_DARKGOLD.glb" ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true" touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div> <div class="product-detail__content"> <p class="desc desc--no-mg">Tmavá svítící kamenná deska DARKGOLD je výjimečná svou zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a zlatavými ostrůvky kresby kamene.</p> <div class="tags"><ul>
+<li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+<li><strong>tloušťka</strong>: 25 mm</li>
+<li><strong>hmotnost</strong>: 34 kg</li>
+<li><strong>napájecí napěti</strong>: 230V</li>
+<li><strong>zabudovaný zdroj</strong>: 12V</li>
+<li><strong>max: spotreba</strong>: 63W</li>
+<li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+<li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+<li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby kamene)</li>
+<li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+<li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+</ul></div> <div class="product-detail__footer">  <strong class="product-detail__price"> 58 900&nbsp;Kč
+<small>Cena bez DPH (21%)</small> </strong> <a class="button button--s" href="mailto:info@anewstyle.cz">
+Mám zájem
+<svg class="icon icon-email"> <use  xlink:href="#icon-email"></use> </svg> </a>  </div> </div> </div>  </dialog> </div> </div> </div> </section> <section id="showroom" class="light"> <div class="container"> <h2 class="title text-center title--mg-s">Galerie</h2> <p class="desc desc--center">
+Pro <strong>inspiraci</strong> si prohlédněte naši galerii fotografií. Jak by se tenhle krásný designový prvek mohl vyjímat u <strong>Vás doma</strong>, či v kanceláři?
+</p> </div> <div class="gallery"> <a href="./videos/Rock_sheet_animation_WILDLIFE.mp4" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <picture> <source type="image/webp" sizes="(min-width: 426px)" srcset="./images/gallery/2023/Rockfoil_viz1_768.webp"> <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/gallery/2023/Rockfoil_viz1_425.webp"> <img src="./images/gallery/2023/Rockfoil_viz1_768.webp" loading="lazy" width="768" height="446" alt="Kámen 1"> </picture> </div> <div class="gitem__content"> <svg class="icon icon-play"> <use  xlink:href="#icon-play"></use> </svg> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz2_425.webp" loading="lazy" width="425" height="247" alt="Kámen 2"> </div> <div class="gitem__content"> <strong>Kámen<br>PINK</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz3_425.webp" loading="lazy" width="425" height="247" alt="Kámen 3"> </div> <div class="gitem__content"> <strong>Kámen<br>DARKGOLD</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz4_425.webp" loading="lazy" width="425" height="247" alt="Kámen 4"> </div> <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz5_425.webp" loading="lazy" width="425" height="247" alt="Kámen 5"> </div> <div class="gitem__content"> <strong>Kámen<br>GOLDENBARK</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz6_425.webp" loading="lazy" width="425" height="247" alt="Kámen 6"> </div> <div class="gitem__content"> <strong>Kámen<br>DARKGOLD</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz7_425.webp" loading="lazy" width="425" height="247" alt="Kámen 7"> </div> <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz8_425.webp" loading="lazy" width="425" height="247" alt="Kámen 8"> </div> <div class="gitem__content"> <strong>Kámen<br>SUNLIGHT</strong> </div> </a> <a href="./images/gallery/2023/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener"> <div class="gitem__photo"> <img src="./images/gallery/2023/Rockfoil_viz9_425.webp" loading="lazy" width="425" height="247" alt="Kámen 9"> </div> <div class="gitem__content"> <strong>Kámen<br>GOLDENBARK</strong> </div> </a> </div> <div class="container"> <p class="desc desc--mg-s desc--center">
+Vizualizace interiérů jsou použity se souhlasem společnosti <a href="https://www.designatak.cz/" aria-label="Preˇjí na stránky společnosti ATAK Design" class="link" style="text-decoration: underline;" rel="external">ATAK Design</a>.
+<br><br> <picture> <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif"> <source type="image/webp" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.webp"> <img src="./images/logos/atak-logo.webp" loading="lazy" width="250" alt="Logo společnosti ATAK Design"> </picture> </p> </div>  </section> <section id="contact"> <div class="container"> <div class="contact__wrapper"> <img src="./images/logos/logo.svg" alt="Anew Style Logo" width="150" loading="lazy"> <div> <h2 class="title">Kontakujte nás</h2> <div class="contact__grid"> <div> <p class="desc desc--mg-s">
+Pro více informací nás neváhejte kontaktovat přes email <strong><a href="mailto:info@anewstyle.cz" class="link"> info@anewstyle.cz</a></strong>, nebo sociální sítě.
+</p> <div class="social"> <a href="https://www.facebook.com/profile.php?id=100088855596654" rel="external" aria-label="Přejít na facebook Anew Style" target="_blank"> <svg class="icon icon-facebook"> <use  xlink:href="#icon-facebook"></use> </svg> </a> <a href="https://www.instagram.com/anewstyle.cz/" rel="external" aria-label="Přejít na instagram Anew Style" target="_blank"> <svg class="icon icon-instagram"> <use  xlink:href="#icon-instagram"></use> </svg> </a> </div> </div> <div> <a class="button" href="mailto:info@anewstyle.cz">
+Napsat zprávu
+<svg class="icon icon-email"> <use  xlink:href="#icon-email"></use> </svg> </a> </div> <div> <h3 class="title title--s">Showroom</h3> <p class="desc desc--no-mg">
+Jak naše světla vypadají v reálu si můžete prohlédnout na adrese:
+</p><address> <a href="https://www.google.cz/maps/place/Hybe%C5%A1ova+308%2F61,+602+00+Brno-st%C5%99ed/@49.1887768,16.5968647,17z/data=!3m1!4b1!4m5!3m4!1s0x471294529732ae65:0x75c148bfafac76!8m2!3d49.1887733!4d16.5990534" rel="external" aria-label="Adresa showroomu" target="_blank" class="link">
+Hybešova 61<br>
+602 00, Brno
+</a> </address> <img src="./images/gallery/Showroom.webp" alt="Showroom" width="250px" loading="lazy">  </div> <div> <h3 class="title title--s">Fakturační adresa</h3> <address>
+OSM s.r.o.<br>
+Hudcova 86/54<br>
+621 00, Brno<br><br>
+IČ: 47903180<br>
+DIČ: CZ47903180<br> </address> <h4 class="title title--xs">Materiály ke stažení</h4> <a href="./downloads/MIBOXER__K1_K1-B_EN_V1.0.pdf" class="link link--light" target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor 1 s materiály"> <svg class="icon icon-pdf"> <use  xlink:href="#icon-pdf"></use> </svg>
+Návod - RF dálkové ovládání
+</a> <br><br> <a href="./downloads/MIBOXER_FUT035W-FUT036W_EN_V1.0.pdf" class="link link--light" target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor s materiály MiBOXER light"> <svg class="icon icon-pdf"> <use  xlink:href="#icon-pdf"></use> </svg>
+Návod - LED controller
+</a> </div> </div> </div> </div> </div> </section> </main>  <footer> <small>©2022 - 2023 anewstyle.cz | Všechna práva vyhrazena.</small> </footer> <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> </body></html>
