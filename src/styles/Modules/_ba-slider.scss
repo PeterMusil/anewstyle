@@ -7,6 +7,10 @@
   place-content: center;
   border-radius: $gap-l;
 
+  @include res-max-mobile-l {
+    max-height: 215px;
+  }
+
   img {
     display: block;
     inline-size: var(--ba-inline-size);

@@ -521,7 +521,6 @@ ul:not([class]) {
 
 .container {
   inline-size: var(--container-width, 1366px);
-  padding-inline: var(--container-pad-x, calc(2.4rem * 2));
   margin-inline: auto;
 }
 @media only screen and (max-width: 1440px) {
@@ -1085,6 +1084,11 @@ model-viewer {
   overflow: hidden;
   place-content: center;
   border-radius: 1.6rem;
+}
+@media only screen and (max-width: 560px) {
+  .ba-slider {
+    max-height: 215px;
+  }
 }
 .ba-slider img {
   display: block;

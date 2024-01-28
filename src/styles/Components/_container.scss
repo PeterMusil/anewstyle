@@ -2,7 +2,6 @@
 
 .container {
 	inline-size: var(--container-width, $width-laptop-m);
-	padding-inline: var(--container-pad-x, calc(#{$gap-xl} * 2));
 	margin-inline: auto;
 
 	@include res-max-laptop-l {
