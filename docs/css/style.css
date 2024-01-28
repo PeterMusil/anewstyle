@@ -7,8 +7,8 @@
   --color-trans: hsla(0, 0%, 0%, 0);
   --color-bg: hsl(0, 0%, 7%);
   --color-bg-nav: hsla(0, 0%, 7%, 0.8);
-  --color-primary: hsl(37.5, 45.28%, 58.43%);
-  --color-primary--hover: #d3b88a;
+  --color-primary: hsl(43, 26%, 41%);
+  --color-primary--hover: #a39062;
   --color-secondary: hsl(0, 0%, 7%);
   --color-font: hsl(0, 0%, 100%);
   --trans-time: 0.25s;
@@ -271,7 +271,7 @@ small {
 .title--s {
   --title-font-size: 3.2em;
   --title-mg-bottom: 3.2rem;
-  --title-color: hsl(37.5, 45.28%, 58.43%);
+  --title-color: hsl(43, 26%, 41%);
 }
 @media only screen and (max-width: 1440px) {
   .title--s {
@@ -297,7 +297,7 @@ small {
 .title--xs {
   --title-font-size: 1.6rem;
   --title-mg-bottom: 1.6rem;
-  --title-color: hsl(37.5, 45.28%, 58.43%);
+  --title-color: hsl(43, 26%, 41%);
   margin-block-start: 5svb;
 }
 
@@ -415,10 +415,10 @@ ul:not([class]) {
   }
 }
 .button:is(.active) {
-  --btn_shadow-color: hsl(37.5, 45.28%, 58.43%);
+  --btn_shadow-color: hsl(43, 26%, 41%);
   --btn-shadow_size: 3.2rem;
   --btn_font-weight: 900;
-  --btn-bg-color: hsl(37.5, 45.28%, 58.43%);
+  --btn-bg-color: hsl(43, 26%, 41%);
 }
 .button--s {
   --btn-padding-x: 1.6rem;
@@ -497,7 +497,7 @@ ul:not([class]) {
 @media (hover: hover) {
   .card:hover {
     --card_scale: 1.05;
-    --card_color: hsl(37.5, 45.28%, 58.43%);
+    --card_color: hsl(43, 26%, 41%);
     --card-text_trans-y: calc(0.4rem * -1);
     --card-btn_trans-y: 0.8rem;
     --card-btn_opacity: 1;
@@ -577,7 +577,7 @@ ul:not([class]) {
 @media (hover: hover) {
   .dialog__close:hover {
     --close_scale: 1.1;
-    --close_color: hsl(37.5, 45.28%, 58.43%);
+    --close_color: hsl(43, 26%, 41%);
   }
 }
 .dialog__close:focus-visible {
@@ -769,7 +769,7 @@ body {
   --angle: 90deg;
 }
 .palette__color:nth-of-type(3) {
-  --bg-color: hsl(37.5, 45.28%, 58.43%);
+  --bg-color: hsl(43, 26%, 41%);
   --angle: 180deg;
 }
 .palette__color:nth-of-type(4) {
@@ -882,7 +882,7 @@ body {
   }
 }
 .piktogram__desc > p > strong {
-  color: hsl(37.5, 45.28%, 58.43%);
+  color: hsl(43, 26%, 41%);
 }
 
 .product-detail {
@@ -944,7 +944,7 @@ body {
   text-wrap: pretty;
 }
 .product-detail__content > .desc > strong {
-  color: hsl(37.5, 45.28%, 58.43%);
+  color: hsl(43, 26%, 41%);
 }
 .product-detail__footer {
   display: flex;
@@ -987,13 +987,13 @@ model-viewer {
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: hsl(37.5, 45.28%, 58.43%);
+    background: hsl(43, 26%, 41%);
     border-radius: 0.4rem;
     cursor: move;
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #d3b88a;
+    background: #a39062;
   }
 }
 .social {
@@ -1052,7 +1052,7 @@ model-viewer {
 }
 .tags li:not(:last-child) {
   padding: 0.4rem 0.8rem;
-  background-color: hsl(37.5, 45.28%, 58.43%);
+  background-color: hsl(43, 26%, 41%);
   font-size: small;
   color: hsl(0, 0%, 0%);
   border-radius: 0.4rem;
@@ -1378,7 +1378,7 @@ section:has(> .gallery) {
 }
 @media (hover: hover) {
   .gitem__content > .icon:hover {
-    fill: hsl(37.5, 45.28%, 58.43%);
+    fill: hsl(43, 26%, 41%);
   }
 }
 
@@ -1627,7 +1627,7 @@ nav {
 }
 .menu li a:hover {
   text-decoration: underline;
-  color: hsl(37.5, 45.28%, 58.43%);
+  color: hsl(43, 26%, 41%);
 }
 
 @keyframes showMenu {
@@ -1783,7 +1783,7 @@ section:has(> .showcase) {
   }
 }
 .showcase__content > :is(.desc, p) > strong {
-  color: hsl(37.5, 45.28%, 58.43%);
+  color: hsl(43, 26%, 41%);
 }
 .showcase__buttons {
   display: grid;
