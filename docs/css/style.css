@@ -184,7 +184,7 @@ body footer {
 }
 
 .h-100 {
-  min-block-size: 100svb;
+  min-block-size: 100dvh;
 }
 
 h1,
