@@ -220,7 +220,7 @@ small {
   --title-justify-content: flex-start;
   --title-font-size: 7em;
   --title-color: hsl(0, 0%, 100%);
-  --title-mg-bottom: clamp(3.2rem, 8svb, 10rem);
+  --title-mg-bottom: clamp(3.2rem, 8vh, 10rem);
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -298,13 +298,13 @@ small {
   --title-font-size: 1.6rem;
   --title-mg-bottom: 1.6rem;
   --title-color: hsl(43, 26%, 41%);
-  margin-block-start: 5svb;
+  margin-block-start: 5vh;
 }
 
 .desc {
   --border-width: 0;
   --mg-b: 5rem;
-  --desc-font-size: clamp(1.6rem, 3svb, 2.4rem);
+  --desc-font-size: clamp(1.6rem, 3vh, 2.4rem);
   border-left: var(--border-width) solid hsl(0, 0%, 100%);
   padding-left: var(--desc-pad-left);
   margin-block-end: var(--mg-b);
@@ -374,7 +374,7 @@ ul:not([class]) {
   --btn-padding-x: 3.2rem;
   --btn-padding-y: 1.6rem;
   --btn-width: 20rem;
-  --btn-font-size: clamp(1.6rem, 2svb, 18px);
+  --btn-font-size: clamp(1.6rem, 2vh, 18px);
   --icon-size: 0.8rem;
   display: inline-flex;
   flex-flow: row nowrap;
@@ -424,7 +424,7 @@ ul:not([class]) {
   --btn-padding-x: 1.6rem;
   --btn-padding-y: 0.8rem;
   --btn-width: unset;
-  --btn-font-size: clamp(14px, 2svb, 1.6rem);
+  --btn-font-size: clamp(14px, 2vh, 1.6rem);
 }
 .button--xs {
   --btn-padding-x: 0.8rem;
@@ -469,7 +469,7 @@ ul:not([class]) {
   align-content: flex-start;
   justify-content: flex-start;
   gap: clamp(2.4rem, 5dvi, 5rem);
-  margin-block-start: 10svb;
+  margin-block-start: 10vh;
 }
 @media only screen and (max-width: 1024px) {
   .product-list {
@@ -510,7 +510,7 @@ ul:not([class]) {
 }
 .card > strong {
   color: var(--card_color, hsl(0, 0%, 100%));
-  font-size: clamp(1.6rem, 2.5svb, 2.4rem);
+  font-size: clamp(1.6rem, 2.5vh, 2.4rem);
   font-family: "segoe-ui-bold", sans-serif;
   text-align: center;
   letter-spacing: 0.1em;
@@ -551,7 +551,7 @@ ul:not([class]) {
   border: 0.4rem solid hsla(120, 2%, 17%, 0.7);
   container-type: inline-size;
   inline-size: min(768px, 100%);
-  max-block-size: calc(100svb - 3.2rem);
+  max-block-size: calc(100vh - 3.2rem);
   background-color: hsl(0, 0%, 0%);
   border-radius: 2.4rem;
   padding: 0;
@@ -692,7 +692,7 @@ ul:not([class]) {
   inherits: true;
 }
 body {
-  min-block-size: 100svb;
+  min-block-size: 100vh;
   display: grid;
   place-items: center;
   background-color: hsl(0, 0%, 10%);
@@ -719,7 +719,7 @@ body {
   opacity: var(--text-opacity, 1);
   content: attr(data-text);
   color: hsl(0, 0%, 0%);
-  font-size: clamp(1.6rem, 2svb, 2.4rem);
+  font-size: clamp(1.6rem, 2vh, 2.4rem);
   z-index: 1;
   max-inline-size: calc(100% - 3.2rem);
   scale: var(--text-scale, 1);
@@ -728,12 +728,12 @@ body {
   text-transform: uppercase;
   transition: opacity 0.25s linear, scale 0.25s linear;
 }
-.palette:is(:focus) {
+.palette--active {
   --radius: 25%;
   --text-opacity: 0;
 }
 @media (hover: hover) {
-  .palette:is(:focus) > div:hover {
+  .palette--active > div:hover {
     --radius: 65%;
     --text-opacity: 1;
   }
@@ -753,7 +753,7 @@ body {
   opacity: var(--text-opacity, 0);
   content: attr(data-text);
   color: hsl(0, 0%, 0%);
-  font-size: clamp(1.6rem, 3svb, 3.2rem);
+  font-size: clamp(1.6rem, 3vh, 3.2rem);
   z-index: 1;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -795,7 +795,7 @@ body {
   }
 }
 .piktogram:not(:last-of-type) {
-  margin-block-end: 5svb;
+  margin-block-end: 5vh;
 }
 @media only screen and (max-width: 560px) {
   .piktogram {
@@ -899,7 +899,7 @@ body {
 }
 .product-detail > strong {
   text-align: center;
-  font-size: 6svb;
+  font-size: 6vh;
   font-weight: 900;
   line-height: 1.25;
   letter-spacing: 0.1em;
@@ -912,8 +912,8 @@ body {
   aspect-ratio: 16/9;
   position: relative;
   display: var(--model-display, block);
-  margin-block-start: clamp(2.4rem, 4svb, 3.2rem);
-  margin-block-end: clamp(2.4rem, 3svb, 2.4rem);
+  margin-block-start: clamp(2.4rem, 4vh, 3.2rem);
+  margin-block-end: clamp(2.4rem, 3vh, 2.4rem);
 }
 @media only screen and (max-width: 1024px) {
   .product-detail__img {
@@ -960,7 +960,7 @@ body {
   align-content: normal;
   justify-content: flex-start;
   gap: 0.4rem;
-  font-size: clamp(2.4rem, 3.5svb, 5rem);
+  font-size: clamp(2.4rem, 3.5vh, 5rem);
   font-weight: 900;
   font-family: "segoe-ui-bold", sans-serif;
   line-height: 1;
@@ -1080,7 +1080,7 @@ model-viewer {
   --ba-position: 50%;
   position: relative;
   display: grid;
-  max-height: 80svb;
+  max-height: 80vh;
   overflow: hidden;
   place-content: center;
   border-radius: 1.6rem;
@@ -1100,12 +1100,18 @@ model-viewer {
   position: absolute;
   inset: auto auto 3.2rem 50%;
   font-family: "segoe-ui-bold", sans-serif;
-  font-size: clamp(1.6rem, 3svb, 2em);
+  font-size: clamp(1.6rem, 3vh, 2em);
   font-weight: 300;
   color: var(--color-white);
   translate: -50%;
   z-index: 3;
   pointer-events: none;
+}
+@media only screen and (max-width: 560px) {
+  .image-container + span {
+    bottom: 1.6rem;
+    font-size: clamp(0.4rem, 3vh, 1.6rem);
+  }
 }
 
 .slider-image {
@@ -1127,7 +1133,7 @@ model-viewer {
   inset: auto auto 1em calc(var(--ba-inline-size) / 2);
   opacity: 0.7;
   font-family: "segoe-ui-bold", sans-serif;
-  font-size: clamp(3.2rem, 7svb, 8em);
+  font-size: clamp(3.2rem, 7vh, 8em);
   font-weight: 900;
   letter-spacing: 0.1em;
   color: var(--color-white);
@@ -1138,8 +1144,15 @@ model-viewer {
 @media only screen and (max-width: 768px) {
   .image-before > strong,
   .image-after > strong {
-    font-size: clamp(3.2rem, 5svb, 5rem);
+    font-size: clamp(3.2rem, 5vh, 5rem);
     bottom: 1.25em;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .image-before > strong,
+  .image-after > strong {
+    font-size: clamp(2.4rem, 3vh, 3.2rem);
+    bottom: 1.5em;
   }
 }
 
@@ -1355,7 +1368,7 @@ section:has(> .gallery) {
   place-items: center;
   padding: 2.4rem;
   background-color: hsla(0, 0%, 0%, 0.3);
-  font-size: clamp(1.6rem, 8cqi, 5svb);
+  font-size: clamp(1.6rem, 8cqi, 5vh);
   transition: backdrop-filter 0.2s linear;
   backdrop-filter: var(--content_backgdrop-filter);
   color: hsl(0, 0%, 100%);
@@ -1375,7 +1388,7 @@ section:has(> .gallery) {
   transition: opacity 0.5s var(--trans-fnc);
 }
 .gitem__content > .icon {
-  --icon-size: clamp(3.2rem, 10svb, 8rem);
+  --icon-size: clamp(3.2rem, 10vh, 8rem);
   scale: var(--icon-scale, 1);
   transition: scale 0.5s ease-in-out, fill 0.25s ease-in-out;
   cursor: pointer;
@@ -1456,7 +1469,7 @@ header {
 }
 @media only screen and (max-width: 560px) {
   .header__content h1 {
-    font-size: clamp(2.4rem, 10svb, 4rem);
+    font-size: clamp(2.4rem, 10vh, 4rem);
   }
 }
 .header__content > strong {
@@ -1467,8 +1480,8 @@ header {
   letter-spacing: 0.2em;
   color: hsl(0, 0%, 100%);
   text-shadow: var(--color-black) 0 0 1.5rem;
-  translate: 0 -2.5svb;
-  translate: 0 var(--header-desc_translate-y, -1svb);
+  translate: 0 -2.5vh;
+  translate: 0 var(--header-desc_translate-y, -1vh);
   transition: opacity 1s var(--trans-fnc), translate 1s var(--trans-fnc);
 }
 @media only screen and (max-width: 1024px) {
@@ -1477,9 +1490,9 @@ header {
   }
 }
 .header__content > .button {
-  margin-block-start: 2.5svb;
+  margin-block-start: 2.5vh;
   opacity: var(--header-btn_opacity, 0);
-  translate: 0 var(--btn_trans-y, -1svb);
+  translate: 0 var(--btn_trans-y, -1vh);
   transition: opacity 0.5s var(--trans-fnc), translate 0.5s var(--trans-fnc), box-shadow var(--trans-time) var(--trans-fnc);
 }
 
@@ -1496,17 +1509,17 @@ header {
 @keyframes headerDescAnim {
   from {
     --header-desc_opacity: 0;
-    --header-desc_translate-y: -1svb;
+    --header-desc_translate-y: -1vh;
   }
   to {
     --header-desc_opacity: 1;
-    --header-desc_translate-y: -2.5svb;
+    --header-desc_translate-y: -2.5vh;
   }
 }
 @keyframes headerBtnAnim {
   from {
     --header-btn_opacity: 0;
-    --btn_trans-y: -1svb;
+    --btn_trans-y: -1vh;
   }
   to {
     --header-btn_opacity: 1;
@@ -1694,7 +1707,7 @@ section.full-height > .container {
 
 section:has(> .showcase) {
   --sec-pad-y: 0;
-  min-block-size: 100svb;
+  min-block-size: 100vh;
 }
 
 .showcase {
@@ -1750,8 +1763,8 @@ section:has(> .showcase) {
   }
 }
 .showcase__content > :is(h2) {
-  margin-block-end: 1.5svb;
-  font-size: clamp(3.2rem, 5svb, 6rem);
+  margin-block-end: 1.5vh;
+  font-size: clamp(3.2rem, 5vh, 6rem);
   font-weight: 900;
   line-height: 1.25;
   grid-column-start: 2;
@@ -1760,7 +1773,12 @@ section:has(> .showcase) {
 }
 @media only screen and (max-width: 1366px) {
   .showcase__content > :is(h2) {
-    font-size: clamp(2.4rem, 4svb, 4rem);
+    font-size: clamp(2.4rem, 4vh, 4rem);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .showcase__content > :is(h2) {
+    text-align: center;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -1776,7 +1794,7 @@ section:has(> .showcase) {
   text-transform: uppercase;
 }
 .showcase__content > :is(.desc, p) {
-  margin-block-end: 7svb;
+  margin-block-end: 7vh;
   font-size: max(1.6rem, min(3dvb, 2.4rem));
   line-height: 1.7;
   text-wrap: pretty;
@@ -1784,6 +1802,7 @@ section:has(> .showcase) {
 @media only screen and (max-width: 1024px) {
   .showcase__content > :is(.desc, p) {
     grid-column-start: 1;
+    text-align: center;
   }
 }
 .showcase__content > :is(.desc, p) > strong {
@@ -1801,8 +1820,8 @@ section:has(> .showcase) {
 @media only screen and (max-width: 1024px) {
   .showcase__buttons {
     grid-row-start: 1;
-    margin-block-end: 5svb;
-    margin-block-start: -0.25svb;
+    margin-block-end: 5vh;
+    margin-block-start: -0.25vh;
   }
 }
 .showcase__buttons > .button {

@@ -84,7 +84,7 @@ section:has(> .gallery) {
     place-items: center;
     padding: #{$gap-xl};
     background-color: hsla(0, 0%, 0%, 0.3);
-    font-size: clamp($gap-l, 8cqi, 5svb);
+    font-size: clamp($gap-l, 8cqi, 5vh);
     transition: backdrop-filter 0.2s linear;
     backdrop-filter: var(--content_backgdrop-filter);
     color: $color-white;
@@ -105,7 +105,7 @@ section:has(> .gallery) {
     }
 
     > .icon {
-      --icon-size: clamp(#{$gap-xxl}, 10svb, 8rem);
+      --icon-size: clamp(#{$gap-xxl}, 10vh, 8rem);
       scale: var(--icon-scale, 1);
       transition:
         scale 0.5s ease-in-out,

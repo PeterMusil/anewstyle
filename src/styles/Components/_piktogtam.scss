@@ -15,7 +15,7 @@
     }
 
     &:not(:last-of-type) {
-        margin-block-end: 5svb;
+        margin-block-end: 5vh;
     }
 
     @include res-max-mobile-l {

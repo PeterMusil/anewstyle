@@ -2,7 +2,7 @@
 
 .product-list {
   @include grid-columns(grid, repeat(4, minmax($gap-l, 1fr)), clamp($gap-xl, 5dvi, 5rem), stretch);
-  margin-block-start: 10svb;
+  margin-block-start: 10vh;
 
   @include res-max-laptop-s {
     grid-template-columns: repeat(2, minmax(1rem, 1fr));
@@ -38,7 +38,7 @@
 
   > strong {
     color: var(--card_color, $color-white);
-    font-size: clamp($gap-l, 2.5svb, $gap-xl);
+    font-size: clamp($gap-l, 2.5vh, $gap-xl);
     font-family: $font-title;
     text-align: center;
     letter-spacing: 0.1em;

@@ -10,7 +10,7 @@
 
     > strong {
         text-align: center;
-        font-size: 6svb;
+        font-size: 6vh;
         font-weight: 900;
         line-height: 1.25;
         letter-spacing: 0.1em;
@@ -24,8 +24,8 @@
         aspect-ratio: 16 / 9;
         position: relative;
         display: var(--model-display, block);
-        margin-block-start: clamp($gap-xl, 4svb, $gap-xxl);
-        margin-block-end: clamp($gap-xl, 3svb, $gap-xl);
+        margin-block-start: clamp($gap-xl, 4vh, $gap-xxl);
+        margin-block-end: clamp($gap-xl, 3vh, $gap-xl);
 
         @include res-max-laptop-s {
             --model-display: block;
@@ -62,7 +62,7 @@
 
     &__price {
         @include flex-set(flex, column, nowrap, $gap-s, flex-start, flex-start);
-        font-size: clamp($gap-xl, 3.5svb, 5rem);
+        font-size: clamp($gap-xl, 3.5vh, 5rem);
         font-weight: 900;
         font-family: $font-title;
         line-height: 1;

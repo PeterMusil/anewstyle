@@ -6,7 +6,7 @@
     --btn-padding-x: #{$gap-xxl};
     --btn-padding-y: #{$gap-l};
     --btn-width: 20rem;
-    --btn-font-size: clamp(#{$gap-l}, 2svb, 18px);
+    --btn-font-size: clamp(#{$gap-l}, 2vh, 18px);
     --icon-size: #{$gap-m};
     @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
     @include border("def", 1px, var(--color-trans));
@@ -51,7 +51,7 @@
         --btn-padding-x: #{$gap-l};
         --btn-padding-y: #{$gap-m};
         --btn-width: unset;
-        --btn-font-size: clamp(14px, 2svb, #{$gap-l});
+        --btn-font-size: clamp(14px, 2vh, #{$gap-l});
     }
 
     &--xs {

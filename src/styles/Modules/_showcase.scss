@@ -2,7 +2,7 @@
 
 section:has(> .showcase) {
   --sec-pad-y: 0;
-  min-block-size: 100svb;
+  min-block-size: 100vh;
 }
 .showcase {
   display: grid;
@@ -58,8 +58,8 @@ section:has(> .showcase) {
     }
 
     > :is(h2) {
-      margin-block-end: 1.5svb;
-      font-size: clamp($gap-xxl, 5svb, 6rem);
+      margin-block-end: 1.5vh;
+      font-size: clamp($gap-xxl, 5vh, 6rem);
       font-weight: 900;
       line-height: 1.25;
       grid-column-start: 2;
@@ -67,7 +67,11 @@ section:has(> .showcase) {
       text-wrap: pretty;
 
       @include res-max-laptop-m {
-        font-size: clamp($gap-xl, 4svb, 4rem);
+        font-size: clamp($gap-xl, 4vh, 4rem);
+      }
+
+      @include res-max-laptop-s {
+        text-align: center;
       }
 
       @include res-max-laptop-s {
@@ -83,12 +87,13 @@ section:has(> .showcase) {
     }
 
     > :is(.desc, p) {
-      margin-block-end: 7svb;
+      margin-block-end: 7vh;
       font-size: max(1.6rem, min(3dvb, 2.4rem));
       line-height: 1.7;
       text-wrap: pretty;
       @include res-max-laptop-s {
         grid-column-start: 1;
+        text-align: center;
       }
       > strong {
         color: $color-primary;
@@ -102,8 +107,8 @@ section:has(> .showcase) {
 
     @include res-max-laptop-s {
       grid-row-start: 1;
-      margin-block-end: 5svb;
-      margin-block-start: -0.25svb;
+      margin-block-end: 5vh;
+      margin-block-start: -0.25vh;
     }
     > .button {
       --icon-size: #{$gap-xxl};

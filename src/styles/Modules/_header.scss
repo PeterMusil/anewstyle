@@ -68,7 +68,7 @@ header {
       }
 
       @include res-max-mobile-l {
-        font-size: clamp($gap-xl, 10svb, 4rem);
+        font-size: clamp($gap-xl, 10vh, 4rem);
       }
     }
 
@@ -80,8 +80,8 @@ header {
       letter-spacing: 0.2em;
       color: $color-white;
       text-shadow: var(--color-black) 0 0 1.5rem;
-      translate: 0 -2.5svb;
-      translate: 0 var(--header-desc_translate-y, -1svb);
+      translate: 0 -2.5vh;
+      translate: 0 var(--header-desc_translate-y, -1vh);
       transition:
         opacity 1s var(--trans-fnc),
         translate 1s var(--trans-fnc);
@@ -92,9 +92,9 @@ header {
     }
 
     > .button {
-      margin-block-start: 2.5svb;
+      margin-block-start: 2.5vh;
       opacity: var(--header-btn_opacity, 0);
-      translate: 0 var(--btn_trans-y, -1svb);
+      translate: 0 var(--btn_trans-y, -1vh);
       transition:
         opacity 0.5s var(--trans-fnc),
         translate 0.5s var(--trans-fnc),
@@ -117,18 +117,18 @@ header {
 @keyframes headerDescAnim {
   from {
     --header-desc_opacity: 0;
-    --header-desc_translate-y: -1svb;
+    --header-desc_translate-y: -1vh;
   }
   to {
     --header-desc_opacity: 1;
-    --header-desc_translate-y: -2.5svb;
+    --header-desc_translate-y: -2.5vh;
   }
 }
 
 @keyframes headerBtnAnim {
   from {
     --header-btn_opacity: 0;
-    --btn_trans-y: -1svb;
+    --btn_trans-y: -1vh;
   }
   to {
     --header-btn_opacity: 1;

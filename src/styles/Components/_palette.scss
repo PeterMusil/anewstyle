@@ -13,7 +13,7 @@
 }
 
 body {
-    min-block-size: 100svb;
+    min-block-size: 100vh;
     display: grid;
     place-items: center;
     background-color: hsl(0 0% 10%);
@@ -39,7 +39,7 @@ body {
         opacity: var(--text-opacity, 1);
         content: attr(data-text);
         color: $color-black;
-        font-size: clamp($gap-l, 2svb, $gap-xl);
+        font-size: clamp($gap-l, 2vh, $gap-xl);
         z-index: 1;
         max-inline-size: calc(100% - $gap-xxl);
         scale: var(--text-scale, 1);
@@ -51,7 +51,7 @@ body {
             scale $trans-time linear;
     }
 
-    &:is(:focus) {
+    &--active {
         --radius: 25%;
         --text-opacity: 0;
 
@@ -78,7 +78,7 @@ body {
             opacity: var(--text-opacity, 0);
             content: attr(data-text);
             color: $color-black;
-            font-size: clamp($gap-l, 3svb, $gap-xxl);
+            font-size: clamp($gap-l, 3vh, $gap-xxl);
             z-index: 1;
             letter-spacing: 0.05em;
             font-weight: 700;

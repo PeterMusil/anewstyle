@@ -1,6 +1,22 @@
-<button class="palette" type="button" aria-label="Show colors" data-text="Zobrait odstíny">
+<button class="palette" type="button" aria-label="Show colors" data-text="Zobrazit odstíny">
   <div class="palette__color" data-text="140M"></div>
   <div class="palette__color" data-text="150M"></div>
   <div class="palette__color" data-text="260M"></div>
   <div class="palette__color" data-text="280M"></div>
 </button>
+
+<script>
+  const palette = document.querySelector(".palette") as HTMLButtonElement;
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (!palette.contains(event.target as Node)) {
+      palette.classList.remove("palette--active");
+    }
+  };
+
+  palette.addEventListener("click", () => {
+    palette.classList.toggle("palette--active");
+  });
+
+  document.addEventListener("click", handleClickOutside);
+</script>
