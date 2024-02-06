@@ -544,7 +544,7 @@ ul:not([class]) {
   }
 }
 .container--s {
-  --container-width: min(1024px, calc(100% - calc(2.4rem * 2)));
+  --container-width: min(768px, calc(100% - calc(2.4rem * 2)));
 }
 
 .dialog {
@@ -702,8 +702,8 @@ body {
   display: grid;
   place-items: center;
   position: relative;
-  inline-size: 175px;
-  block-size: 175px;
+  inline-size: 110px;
+  block-size: 110px;
   background-color: unset;
   border-radius: 100vmax;
   border-color: transparent;
@@ -719,12 +719,13 @@ body {
   opacity: var(--text-opacity, 1);
   content: attr(data-text);
   color: hsl(0, 0%, 0%);
-  font-size: clamp(1.6rem, 2vh, 2.4rem);
+  font-size: 12px;
   z-index: 1;
-  max-inline-size: calc(100% - 3.2rem);
+  max-inline-size: calc(100% - 1.6rem);
   scale: var(--text-scale, 1);
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.05em;
+  text-align: center;
   text-transform: uppercase;
   transition: opacity 0.25s linear, scale 0.25s linear;
 }
@@ -753,7 +754,7 @@ body {
   opacity: var(--text-opacity, 0);
   content: attr(data-text);
   color: hsl(0, 0%, 0%);
-  font-size: clamp(1.6rem, 3vh, 3.2rem);
+  font-size: 1.6rem;
   z-index: 1;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -826,7 +827,7 @@ body {
 .piktogram__box {
   display: grid;
   place-items: center;
-  inline-size: 175px;
+  inline-size: 110px;
   aspect-ratio: 1/1.33;
   margin-inline: auto;
   overflow: hidden;
@@ -849,15 +850,17 @@ body {
 .piktogram__circle > img {
   display: block;
   inline-size: auto;
-  block-size: 75px;
+  block-size: 40px;
 }
 .piktogram__circle > img:is([alt=LED]) {
-  block-size: 100px;
+  block-size: 65px;
 }
 .piktogram__circle > small {
-  font-size: 14px;
+  font-size: 10.5px;
   font-weight: 800;
   text-transform: uppercase;
+  white-space: pre-wrap;
+  display: inline-block;
 }
 .piktogram__circle + div {
   position: relative;
@@ -871,8 +874,6 @@ body {
 }
 .piktogram__desc > p {
   margin: 0;
-  font-size: clamp(1.6rem, 3dvb, 2.4rem);
-  line-height: 1.7;
   color: hsl(0, 0%, 100%);
 }
 @media only screen and (max-width: 768px) {
@@ -919,6 +920,25 @@ body {
   .product-detail__img {
     --model-display: block;
   }
+}
+.product-detail__img > a {
+  color: var(--img-color, hsl(0, 0%, 100%));
+}
+@media (hover: hover) {
+  .product-detail__img > a:hover {
+    --img-icon-scale: 1.1;
+  }
+}
+.product-detail__img > a > .icon {
+  --icon-size: clamp(2.4rem, 10dvi, 4rem);
+  scale: var(--img-icon-scale, 1);
+  position: absolute;
+  transition: scale 0.25s ease-in-out;
+  inset: auto clamp(1.6rem, 5dvi, 3.2rem) clamp(1.6rem, 5dvi, 3.2rem) auto;
+  padding: 0.8rem;
+  background-color: hsla(0, 0%, 7%, 0.5);
+  border-radius: 0.25em;
+  pointer-events: none;
 }
 .product-detail__img > a > img {
   position: absolute;
@@ -1403,7 +1423,7 @@ header {
   position: relative;
   display: grid;
   place-items: center;
-  block-size: 100dvb;
+  min-block-size: 100vh;
   background-color: var(--color-black);
   overflow: hidden;
 }
