@@ -63,14 +63,14 @@
 }
 
 .space {
-    padding-block-end: var(--space-pad-bottom, 10dvb);
+    padding-block-end: var(--space-pad-bottom, 10vh);
 
     @include res-max-laptop-m {
         --space-pad-bottom: 5rem;
     }
 
     @include res-max-tablet {
-        --space-pad-bottom: 8dvb;
+        --space-pad-bottom: 8vh;
     }
 }
 
