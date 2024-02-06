@@ -4,7 +4,7 @@ header {
   position: relative;
   display: grid;
   place-items: center;
-  block-size: 100dvb;
+  min-block-size: 100vh;
   background-color: var(--color-black);
   overflow: hidden;
 }

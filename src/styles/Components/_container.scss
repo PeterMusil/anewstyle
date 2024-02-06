@@ -21,6 +21,6 @@
 	}
 
 	&--s {
-		--container-width: min(#{$width-laptop-s}, calc(100% - calc(#{$gap-xl} * 2)));
+		--container-width: min(#{$width-tablet}, calc(100% - calc(#{$gap-xl} * 2)));
 	}
 }

@@ -31,11 +31,30 @@
             --model-display: block;
         }
 
-        > a > img {
-            position: absolute;
-            inset: 0;
-            inline-size: 100%;
-            block-size: 100%;
+        > a {
+            color: var(--img-color, $color-white);
+
+            @include hover {
+                --img-icon-scale: 1.1;
+            }
+
+            > .icon {
+                --icon-size: clamp(#{$gap-xl}, 10dvi, 4rem);
+                scale: var(--img-icon-scale, 1);
+                position: absolute;
+                transition: scale $trans-time ease-in-out;
+                inset: auto clamp($gap-l, 5dvi, $gap-xxl) clamp($gap-l, 5dvi, $gap-xxl) auto;
+                padding: $gap-m;
+                background-color: $color-bg-trans;
+                border-radius: 0.25em;
+                pointer-events: none;
+            }
+            > img {
+                position: absolute;
+                inset: 0;
+                inline-size: 100%;
+                block-size: 100%;
+            }
         }
     }
 

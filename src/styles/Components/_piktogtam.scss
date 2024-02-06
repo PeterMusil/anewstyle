@@ -47,7 +47,7 @@
     &__box {
         display: grid;
         place-items: center;
-        inline-size: 175px;
+        inline-size: 110px;
         aspect-ratio: 1 / 1.33;
         margin-inline: auto;
         overflow: hidden;
@@ -72,15 +72,17 @@
         > img {
             display: block;
             inline-size: auto;
-            block-size: 75px;
+            block-size: 40px;
             &:is([alt="LED"]) {
-                block-size: 100px;
+                block-size: 65px;
             }
         }
         > small {
-            font-size: 14px;
+            font-size: 10.5px;
             font-weight: 800;
             text-transform: uppercase;
+            white-space: pre-wrap;
+            display: inline-block;
         }
 
         + div {
@@ -103,8 +105,6 @@
 
     &__desc > p {
         margin: 0;
-        font-size: clamp($gap-l, 3dvb, $gap-xl);
-        line-height: 1.7;
         color: $color-font;
 
         @include res-max-tablet {
