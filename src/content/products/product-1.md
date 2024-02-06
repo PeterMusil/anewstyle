@@ -8,7 +8,7 @@ imgLight: Rockfoil_WILDLIFE_light.webp
 imgFrame: Rockfoil_WILDLIFE_light_frame.webp
 model3d: Rock_sheet_WILDLIFE.glb
 ---
-- **rozměr**: 2450 x 1220 cm
+- **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 
 - **hmotnost**: 34 kg
 - **napájecí napěti**: 230V 
