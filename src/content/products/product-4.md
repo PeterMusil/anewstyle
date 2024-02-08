@@ -6,7 +6,7 @@ price: 58900
 imgDark: Rockfoil_DARKGOLD_dark.webp
 imgLight: Rockfoil_DARKGOLD_light.webp
 imgFrame: Rockfoil_DARKGOLD_light_frame.webp
-model3d: test.glb
+model3d: Rockfoil_DARKGOLD_3D.glb
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

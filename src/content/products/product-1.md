@@ -6,7 +6,7 @@ price: 58900
 imgDark: Rockfoil_WILDLIFE_dark.webp
 imgLight: Rockfoil_WILDLIFE_light.webp
 imgFrame: Rockfoil_WILDLIFE_light_frame.webp
-model3d: Rock_sheet_WILDLIFE.glb
+model3d: Rockfoil_WILDLIFE_3D.glb
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

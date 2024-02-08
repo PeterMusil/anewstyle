@@ -6,7 +6,7 @@ price: 58900
 imgDark: Rockfoil_GOLDENBARK_dark.webp
 imgLight: Rockfoil_GOLDENBARK_light.webp
 imgFrame: Rockfoil_GOLDENBARK_light_frame.webp
-model3d: Rock_sheet_GOLDENBARK.glb
+model3d: Rockfoil_GOLDENBARK_3D.glb
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

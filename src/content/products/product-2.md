@@ -6,7 +6,7 @@ price: 58900
 imgDark: Rockfoil_PINK_dark.webp
 imgLight: Rockfoil_PINK_light.webp
 imgFrame: Rockfoil_PINK_light_frame.webp
-model3d: Rock_sheet_PINK.glb
+model3d: Rockfoil_PINK_3D.glb
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 
