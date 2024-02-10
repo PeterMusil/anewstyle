@@ -8,6 +8,8 @@ imgLight: Rockfoil_PINK_light.webp
 imgFrame: Rockfoil_PINK_light_frame.webp
 modelHorizontal3d: Rockfoil_PINK_3D.glb
 modelVertical3d: Rockfoil_PINK_3D_vertical.glb
+daeFile: Rock_sheet_PINK.dae
+reservation: false
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

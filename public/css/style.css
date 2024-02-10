@@ -343,6 +343,9 @@ small {
   font-family: inherit;
   font-size: inherit;
 }
+.desc strong {
+  color: hsl(43, 26%, 41%);
+}
 
 address {
   font-family: system-ui;
@@ -409,7 +412,7 @@ ul:not([class]) {
   }
 }
 @media (hover: hover) {
-  .button:hover {
+  .button:hover:not([aria-disabled=true], disabled) {
     --btn_shadow-color: hsla(0, 0%, 100%, 0.4);
     --btn_trans-y: calc(0.4rem * -1);
   }
@@ -437,6 +440,11 @@ ul:not([class]) {
   .button--xs:hover {
     --btn_trans-y: -2px;
   }
+}
+.button:is([aria-disabled=true], disabled) {
+  --btn-color: hsl(0, 0%, 50%);
+  --btn-bg-color: hsl(0, 0%, 83%);
+  pointer-events: none;
 }
 .button > small {
   font-weight: inherit;
@@ -507,6 +515,9 @@ ul:not([class]) {
   opacity: var(--card-btn_opacity, 0);
   transition: opacity 0.25s ease-in-out, translate 0.25s ease-in-out;
   translate: 0 var(--card-btn_trans-y, -0.4rem);
+}
+.card .icon-ar {
+  inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
 }
 .card > strong {
   color: var(--card_color, hsl(0, 0%, 100%));
@@ -589,6 +600,16 @@ ul:not([class]) {
   inline-size: var(--icon-size);
   aspect-ratio: 1;
   fill: currentColor;
+}
+.icon:is(.icon-ar) {
+  --icon-size: clamp(2.4rem, 10dvi, 4.5rem);
+  scale: var(--ar-scale, 1);
+  position: absolute;
+  transition: scale 0.25s ease-in-out;
+  padding: 0.8rem;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .link {
@@ -926,19 +947,11 @@ body {
 }
 @media (hover: hover) {
   .product-detail__img > a:hover {
-    --img-icon-scale: 1.1;
+    --ar-scale: 1.1;
   }
 }
-.product-detail__img > a > .icon {
-  --icon-size: clamp(2.4rem, 10dvi, 4.5rem);
-  scale: var(--img-icon-scale, 1);
-  position: absolute;
-  transition: scale 0.25s ease-in-out;
+.product-detail__img > a .icon-ar {
   inset: auto clamp(1.6rem, 5dvi, 3.2rem) clamp(1.6rem, 5dvi, 3.2rem) auto;
-  padding: 0.8rem;
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 50%;
-  pointer-events: none;
 }
 .product-detail__img > a > img {
   position: absolute;
@@ -1073,7 +1086,7 @@ model-viewer {
   padding: 0.4rem 0.8rem;
   background-color: hsl(43, 26%, 41%);
   font-size: small;
-  color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
   border-radius: 0.4rem;
   text-transform: initial;
 }

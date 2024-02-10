@@ -29,15 +29,31 @@
         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <meta name="generator" content="Astro v4.1.2">
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </head>
 
 <body> <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
-            <symbol id="icon-search" viewBox="0 0 32 32">
+            <symbol id="icon-download" viewBox="0 0 32 32">
                 <path
-                    d="M30.978 29.147l-7.616-7.921c1.958-2.328 3.031-5.257 3.031-8.306 0-7.124-5.796-12.92-12.92-12.92s-12.92 5.796-12.92 12.92 5.796 12.92 12.92 12.92c2.674 0 5.223-0.807 7.402-2.338l7.674 7.981c0.321 0.333 0.752 0.517 1.214 0.517 0.438 0 0.853-0.167 1.168-0.47 0.67-0.644 0.691-1.713 0.047-2.383zM13.473 3.37c5.266 0 9.55 4.284 9.55 9.55s-4.284 9.55-9.55 9.55-9.55-4.284-9.55-9.55 4.284-9.55 9.55-9.55z">
+                    d="M28 25.333h-24c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333v0h24c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333v0z">
+                </path>
+                <path
+                    d="M16 2.667c-0.736 0-1.333 0.597-1.333 1.333v0 14.12l-4.387-4.4c-0.242-0.242-0.577-0.392-0.947-0.392-0.739 0-1.339 0.599-1.339 1.339 0 0.37 0.15 0.704 0.392 0.947l6.667 6.667c0.242 0.244 0.577 0.394 0.947 0.394s0.705-0.151 0.947-0.394l6.667-6.667c0.242-0.242 0.392-0.577 0.392-0.947 0-0.739-0.599-1.339-1.339-1.339-0.37 0-0.704 0.15-0.947 0.392v0l-4.387 4.4v-14.12c0-0.736-0.597-1.333-1.333-1.333v0z">
+                </path>
+            </symbol>
+            <symbol id="icon-ar" viewBox="0 0 32 32">
+                <path
+                    d="M24 12.571v8c0 0.343-0.229 0.686-0.457 0.914l-6.857 4.571c-0.343 0.229-0.914 0.229-1.257 0l-6.857-4.571c-0.343-0.229-0.571-0.571-0.571-0.914v-8c0-0.343 0.229-0.686 0.457-0.914l6.857-4.571c0.343-0.229 0.914-0.229 1.257 0l6.857 4.571c0.343 0.229 0.571 0.571 0.571 0.914zM21.714 20v-5.257l-4.571 3.086v5.257zM16 15.771l4.8-3.2-4.8-3.2-4.8 3.2zM14.857 22.971v-5.257l-4.571-3.086v5.257zM4.571 10.286c-0.686 0-1.143-0.457-1.143-1.143v-4.571c0-0.686 0.457-1.143 1.143-1.143h4.571c0.686 0 1.143 0.457 1.143 1.143s-0.457 1.143-1.143 1.143h-3.429v3.429c0 0.686-0.457 1.143-1.143 1.143zM9.143 28.571h-4.571c-0.686 0-1.143-0.457-1.143-1.143v-4.571c0-0.686 0.457-1.143 1.143-1.143s1.143 0.457 1.143 1.143v3.429h3.429c0.686 0 1.143 0.457 1.143 1.143s-0.457 1.143-1.143 1.143zM27.429 28.571h-4.571c-0.686 0-1.143-0.457-1.143-1.143s0.457-1.143 1.143-1.143h3.429v-3.429c0-0.686 0.457-1.143 1.143-1.143s1.143 0.457 1.143 1.143v4.571c0 0.686-0.457 1.143-1.143 1.143zM27.429 10.286c-0.686 0-1.143-0.457-1.143-1.143v-3.429h-3.429c-0.686 0-1.143-0.457-1.143-1.143s0.457-1.143 1.143-1.143h4.571c0.686 0 1.143 0.457 1.143 1.143v4.571c0 0.686-0.457 1.143-1.143 1.143z">
+                </path>
+            </symbol>
+            <symbol id="icon-play" viewBox="0 0 32 32">
+                <path
+                    d="M31.992 15.478c-0.268-8.406-7.063-15.201-15.469-15.469-4.574-0.145-8.853 1.596-12.016 4.861-3.040 3.139-4.638 7.277-4.498 11.653 0.268 8.406 7.063 15.201 15.469 15.469 0.175 0.006 0.348 0.008 0.522 0.008 4.37 0 8.452-1.729 11.493-4.869 3.040-3.139 4.638-7.277 4.498-11.652zM25.073 24.786c-2.401 2.479-5.623 3.844-9.073 3.844-0.138 0-0.276-0.002-0.415-0.006-6.634-0.212-11.997-5.575-12.209-12.209-0.11-3.455 1.151-6.723 3.551-9.201 2.401-2.479 5.623-3.844 9.073-3.844 0.138 0 0.276 0.002 0.415 0.006 6.634 0.212 11.997 5.575 12.209 12.209 0.11 3.455-1.151 6.723-3.551 9.201z">
+                </path>
+                <path
+                    d="M21.248 15.070l-7.095-5.087c-0.757-0.543-1.81-0.002-1.81 0.93v10.175c0 0.931 1.054 1.472 1.81 0.93l7.095-5.088c0.637-0.456 0.637-1.403 0-1.859z">
                 </path>
             </symbol>
             <symbol id="icon-pdf" viewBox="0 0 32 32">
@@ -451,10 +467,12 @@
         <section id="products" class="dark">
             <div class="container">
                 <h2 class="title title--center">Produkty</h2>
-                <p class="desc text-center">Nový design osvětlení pro interiéry přináší inovativní celoplošné svítící
-                    panely, které osvětlují přírodní <strong>kamennou desku</strong>. Tyto panely jsou nejen lehké,
-                    snadno montovatelné a energeticky úsporné, ale také se vyznačují jedinečnou a nezaměnitelnou
-                    elegancí.</p>
+                <p class="desc desc--mg-s text-center">Designově jedinečné, velkoplošné svítící kamenné desky.</p>
+                <p class="desc desc--mg-s text-center">Každý nabízený vzor kamene je pečlivě vybírán z množství,
+                    <strong>přírodou vytvořených dekorů</strong> tak, aby byl ve vašem interiéru inspirativní, jak bez
+                    podsvícení, tak s efektním celoplošným podsvícením.</p>
+                <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí
+                        technologie AR</strong> ve Vašem interiéru.</p>
                 <div class="product-list">
                     <div class="product">
                         <div id="productCard1" role="button" class="card" title="Zobrazit detail produktu"
@@ -463,30 +481,37 @@
                                 loading="lazy">
                             <div class="text-center">
                                 <div class="button button--s">Zobrazit detail</div>
-                            </div>
+                            </div> <svg class="icon icon-ar">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
                         </div>
                         <dialog id="myDialog1" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
                                 aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
                                     <use xlink:href="#icon-close"></use>
                                 </svg> </button>
                             <div class="product-detail"> <strong>WILDLIFE</strong>
-                                <div class="product-detail__img" title="Show more"> <a href="#3dModel1"
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel1"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"> <img
                                             src="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
                                             alt="Kamenná deska WILDLIFE" width="1024" id="closeImg"> <svg
-                                            class="icon icon-search">
-                                            <use xlink:href="#icon-search"></use>
+                                            class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
                                         </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel1"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
                                         href="./images/products/Rockfoil_WILDLIFE_light.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
                                         href="./images/products/Rockfoil_WILDLIFE_dark.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
                                         href="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a>
-                                    <model-viewer id="3dModel1" src="./3d/products/Rockfoil_WILDLIFE_3D.glb" ar="true"
+                                    <model-viewer id="horizontal3dModel1" src="./3d/products/Rockfoil_WILDLIFE_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel1"
+                                        src="./3d/products/Rockfoil_WILDLIFE_3D_vertical.glb" ar="true"
                                         ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
                                 <div class="product-detail__content">
                                     <p class="desc desc--no-mg">Raritní svítící kamenná deska WILDLIFE je díky své živé
                                         kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený
@@ -510,11 +535,8 @@
                                     <div class="product-detail__footer"> <strong class="product-detail__price">
                                             58 900&nbsp;Kč
                                             <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
+                                            href="mailto:info@anewstyle.cz" aria-disabled="true"> Rezervováno </a>
+                                    </div>
                                 </div>
                             </div>
                         </dialog>
@@ -525,30 +547,37 @@
                                 src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Pink" loading="lazy">
                             <div class="text-center">
                                 <div class="button button--s">Zobrazit detail</div>
-                            </div>
+                            </div> <svg class="icon icon-ar">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
                         </div>
                         <dialog id="myDialog2" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
                                 aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
                                     <use xlink:href="#icon-close"></use>
                                 </svg> </button>
                             <div class="product-detail"> <strong>Pink</strong>
-                                <div class="product-detail__img" title="Show more"> <a href="#3dModel2"
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel2"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"> <img
                                             src="./images/products/Rockfoil_PINK_light_frame.webp"
                                             alt="Kamenná deska Pink" width="1024" id="closeImg"> <svg
-                                            class="icon icon-search">
-                                            <use xlink:href="#icon-search"></use>
+                                            class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
                                         </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel2"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
                                         href="./images/products/Rockfoil_PINK_light.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
                                         href="./images/products/Rockfoil_PINK_dark.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
                                         href="./images/products/Rockfoil_PINK_light_frame.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a>
-                                    <model-viewer id="3dModel2" src="./3d/products/Rockfoil_PINK_3D.glb" ar="true"
+                                    <model-viewer id="horizontal3dModel2" src="./3d/products/Rockfoil_PINK_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel2"
+                                        src="./3d/products/Rockfoil_PINK_3D_vertical.glb" ar="true"
                                         ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
                                 <div class="product-detail__content">
                                     <p class="desc desc--no-mg">Jedinečná narůžovělá kresba kamene předurčuje svítící
                                         kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její
@@ -568,7 +597,12 @@
                                             <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
                                             <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
                                         </ul>
-                                    </div>
+                                    </div> <a href="./downloads/dae/Rock_sheet_PINK.dae" target="_blank"
+                                        class="link link--light"> <svg class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
                                     <div class="product-detail__footer"> <strong class="product-detail__price">
                                             58 900&nbsp;Kč
                                             <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
@@ -588,30 +622,37 @@
                                 loading="lazy">
                             <div class="text-center">
                                 <div class="button button--s">Zobrazit detail</div>
-                            </div>
+                            </div> <svg class="icon icon-ar">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
                         </div>
                         <dialog id="myDialog3" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
                                 aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
                                     <use xlink:href="#icon-close"></use>
                                 </svg> </button>
                             <div class="product-detail"> <strong>Goldenbark</strong>
-                                <div class="product-detail__img" title="Show more"> <a href="#3dModel3"
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel3"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"> <img
                                             src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
                                             alt="Kamenná deska Goldenbark" width="1024" id="closeImg"> <svg
-                                            class="icon icon-search">
-                                            <use xlink:href="#icon-search"></use>
+                                            class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
                                         </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel3"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
                                         href="./images/products/Rockfoil_GOLDENBARK_light.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
                                         href="./images/products/Rockfoil_GOLDENBARK_dark.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
                                         href="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a>
-                                    <model-viewer id="3dModel3" src="./3d/products/Rockfoil_GOLDENBARK_3D.glb" ar="true"
+                                    <model-viewer id="horizontal3dModel3" src="./3d/products/Rockfoil_GOLDENBARK_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel3"
+                                        src="./3d/products/Rockfoil_GOLDENBARK_3D_vertical.glb" ar="true"
                                         ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
                                 <div class="product-detail__content">
                                     <p class="desc desc--no-mg">Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí
                                         univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED
@@ -631,7 +672,12 @@
                                             <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
                                             <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
                                         </ul>
-                                    </div>
+                                    </div> <a href="./downloads/dae/Rock_sheet_GOLDENBARK.dae" target="_blank"
+                                        class="link link--light"> <svg class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
                                     <div class="product-detail__footer"> <strong class="product-detail__price">
                                             58 900&nbsp;Kč
                                             <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
@@ -651,30 +697,37 @@
                                 loading="lazy">
                             <div class="text-center">
                                 <div class="button button--s">Zobrazit detail</div>
-                            </div>
+                            </div> <svg class="icon icon-ar">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
                         </div>
                         <dialog id="myDialog4" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
                                 aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
                                     <use xlink:href="#icon-close"></use>
                                 </svg> </button>
                             <div class="product-detail"> <strong>Darkgold</strong>
-                                <div class="product-detail__img" title="Show more"> <a href="#3dModel4"
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel4"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"> <img
                                             src="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
                                             alt="Kamenná deska Darkgold" width="1024" id="closeImg"> <svg
-                                            class="icon icon-search">
-                                            <use xlink:href="#icon-search"></use>
+                                            class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
                                         </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel4"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
                                         href="./images/products/Rockfoil_DARKGOLD_light.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
                                         href="./images/products/Rockfoil_DARKGOLD_dark.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
                                         href="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
                                         aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a>
-                                    <model-viewer id="3dModel4" src="./3d/products/Rockfoil_DARKGOLD_3D.glb" ar="true"
+                                    <model-viewer id="horizontal3dModel4" src="./3d/products/Rockfoil_DARKGOLD_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel4"
+                                        src="./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb" ar="true"
                                         ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer> </div>
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
                                 <div class="product-detail__content">
                                     <p class="desc desc--no-mg">Tmavá svítící kamenná deska DARKGOLD je výjimečná svou
                                         zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně
@@ -695,7 +748,12 @@
                                             <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
                                             <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
                                         </ul>
-                                    </div>
+                                    </div> <a href="./downloads/dae/Rock_sheet_DARKGOLD.dae" target="_blank"
+                                        class="link link--light"> <svg class="icon icon-ar">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
                                     <div class="product-detail__footer"> <strong class="product-detail__price">
                                             58 900&nbsp;Kč
                                             <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"

@@ -36,6 +36,10 @@
     translate: 0 var(--card-btn_trans-y, calc($gap-s * -1));
   }
 
+  .icon-ar {
+    inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
+  }
+
   > strong {
     color: var(--card_color, $color-white);
     font-size: clamp($gap-l, 2.5vh, $gap-xl);

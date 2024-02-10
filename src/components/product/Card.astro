@@ -1,11 +1,14 @@
 ---
+import Icon from "../icons/Icon.astro";
+
 interface Props {
   id: number;
   title: string;
   imgFame: string;
+  has3D: boolean;
 }
 
-const { id, title, imgFame } = Astro.props;
+const { id, title, imgFame, has3D } = Astro.props;
 ---
 
 <div id={`productCard${id}`} role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu">
@@ -16,4 +19,5 @@ const { id, title, imgFame } = Astro.props;
   <div class="text-center">
     <div class="button button--s">Zobrazit detail</div>
   </div>
+  {has3D && <Icon name="ar" />}
 </div>

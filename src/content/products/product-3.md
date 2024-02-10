@@ -8,6 +8,8 @@ imgLight: Rockfoil_GOLDENBARK_light.webp
 imgFrame: Rockfoil_GOLDENBARK_light_frame.webp
 modelHorizontal3d: Rockfoil_GOLDENBARK_3D.glb
 modelVertical3d: Rockfoil_GOLDENBARK_3D_vertical.glb
+daeFile: Rock_sheet_GOLDENBARK.dae
+reservation: false
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

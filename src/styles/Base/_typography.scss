@@ -150,6 +150,10 @@ small {
         font-family: inherit;
         font-size: inherit;
     }
+
+    strong {
+        color: $color-primary;
+    }
 }
 
 address {

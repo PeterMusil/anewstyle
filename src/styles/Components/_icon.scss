@@ -1,9 +1,20 @@
 @import "../Base/global";
 
-.icon{  
+.icon {
     --icon-size: #{$gap-xl};
-   display: block;
-   inline-size: var(--icon-size);
-   aspect-ratio: 1;  
-   fill: currentColor;
+    display: block;
+    inline-size: var(--icon-size);
+    aspect-ratio: 1;
+    fill: currentColor;
+
+    &:is(.icon-ar) {
+        --icon-size: clamp(#{$gap-xl}, 10dvi, 4.5rem);
+        scale: var(--ar-scale, 1);
+        position: absolute;
+        transition: scale $trans-time ease-in-out;
+        padding: $gap-m;
+        background-color: $color-white;
+        border-radius: 50%;
+        pointer-events: none;
+    }
 }

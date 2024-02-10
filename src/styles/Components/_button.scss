@@ -37,8 +37,10 @@
     }
 
     @include hover {
-        --btn_shadow-color: #{$color-white--trans};
-        --btn_trans-y: calc(#{$gap-s} * -1);
+        &:not([aria-disabled="true"], disabled) {
+            --btn_shadow-color: #{$color-white--trans};
+            --btn_trans-y: calc(#{$gap-s} * -1);
+        }
     }
     &:is(.active) {
         --btn_shadow-color: #{$color-primary};
@@ -64,6 +66,12 @@
         @include hover {
             --btn_trans-y: -2px;
         }
+    }
+
+    &:is([aria-disabled="true"], disabled) {
+        --btn-color: #{$color-disabled};
+        --btn-bg-color: #{$color-bg-disabled};
+        pointer-events: none;
     }
 
     > small {
