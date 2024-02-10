@@ -2,14 +2,14 @@
 id: 3
 title: Goldenbark
 desc: Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED prosvětlení, zvýrazňuje zlatavé žilkování kamene.
-price: 58900
+price: 74900
 imgDark: Rockfoil_GOLDENBARK_dark.webp
 imgLight: Rockfoil_GOLDENBARK_light.webp
 imgFrame: Rockfoil_GOLDENBARK_light_frame.webp
 modelHorizontal3d: Rockfoil_GOLDENBARK_3D.glb
 modelVertical3d: Rockfoil_GOLDENBARK_3D_vertical.glb
 daeFile: Rock_sheet_GOLDENBARK.dae
-reservation: false
+reservation: true
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 

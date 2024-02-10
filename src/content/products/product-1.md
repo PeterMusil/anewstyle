@@ -8,8 +8,8 @@ imgLight: Rockfoil_WILDLIFE_light.webp
 imgFrame: Rockfoil_WILDLIFE_light_frame.webp
 modelHorizontal3d: Rockfoil_WILDLIFE_3D.glb
 modelVertical3d: Rockfoil_WILDLIFE_3D_vertical.glb
-daeFile:
-reservation: true
+daeFile: Rock_sheet_WILDLIFE.dae
+reservation: false
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 
