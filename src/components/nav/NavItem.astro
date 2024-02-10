@@ -5,14 +5,15 @@ interface Props {
   href: string;
   text: string;
   icon?: string;
+  iconClass?: string;
 }
 
-const { href, text, icon } = Astro.props;
+const { href, text, icon, iconClass } = Astro.props;
 ---
 
 <li>
   <a href={href} rel="noopener">
-    {icon && <Icon name={icon} />}
+    {icon && <Icon name={icon} iconClass={iconClass} />}
     {text}
   </a>
 </li>

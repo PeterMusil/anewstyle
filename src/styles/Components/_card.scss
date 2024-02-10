@@ -40,6 +40,12 @@
     inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
   }
 
+  img {
+    @include res-max-laptop-l {
+      min-inline-size: 100%;
+    }
+  }
+
   > strong {
     color: var(--card_color, $color-white);
     font-size: clamp($gap-l, 2.5vh, $gap-xl);

@@ -401,6 +401,7 @@ ul:not([class]) {
   translate: 0 var(--btn_trans-y, 0);
   transition: box-shadow var(--trans-time) var(--trans-fnc), translate var(--trans-time) var(--trans-fnc);
   cursor: pointer;
+  white-space: nowrap;
   box-shadow: 0 0 var(--btn-shadow_size, 0.8rem) 0 var(--btn_shadow-color, var(--color-trans));
 }
 @media only screen and (max-width: 1024px) {
@@ -428,6 +429,14 @@ ul:not([class]) {
   --btn-padding-y: 0.8rem;
   --btn-width: unset;
   --btn-font-size: clamp(14px, 2vh, 1.6rem);
+}
+@media only screen and (max-width: 560px) {
+  .button--s {
+    --btn-font-size: 14px;
+  }
+  .button--s .icon {
+    --icon-size: 14px;
+  }
 }
 .button--xs {
   --btn-padding-x: 0.8rem;
@@ -519,6 +528,11 @@ ul:not([class]) {
 .card .icon-ar {
   inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
 }
+@media only screen and (max-width: 1440px) {
+  .card img {
+    min-inline-size: 100%;
+  }
+}
 .card > strong {
   color: var(--card_color, hsl(0, 0%, 100%));
   font-size: clamp(1.6rem, 2.5vh, 2.4rem);
@@ -572,8 +586,8 @@ ul:not([class]) {
   background-color: hsla(0, 0%, 0%, 0.25);
 }
 .dialog__close {
-  position: absolute;
-  inset: 0 0 auto auto;
+  position: sticky;
+  inset: 0 auto auto 100%;
   translate: -1.6rem 1.6rem;
   z-index: 1;
   background-color: unset;
@@ -598,10 +612,12 @@ ul:not([class]) {
   --icon-size: 2.4rem;
   display: block;
   inline-size: var(--icon-size);
+  min-inline-size: var(--icon-size);
+  block-size: var(--icon-size);
   aspect-ratio: 1;
   fill: currentColor;
 }
-.icon:is(.icon-ar) {
+.icon:is(.icon-ar):not(.icon-nav) {
   --icon-size: clamp(2.4rem, 10dvi, 4.5rem);
   scale: var(--ar-scale, 1);
   position: absolute;
@@ -626,8 +642,14 @@ ul:not([class]) {
   font-size: var(--link-font-size, large);
   color: var(--link-color, inherit);
   text-decoration: var(--link-text-decor);
-  text-transform: underline;
+  text-transform: var(--link-text-trans);
   transition: color var(--trans-time) var(--trans-fnc);
+}
+@media (hover: hover) {
+  .link:hover {
+    --link-text-decor: underline;
+    --icon-trans-x: 0.4rem;
+  }
 }
 @media only screen and (max-width: 768px) {
   .link {
@@ -637,6 +659,9 @@ ul:not([class]) {
 }
 .link--uppercase {
   --link-text-trans: uppercase;
+}
+.link--underline {
+  --link-text-decor: underline;
 }
 .link--picture {
   position: relative;
@@ -652,12 +677,6 @@ ul:not([class]) {
 }
 .link--light {
   color: hsl(0, 0%, 100%);
-}
-@media (hover: hover) {
-  .link:hover {
-    --link-text-decor: underline;
-    --icon-trans-x: 0.4rem;
-  }
 }
 .link > span {
   font-size: 1em;

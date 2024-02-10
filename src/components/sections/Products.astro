@@ -6,7 +6,7 @@ const { id } = Astro.props;
 const products = await Astro.glob("../../content/products/*.md");
 ---
 
-<section id={id} class="dark">
+<section id={id}>
   <div class="container">
     <h2 class="title title--center">Produkty</h2>
     <p class="desc desc--mg-s text-center">Designově jedinečné, velkoplošné svítící kamenné desky.</p>

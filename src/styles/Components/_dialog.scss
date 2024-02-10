@@ -15,8 +15,8 @@
     }
 
     &__close {
-        position: absolute;
-        inset: 0 0 auto auto;
+        position: sticky;
+        inset: 0 auto auto 100%;
         translate: calc($gap-l * -1) $gap-l;
         z-index: 1;
         background-color: unset;

@@ -42,8 +42,8 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
       <div class="tags" set:html={content} />
       {
         daeFile && (
-          <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light">
-            <Icon name="ar" />
+          <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
+            <Icon name="download" />
             Stáhnout ve 3D
           </a>
         )

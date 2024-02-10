@@ -1,11 +1,12 @@
 ---
 interface Props {
   name: string;
+  iconClass?: string;
 }
 
-const { name } = Astro.props;
+const { name, iconClass } = Astro.props;
 ---
 
-<svg class={`icon icon-${name}`}>
+<svg class={`icon icon-${name} ${iconClass}`}>
   <use xlink:href={`#icon-${name}`}></use>
 </svg>

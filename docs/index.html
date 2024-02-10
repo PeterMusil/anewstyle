@@ -29,7 +29,7 @@
         href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <meta name="generator" content="Astro v4.1.2">
-    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="/scripts/main.js"></script>
 </head>
 
 <body> <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
@@ -173,11 +173,13 @@
         <div class="nav__container"> <a href="/" class="logo" rel="noopener"> <img src="./images/logos/logo-new.svg"
                     alt="Anew Style Logo" height="96"> </a>
             <ul class="menu">
-                <li> <a href="#about" rel="noopener"> <svg class="icon icon-bulp">
+                <li> <a href="#about" rel="noopener"> <svg class="icon icon-bulp undefined">
                             <use xlink:href="#icon-bulp"></use>
                         </svg> Rozsviť mě </a> </li>
+                <li> <a href="#products" rel="noopener"> <svg class="icon icon-ar icon-nav">
+                            <use xlink:href="#icon-ar"></use>
+                        </svg> Produkty </a> </li>
                 <li> <a href="#features" rel="noopener"> Vlastnosti </a> </li>
-                <li> <a href="#products" rel="noopener"> Produkty </a> </li>
                 <li> <a href="#showroom" rel="noopener"> Galerie </a> </li>
                 <li> <a href="#contact" rel="noopener"> Kontakt </a> </li>
             </ul> <button aria-label="Mobilní menu" class="burger" id="menuBtn"> <svg class="icon icon-menu">
@@ -212,19 +214,333 @@
                         malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy
                         jedinečnou a nepomíjivou elegancí.</p>
                     <div class="showcase__buttons"> <button class="button" type="button" aria-label="Zhasni obraz"
-                            title="Zhasni obraz"> <svg class="icon icon-turn-off">
+                            title="Zhasni obraz"> <svg class="icon icon-turn-off undefined">
                                 <use xlink:href="#icon-turn-off"></use>
                             </svg> <small>Zhaslá deska</small> </button> <button class="button" type="button"
-                            aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu"> <svg class="icon icon-frame">
+                            aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu"> <svg
+                                class="icon icon-frame undefined">
                                 <use xlink:href="#icon-frame"></use>
                             </svg> <small>Svítící rám</small> </button> <button class="button active" type="button"
-                            aria-label="Rozsvíť obraz" title="Rozsvíť obraz"> <svg class="icon icon-bulp">
+                            aria-label="Rozsvíť obraz" title="Rozsvíť obraz"> <svg class="icon icon-bulp undefined">
                                 <use xlink:href="#icon-bulp"></use>
                             </svg> <small>Svítící deska</small> </button> </div>
                 </div>
             </div>
         </section>
-        <section id="features">
+        <section id="products">
+            <div class="container">
+                <h2 class="title title--center">Produkty</h2>
+                <p class="desc desc--mg-s text-center">Designově jedinečné, velkoplošné svítící kamenné desky.</p>
+                <p class="desc desc--mg-s text-center">Každý nabízený vzor kamene je pečlivě vybírán z množství,
+                    <strong>přírodou vytvořených dekorů</strong> tak, aby byl ve vašem interiéru inspirativní, jak bez
+                    podsvícení, tak s efektním celoplošným podsvícením.</p>
+                <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí
+                        technologie AR</strong> ve Vašem interiéru.</p>
+                <div class="product-list">
+                    <div class="product">
+                        <div id="productCard1" role="button" class="card" title="Zobrazit detail produktu"
+                            aria-label="Zobrazit detail produktu"> <strong> WILDLIFE </strong> <img
+                                src="./images/products/Rockfoil_WILDLIFE_light_frame.webp" alt="WILDLIFE" loading="lazy"
+                                width="304" height="165">
+                            <div class="text-center">
+                                <div class="button button--s">Zobrazit detail</div>
+                            </div> <svg class="icon icon-ar undefined">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
+                        </div>
+                        <dialog id="myDialog1" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
+                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg
+                                    class="icon icon-close undefined">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg> </button>
+                            <div class="product-detail"> <strong>WILDLIFE</strong>
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel1"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"> <img
+                                            src="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
+                                            alt="Kamenná deska WILDLIFE" width="1024" id="closeImg"> <svg
+                                            class="icon icon-ar undefined">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg> </a> </div>
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel1"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
+                                        href="./images/products/Rockfoil_WILDLIFE_light.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
+                                        href="./images/products/Rockfoil_WILDLIFE_dark.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
+                                        href="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a>
+                                    <model-viewer id="horizontal3dModel1" src="./3d/products/Rockfoil_WILDLIFE_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel1"
+                                        src="./3d/products/Rockfoil_WILDLIFE_3D_vertical.glb" ar="true"
+                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
+                                <div class="product-detail__content">
+                                    <p class="desc desc--no-mg">Raritní svítící kamenná deska WILDLIFE je díky své živé
+                                        kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený
+                                        divoký vzor, Vám nikdy nezevšední.</p>
+                                    <div class="tags">
+                                        <ul>
+                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+                                            <li><strong>tloušťka</strong>: 25 mm</li>
+                                            <li><strong>hmotnost</strong>: 34 kg</li>
+                                            <li><strong>napájecí napěti</strong>: 230V</li>
+                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
+                                            <li><strong>max: spotreba</strong>: 63W</li>
+                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
+                                                kamene)</li>
+                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-detail__footer"> <strong class="product-detail__price">
+                                            58 900&nbsp;Kč
+                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
+                                            href="mailto:info@anewstyle.cz" aria-disabled="true"> Rezervováno </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                    <div class="product">
+                        <div id="productCard2" role="button" class="card" title="Zobrazit detail produktu"
+                            aria-label="Zobrazit detail produktu"> <strong> Pink </strong> <img
+                                src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Pink" loading="lazy"
+                                width="304" height="165">
+                            <div class="text-center">
+                                <div class="button button--s">Zobrazit detail</div>
+                            </div> <svg class="icon icon-ar undefined">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
+                        </div>
+                        <dialog id="myDialog2" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
+                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg
+                                    class="icon icon-close undefined">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg> </button>
+                            <div class="product-detail"> <strong>Pink</strong>
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel2"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"> <img
+                                            src="./images/products/Rockfoil_PINK_light_frame.webp"
+                                            alt="Kamenná deska Pink" width="1024" id="closeImg"> <svg
+                                            class="icon icon-ar undefined">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg> </a> </div>
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel2"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
+                                        href="./images/products/Rockfoil_PINK_light.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
+                                        href="./images/products/Rockfoil_PINK_dark.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
+                                        href="./images/products/Rockfoil_PINK_light_frame.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a>
+                                    <model-viewer id="horizontal3dModel2" src="./3d/products/Rockfoil_PINK_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel2"
+                                        src="./3d/products/Rockfoil_PINK_3D_vertical.glb" ar="true"
+                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
+                                <div class="product-detail__content">
+                                    <p class="desc desc--no-mg">Jedinečná narůžovělá kresba kamene předurčuje svítící
+                                        kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její
+                                        svit výrazný i za denního světla.</p>
+                                    <div class="tags">
+                                        <ul>
+                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+                                            <li><strong>tloušťka</strong>: 25 mm</li>
+                                            <li><strong>hmotnost</strong>: 34 kg</li>
+                                            <li><strong>napájecí napěti</strong>: 230V</li>
+                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
+                                            <li><strong>max: spotreba</strong>: 63W</li>
+                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
+                                                kamene)</li>
+                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+                                        </ul>
+                                    </div> <a href="./downloads/dae/Rock_sheet_PINK.dae" target="_blank"
+                                        class="link link--light link--uppercase"> <svg
+                                            class="icon icon-download undefined">
+                                            <use xlink:href="#icon-download"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
+                                    <div class="product-detail__footer"> <strong class="product-detail__price">
+                                            58 900&nbsp;Kč
+                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
+                                            href="mailto:info@anewstyle.cz">
+                                            Mám zájem
+                                            <svg class="icon icon-email undefined">
+                                                <use xlink:href="#icon-email"></use>
+                                            </svg> </a> </div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                    <div class="product">
+                        <div id="productCard3" role="button" class="card" title="Zobrazit detail produktu"
+                            aria-label="Zobrazit detail produktu"> <strong> Goldenbark </strong> <img
+                                src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" alt="Goldenbark"
+                                loading="lazy" width="304" height="165">
+                            <div class="text-center">
+                                <div class="button button--s">Zobrazit detail</div>
+                            </div> <svg class="icon icon-ar undefined">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
+                        </div>
+                        <dialog id="myDialog3" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
+                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg
+                                    class="icon icon-close undefined">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg> </button>
+                            <div class="product-detail"> <strong>Goldenbark</strong>
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel3"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"> <img
+                                            src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
+                                            alt="Kamenná deska Goldenbark" width="1024" id="closeImg"> <svg
+                                            class="icon icon-ar undefined">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg> </a> </div>
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel3"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
+                                        href="./images/products/Rockfoil_GOLDENBARK_light.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
+                                        href="./images/products/Rockfoil_GOLDENBARK_dark.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
+                                        href="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a>
+                                    <model-viewer id="horizontal3dModel3" src="./3d/products/Rockfoil_GOLDENBARK_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel3"
+                                        src="./3d/products/Rockfoil_GOLDENBARK_3D_vertical.glb" ar="true"
+                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
+                                <div class="product-detail__content">
+                                    <p class="desc desc--no-mg">Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí
+                                        univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED
+                                        prosvětlení, zvýrazňuje zlatavé žilkování kamene.</p>
+                                    <div class="tags">
+                                        <ul>
+                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+                                            <li><strong>tloušťka</strong>: 25 mm</li>
+                                            <li><strong>hmotnost</strong>: 34 kg</li>
+                                            <li><strong>napájecí napěti</strong>: 230V</li>
+                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
+                                            <li><strong>max: spotreba</strong>: 63W</li>
+                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
+                                                kamene)</li>
+                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+                                        </ul>
+                                    </div> <a href="./downloads/dae/Rock_sheet_GOLDENBARK.dae" target="_blank"
+                                        class="link link--light link--uppercase"> <svg
+                                            class="icon icon-download undefined">
+                                            <use xlink:href="#icon-download"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
+                                    <div class="product-detail__footer"> <strong class="product-detail__price">
+                                            58 900&nbsp;Kč
+                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
+                                            href="mailto:info@anewstyle.cz">
+                                            Mám zájem
+                                            <svg class="icon icon-email undefined">
+                                                <use xlink:href="#icon-email"></use>
+                                            </svg> </a> </div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                    <div class="product">
+                        <div id="productCard4" role="button" class="card" title="Zobrazit detail produktu"
+                            aria-label="Zobrazit detail produktu"> <strong> Darkgold </strong> <img
+                                src="./images/products/Rockfoil_DARKGOLD_light_frame.webp" alt="Darkgold" loading="lazy"
+                                width="304" height="165">
+                            <div class="text-center">
+                                <div class="button button--s">Zobrazit detail</div>
+                            </div> <svg class="icon icon-ar undefined">
+                                <use xlink:href="#icon-ar"></use>
+                            </svg>
+                        </div>
+                        <dialog id="myDialog4" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
+                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg
+                                    class="icon icon-close undefined">
+                                    <use xlink:href="#icon-close"></use>
+                                </svg> </button>
+                            <div class="product-detail"> <strong>Darkgold</strong>
+                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel4"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"> <img
+                                            src="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
+                                            alt="Kamenná deska Darkgold" width="1024" id="closeImg"> <svg
+                                            class="icon icon-ar undefined">
+                                            <use xlink:href="#icon-ar"></use>
+                                        </svg> </a> </div>
+                                <div class="product-detail__hidden"> <a href="#vertical3dModel4"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
+                                        href="./images/products/Rockfoil_DARKGOLD_light.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
+                                        href="./images/products/Rockfoil_DARKGOLD_dark.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
+                                        href="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
+                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a>
+                                    <model-viewer id="horizontal3dModel4" src="./3d/products/Rockfoil_DARKGOLD_3D.glb"
+                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+                                    <model-viewer id="vertical3dModel4"
+                                        src="./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb" ar="true"
+                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
+                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
+                                <div class="product-detail__content">
+                                    <p class="desc desc--no-mg">Tmavá svítící kamenná deska DARKGOLD je výjimečná svou
+                                        zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně
+                                        navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a
+                                        zlatavými ostrůvky kresby kamene.</p>
+                                    <div class="tags">
+                                        <ul>
+                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
+                                            <li><strong>tloušťka</strong>: 25 mm</li>
+                                            <li><strong>hmotnost</strong>: 34 kg</li>
+                                            <li><strong>napájecí napěti</strong>: 230V</li>
+                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
+                                            <li><strong>max: spotreba</strong>: 63W</li>
+                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
+                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
+                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
+                                                kamene)</li>
+                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
+                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
+                                        </ul>
+                                    </div> <a href="./downloads/dae/Rock_sheet_DARKGOLD.dae" target="_blank"
+                                        class="link link--light link--uppercase"> <svg
+                                            class="icon icon-download undefined">
+                                            <use xlink:href="#icon-download"></use>
+                                        </svg>
+                                        Stáhnout ve 3D
+                                    </a>
+                                    <div class="product-detail__footer"> <strong class="product-detail__price">
+                                            58 900&nbsp;Kč
+                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
+                                            href="mailto:info@anewstyle.cz">
+                                            Mám zájem
+                                            <svg class="icon icon-email undefined">
+                                                <use xlink:href="#icon-email"></use>
+                                            </svg> </a> </div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="dark">
             <div class="container container--s">
                 <h2 class="title title--white text-center">Vlastnosti</h2>
                 <div class="piktogram">
@@ -420,7 +736,7 @@
                 </div>
             </div>
         </section>
-        <section class="no-pt">
+        <section class="no-pt dark">
             <div id="baSlider" class="ba-slider container">
                 <div class="image-container">
                     <div class="image-before">
@@ -464,311 +780,6 @@
                     </svg> </div>
             </div>
         </section>
-        <section id="products" class="dark">
-            <div class="container">
-                <h2 class="title title--center">Produkty</h2>
-                <p class="desc desc--mg-s text-center">Designově jedinečné, velkoplošné svítící kamenné desky.</p>
-                <p class="desc desc--mg-s text-center">Každý nabízený vzor kamene je pečlivě vybírán z množství,
-                    <strong>přírodou vytvořených dekorů</strong> tak, aby byl ve vašem interiéru inspirativní, jak bez
-                    podsvícení, tak s efektním celoplošným podsvícením.</p>
-                <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí
-                        technologie AR</strong> ve Vašem interiéru.</p>
-                <div class="product-list">
-                    <div class="product">
-                        <div id="productCard1" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> WILDLIFE </strong> <img
-                                src="./images/products/Rockfoil_WILDLIFE_light_frame.webp" alt="WILDLIFE"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div> <svg class="icon icon-ar">
-                                <use xlink:href="#icon-ar"></use>
-                            </svg>
-                        </div>
-                        <dialog id="myDialog1" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>WILDLIFE</strong>
-                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel1"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"> <img
-                                            src="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
-                                            alt="Kamenná deska WILDLIFE" width="1024" id="closeImg"> <svg
-                                            class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a href="#vertical3dModel1"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a> <a
-                                        href="./images/products/Rockfoil_WILDLIFE_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product1"></a>
-                                    <model-viewer id="horizontal3dModel1" src="./3d/products/Rockfoil_WILDLIFE_3D.glb"
-                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
-                                    <model-viewer id="vertical3dModel1"
-                                        src="./3d/products/Rockfoil_WILDLIFE_3D_vertical.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Raritní svítící kamenná deska WILDLIFE je díky své živé
-                                        kresbě kamene vhodná k osvětlení každého interiéru. Její, přírodou vytvořený
-                                        divoký vzor, Vám nikdy nezevšední.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz" aria-disabled="true"> Rezervováno </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard2" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Pink </strong> <img
-                                src="./images/products/Rockfoil_PINK_light_frame.webp" alt="Pink" loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div> <svg class="icon icon-ar">
-                                <use xlink:href="#icon-ar"></use>
-                            </svg>
-                        </div>
-                        <dialog id="myDialog2" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Pink</strong>
-                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel2"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"> <img
-                                            src="./images/products/Rockfoil_PINK_light_frame.webp"
-                                            alt="Kamenná deska Pink" width="1024" id="closeImg"> <svg
-                                            class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a href="#vertical3dModel2"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
-                                        href="./images/products/Rockfoil_PINK_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
-                                        href="./images/products/Rockfoil_PINK_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a> <a
-                                        href="./images/products/Rockfoil_PINK_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product2"></a>
-                                    <model-viewer id="horizontal3dModel2" src="./3d/products/Rockfoil_PINK_3D.glb"
-                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
-                                    <model-viewer id="vertical3dModel2"
-                                        src="./3d/products/Rockfoil_PINK_3D_vertical.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Jedinečná narůžovělá kresba kamene předurčuje svítící
-                                        kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její
-                                        svit výrazný i za denního světla.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div> <a href="./downloads/dae/Rock_sheet_PINK.dae" target="_blank"
-                                        class="link link--light"> <svg class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg>
-                                        Stáhnout ve 3D
-                                    </a>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard3" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Goldenbark </strong> <img
-                                src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp" alt="Goldenbark"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div> <svg class="icon icon-ar">
-                                <use xlink:href="#icon-ar"></use>
-                            </svg>
-                        </div>
-                        <dialog id="myDialog3" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Goldenbark</strong>
-                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel3"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"> <img
-                                            src="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
-                                            alt="Kamenná deska Goldenbark" width="1024" id="closeImg"> <svg
-                                            class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a href="#vertical3dModel3"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a> <a
-                                        href="./images/products/Rockfoil_GOLDENBARK_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product3"></a>
-                                    <model-viewer id="horizontal3dModel3" src="./3d/products/Rockfoil_GOLDENBARK_3D.glb"
-                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
-                                    <model-viewer id="vertical3dModel3"
-                                        src="./3d/products/Rockfoil_GOLDENBARK_3D_vertical.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí
-                                        univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED
-                                        prosvětlení, zvýrazňuje zlatavé žilkování kamene.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div> <a href="./downloads/dae/Rock_sheet_GOLDENBARK.dae" target="_blank"
-                                        class="link link--light"> <svg class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg>
-                                        Stáhnout ve 3D
-                                    </a>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                    <div class="product">
-                        <div id="productCard4" role="button" class="card" title="Zobrazit detail produktu"
-                            aria-label="Zobrazit detail produktu"> <strong> Darkgold </strong> <img
-                                src="./images/products/Rockfoil_DARKGOLD_light_frame.webp" alt="Darkgold"
-                                loading="lazy">
-                            <div class="text-center">
-                                <div class="button button--s">Zobrazit detail</div>
-                            </div> <svg class="icon icon-ar">
-                                <use xlink:href="#icon-ar"></use>
-                            </svg>
-                        </div>
-                        <dialog id="myDialog4" class="dialog"> <button type="button" id="closeBtn" class="dialog__close"
-                                aria-label="Zavřít detail produktu" title="Zavřít"> <svg class="icon icon-close">
-                                    <use xlink:href="#icon-close"></use>
-                                </svg> </button>
-                            <div class="product-detail"> <strong>Darkgold</strong>
-                                <div class="product-detail__img" title="Zobrazit ve 3D"> <a href="#horizontal3dModel4"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"> <img
-                                            src="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
-                                            alt="Kamenná deska Darkgold" width="1024" id="closeImg"> <svg
-                                            class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg> </a> </div>
-                                <div class="product-detail__hidden"> <a href="#vertical3dModel4"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_light.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_dark.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a> <a
-                                        href="./images/products/Rockfoil_DARKGOLD_light_frame.webp"
-                                        aria-label="Kámen jako osvětlení interiéru" data-fancybox="product4"></a>
-                                    <model-viewer id="horizontal3dModel4" src="./3d/products/Rockfoil_DARKGOLD_3D.glb"
-                                        ar="true" ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
-                                    <model-viewer id="vertical3dModel4"
-                                        src="./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb" ar="true"
-                                        ar-modes="webxr scene-viewer quick-look" camera-controls="true"
-                                        touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer> </div>
-                                <div class="product-detail__content">
-                                    <p class="desc desc--no-mg">Tmavá svítící kamenná deska DARKGOLD je výjimečná svou
-                                        zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně
-                                        navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a
-                                        zlatavými ostrůvky kresby kamene.</p>
-                                    <div class="tags">
-                                        <ul>
-                                            <li><strong>rozměr</strong>: 2450 x 1220 mm</li>
-                                            <li><strong>tloušťka</strong>: 25 mm</li>
-                                            <li><strong>hmotnost</strong>: 34 kg</li>
-                                            <li><strong>napájecí napěti</strong>: 230V</li>
-                                            <li><strong>zabudovaný zdroj</strong>: 12V</li>
-                                            <li><strong>max: spotreba</strong>: 63W</li>
-                                            <li><strong>max. spotřeba zadního podsvícení</strong>: 35W</li>
-                                            <li><strong>spotřeba ve standby režimu</strong>: O,2W</li>
-                                            <li><strong>světelný tok</strong>: 5760 lm (jas desky je snížen dle kresby
-                                                kamene)</li>
-                                            <li><strong>barva rámu</strong>: RAL 9005 mat (černá)</li>
-                                            <li>volitelné příplatkové barvy ramu - RAL E4 Metallic</li>
-                                        </ul>
-                                    </div> <a href="./downloads/dae/Rock_sheet_DARKGOLD.dae" target="_blank"
-                                        class="link link--light"> <svg class="icon icon-ar">
-                                            <use xlink:href="#icon-ar"></use>
-                                        </svg>
-                                        Stáhnout ve 3D
-                                    </a>
-                                    <div class="product-detail__footer"> <strong class="product-detail__price">
-                                            58 900&nbsp;Kč
-                                            <small>Cena bez DPH (21%)</small> </strong> <a class="button button--s"
-                                            href="mailto:info@anewstyle.cz">
-                                            Mám zájem
-                                            <svg class="icon icon-email">
-                                                <use xlink:href="#icon-email"></use>
-                                            </svg> </a> </div>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="showroom" class="light">
             <div class="container">
                 <h2 class="title text-center title--mg-s">Galerie</h2>
@@ -789,7 +800,7 @@
                                 height="446" alt="Demonstrační video">
                         </picture>
                     </div>
-                    <div class="gitem__content"> <svg class="icon icon-play">
+                    <div class="gitem__content"> <svg class="icon icon-play undefined">
                             <use xlink:href="#icon-play"></use>
                         </svg> </div>
                 </a> <a href="./images/gallery/2023/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru"
@@ -863,17 +874,17 @@
                                 </p>
                                 <div class="social"> <a href="https://www.facebook.com/profile.php?id=100088855596654"
                                         rel="external" aria-label="Přejít na facebook Anew Style" target="_blank"> <svg
-                                            class="icon icon-facebook">
+                                            class="icon icon-facebook undefined">
                                             <use xlink:href="#icon-facebook"></use>
                                         </svg> </a> <a href="https://www.instagram.com/anewstyle.cz/" rel="external"
                                         aria-label="Přejít na instagram Anew Style" target="_blank"> <svg
-                                            class="icon icon-instagram">
+                                            class="icon icon-instagram undefined">
                                             <use xlink:href="#icon-instagram"></use>
                                         </svg> </a> </div>
                             </div>
                             <div> <a class="button" href="mailto:info@anewstyle.cz">
                                     Napsat zprávu
-                                    <svg class="icon icon-email">
+                                    <svg class="icon icon-email undefined">
                                         <use xlink:href="#icon-email"></use>
                                     </svg> </a> </div>
                             <div>
@@ -900,14 +911,14 @@
                                 <h4 class="title title--xs">Materiály ke stažení</h4> <a
                                     href="./downloads/MIBOXER__K1_K1-B_EN_V1.0.pdf" class="link link--light"
                                     target="_blank" rel="noopener" aria-label="Ke stažení pdf soubor 1 s materiály">
-                                    <svg class="icon icon-pdf">
+                                    <svg class="icon icon-pdf undefined">
                                         <use xlink:href="#icon-pdf"></use>
                                     </svg>
                                     Návod - RF dálkové ovládání
                                 </a> <br><br> <a href="./downloads/MIBOXER_FUT035W-FUT036W_EN_V1.0.pdf"
                                     class="link link--light" target="_blank" rel="noopener"
                                     aria-label="Ke stažení pdf soubor s materiály MiBOXER light"> <svg
-                                        class="icon icon-pdf">
+                                        class="icon icon-pdf undefined">
                                         <use xlink:href="#icon-pdf"></use>
                                     </svg>
                                     Návod - LED controller

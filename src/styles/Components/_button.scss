@@ -27,6 +27,7 @@
         box-shadow var(--trans-time) var(--trans-fnc),
         translate var(--trans-time) var(--trans-fnc);
     cursor: pointer;
+    white-space: nowrap;
     box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
 
     @include res-max-laptop-s {
@@ -54,6 +55,13 @@
         --btn-padding-y: #{$gap-m};
         --btn-width: unset;
         --btn-font-size: clamp(14px, 2vh, #{$gap-l});
+
+        @include res-max-mobile-l {
+            --btn-font-size: 14px;
+            .icon {
+                --icon-size: 14px;
+            }
+        }
     }
 
     &--xs {

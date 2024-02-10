@@ -4,10 +4,12 @@
     --icon-size: #{$gap-xl};
     display: block;
     inline-size: var(--icon-size);
+    min-inline-size: var(--icon-size);
+    block-size: var(--icon-size);
     aspect-ratio: 1;
     fill: currentColor;
 
-    &:is(.icon-ar) {
+    &:is(.icon-ar):not(.icon-nav) {
         --icon-size: clamp(#{$gap-xl}, 10dvi, 4.5rem);
         scale: var(--ar-scale, 1);
         position: absolute;

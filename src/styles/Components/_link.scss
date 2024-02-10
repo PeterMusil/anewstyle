@@ -9,8 +9,13 @@
     font-size: var(--link-font-size, large);
     color: var(--link-color, inherit);
     text-decoration: var(--link-text-decor);
-    text-transform: underline;
+    text-transform: var(--link-text-trans);
     transition: color var(--trans-time) var(--trans-fnc);
+
+    @include hover {
+        --link-text-decor: underline;
+        --icon-trans-x: #{$gap-s};
+    }
 
     @include res-max-tablet {
         --trans-time: 0;
@@ -19,6 +24,10 @@
 
     &--uppercase {
         --link-text-trans: uppercase;
+    }
+
+    &--underline {
+        --link-text-decor: underline;
     }
 
     &--picture {
@@ -36,11 +45,6 @@
 
     &--light {
         color: $color-white;
-    }
-
-    @include hover {
-        --link-text-decor: underline;
-        --icon-trans-x: #{$gap-s};
     }
 
     > span {
