@@ -7,11 +7,12 @@ interface Props {
   imgDark?: string;
   imgFrame?: string;
   imgLight?: string;
-  model3d?: string;
+  modelHorizontal3d?: string;
+  modelVertical3d?: string;
   content?: string;
   price?: number;
 }
-const { id, title, desc, content, price, imgDark, imgFrame, imgLight, model3d } = Astro.props;
+const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d } = Astro.props;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -21,16 +22,18 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, model3d } 
   <div class="product-detail">
     <strong>{title}</strong>
     <div class="product-detail__img" title="Show more">
-      <a href={`#3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
+      <a href={`#horizontal3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
         <img src={`./images/products/${imgFrame}`} alt={`Kamenná deska ${title}`} width="1024" id="closeImg" />
-        <Icon name="search" />
+        <Icon name="ar" />
       </a>
     </div>
     <div class="product-detail__hidden">
+      <a href={`#vertical3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <a href={`./images/products/${imgLight}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <a href={`./images/products/${imgDark}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <a href={`./images/products/${imgFrame}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <model-viewer id={`3dModel${id}`} src={`./3d/products/${model3d}`} ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 1m"></model-viewer>
+      <model-viewer id={`horizontal3dModel${id}`} src={`./3d/products/${modelHorizontal3d}`} ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="-8deg 90deg 2.5m"></model-viewer>
+      <model-viewer id={`vertical3dModel${id}`} src={`./3d/products/${modelVertical3d}`} ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="80deg 90deg 2.5m"></model-viewer>
     </div>
     <div class="product-detail__content">
       <p class="desc desc--no-mg">{desc}</p>

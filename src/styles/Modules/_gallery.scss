@@ -8,6 +8,12 @@ section:has(> .gallery) {
   }
 }
 
+.is-compact .fancybox__footer {
+  @include res-max-tablet {
+    display: none !important;
+  }
+}
+
 .gallery {
   @include grid-columns(
     grid,

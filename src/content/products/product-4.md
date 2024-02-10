@@ -7,6 +7,8 @@ imgDark: Rockfoil_DARKGOLD_dark.webp
 imgLight: Rockfoil_DARKGOLD_light.webp
 imgFrame: Rockfoil_DARKGOLD_light_frame.webp
 model3d: Rockfoil_DARKGOLD_3D.glb
+modelHorizontal3d: Rockfoil_DARKGOLD_3D.glb
+modelVertical3d: Rockfoil_DARKGOLD_3D_vertical.glb
 ---
 - **rozměr**: 2450 x 1220 mm
 - **tloušťka**: 25 mm 
