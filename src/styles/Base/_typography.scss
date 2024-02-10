@@ -123,6 +123,7 @@ small {
     }
 
     @include res-max-mobile-l {
+        --desc-font-size: #{$gap-l};
         --mg-b: #{$gap-xxl};
     }
 

@@ -6,6 +6,14 @@ section:has(> .gallery) {
   @include res-max-mobile-l {
     padding-inline: $gap-xl;
   }
+
+  .container {
+    @include res-max-mobile-l {
+      margin-inline: auto;
+      inline-size: 100%;
+      max-inline-size: 100%;
+    }
+  }
 }
 
 .is-compact .fancybox__footer {

@@ -2,7 +2,6 @@
 
 section:has(> .showcase) {
   --sec-pad-y: 0;
-  min-block-size: 100vh;
 }
 .showcase {
   display: grid;
@@ -56,8 +55,15 @@ section:has(> .showcase) {
       padding-inline-end: 0;
       grid-column-start: 1;
     }
+    > .not-tablet-content {
+      margin-block-end: 7vh;
+    }
+  }
 
-    > :is(h2) {
+  div:is([class*="tablet-content"]) {
+    grid-column-start: 1;
+    padding-block-start: 7vh;
+    :is(h2) {
       margin-block-end: 1.5vh;
       font-size: clamp($gap-xxl, 5vh, 6rem);
       font-weight: 900;
@@ -72,22 +78,26 @@ section:has(> .showcase) {
 
       @include res-max-laptop-s {
         text-align: center;
-      }
-
-      @include res-max-laptop-s {
         grid-column-start: 1;
       }
+
+      @include res-max-mobile-l {
+        font-size: clamp($gap-l, 6.5vw, $gap-xxl);
+      }
+
       > span {
         display: block;
         font-size: 1.35em;
         font-weight: inherit;
         letter-spacing: 0.1em;
         text-transform: uppercase;
+
+        @include res-max-mobile-l {
+          font-size: 1.5em;
+        }
       }
     }
-
-    > :is(.desc, p) {
-      margin-block-end: 7vh;
+    :is(.desc, p) {
       font-size: max(1.6rem, min(3vh, 2.4rem));
       line-height: 1.7;
       text-wrap: pretty;
@@ -98,6 +108,9 @@ section:has(> .showcase) {
       > strong {
         color: $color-primary;
       }
+      @include res-max-mobile-l {
+        font-size: #{$gap-l};
+      }
     }
   }
 
@@ -107,7 +120,7 @@ section:has(> .showcase) {
 
     @include res-max-laptop-s {
       grid-row-start: 1;
-      margin-block-end: 5vh;
+      margin-block-end: 7vh;
       margin-block-start: -0.25vh;
     }
     > .button {

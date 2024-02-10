@@ -81,6 +81,17 @@ nav {
     }
     li {
         text-align: center;
+
+        @include res-max-tablet {
+            animation: showItem 0.25s ease-in-out forwards;
+            opacity: 0;
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
     }
     li a {
         --nav-item-min-font-size: #{$gap-l};
@@ -112,6 +123,16 @@ nav {
 }
 
 @keyframes showMenu {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes showItem {
     from {
         opacity: 0;
     }

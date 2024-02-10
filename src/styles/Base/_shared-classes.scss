@@ -87,5 +87,22 @@
 }
 
 .h-100 {
-    min-block-size: 100dvh;
+    min-block-size: 100vh;
+
+    @include res-max-mobile-l {
+        min-block-size: unset;
+    }
+}
+
+.tablet-content {
+    display: none;
+    @include res-max-tablet {
+        display: block;
+    }
+}
+
+.not-tablet-content {
+    @include res-max-tablet {
+        display: none;
+    }
 }
