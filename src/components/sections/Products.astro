@@ -14,15 +14,17 @@ const products = await Astro.glob("../../content/products/*.md");
     <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí technologie AR</strong> ve Vašem interiéru.</p>
     <div class="product-list">
       {
-        products.map((product) => {
-          const data = product.frontmatter;
-          return (
-            <div class="product">
-              <Card id={data.id} title={data.title} imgFame={data.imgFrame} has3D={data.modelHorizontal3d || data.modelVertical3d} />
-              <DetailDialog id={data.id} title={data.title} desc={data.desc} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} modelHorizontal3d={data.modelHorizontal3d} modelVertical3d={data.modelVertical3d} daeFile={data.daeFile} reservation={data.reservation} />
-            </div>
-          );
-        })
+        products
+          .sort((a, b) => a.frontmatter.id - b.frontmatter.id)
+          .map((product) => {
+            const data = product.frontmatter;
+            return (
+              <div class="product">
+                <Card id={data.id} title={data.title} imgFame={data.imgFrame} has3D={data.modelHorizontal3d || data.modelVertical3d} />
+                <DetailDialog id={data.id} title={data.title} desc={data.desc} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} modelHorizontal3d={data.modelHorizontal3d} modelVertical3d={data.modelVertical3d} daeFile={data.daeFile} reservation={data.reservation} />
+              </div>
+            );
+          })
       }
     </div>
   </div>
