@@ -74,10 +74,6 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
   </div>
 
   <script>
-    import { Fancybox } from "@fancyapps/ui";
-
-    Fancybox.bind("[data-fancybox]", {});
-
     const products = document.querySelectorAll(".product");
     const body = document.querySelector("body");
     products.forEach((product) => {
@@ -89,6 +85,14 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
       productCard.addEventListener("click", () => {
         productDetail.showModal();
         body?.style.setProperty("overflow", "hidden");
+
+        if (!document.querySelector('script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]')) {
+          const script = document.createElement("script");
+          script.type = "module";
+          script.src = "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
+
+          document.body.appendChild(script);
+        }
       });
 
       closeBtn.addEventListener("click", (e) => {
