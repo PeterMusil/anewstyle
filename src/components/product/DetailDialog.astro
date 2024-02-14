@@ -31,9 +31,9 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
     </div>
     <div class="product-detail__hidden">
       <a href={`#vertical3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <a href={`./images/products/${imgLight}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <a href={`./images/products/${imgDark}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <a href={`./images/products/${imgFrame}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
+      <a href={`./images/products/${imgLight}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
       <model-viewer id={`horizontal3dModel${id}`} src={`./3d/products/${modelHorizontal3d}`} ar ar-scale="fixed" ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
       <model-viewer id={`vertical3dModel${id}`} src={`./3d/products/${modelVertical3d}`} ar ar-scale="fixed" ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
     </div>

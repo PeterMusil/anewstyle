@@ -4,8 +4,8 @@ title: Pink
 desc: Jedinečná narůžovělá kresba kamene předurčuje svítící kamennou desku PINK k osvětlení tmavých, ale i světlých prostor, kde je její svit výrazný i za denního světla. 
 price: 74900
 imgDark: Rockfoil_PINK_dark.webp
-imgLight: Rockfoil_PINK_light.webp
-imgFrame: Rockfoil_PINK_light_frame.webp
+imgFrame: Rockfoil_PINK_dark_frame.webp
+imgLight: Rockfoil_PINK_light_frame.webp
 modelHorizontal3d: Rockfoil_PINK_3D.glb
 modelVertical3d: Rockfoil_PINK_3D_vertical.glb
 daeFile: Rock_sheet_PINK.dae
