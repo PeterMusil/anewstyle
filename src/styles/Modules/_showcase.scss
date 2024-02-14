@@ -11,8 +11,8 @@ section:has(> .showcase) {
   max-inline-size: $width-laptop-xl;
   margin-inline: auto;
   background-color: inherit;
-  grid-auto-flow: column;
   color: $color-white;
+  grid-auto-flow: column;
 
   @include res-max-laptop-s {
     grid-template-columns: minmax(1rem, 1fr);
@@ -61,15 +61,15 @@ section:has(> .showcase) {
   }
 
   div:is([class*="tablet-content"]) {
-    grid-column-start: 1;
     padding-block-start: 7vh;
+    grid-column-start: 1;
     :is(h2) {
       margin-block-end: 1.5vh;
+      font-family: $font-title;
       font-size: clamp($gap-xxl, 5vh, 6rem);
       font-weight: 900;
       line-height: 1.25;
       grid-column-start: 2;
-      font-family: $font-title;
       text-wrap: pretty;
 
       @include res-max-laptop-m {
@@ -102,8 +102,8 @@ section:has(> .showcase) {
       line-height: 1.7;
       text-wrap: pretty;
       @include res-max-laptop-s {
-        grid-column-start: 1;
         text-align: center;
+        grid-column-start: 1;
       }
       > strong {
         color: $color-primary;
@@ -119,9 +119,9 @@ section:has(> .showcase) {
     container-type: inline-size;
 
     @include res-max-laptop-s {
-      grid-row-start: 1;
-      margin-block-end: 7vh;
       margin-block-start: -0.25vh;
+      margin-block-end: 7vh;
+      grid-row-start: 1;
     }
     > .button {
       --icon-size: #{$gap-xxl};

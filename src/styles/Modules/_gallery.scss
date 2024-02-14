@@ -9,9 +9,9 @@ section:has(> .gallery) {
 
   .container {
     @include res-max-mobile-l {
-      margin-inline: auto;
       inline-size: 100%;
       max-inline-size: 100%;
+      margin-inline: auto;
     }
   }
 }
@@ -99,9 +99,9 @@ section:has(> .gallery) {
     padding: #{$gap-xl};
     background-color: hsla(0, 0%, 0%, 0.3);
     font-size: clamp($gap-l, 8cqi, 5vh);
+    color: $color-white;
     transition: backdrop-filter 0.2s linear;
     backdrop-filter: var(--content_backgdrop-filter);
-    color: $color-white;
 
     > strong {
       display: block;

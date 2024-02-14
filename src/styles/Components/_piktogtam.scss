@@ -78,11 +78,11 @@
             }
         }
         > small {
+            display: inline-block;
             font-size: 10.5px;
             font-weight: 800;
             text-transform: uppercase;
             white-space: pre-wrap;
-            display: inline-block;
         }
 
         + div {

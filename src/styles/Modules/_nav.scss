@@ -68,9 +68,9 @@ nav {
         --menu-bg: var(--color-bg-nav);
         --menu-pad-top: 15vh;
         position: absolute;
-        backdrop-filter: blur($gap-m);
-        justify-content: center;
         inset: 100% 0 auto 0;
+        justify-content: center;
+        backdrop-filter: blur($gap-m);
     }
 
     &--open {
@@ -83,8 +83,8 @@ nav {
         text-align: center;
 
         @include res-max-tablet {
-            animation: showItem 0.25s ease-in-out forwards;
             opacity: 0;
+            animation: showItem 0.25s ease-in-out forwards;
 
             @for $i from 1 through 5 {
                 &:nth-child(#{$i}) {
@@ -111,13 +111,13 @@ nav {
 
         @include res-max-tablet {
             --nav-item-min-font-size: 18px;
-            text-align: center;
             font-size: x-large;
+            text-align: center;
         }
 
         &:hover {
-            text-decoration: underline;
             color: $color-primary;
+            text-decoration: underline;
         }
     }
 }

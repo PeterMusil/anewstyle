@@ -22,12 +22,12 @@
     color: var(--btn-color);
     text-decoration: none;
     text-transform: var(--btn-text-transform, uppercase);
+    white-space: nowrap;
     translate: 0 var(--btn_trans-y, 0);
     transition:
         box-shadow var(--trans-time) var(--trans-fnc),
         translate var(--trans-time) var(--trans-fnc);
     cursor: pointer;
-    white-space: nowrap;
     box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
 
     @include res-max-laptop-s {

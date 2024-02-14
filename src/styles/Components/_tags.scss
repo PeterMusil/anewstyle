@@ -23,9 +23,9 @@
         &:not(:last-child) {
             padding: #{$gap-s} #{$gap-m};
             background-color: $color-primary;
+            border-radius: $gap-s;
             font-size: small;
             color: $color-black;
-            border-radius: $gap-s;
             text-transform: initial;
         }
 

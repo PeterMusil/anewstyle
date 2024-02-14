@@ -1,55 +1,55 @@
 @import "../Base/global";
 
 @property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
     inherits: true;
+    initial-value: 0deg;
+    syntax: "<angle>";
 }
 
 @property --radius {
-    syntax: "<percentage>";
-    initial-value: 0%;
     inherits: true;
+    initial-value: 0%;
+    syntax: "<percentage>";
 }
 
 body {
-    min-block-size: 100vh;
     display: grid;
     place-items: center;
+    min-block-size: 100vh;
     background-color: hsl(0 0% 10%);
 }
 
 .palette {
+    position: relative;
     display: grid;
     place-items: center;
-    position: relative;
     inline-size: 110px;
     block-size: 110px;
     background-color: unset;
     border-radius: 100vmax;
     border-color: transparent;
-    cursor: pointer;
     font-family: $font-title;
+    cursor: pointer;
 
     @include hover {
         --text-scale: 1.1;
     }
 
     &:after {
-        opacity: var(--text-opacity, 1);
         content: attr(data-text);
-        color: $color-black;
-        font-size: 12px;
-        z-index: 1;
         max-inline-size: calc(100% - $gap-l);
-        scale: var(--text-scale, 1);
+        opacity: var(--text-opacity, 1);
+        font-size: 12px;
         font-weight: 900;
         letter-spacing: 0.05em;
+        color: $color-black;
         text-align: center;
         text-transform: uppercase;
+        scale: var(--text-scale, 1);
         transition:
             opacity $trans-time linear,
             scale $trans-time linear;
+        z-index: 1;
     }
 
     &--active {
@@ -65,25 +65,25 @@ body {
     }
 
     &__color {
+        position: absolute;
         display: inherit;
         place-items: inherit;
-        position: absolute;
         inline-size: 100%;
         block-size: 100%;
-        border-radius: 100vmax;
         background-color: var(--bg-color);
+        border-radius: 100vmax;
         translate: calc(cos(var(--angle)) * var(--radius)) calc(sin(var(--angle) * -1) * var(--radius));
         transition: translate 0.25s linear;
 
         &:after {
-            opacity: var(--text-opacity, 0);
             content: attr(data-text);
-            color: $color-black;
+            opacity: var(--text-opacity, 0);
             font-size: $gap-l;
-            z-index: 1;
-            letter-spacing: 0.05em;
             font-weight: 700;
+            letter-spacing: 0.05em;
+            color: $color-black;
             transition: opacity $trans-time linear;
+            z-index: 1;
         }
 
         &:nth-of-type(1) {

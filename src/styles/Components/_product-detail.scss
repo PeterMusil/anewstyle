@@ -1,23 +1,23 @@
 @import "../Base/global";
 .product-detail {
     @include grid-columns(grid, minmax(1rem, 1fr), 0, flex-start, stretch);
-    max-inline-size: 100%;
     align-items: center;
-    background-color: inherit;
-    padding-inline: clamp($gap-xl, 8dvi, 5rem);
+    max-inline-size: 100%;
     padding-block: clamp($gap-xl, 8dvi, 5rem);
+    padding-inline: clamp($gap-xl, 8dvi, 5rem);
+    background-color: inherit;
     color: $color-white;
 
     > strong {
-        text-align: center;
+        font-family: $font-title;
         font-size: 6vh;
         font-weight: 900;
         line-height: 1.25;
-        letter-spacing: 0.1em;
-        font-family: $font-title;
-        text-wrap: pretty;
         line-height: 1;
+        letter-spacing: 0.1em;
+        text-align: center;
         text-transform: uppercase;
+        text-wrap: pretty;
 
         @include res-max-mobile-l {
             font-size: $gap-xl;
@@ -25,9 +25,9 @@
     }
 
     &__img {
-        aspect-ratio: 16 / 9;
         position: relative;
         display: var(--model-display, block);
+        aspect-ratio: 16 / 9;
         margin-block-start: clamp($gap-xl, 4vh, $gap-xxl);
         margin-block-end: clamp($gap-xl, 3vh, $gap-xl);
 
@@ -72,9 +72,9 @@
 
     &__price {
         @include flex-set(flex, column, nowrap, $gap-s, flex-start, flex-start);
+        font-family: $font-title;
         font-size: clamp($gap-xl, 3.5vh, 5rem);
         font-weight: 900;
-        font-family: $font-title;
         line-height: 1;
 
         > small {

@@ -12,9 +12,9 @@ header {
     url("../images/backgrounds/header-bg_1024.webp") type("image/webp") 2.5x,
     url("../images/backgrounds/header-bg_768.webp") type("image/webp") 3x
   );
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+  background-size: cover;
   overflow: clip;
 
   @supports not (image-set: url("./images/backgrounds/header-bg.webp") 1x) {
@@ -33,10 +33,10 @@ header {
     position: absolute;
     inset: 0;
     inline-size: 100dvi;
-    z-index: 1;
-    pointer-events: none;
     opacity: var(--video-opacity, 0);
     transition: opacity 0.5s linear;
+    z-index: 1;
+    pointer-events: none;
 
     &:has(source) {
       --video-opacity: 1;
@@ -71,13 +71,13 @@ header {
       display: inline-block;
       opacity: var(--c-item-title_opacity);
       opacity: var(--header-title_opacity, 0);
+      filter: opacity(0.5);
       font-family: $font-title;
       font-size: clamp($gap-xxl, 10dvi, 16rem);
       font-weight: 900;
       line-height: 1;
       letter-spacing: 0.1em;
       color: $color-white;
-      filter: opacity(0.5);
       text-transform: uppercase;
       text-shadow: var(--color-black) 0 0 1.5rem;
       translate: 0 var(--header-title_translate-y, 1rem);
