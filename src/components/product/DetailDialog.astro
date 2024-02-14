@@ -25,7 +25,7 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
     <strong>{title}</strong>
     <div class="product-detail__img" title="Zobrazit ve 3D">
       <a href={`#horizontal3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
-        <img src={`./images/products/${imgFrame}`} alt={`Kamenná deska ${title}`} width="1024" id="closeImg" />
+        <img src={`./images/products/${imgLight}`} alt={`Kamenná deska ${title}`} width="1024" id="closeImg" />
         {(modelHorizontal3d || modelVertical3d) && <Icon name="ar" />}
       </a>
     </div>

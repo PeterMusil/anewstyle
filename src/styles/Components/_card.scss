@@ -37,7 +37,10 @@
   }
 
   .icon-ar {
-    inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
+    display: var(--ar-icon-display, none);
+    @include res-max-tablet {
+      inset: auto clamp(1.6rem, 4dvi, 1.6rem) 6.5rem auto;
+    }
   }
 
   img {

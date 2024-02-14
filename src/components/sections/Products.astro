@@ -11,7 +11,7 @@ const products = await Astro.glob("../../content/products/*.md");
     <h2 class="title title--center">Produkty</h2>
     <p class="desc desc--mg-s text-center">Designově jedinečné, velkoplošné svítící kamenné desky.</p>
     <p class="desc desc--mg-s text-center">Každý nabízený vzor kamene je pečlivě vybírán z množství, <strong>přírodou vytvořených dekorů</strong> tak, aby byl ve vašem interiéru inspirativní, jak bez podsvícení, tak s efektním celoplošným podsvícením.</p>
-    <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí technologie AR</strong> ve Vašem interiéru.</p>
+    <p class="desc text-center">Vyberte si svítící kamennou desku a vyzkoušejte ji <strong>pomocí technologie AR</strong> ve Vašem mobilu.</p>
     <div class="product-list">
       {
         products
@@ -20,7 +20,7 @@ const products = await Astro.glob("../../content/products/*.md");
             const data = product.frontmatter;
             return (
               <div class="product">
-                <Card id={data.id} title={data.title} imgFame={data.imgFrame} has3D={data.modelHorizontal3d || data.modelVertical3d} />
+                <Card id={data.id} title={data.title} imgLight={data.imgLight} has3D={data.modelHorizontal3d || data.modelVertical3d} />
                 <DetailDialog id={data.id} title={data.title} desc={data.description} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} modelHorizontal3d={data.modelHorizontal3d} modelVertical3d={data.modelVertical3d} daeFile={data.daeFile} reservation={data.reservation} />
               </div>
             );

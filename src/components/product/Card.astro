@@ -4,18 +4,18 @@ import Icon from "../icons/Icon.astro";
 interface Props {
   id: number;
   title: string;
-  imgFame: string;
+  imgLight: string;
   has3D: boolean;
 }
 
-const { id, title, imgFame, has3D } = Astro.props;
+const { id, title, imgLight, has3D } = Astro.props;
 ---
 
 <div id={`productCard${id}`} role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu">
   <strong>
     {title}
   </strong>
-  <img src={`./images/products/${imgFame}`} alt={title} loading="lazy" width="304" height="165" />
+  <img src={`./images/products/${imgLight}`} alt={title} loading="lazy" width="304" height="165" />
   <div class="text-center">
     <div class="button button--s">Zobrazit detail</div>
   </div>
