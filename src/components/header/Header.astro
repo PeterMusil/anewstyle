@@ -12,19 +12,24 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const videoElement = document.querySelector("#headerVideo");
+    const screenWidth = window.innerWidth;
 
-    const sources = [
-      { src: "./videos/main-video.mp4", type: "video/mp4" },
-      { src: "./videos/main-video.webm", type: "video/webm" },
-      { src: "./videos/main-video.ogv", type: "video/ogg" },
-    ];
+    if (screenWidth > 560) {
+      const sources = [
+        { src: "./videos/main-video.mp4", type: "video/mp4" },
+        { src: "./videos/main-video.webm", type: "video/webm" },
+        { src: "./videos/main-video.ogv", type: "video/ogg" },
+      ];
 
-    videoElement &&
-      sources.forEach((source) => {
-        let sourceElement = document.createElement("source");
-        sourceElement.src = source.src;
-        sourceElement.type = source.type;
-        videoElement.appendChild(sourceElement);
-      });
+      videoElement &&
+        sources.forEach((source) => {
+          let sourceElement = document.createElement("source");
+          sourceElement.src = source.src;
+          sourceElement.type = source.type;
+          videoElement.appendChild(sourceElement);
+        });
+    } else {
+      videoElement && videoElement.remove();
+    }
   });
 </script>
