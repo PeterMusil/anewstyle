@@ -105,7 +105,7 @@ const { id } = Astro.props;
       const elements = document.querySelectorAll("[data-fancybox]");
 
       elements.forEach((element) => {
-        element.addEventListener("mousedown", () => {
+        element.addEventListener("click", () => {
           import("@fancyapps/ui").then(({ Fancybox }) => {
             Fancybox.bind("[data-fancybox]", {});
 
