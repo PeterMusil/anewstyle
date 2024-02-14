@@ -1,0 +1,30 @@
+<header>
+  <video class="header__video" id="headerVideo" aria-label="Anew style header video" preload="metadata" autoplay loop muted></video>
+  <div class="header__content">
+    <div>
+      <h1>Anew Style</h1>
+    </div>
+    <strong>Designové interiérové osvětlení</strong>
+    <a class="button" href="#about" aria-label="Přejít na sekci o nás" rel="noopener">Chci vědet více</a>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const videoElement = document.querySelector("#headerVideo");
+
+    const sources = [
+      { src: "./videos/main-video.mp4", type: "video/mp4" },
+      { src: "./videos/main-video.webm", type: "video/webm" },
+      { src: "./videos/main-video.ogv", type: "video/ogg" },
+    ];
+
+    videoElement &&
+      sources.forEach((source) => {
+        let sourceElement = document.createElement("source");
+        sourceElement.src = source.src;
+        sourceElement.type = source.type;
+        videoElement.appendChild(sourceElement);
+      });
+  });
+</script>
