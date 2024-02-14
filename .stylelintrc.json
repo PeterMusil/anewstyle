@@ -215,10 +215,11 @@
         "z-index",
         "visibility",
         "cursor",
-        "user-select",
-        "direction"
+        "user-select"
       ],
-      { "unspecified": "bottomAlphabetical" }
+      {
+        "unspecified": "bottomAlphabetical"
+      }
     ]
   }
 }
