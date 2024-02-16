@@ -8,7 +8,7 @@ imgDark: Rockfoil_GOLDENSUN_dark.webp
 imgFrame: Rockfoil_GOLDENSUN_dark_frame.webp
 imgLight: Rockfoil_GOLDENSUN_light_frame.webp
 modelHorizontal3d: 
-modelVertical3d: 
+modelVertical3d: Rockfoil_GOLDENSUN_3D_vertical.glb
 daeFile: 
 ---
 - **rozměr**: 2450 x 1220 mm
