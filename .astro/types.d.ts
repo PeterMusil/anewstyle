@@ -154,9 +154,9 @@ declare module 'astro:content' {
   collection: "products";
   data: any
 } & { render(): Render[".md"] };
-"wildfire.md": {
-	id: "wildfire.md";
-  slug: "wildfire";
+"wildlife.md": {
+	id: "wildlife.md";
+  slug: "wildlife";
   body: string;
   collection: "products";
   data: any
