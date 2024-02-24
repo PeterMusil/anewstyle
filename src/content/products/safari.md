@@ -1,7 +1,7 @@
 ---
 id: 7
 title: SAFARI
-description: Svítící kamenná deska SAFARI, se vyznačuje luxusní kombinecí světle šedé a zlaté barvy, ale především jedinečným jasem. Speciálně navržené LED prosvětlení, zvýrazňuje kontrast mezi světlými barvami kamene.
+description: Přírodou vytvořený exotický vzor svítící kamenné desky SAFARI, je využíván designéry po celém světě, ke zvýraznění jedinečnosti jejich produktu. Stejně tak bude tato kamenná deska působit i ve Vašem interiéru.
 price: 74900
 reservation: false
 imgDark: Rockfoil_SAFARI_dark.webp
