@@ -18,7 +18,7 @@ daeFile: Rock_sheet_GOLDENBARK.zip
 - **jas: 150 cd/m2**
 - **teplota podsvětlení: 4000 K**
 - **napájecí napěti: 230V**
-- **barva rámu: RAL 280M mat**
+- **barva rámu: RAL 140M mat**
 
 - **držáky pro zavěšení: ano**
 - **stmívatelné prosvětlení kamene: ano**
@@ -28,3 +28,5 @@ daeFile: Rock_sheet_GOLDENBARK.zip
 - **zabudovaný RF/WiFi kontroler: ano**
 - **RF dálkový ovladač: ano**
 - **nano impregnace: ano**
+- **dělitelné na 2ks 2450 x 600 mm: ne**
+- **dělitelné na 3ks 2450 x 400 mm: ne**
