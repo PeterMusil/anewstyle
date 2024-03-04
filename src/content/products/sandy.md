@@ -1,7 +1,7 @@
 ---
 id: 13
-title: SANDY
-description: Kruhový vzor svítící kamenné desky SANDY ji propůjčil svůj název. Speciálně navržené LED prosvětlení, zvýrazňuje kontrast mezi tmavými a pískově zlatými odstíny kamene.
+title: SANDY 2x 1/2
+description: Zářivě svítící kamenná deska SANDY, vynikne i při rozdělení na dva či tři pruhy, které lze použít jako samostatné osvětlení. Rozdělení svítící kamenné desky vynikne v kombinaci se zrcadly.
 price: 74900
 reservation: false
 imgDark: Rockfoil_SANDY_halves_dark.webp
