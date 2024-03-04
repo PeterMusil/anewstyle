@@ -1,7 +1,7 @@
 ---
 id: 12
 title: CALDERA
-description: Název svítící kamenné desky CALDERA je odvozen od načervenalých ostrůvků připomínající rez. Dekor desky tak vyniká i bez efektního prosvícení.
+description: Kruhový vzor svítící kamenné desky CALDERA ji propůjčil svůj název. Speciálně navržené LED prosvětlení, zvýrazňuje kontrast mezi tmavými a pískově zlatými odstíny kamene.
 price: 74900
 reservation: false
 imgDark: Rockfoil_CALDERA_dark.webp
@@ -15,7 +15,7 @@ daeFile: Rock_sheet_CALDERA.zip
 - **hmotnost: 40 kg**
 - **max. spotreba: 90W**
 - **standby spotřeba: 0,2W**
-- **jas: 310 cd/m2**
+- **jas: 360 cd/m2**
 - **teplota podsvětlení: 4000 K**
 - **napájecí napěti: 230V**
 - **barva rámu: volitelná**

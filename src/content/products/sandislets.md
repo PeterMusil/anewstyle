@@ -1,7 +1,7 @@
 ---
 id: 11
 title: SANDISLETS
-description: Název svítící kamenné desky SANDISLETS je odvozen od načervenalých ostrůvků připomínající rez. Dekor desky tak vyniká i bez efektního prosvícení.
+description: Pískově zlatavé ostrůvky svítící kamenné desky SANDISLETS, tvoří s kontrastním černým žíháním zemitý a nadčasový vzor.
 price: 74900
 reservation: false
 imgDark: Rockfoil_SANDISLETS_dark.webp
@@ -15,7 +15,7 @@ daeFile: Rock_sheet_SANDISLETS.zip
 - **hmotnost: 40 kg**
 - **max. spotreba: 90W**
 - **standby spotřeba: 0,2W**
-- **jas: 310 cd/m2**
+- **jas: 330 cd/m2**
 - **teplota podsvětlení: 4000 K**
 - **napájecí napěti: 230V**
 - **barva rámu: volitelná**
