@@ -2,7 +2,7 @@
 id: 5
 title: GOLDENSUN
 description: Teplé barvy svítící kamenné desky GOLDENSUN, z ní činí nejenom luxusní osvětlení, ale také zdroj dobré pohody. Speciálně navržené LED prosvětlení, zvýrazňuje zlatavé ostrůvky kamene.
-price: 58900
+price: 68900
 reservation: false
 imgDark: Rockfoil_GOLDENSUN_dark.webp
 imgFrame: Rockfoil_GOLDENSUN_dark_frame.webp

@@ -1,8 +1,8 @@
 ---
 id: 10
 title: RUSTY
-description: Název svítící kamenné desky RUSTY je odvozen od načervenalých ostrůvků připomínající rez. Dekor desky tak vyniká i bez efektního prosvícení.
-price: 74900
+description: Název svítící kamenné desky RUSTY je odvozen od načervenalých ostrůvků připomínající dekorativní, cortenovou rez. Dekor desky tak vyniká i bez efektního prosvícení.
+price: 68900
 reservation: false
 imgDark: Rockfoil_RUSTY_dark.webp
 imgFrame: Rockfoil_RUSTY_dark_frame.webp
@@ -28,5 +28,5 @@ daeFile: Rock_sheet_RUSTY.zip
 - **zabudovaný RF/WiFi kontroler: ano**
 - **RF dálkový ovladač: ano**
 - **nano impregnace: ano**
-- **dělitelné na 2ks 2450 x 600 mm: ano - příplatek 8%**
-- **dělitelné na 3ks 2450 x 400 mm: ano - příplatek 10%**
+- **dělitelné na 2ks 2450 x 610 mm: ano**
+- **dělitelné na 3ks 2450 x 400 mm: ano**

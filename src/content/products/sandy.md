@@ -1,15 +1,15 @@
 ---
-id: 13
-title: SANDY 2x 1/2
-description: Zářivě svítící kamenná deska SANDY, vynikne i při rozdělení na dva či tři pruhy, které lze použít jako samostatné osvětlení. Rozdělení svítící kamenné desky vynikne v kombinaci se zrcadly.
-price: 74900
+id: 9
+title: SANDY
+description: Zářivě svítící kamenná deska SANDY, je díky svým zemitým barvám, příjemným interiérovým osvětlením, které vynikne za všech světelných podmínek.
+price: 68900
 reservation: false
-imgDark: Rockfoil_SANDY_halves_dark.webp
-imgFrame: Rockfoil_SANDY_halves_dark_frame.webp
-imgLight: Rockfoil_SANDY_halves_light_frame.webp
-modelHorizontal3d: Rockfoil_SANDY_halves_3D.glb
-modelVertical3d: Rockfoil_SANDY_halves_3D_vertical.glb
-daeFile: Rock_sheet_SANDY_halves.zip
+imgDark: Rockfoil_SANDY_dark.webp
+imgFrame: Rockfoil_SANDY_dark_frame.webp
+imgLight: Rockfoil_SANDY_light_frame.webp
+modelHorizontal3d: Rockfoil_SANDY_3D.glb
+modelVertical3d: Rockfoil_SANDY_3D_vertical.glb
+daeFile: Rock_sheet_SANDY.zip
 ---
 - **rozměr: 2450 x 1220 x 25 mm**
 - **hmotnost: 40 kg**
@@ -28,5 +28,5 @@ daeFile: Rock_sheet_SANDY_halves.zip
 - **zabudovaný RF/WiFi kontroler: ano**
 - **RF dálkový ovladač: ano**
 - **nano impregnace: ano**
-- **dělitelné na 2ks 2450 x 600 mm: ano - příplatek 8%**
-- **dělitelné na 3ks 2450 x 400 mm: ano - příplatek 10%**
+- **dělitelné na 2ks 2450 x 610 mm: ano**
+- **dělitelné na 3ks 2450 x 400 mm: ano**
