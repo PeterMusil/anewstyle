@@ -16,7 +16,7 @@ daeFile: Rock_sheet_DARKGOLD.zip
 - **hmotnost: 40 kg**
 - **max. spotreba: 63W**
 - **standby spotřeba: 0,2W**
-- **jas: 150 cd/m2**
+- **jas: 130 cd/m2**
 - **teplota podsvětlení: 4000 K**
 - **napájecí napěti: 230V**
 - **barva rámu: černá mat**

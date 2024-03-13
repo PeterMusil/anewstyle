@@ -1,5 +1,5 @@
 ---
-id: 14
+id: 13
 title: GOLDENLAVA 2x 1/2
 description: Výjimečná kombinace černé a zlatavých barev u svítící kamenné desky GOLDENLAVA, vynikne i při rozdělení na dva či tři pruhy, které lze použít jako samostatná osvětlení. Úzké pruhy rozšíří možnost použití svítící kamenné desky, například v kombinaci s velkoplošnými zrcadly.
 price: 35900
@@ -13,9 +13,9 @@ daeFile: Rock_sheet_GOLDENLAVA_halves.zip
 ---
 - **rozměr: 2450 x 610 x 25 mm**
 - **hmotnost: 20 kg**
-- **max. spotreba: 45W**
+- **max. spotreba: 57W**
 - **standby spotřeba: 0,2W**
-- **jas: 230 cd/m2**
+- **jas: 160 cd/m2**
 - **teplota podsvětlení: 4000 K**
 - **napájecí napěti: 230V**
 - **barva rámu: volitelná**
@@ -28,5 +28,5 @@ daeFile: Rock_sheet_GOLDENLAVA_halves.zip
 - **zabudovaný RF/WiFi kontroler: ano**
 - **RF dálkový ovladač: ano**
 - **nano impregnace: ano**
-- **dělitelné na 2ks 2450 x 610 mm: ano**
-- **dělitelné na 3ks 2450 x 405 mm: ano**
+- **příplatkově dělitelné na 2ks 2450 x 610 mm: ano**
+- **příplatkově dělitelné na 3ks 2450 x 405 mm: ano**
