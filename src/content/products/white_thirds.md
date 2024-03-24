@@ -9,7 +9,7 @@ imgFrame: Rockfoil_WHITE_thirds_dark_frame.webp
 imgLight: Rockfoil_WHITE_thirds_light_frame.webp
 modelHorizontal3d: Rockfoil_WHITE_thirds_3D.glb
 modelVertical3d: Rockfoil_WHITE_thirds_3D_vertical.glb
-daeFile: Rock_sheet_WHITE_thirds.zip
+daeFile: Rock_sheet_WHITE.zip
 ---
 - **rozměr: 2450 x 400 x 25 mm**
 - **hmotnost: 14 kg**

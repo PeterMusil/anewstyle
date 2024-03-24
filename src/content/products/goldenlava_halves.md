@@ -9,7 +9,7 @@ imgFrame: Rockfoil_GOLDENLAVA_halves_dark_frame_B.webp
 imgLight: Rockfoil_GOLDENLAVA_halves_light_frame_B.webp
 modelHorizontal3d: Rockfoil_GOLDENLAVA_halves_3D.glb
 modelVertical3d: Rockfoil_GOLDENLAVA_halves_3D_vertical.glb
-daeFile: Rock_sheet_GOLDENLAVA_halves.zip
+daeFile: Rock_sheet_GOLDENLAVA.zip
 ---
 - **rozměr: 2450 x 610 x 25 mm**
 - **hmotnost: 20 kg**
