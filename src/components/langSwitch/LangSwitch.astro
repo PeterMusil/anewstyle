@@ -1,22 +1,22 @@
-<div id="langSwitch" class="lang-switch">
-    <button type="button" aria-label="Zvolte jazyk" class="lang-switch__button" id="langSwitchBtn">
-        <span data-localize="selected-language"></span>
-        <svg class="icon icon-down">
-            <use xlink:href="#icon-down"></use>
-        </svg>
-    </button>
-    <div class="lang-switch__pop-up">
-        <button type="button" data-lang="cs" class="lang-switch__item">Česky</button>
-        <button type="button" data-lang="en" class="lang-switch__item">English</button>
+<li>
+    <div id="langSwitch" class="lang-switch">
+        <button type="button" aria-label="Select language" class="lang-switch__button" id="langSwitchBtn">
+            <span data-localize="lang_selected"></span>
+            <small>▼</small>
+        </button>
+        <div class="lang-switch__pop-up">
+            <button type="button" data-lang="cs" class="lang-switch__item" data-localize="lang_cs"></button>
+            <button type="button" data-lang="en" class="lang-switch__item" data-localize="lang_en"></button>
+        </div>
     </div>
-</div>
+</li>
 
 <script>
     import { localize } from "locale-essentials";
-
     document.addEventListener("DOMContentLoaded", () => {
         const langSwitchElem = document.querySelector(".lang-switch__pop-up") as HTMLDivElement;
         const langSwitchBtn = document.getElementById("langSwitchBtn") as HTMLButtonElement;
+        const langSwitchItems = document.querySelectorAll(".lang-switch__item") as NodeListOf<HTMLButtonElement>;
 
         const localizeOptions = {
             langDirectory: "./text/",
@@ -33,6 +33,13 @@
             if (e.target !== langSwitchBtn) {
                 langSwitchElem.classList.remove("open");
             }
+        });
+
+        langSwitchItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                langSwitchItems.forEach((item) => item.classList.remove("active"));
+                item.classList.add("active");
+            });
         });
     });
 </script>

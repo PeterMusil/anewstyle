@@ -3,25 +3,30 @@
 .lang-switch {
     --lang-pop-up_display: none;
     position: relative;
+    font-size: $gap-l;
+    text-align: center;
 
     @media (hover: hover) {
-        --lang-pop-up_display: inline-flex;
+        &:hover {
+            --lang-pop-up_display: inline-flex;
+        }
     }
 
     &__button {
         @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
         font-size: 1em;
-        color: var(--lang-switch_color, #{$color-bg-nav});
+        color: var(--lang-switch_color, #{$color-white});
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
 
         > span,
         > .icon {
             pointer-events: none;
         }
 
-        &.open + .lang-switch__pop-up {
-            @include res-max-tablet {
-                --lang-pop-up_display: inline-flex;
-            }
+        small {
+            font-size: 0.5em;
         }
     }
 
@@ -31,42 +36,41 @@
     }
 
     &__pop-up {
-        @include flex-set(var(--lang-pop-up_display), column, nowrap, 0, stretch, stretch, stretch);
+        @include flex-set(var(--lang-pop-up_display, none), column, nowrap, 0, stretch, stretch, stretch);
         position: absolute;
         top: 100%;
         left: 50%;
         translate: -50% 0;
+        inline-size: 100%;
         border-radius: 0.5em;
+        text-align: left;
         background-color: var(--lang-pop-up_bg-color, #{$color-secondary});
         overflow: hidden;
-
+        @include res-max-tablet {
+            inline-size: auto;
+        }
         &.open {
             --lang-pop-up_display: inline-flex;
-        }
-
-        @include res-max-tablet {
-            --lang-pop-up_bg-color: #{$color-bg-nav};
-            top: 0;
-            translate: -50% calc(-100% - $gap-s);
         }
     }
 
     &__item {
         padding-inline: $gap-m;
-        padding-block: $gap-s;
+        padding-block: $gap-m;
         background-color: var(--lang-switch-item_bg-color, transparent);
-        font-size: 1em;
+        font-size: $gap-l;
         color: var(--lang-switch-item_color, $color-white);
-
+        border-width: 0;
+        cursor: pointer;
+        text-align: left;
         @include res-max-tablet {
             --lang-switch-item_bg-color: #{$color-secondary};
+            text-align: center;
         }
 
         @media (hover: hover) {
-            --lang-switch-item_bg-color: #{$color-secondary};
-
-            @include res-max-tablet {
-                --lang-switch-item_bg-color: transparent;
+            &:hover {
+                --lang-switch-item_color: #{$color-primary};
             }
         }
 
