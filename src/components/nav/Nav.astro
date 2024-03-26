@@ -1,6 +1,7 @@
 ---
 import NavItem from "./NavItem.astro";
 import LangSwitch from "../langSwitch/LangSwitch.astro";
+import Icon from "../icons/Icon.astro";
 ---
 
 <nav>
@@ -16,10 +17,8 @@ import LangSwitch from "../langSwitch/LangSwitch.astro";
       <NavItem href="#contact" text="nav_contact" />
       <LangSwitch />
     </ul>
-    <button aria-label="Mobilní menu" class="burger" id="menuBtn">
-      <svg class="icon icon-menu">
-        <use xlink:href="#icon-menu"></use>
-      </svg>
+    <button aria-label="Mobile menu" class="burger" id="menuBtn">
+      <Icon name="menu" />
     </button>
   </div>
 </nav>
