@@ -1,0 +1,38 @@
+<div id="langSwitch" class="lang-switch">
+    <button type="button" aria-label="Zvolte jazyk" class="lang-switch__button" id="langSwitchBtn">
+        <span data-localize="selected-language"></span>
+        <svg class="icon icon-down">
+            <use xlink:href="#icon-down"></use>
+        </svg>
+    </button>
+    <div class="lang-switch__pop-up">
+        <button type="button" data-lang="cs" class="lang-switch__item">Česky</button>
+        <button type="button" data-lang="en" class="lang-switch__item">English</button>
+    </div>
+</div>
+
+<script>
+    import { localize } from "locale-essentials";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const langSwitchElem = document.querySelector(".lang-switch__pop-up") as HTMLDivElement;
+        const langSwitchBtn = document.getElementById("langSwitchBtn") as HTMLButtonElement;
+
+        const localizeOptions = {
+            langDirectory: "./text/",
+            defaultLanguage: "cs",
+            langSwitch: langSwitchElem,
+        };
+        localize(localizeOptions);
+
+        langSwitchBtn.addEventListener("click", () => {
+            langSwitchElem.classList.toggle("open");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (e.target !== langSwitchBtn) {
+                langSwitchElem.classList.remove("open");
+            }
+        });
+    });
+</script>

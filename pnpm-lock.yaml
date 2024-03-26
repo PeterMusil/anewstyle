@@ -17,6 +17,9 @@ dependencies:
   astro:
     specifier: ^4.3.6
     version: 4.3.6(sass@1.70.0)(typescript@5.3.3)
+  locale-essentials:
+    specifier: ^1.1.8
+    version: 1.1.8
   pnpm:
     specifier: ^8.15.2
     version: 8.15.2
@@ -3030,6 +3033,10 @@ packages:
       js-yaml: 3.14.1
       pify: 4.0.1
       strip-bom: 3.0.0
+    dev: false
+
+  /locale-essentials@1.1.8:
+    resolution: {integrity: sha512-FjiSzbW1YR+68BeHUMHarBj8ukCBEk/QtqjxcqyQZl8pfay4rl/umg8ax4XZMVFI/OCHScfQJpNhzUpHg46WWA==}
     dev: false
 
   /locate-path@3.0.0:

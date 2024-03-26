@@ -126,6 +126,20 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"products": {
+"brightgrey.md": {
+	id: "brightgrey.md";
+  slug: "brightgrey";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"caldera.md": {
+	id: "caldera.md";
+  slug: "caldera";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
 "darkgold.md": {
 	id: "darkgold.md";
   slug: "darkgold";
@@ -140,6 +154,13 @@ declare module 'astro:content' {
   collection: "products";
   data: any
 } & { render(): Render[".md"] };
+"goldenlava_halves.md": {
+	id: "goldenlava_halves.md";
+  slug: "goldenlava_halves";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
 "goldensun.md": {
 	id: "goldensun.md";
   slug: "goldensun";
@@ -150,6 +171,48 @@ declare module 'astro:content' {
 "pink.md": {
 	id: "pink.md";
   slug: "pink";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"rusty.md": {
+	id: "rusty.md";
+  slug: "rusty";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"safari.md": {
+	id: "safari.md";
+  slug: "safari";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"sandislets.md": {
+	id: "sandislets.md";
+  slug: "sandislets";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"sandy.md": {
+	id: "sandy.md";
+  slug: "sandy";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"sierra.md": {
+	id: "sierra.md";
+  slug: "sierra";
+  body: string;
+  collection: "products";
+  data: any
+} & { render(): Render[".md"] };
+"white_thirds.md": {
+	id: "white_thirds.md";
+  slug: "white_thirds";
   body: string;
   collection: "products";
   data: any

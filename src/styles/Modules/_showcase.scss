@@ -84,6 +84,10 @@ section:has(> .showcase) {
       @include res-max-mobile-l {
         font-size: clamp($gap-l, 6.5vw, $gap-xxl);
       }
+      > small {
+        font-size: 1em;
+        line-height: inherit;
+      }
 
       > span {
         display: block;

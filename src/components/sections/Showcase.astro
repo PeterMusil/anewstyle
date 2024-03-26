@@ -7,8 +7,12 @@ const { id } = Astro.props;
 <section id={id} class="dark inline-container h-100">
   <div class="showcase">
     <div class="tablet-content">
-      <h2><span>Designové</span> interiérové osvětlení</h2>
-      <p>Celoplošné svítící panely prosvětlující <strong>přírodní kamennou desku</strong>, se vyznačují malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy jedinečnou a nepomíjivou elegancí.</p>
+      <h2><span data-localize="showcase_title_part1"></span><small data-localize="showcase_title_part2"></small></h2>
+      <p>
+        <span data-localize="showcase_desc_part1"></span>
+        <strong data-localize="showcase_desc_part2"></strong>
+        <span data-localize="showcase_desc_part3"></span>
+      </p>
     </div>
     <div class="showcase__img">
       <img src="./images/showcase/rockfoil_pink_dark_mirror.webp" alt="Kamenná deska Goldenbark" width="1200" />
@@ -17,21 +21,25 @@ const { id } = Astro.props;
     </div>
     <div class="showcase__content">
       <div class="not-tablet-content">
-        <h2><span>Designové</span> interiérové osvětlení</h2>
-        <p>Celoplošné svítící panely prosvětlující <strong>přírodní kamennou desku</strong>, se vyznačují malou hmotnost, snadnou montáží, nízkou spotřebou elektrické energie, ale především vždy jedinečnou a nepomíjivou elegancí.</p>
+        <h2><span data-localize="showcase_title_part1"></span><small data-localize="showcase_title_part2"></small></h2>
+        <p>
+          <span data-localize="showcase_desc_part1"></span>
+          <strong data-localize="showcase_desc_part2"></strong>
+          <span data-localize="showcase_desc_part3"></span>
+        </p>
       </div>
       <div class="showcase__buttons">
-        <button class="button" type="button" aria-label="Zhasni obraz" title="Zhasni obraz">
+        <button class="button" type="button" aria-label="Light off">
           <Icon name="turn-off" />
-          <small>Zhaslá deska</small>
+          <small data-localize="showcase_btn1"></small>
         </button>
-        <button class="button" type="button" aria-label="Rozsvíť rám obrazu" title="Rozsvíť rám obrazu">
+        <button class="button" type="button" aria-label="Light the Frame">
           <Icon name="frame" />
-          <small>Svítící rám</small>
+          <small data-localize="showcase_btn2"></small>
         </button>
-        <button class="button active" type="button" aria-label="Rozsvíť obraz" title="Rozsvíť obraz">
+        <button class="button active" type="button" aria-label="Light the Panel">
           <Icon name="bulp" />
-          <small>Svítící deska</small>
+          <small data-localize="showcase_btn3"></small>
         </button>
       </div>
     </div>

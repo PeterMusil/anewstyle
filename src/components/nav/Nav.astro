@@ -1,5 +1,6 @@
 ---
 import NavItem from "./NavItem.astro";
+import LangSwitch from "../langSwitch/LangSwitch.astro";
 ---
 
 <nav>
@@ -13,6 +14,7 @@ import NavItem from "./NavItem.astro";
       <NavItem href="#features" text="Vlastnosti" />
       <NavItem href="#showroom" text="Galerie" />
       <NavItem href="#contact" text="Kontakt" />
+      <LangSwitch />
     </ul>
     <button aria-label="Mobilní menu" class="burger" id="menuBtn">
       <svg class="icon icon-menu">
