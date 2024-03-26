@@ -111,6 +111,13 @@
             text-align: center;
         }
 
+        > span,
+        > strong {
+            &:empty {
+                display: none;
+            }
+        }
+
         > strong {
             color: $color-primary;
         }

@@ -35,8 +35,7 @@ body {
         --text-scale: 1.1;
     }
 
-    &:after {
-        content: attr(data-text);
+    > span {
         max-inline-size: calc(100% - $gap-l);
         opacity: var(--text-opacity, 1);
         font-size: 12px;
