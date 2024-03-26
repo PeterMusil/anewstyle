@@ -5,9 +5,12 @@ const { id } = Astro.props;
 
 <section id={id} class="light">
   <div class="container">
-    <h2 class="title text-center title--mg-s">Galerie</h2>
+    <h2 class="title text-center title--mg-s" data-localize="gallery_title"></h2>
     <p class="desc desc--center">
-      Pro <strong>inspiraci</strong> si prohlédněte naši galerii fotografií. Jak by se tenhle krásný designový prvek mohl vyjímat u <strong>Vás doma</strong>, či v kanceláři?
+      <span data-localize="gallery_desc_part1"></span>
+      <strong data-localize="gallery_desc_part2"></strong><span data-localize="gallery_desc_part3"></span>
+      <strong data-localize="gallery_desc_part4"></strong>
+      <span data-localize="gallery_desc_part5"></span>
     </p>
   </div>
   <div class="gallery">
@@ -28,7 +31,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz2_425.webp" loading="lazy" width="425" height="247" alt="Kámen 2" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />PINK</strong>
+        <strong>PINK</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -36,7 +39,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz3_425.webp" loading="lazy" width="425" height="247" alt="Kámen 3" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />DARKGOLD</strong>
+        <strong>DARKGOLD</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -44,7 +47,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz4_425.webp" loading="lazy" width="425" height="247" alt="Kámen 4" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />SUNLIGHT</strong>
+        <strong>SUNLIGHT</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -52,7 +55,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz5_425.webp" loading="lazy" width="425" height="247" alt="Kámen 5" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />GOLDENBARK</strong>
+        <strong>GOLDENBARK</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -60,7 +63,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz6_425.webp" loading="lazy" width="425" height="247" alt="Kámen 6" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />DARKGOLD</strong>
+        <strong>DARKGOLD</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -68,7 +71,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz7_425.webp" loading="lazy" width="425" height="247" alt="Kámen 7" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />SUNLIGHT</strong>
+        <strong>SUNLIGHT</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -76,7 +79,7 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz8_425.webp" loading="lazy" width="425" height="247" alt="Kámen 8" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />SUNLIGHT</strong>
+        <strong>SUNLIGHT</strong>
       </div>
     </a>
     <a href="./images/gallery/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
@@ -84,13 +87,14 @@ const { id } = Astro.props;
         <img src="./images/gallery/Rockfoil_viz9_425.webp" loading="lazy" width="425" height="247" alt="Kámen 9" />
       </div>
       <div class="gitem__content">
-        <strong>Kámen<br />GOLDENBARK</strong>
+        <strong>GOLDENBARK</strong>
       </div>
     </a>
   </div>
   <div class="container">
     <p class="desc desc--mg-s desc--center">
-      Vizualizace interiérů jsou použity se souhlasem společnosti <a href="https://www.designatak.cz/" aria-label="Preˇjí na stránky společnosti ATAK Design" class="link" style="text-decoration: underline;" rel="external">ATAK Design</a>.
+      <span data-localize="gallery_under-text"></span>
+      <a href="https://www.designatak.cz/" aria-label="Go to ATAK Design web" class="link" style="text-decoration: underline;" rel="external">ATAK Design</a>.
       <br /><br />
       <picture>
         <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif" />

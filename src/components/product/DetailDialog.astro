@@ -18,12 +18,12 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
-  <button type="button" id="closeBtn" class="dialog__close" aria-label="Zavřít detail produktu" title="Zavřít">
+  <button type="button" id="closeBtn" class="dialog__close" aria-label="Close product detail" title="Close">
     <Icon name="close" />
   </button>
   <div class="product-detail">
     <strong>{title}</strong>
-    <div class="product-detail__img" title="Zobrazit ve 3D">
+    <div class="product-detail__img" title="Show in 3D">
       <a href={`#horizontal3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
         <img src={`./images/products/${imgLight}`} alt={`Kamenná deska ${title}`} width="1024" id="closeImg" />
         {(modelHorizontal3d || modelVertical3d) && <Icon name="ar" />}
@@ -44,7 +44,7 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
         daeFile && (
           <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
             <Icon name="download" />
-            Stáhnout ve 3D
+            <span data-localize="products_detail_download" />
           </a>
         )
       }
@@ -52,16 +52,20 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
         {
           price && (
             <>
-              <strong class="product-detail__price">
-                {price.toLocaleString("cs-CZ")}&nbsp;Kč
-                <small>Cena bez DPH (21%)</small>
-              </strong>
+              <span class="product-detail__price">
+                <strong>
+                  {price.toLocaleString("cs-CZ")}
+                  <strong data-localize="products_detail_currency" />
+                </strong>
+
+                <small data-localize="products_detail_vat" />
+              </span>
               <a class="button button--s" href="mailto:info@anewstyle.cz" aria-disabled={reservation}>
                 {reservation ? (
                   "Rezervováno"
                 ) : (
                   <>
-                    Mám zájem
+                    <span data-localize="products_detail_btn_interested" />
                     <Icon name="email" />
                   </>
                 )}
@@ -110,14 +114,25 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
       const ulElement = tags.querySelector("ul") as HTMLUListElement;
       const liElement = document.createElement("li");
       const showMoreBtn = document.createElement("button");
-      showMoreBtn.innerHTML = "Zobrazit více  ▼";
+
       showMoreBtn.classList.add("button", "button--xs");
       showMoreBtn.setAttribute("type", "button");
-      showMoreBtn.setAttribute("aria-label", "Zobrazit více");
+
+      const spanMore = document.createElement("span");
+      spanMore.setAttribute("data-localize", "products_detail_btn_more");
+      showMoreBtn.appendChild(spanMore);
+
+      const spanLess = document.createElement("span");
+      spanLess.setAttribute("data-localize", "products_detail_btn_less");
+      spanLess.style.display = "none";
+      showMoreBtn.appendChild(spanLess);
+
       showMoreBtn?.addEventListener("click", () => {
         tags?.classList.toggle("tags--all");
-        showMoreBtn.innerText = tags.classList.contains("tags--all") ? "Zobrazit méně  ▲" : "Zobrazit více  ▼";
+        spanMore.style.display = tags.classList.contains("tags--all") ? "none" : "inline";
+        spanLess.style.display = tags.classList.contains("tags--all") ? "inline" : "none";
       });
+
       liElement.appendChild(showMoreBtn);
       ulElement.appendChild(liElement);
     });

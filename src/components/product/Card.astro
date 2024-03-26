@@ -11,13 +11,13 @@ interface Props {
 const { id, title, imgLight, has3D } = Astro.props;
 ---
 
-<div id={`productCard${id}`} role="button" class="card" title="Zobrazit detail produktu" aria-label="Zobrazit detail produktu">
+<div id={`productCard${id}`} role="button" class="card" aria-label="Zobrazit detail produktu">
   <strong>
     {title}
   </strong>
   <img src={`./images/products/${imgLight}`} alt={title} loading="lazy" width="304" height="165" />
   <div class="text-center">
-    <div class="button button--s">Zobrazit detail</div>
+    <div class="button button--s" data-localize="products_btn_show-detail"></div>
   </div>
   {has3D && <Icon name="ar" />}
 </div>

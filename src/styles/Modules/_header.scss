@@ -32,10 +32,11 @@ header {
   &__video {
     position: absolute;
     inset: 0;
-    inline-size: 100dvi;
+    inline-size: 100lvi;
     opacity: var(--video-opacity, 0);
     transition: opacity 0.5s linear;
     z-index: 1;
+    background-color: $color-secondary;
     pointer-events: none;
 
     &:has(source) {

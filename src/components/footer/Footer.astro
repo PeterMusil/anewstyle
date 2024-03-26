@@ -1,3 +1,13 @@
+---
+let currentYear = new Date().getFullYear();
+---
+
 <footer>
-    <small>©2022 - 2023 anewstyle.cz | Všechna práva vyhrazena.</small>
+    <small>
+        ©2022 - {currentYear} anewstyle.cz |
+        <span data-localize="footer_rights"></span>
+        |
+        <span data-localize="footer_creator"></span>
+        <a href="https://lukaschylik.sk/" target="_blank" rel="external" aria-label="Go to creator portfolio website">Lukáš Chylík</a>
+    </small>
 </footer>

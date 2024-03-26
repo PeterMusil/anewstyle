@@ -82,7 +82,7 @@
         pointer-events: none;
     }
 
-    > small {
+    > :is(span, small) {
         font-weight: inherit;
         white-space: nowrap;
     }
