@@ -2,6 +2,7 @@
 id: 12
 title: RUSTY
 description: Název svítící kamenné desky RUSTY je odvozen od načervenalých ostrůvků připomínající dekorativní, cortenovou rez. Dekor desky tak vyniká i bez efektního prosvícení.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_RUSTY_light_frame_thirds.webp

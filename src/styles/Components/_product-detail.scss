@@ -82,6 +82,10 @@
             font-weight: 400;
         }
     }
+
+    [data-language="en"] {
+        display: none;
+    }
 }
 
 model-viewer {

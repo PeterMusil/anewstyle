@@ -4,6 +4,7 @@ interface Props {
   id: number;
   title?: string;
   desc?: string;
+  descEn?: string;
   imgDark?: string;
   imgFrame?: string;
   imgLight?: string;
@@ -14,7 +15,7 @@ interface Props {
   price?: number;
   reservation: boolean;
 }
-const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d, daeFile, reservation } = Astro.props;
+const { id, title, desc, descEn, content, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d, daeFile, reservation } = Astro.props;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -38,7 +39,8 @@ const { id, title, desc, content, price, imgDark, imgFrame, imgLight, modelHoriz
       <model-viewer id={`vertical3dModel${id}`} src={`./3d/products/${modelVertical3d}`} ar ar-scale="auto" ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
     </div>
     <div class="product-detail__content">
-      <p class="desc desc--no-mg">{desc}</p>
+      <p class="desc desc--no-mg" data-language="cs">{desc}</p>
+      <p class="desc desc--no-mg" data-language="en">{descEn}</p>
       <div class="tags" set:html={content} />
       {
         daeFile && (

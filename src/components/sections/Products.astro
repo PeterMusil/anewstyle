@@ -28,7 +28,7 @@ const products = await Astro.glob("../../content/products/*.md");
             return (
               <div class="product">
                 <Card id={data.id} title={data.title} imgLight={data.imgLight} has3D={data.modelHorizontal3d || data.modelVertical3d} />
-                <DetailDialog id={data.id} title={data.title} desc={data.description} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} modelHorizontal3d={data.modelHorizontal3d} modelVertical3d={data.modelVertical3d} daeFile={data.daeFile} reservation={data.reservation} />
+                <DetailDialog id={data.id} title={data.title} desc={data.description} descEn={data.descriptionEn} content={product.compiledContent()} price={data.price} imgDark={data.imgDark} imgFrame={data.imgFrame} imgLight={data.imgLight} modelHorizontal3d={data.modelHorizontal3d} modelVertical3d={data.modelVertical3d} daeFile={data.daeFile} reservation={data.reservation} />
               </div>
             );
           })

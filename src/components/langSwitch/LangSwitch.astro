@@ -13,6 +13,20 @@
 
 <script>
     import { localize } from "locale-essentials";
+    const setDetailLang = () => {
+        const lang = localStorage.getItem("language");
+        const enDesc = document.querySelectorAll('[data-language="en"]') as NodeListOf<HTMLParagraphElement>;
+        const csDesc = document.querySelectorAll('[data-language="cs"]') as NodeListOf<HTMLParagraphElement>;
+
+        if (lang === "en") {
+            enDesc.forEach((el) => (el.style.display = "block"));
+            csDesc.forEach((el) => (el.style.display = "none"));
+        } else if (lang === "cs") {
+            csDesc.forEach((el) => (el.style.display = "block"));
+            enDesc.forEach((el) => (el.style.display = "none"));
+        }
+    };
+
     document.addEventListener("DOMContentLoaded", () => {
         const langSwitchElem = document.querySelector(".lang-switch__pop-up") as HTMLDivElement;
         const langSwitchBtn = document.getElementById("langSwitchBtn") as HTMLButtonElement;
@@ -35,10 +49,15 @@
             }
         });
 
+        setDetailLang();
+
         langSwitchItems.forEach((item) => {
             item.addEventListener("click", () => {
                 langSwitchItems.forEach((item) => item.classList.remove("active"));
                 item.classList.add("active");
+                setTimeout(() => {
+                    setDetailLang();
+                }, 200);
             });
         });
     });

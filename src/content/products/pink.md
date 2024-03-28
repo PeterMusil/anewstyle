@@ -2,6 +2,7 @@
 id: 2
 title: Pink
 description: Jedinečná, narůžovělá kresba kamene, předurčuje svítící kamennou desku PINK, k osvětlení tmavých, ale i světlých prostor, kde je její svit výrazný i za denního světla. 
+descriptionEn: English version of text.
 price: 74900
 reservation: true
 imgDark: Rockfoil_PINK_dark.webp

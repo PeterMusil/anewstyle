@@ -2,6 +2,7 @@
 id: 9
 title: BRIGHTGREY
 description: Svítící kamenná deska BRIGHTGREY, se vyznačuje luxusní kombinecí světle šedé a zlaté barvy, ale především jedinečným jasem. Speciálně navržené LED prosvětlení, zvýrazňuje kontrast mezi světlými barvami kamene.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_BRIGHTGREY_light_frame_thirds.webp

@@ -2,6 +2,7 @@
 id: 1
 title: WILDLIFE
 description: Raritní svítící kamenná deska WILDLIFE, je díky své živé kresbě kamene, vhodná k osvětlení každého interiéru. Její, přírodou vytvořený divoký vzor, Vám nikdy nezevšední.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_WILDLIFE_dark.webp

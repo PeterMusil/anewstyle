@@ -2,6 +2,7 @@
 id: 6
 title: SANDY
 description: Zářivě svítící kamenná deska SANDY, je díky svým zemitým barvám, příjemným interiérovým osvětlením, které vynikne za všech světelných podmínek.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_SANDY_dark.webp

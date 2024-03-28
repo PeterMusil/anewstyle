@@ -2,6 +2,7 @@
 id: 11
 title: SIERRA
 description: Spojení černé a zlaté barvy paří mezi nejluxusnější barevné kombinace. Svítící kamenná deska SIERRA, vám tyto barvy rozzáří ve Vašem interiéru.
+descriptionEn: English version of text.
 price: 74900
 reservation: false
 imgDark: Rockfoil_SIERRA_light_frame_thirds.webp

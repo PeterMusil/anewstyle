@@ -2,6 +2,7 @@
 id: 13
 title: GOLDENLAVA 2x 1/2
 description: Výjimečná kombinace černé a zlatavých barev u svítící kamenné desky GOLDENLAVA, vynikne i při rozdělení na dva či tři pruhy, které lze použít jako samostatná osvětlení. Úzké pruhy rozšíří možnost použití svítící kamenné desky, například v kombinaci s velkoplošnými zrcadly.
+descriptionEn: English version of text.
 price: 35900
 reservation: false
 imgDark: Rockfoil_GOLDENLAVA_halves_dark_B.webp

@@ -2,6 +2,7 @@
 id: 8
 title: SANDISLETS
 description: Pískově zlatavé ostrůvky svítící kamenné desky SANDISLETS, tvoří s kontrastním černým žíháním, zemitý a nadčasový vzor.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_SANDISLETS_dark.webp

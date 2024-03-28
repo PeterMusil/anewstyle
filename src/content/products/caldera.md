@@ -2,6 +2,7 @@
 id: 7
 title: CALDERA
 description: Kruhový vzor svítící kamenné desky CALDERA ji propůjčil svůj název. Speciálně navržené LED prosvětlení, zvýrazňuje kontrast mezi tmavými a pískově zlatými odstíny kamene.
+descriptionEn: English version of text.
 price: 68900
 reservation: false
 imgDark: Rockfoil_CALDERA_dark.webp
