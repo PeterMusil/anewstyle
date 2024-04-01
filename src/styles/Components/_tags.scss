@@ -38,5 +38,9 @@
         &:last-child {
             --tag-display: inline-block;
         }
+
+        > span {
+            font-weight: 500;
+        }
     }
 }

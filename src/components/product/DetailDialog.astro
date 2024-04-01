@@ -11,11 +11,30 @@ interface Props {
   modelHorizontal3d?: string;
   modelVertical3d?: string;
   daeFile?: string;
-  content?: string;
   price?: number;
   reservation: boolean;
+  tags: {
+    dimension: string;
+    weight: string;
+    maxConsumption: string;
+    standbyConsumption: string;
+    brightness: string;
+    backlightTempereture: string;
+    powerVoltage: string;
+    frameColor: string;
+    hangingBrackets: boolean;
+    dimmableStoneIllumination: boolean;
+    dimmableIllumination: boolean;
+    phoneControl: boolean;
+    LEDSource: boolean;
+    RFIDController: boolean;
+    RFRemoteControl: boolean;
+    nanoImpregnation: boolean;
+    divisibleInto2: boolean;
+    divisibleInto3: boolean;
+  };
 }
-const { id, title, desc, descEn, content, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d, daeFile, reservation } = Astro.props;
+const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d, daeFile, reservation, tags } = Astro.props;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -41,7 +60,118 @@ const { id, title, desc, descEn, content, price, imgDark, imgFrame, imgLight, mo
     <div class="product-detail__content">
       <p class="desc desc--no-mg" data-language="cs">{desc}</p>
       <p class="desc desc--no-mg" data-language="en">{descEn}</p>
-      <div class="tags" set:html={content} />
+      <div class="tags">
+        <ul>
+          <li>
+            <span data-localize="products_tag_dimension"></span>
+            <b>{tags.dimension}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_weight"></span>
+            <b>{tags.weight}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_max-cons"></span>
+            <b>{tags.maxConsumption}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_standby-cons"></span>
+            <b>{tags.standbyConsumption}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_brightness"></span>
+            <b>{tags.brightness}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_backlight-temp"></span>
+            <b>{tags.backlightTempereture}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_power-voltage"></span>
+            <b>{tags.powerVoltage}</b>
+          </li>
+          <li>
+            <span data-localize="products_tag_frame-color"></span>
+            <b>{tags.frameColor}</b>
+          </li>
+          {
+            tags.hangingBrackets && (
+              <li>
+                <span data-localize="products_tag_hang" />
+              </li>
+            )
+          }
+          {
+            tags.dimmableStoneIllumination && (
+              <li>
+                <b data-localize="products_tag_dimmable-stone-ill" />
+              </li>
+            )
+          }
+          {
+            tags.dimmableIllumination && (
+              <li>
+                <b data-localize="products_tag_dimmable-ill" />
+              </li>
+            )
+          }
+          {
+            tags.phoneControl && (
+              <li>
+                <b data-localize="products_tag_phone-control" />
+              </li>
+            )
+          }
+          {
+            tags.LEDSource && (
+              <li>
+                <b data-localize="products_tag_led" />
+              </li>
+            )
+          }
+          {
+            tags.RFIDController && (
+              <li>
+                <b data-localize="products_tag_rfid-controller" />
+              </li>
+            )
+          }
+          {
+            tags.RFRemoteControl && (
+              <li>
+                <b data-localize="products_tag_rf-remote" />
+              </li>
+            )
+          }
+          {
+            tags.nanoImpregnation && (
+              <li>
+                <b data-localize="products_tag_impregnation" />
+              </li>
+            )
+          }
+          {
+            tags.divisibleInto2 && (
+              <li>
+                <b data-localize="products_tag_divisible-2" />
+              </li>
+            )
+          }
+          {
+            tags.divisibleInto3 && (
+              <li>
+                <b data-localize="products_tag_divisible-3" />
+              </li>
+            )
+          }
+          <li>
+            <button id="showMoreTags" type="button" class="button button--xs">
+              <span data-localize="products_detail_btn_more"></span>
+              <span data-localize="products_detail_btn_less"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
       {
         daeFile && (
           <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
@@ -64,7 +194,7 @@ const { id, title, desc, descEn, content, price, imgDark, imgFrame, imgLight, mo
               </span>
               <a class="button button--s" href="mailto:info@anewstyle.cz" aria-disabled={reservation}>
                 {reservation ? (
-                  "Rezervováno"
+                  <span data-localize="products_detail_reserved" />
                 ) : (
                   <>
                     <span data-localize="products_detail_btn_interested" />
@@ -112,31 +242,18 @@ const { id, title, desc, descEn, content, price, imgDark, imgFrame, imgLight, mo
         body?.style.setProperty("overflow", "initial");
       });
 
-      const tags = productDetail.querySelector(".tags") as HTMLDivElement;
-      const ulElement = tags.querySelector("ul") as HTMLUListElement;
-      const liElement = document.createElement("li");
-      const showMoreBtn = document.createElement("button");
+      const tagList = productDetail.querySelector(".tags") as HTMLDivElement;
+      const showMoreBtn = tagList.querySelector("button#showMoreTags") as HTMLButtonElement;
+      const spanMore = showMoreBtn.querySelector("span:nth-child(1)") as HTMLSpanElement;
+      const spanLess = showMoreBtn.querySelector("span:nth-child(2)") as HTMLSpanElement;
 
-      showMoreBtn.classList.add("button", "button--xs");
-      showMoreBtn.setAttribute("type", "button");
-
-      const spanMore = document.createElement("span");
-      spanMore.setAttribute("data-localize", "products_detail_btn_more");
-      showMoreBtn.appendChild(spanMore);
-
-      const spanLess = document.createElement("span");
-      spanLess.setAttribute("data-localize", "products_detail_btn_less");
       spanLess.style.display = "none";
-      showMoreBtn.appendChild(spanLess);
 
       showMoreBtn?.addEventListener("click", () => {
-        tags?.classList.toggle("tags--all");
-        spanMore.style.display = tags.classList.contains("tags--all") ? "none" : "inline";
-        spanLess.style.display = tags.classList.contains("tags--all") ? "inline" : "none";
+        tagList?.classList.toggle("tags--all");
+        spanMore.style.display = tagList.classList.contains("tags--all") ? "none" : "inline";
+        spanLess.style.display = tagList.classList.contains("tags--all") ? "inline" : "none";
       });
-
-      liElement.appendChild(showMoreBtn);
-      ulElement.appendChild(liElement);
     });
   </script>
 </dialog>
