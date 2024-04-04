@@ -13,14 +13,14 @@ const { description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script is:inline>
+    <!-- <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-    </script>
+    </script> -->
     <!-- Google Tag Manager -->
-    <script>
+    <!-- <script>
       // eslint-disable-next-line
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -32,7 +32,7 @@ const { description } = Astro.props;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-TB327ZQ");
-    </script>
+    </script> -->
     <!-- End Google Tag Manager -->
     <title>{title}</title>
     <meta name="description" content={description} />
