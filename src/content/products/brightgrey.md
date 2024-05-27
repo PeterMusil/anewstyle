@@ -18,7 +18,6 @@ daeFile: Rock_sheet_BRIGHTGREY.zip
 - **jas: 290 cd/m2**
 - **teplota podsvětlení: 2700-6000 K**
 - **napájecí napěti: 230V**
-- **barva rámu: černá**
 - **ovládání dotykem**
 
 - **držáky pro zavěšení: ano**
