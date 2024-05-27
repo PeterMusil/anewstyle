@@ -2,6 +2,8 @@
 
 section:has(> .showcase) {
   --sec-pad-y: 0;
+  display: grid;
+  place-items: center;
 }
 .showcase {
   display: grid;
