@@ -62,38 +62,70 @@ const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizo
       <p class="desc desc--no-mg" data-language="en">{descEn}</p>
       <div class="tags">
         <ul>
-          <li>
-            <span data-localize="products_tag_dimension"></span>
-            <b>{tags.dimension}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_weight"></span>
-            <b>{tags.weight}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_max-cons"></span>
-            <b>{tags.maxConsumption}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_standby-cons"></span>
-            <b>{tags.standbyConsumption}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_brightness"></span>
-            <b>{tags.brightness}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_backlight-temp"></span>
-            <b>{tags.backlightTempereture}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_power-voltage"></span>
-            <b>{tags.powerVoltage}</b>
-          </li>
-          <li>
-            <span data-localize="products_tag_frame-color"></span>
-            <b>{tags.frameColor}</b>
-          </li>
+          {
+            tags.dimension && (
+              <li>
+                <span data-localize="products_tag_dimension" />
+                <b>{tags.dimension}</b>
+              </li>
+            )
+          }
+          {
+            tags.weight && (
+              <li>
+                <span data-localize="products_tag_weight" />
+                <b>{tags.weight}</b>
+              </li>
+            )
+          }
+          {
+            tags.maxConsumption && (
+              <li>
+                <span data-localize="products_tag_max-cons" />
+                <b>{tags.maxConsumption}</b>
+              </li>
+            )
+          }
+          {
+            tags.standbyConsumption && (
+              <li>
+                <span data-localize="products_tag_standby-cons" />
+                <b>{tags.standbyConsumption}</b>
+              </li>
+            )
+          }
+          {
+            tags.brightness && (
+              <li>
+                <span data-localize="products_tag_brightness" />
+                <b>{tags.brightness}</b>
+              </li>
+            )
+          }
+          {
+            tags.backlightTempereture && (
+              <li>
+                <span data-localize="products_tag_backlight-temp" />
+                <b>{tags.backlightTempereture}</b>
+              </li>
+            )
+          }
+          {
+            tags.powerVoltage && (
+              <li>
+                <span data-localize="products_tag_power-voltage" />
+                <b>{tags.powerVoltage}</b>
+              </li>
+            )
+          }
+          {
+            tags.frameColor && (
+              <li>
+                <span data-localize="products_tag_frame-color" />
+                <b>{tags.frameColor}</b>
+              </li>
+            )
+          }
           {
             tags.hangingBrackets && (
               <li>

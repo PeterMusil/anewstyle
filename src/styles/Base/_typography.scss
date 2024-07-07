@@ -144,16 +144,21 @@ small {
         text-align: center;
     }
 
-    strong,
-    a:not(.button),
-    b,
-    span {
+    :is(strong, a:not(.button), b, span) {
         font-family: inherit;
         font-size: inherit;
+
+        &:empty {
+            display: none;
+        }
     }
 
     strong {
         color: $color-primary;
+    }
+
+    &:empty {
+        display: none;
     }
 }
 
