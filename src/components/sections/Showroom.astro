@@ -114,25 +114,25 @@ const { id } = Astro.props;
       };
 
       const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            import("@fancyapps/ui").then(({ Fancybox }) => {
-              Fancybox.bind("[data-fancybox]", {});
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          import("@fancyapps/ui").then(({ Fancybox }) => {
+            Fancybox.bind("[data-fancybox]", {});
 
-              if (!document.querySelector('link[href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"]')) {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
+            if (!document.querySelector('link[href="/css/fancy-box.css"]')) {
+              const link = document.createElement("link");
+              link.rel = "stylesheet";
+              link.type = "text/css";
+              link.href = "/css/fancy-box.css";
 
-                document.head.appendChild(link);
-              }
-            });
+              document.head.appendChild(link);
+            }
+          });
 
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
       elements.forEach((element) => {
         observer.observe(element);
