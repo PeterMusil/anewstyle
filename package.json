@@ -7,34 +7,34 @@
   "author": "Lukáš Chylík",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "start": "concurrently \"astro dev\" \"pnpm run stylelint\" \"pnpm run scss:watch\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "scss": "sass src/styles/style.scss | postcss -o public/css/style.css",
-    "scss:watch": "chokidar src/styles/**/*.scss -c pnpm scss",
-    "stylelint": "stylelint --fix src/styles/**/*.scss --custom-syntax postcss-scss",
-    "watch": "pnpm stylelint && pnpm scss:watch"
+    "scss:build": "sass src/styles/style.scss | postcss -o public/css/style.css",
+    "scss:watch": "nodemon -e scss -x pnpm run scss:build",
+    "stylelint": "stylelint --fix src/**/*.scss --custom-syntax postcss-scss"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
-    "@fancyapps/ui": "^5.0.33",
-    "@google/model-viewer": "^3.4.0",
-    "astro": "^4.3.6",
+    "@fancyapps/ui": "^5.0.36",
+    "@google/model-viewer": "^3.5.0",
+    "astro": "^4.16.13",
+    "depcheck": "^1.4.7",
     "locale-essentials": "^1.1.8",
-    "pnpm": "^8.15.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.17",
-    "chokidar-cli": "^3.0.0",
-    "cssnano": "^6.0.3",
-    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "cssnano": "^7.0.6",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
-    "postcss-preset-env": "^9.3.0",
+    "postcss-preset-env": "^10.1.1",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.70.0",
-    "stylelint": "^14.16.1",
+    "sass": "^1.81.0",
+    "stylelint": "^16.10.0",
     "stylelint-order": "^6.0.4"
   }
 }

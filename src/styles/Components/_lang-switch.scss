@@ -14,10 +14,10 @@
 
     &__button {
         @include flex-set(inline-flex, row, nowrap, $gap-m, center, center, center);
-        font-size: 1em;
-        color: var(--lang-switch_color, #{$color-white});
         background-color: transparent;
         border: none;
+        font-size: 1em;
+        color: var(--lang-switch_color, #{$color-white});
         cursor: pointer;
 
         > span,
@@ -40,11 +40,11 @@
         position: absolute;
         top: 100%;
         left: 50%;
-        translate: -50% 0;
         inline-size: 100%;
+        background-color: var(--lang-pop-up_bg-color, #{$color-secondary});
         border-radius: 0.5em;
         text-align: left;
-        background-color: var(--lang-pop-up_bg-color, #{$color-secondary});
+        translate: -50% 0;
         overflow: hidden;
         @include res-max-tablet {
             inline-size: auto;
@@ -55,14 +55,14 @@
     }
 
     &__item {
-        padding-inline: $gap-m;
         padding-block: $gap-m;
+        padding-inline: $gap-m;
         background-color: var(--lang-switch-item_bg-color, transparent);
+        border-width: 0;
         font-size: $gap-l;
         color: var(--lang-switch-item_color, $color-white);
-        border-width: 0;
-        cursor: pointer;
         text-align: left;
+        cursor: pointer;
         @include res-max-tablet {
             --lang-switch-item_bg-color: #{$color-secondary};
             text-align: center;
