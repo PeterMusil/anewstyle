@@ -20,11 +20,13 @@
       color: $color-primary;
     }
 
-    tr {
-      background-color: $color-black;
-
-      &:nth-child(even) {
-        background-color: $color-bg-trans;
+    tbody{
+      tr {
+        background-color: $color-black;
+  
+        &:nth-child(odd) {
+          background-color: $color-bg-trans;
+        }
       }
     }
 
