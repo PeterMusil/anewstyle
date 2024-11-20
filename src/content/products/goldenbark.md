@@ -1,7 +1,7 @@
 ---
 id: 3
 title: Goldenbark
-description: Zemitá kresba svítící kamenné desky GOLDENBARK, ji činí univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED prosvětlení, zvýrazňuje zlatavé žilkování kamene.
+description: Zemitá kresba svítící kamenné panely GOLDENBARK, ji činí univerzálním luxusním osvětlením téměř do všech prostor. Speciálně navržené LED prosvětlení, zvýrazňuje zlatavé žilkování kamene.
 descriptionEn: English version of text.
 price: 74900
 reservation: false

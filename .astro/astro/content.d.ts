@@ -148,13 +148,6 @@ declare module 'astro:content' {
   collection: "products";
   data: any
 } & { render(): Render[".md"] };
-"caldera.md": {
-	id: "caldera.md";
-  slug: "caldera";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
 "darkgold.md": {
 	id: "darkgold.md";
   slug: "darkgold";
@@ -165,13 +158,6 @@ declare module 'astro:content' {
 "goldenbark.md": {
 	id: "goldenbark.md";
   slug: "goldenbark";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
-"goldenlava_halves.md": {
-	id: "goldenlava_halves.md";
-  slug: "goldenlava_halves";
   body: string;
   collection: "products";
   data: any
@@ -200,34 +186,6 @@ declare module 'astro:content' {
 "safari.md": {
 	id: "safari.md";
   slug: "safari";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
-"sandislets.md": {
-	id: "sandislets.md";
-  slug: "sandislets";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
-"sandy.md": {
-	id: "sandy.md";
-  slug: "sandy";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
-"sierra.md": {
-	id: "sierra.md";
-  slug: "sierra";
-  body: string;
-  collection: "products";
-  data: any
-} & { render(): Render[".md"] };
-"white_thirds.md": {
-	id: "white_thirds.md";
-  slug: "white_thirds";
   body: string;
   collection: "products";
   data: any

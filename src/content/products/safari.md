@@ -1,7 +1,7 @@
 ---
 id: 10
 title: SAFARI
-description: Přírodou vytvořený exotický vzor svítící kamenné desky SAFARI, je využíván designéry po celém světě, ke zvýraznění jedinečnosti jejich produktu. Stejně tak bude tato kamenná deska působit i ve Vašem interiéru.
+description: Přírodou vytvořený exotický vzor svítící kamenné panely SAFARI, je využíván designéry po celém světě, ke zvýraznění jedinečnosti jejich produktu. Stejně tak bude tato kamenná deska působit i ve Vašem interiéru.
 descriptionEn: English version of text.
 price: 74900
 reservation: false
