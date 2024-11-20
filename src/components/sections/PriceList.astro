@@ -1,0 +1,75 @@
+---
+import Icon from "../icons/Icon.astro";
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="dark inline-container">
+  <div class="container">
+    <h2 class="title title--white text-center" data-localize="price_title"></h2>
+   <div class="price__table-wrapper">
+    <table class="price__table">
+      <thead>
+        <tr>
+          <th>Varianta</th>
+          <th>XXXL</th>
+          <th>XXL</th>
+          <th>XL</th>
+          <th>L</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rozměr</td>
+          <td>2444 x 1214 mm</td>
+          <td>2444 x 804 mm</td>
+          <td>2444 x 604 mm</td>
+          <td>2444 x 404 mm</td>
+        </tr>
+        <tr>
+          <td>SLIM Basic</td>
+          <td>44 590 Kč</td>
+          <td>29 773 Kč</td>
+          <td>21 985 Kč</td>
+          <td>13 997 Kč</td>
+        </tr>
+        <tr>
+          <td>Easy Wall Mounting</td>
+          <td>67 700 Kč</td>
+          <td>42 533 Kč</td>
+          <td>30 550 Kč</td>
+          <td>18 567 Kč</td>
+        </tr>
+        <tr>
+          <td>Easy Wall Mounting DELUXE</td>
+          <td>74 900 Kč</td>
+          <td>51 900 Kč</td>
+          <td>38 900 Kč</td>
+          <td>25 900 Kč</td>
+        </tr>
+        <tr>
+          <td>Dálkové ovládání</td>
+          <td>2900 Kč</td>
+          <td>2900 Kč</td>
+          <td>2900 Kč</td>
+          <td>2900 Kč</td>
+        </tr>
+        <tr>
+          <td>Teplota podsvícení</td>
+          <td>1500 Kč</td>
+          <td>1400 Kč</td>
+          <td>1300 Kč</td>
+          <td>1200 Kč</td>
+        </tr>
+        <tr>
+          <td>Barva rámu</td>
+          <td>1900 Kč</td>
+          <td>1800 Kč</td>
+          <td>1700 Kč</td>
+          <td>1600 Kč</td>
+        </tr>
+      </tbody>
+    </table>
+   </div>
+  </div>
+</section>

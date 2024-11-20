@@ -1,0 +1,42 @@
+@import "../Base/global";
+
+.price {
+
+  &__table-wrapper{
+    overflow: auto;
+    max-inline-size: 100%;
+  }
+
+  &__table {
+    inline-size: 100%;
+    border-radius: $gap-xl;
+    color: $color-white;
+    font-size: clamp($gap-l, 2.5svb, 20px);
+
+    font-family: $font-text;
+
+    thead {
+      font-family: $font-title;
+      color: $color-primary;
+    }
+
+    tr {
+      background-color: $color-black;
+
+      &:nth-child(even) {
+        background-color: $color-bg-trans;
+      }
+    }
+
+    td,
+    th {
+      padding: $gap-l;
+      text-align: left;
+      white-space: nowrap;
+
+      &:not(:first-child) {
+        text-align: right;
+      }
+    }
+  }
+}
