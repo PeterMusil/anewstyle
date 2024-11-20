@@ -204,39 +204,20 @@ const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizo
           </li>
         </ul>
       </div>
-      {
-        daeFile && (
-          <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
-            <Icon name="download" />
-            <span data-localize="products_detail_download" />
-          </a>
-        )
-      }
+      
       <div class="product-detail__footer">
         {
-          price && (
-            <>
-              <span class="product-detail__price">
-                <strong>
-                  {price.toLocaleString("cs-CZ")}
-                  <strong data-localize="products_detail_currency" />
-                </strong>
-
-                <small data-localize="products_detail_vat" />
-              </span>
-              <a class="button button--s" href="mailto:info@anewstyle.cz" aria-disabled={reservation}>
-                {reservation ? (
-                  <span data-localize="products_detail_reserved" />
-                ) : (
-                  <>
-                    <span data-localize="products_detail_btn_interested" />
-                    <Icon name="email" />
-                  </>
-                )}
-              </a>
-            </>
+          daeFile && (
+            <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
+              <Icon name="download" />
+              <span data-localize="products_detail_download" />
+            </a>
           )
         }
+        <a class="button button--s" href="mailto:info@anewstyle.cz" aria-disabled={reservation}>
+          <span data-localize="products_detail_btn_interested" />
+          <Icon name="email" />
+        </a>
       </div>
     </div>
   </div>
