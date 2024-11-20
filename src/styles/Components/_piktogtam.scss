@@ -72,7 +72,9 @@
         > img {
             display: block;
             inline-size: auto;
+            max-inline-size: 55px;
             block-size: 40px;
+            
             &:is([alt="LED"]) {
                 block-size: 65px;
             }
