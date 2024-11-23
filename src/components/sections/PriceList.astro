@@ -1,75 +1,71 @@
 ---
-import Icon from "../icons/Icon.astro";
+import PriceItem from "../priceItem/PriceItem.astro";
+import prices from "../../data/prices.json";
+import type { PricesData, Product, Price } from "../priceItem/PriceItem.types";
 
 const { id } = Astro.props;
+const selectedSize: keyof Price = "l";
+const products: (Product & { price: string })[] = (
+  prices as PricesData
+).products.map((product) => ({
+  ...product,
+  price: product.prices[selectedSize],
+}));
 ---
 
-<section id={id} class="dark inline-container">
+<section id={id} class="dark price-list">
   <div class="container">
     <h2 class="title title--white text-center" data-localize="price_title"></h2>
-   <div class="price__table-wrapper">
-    <table class="price__table">
-      <thead>
-        <tr>
-          <th>Varianta</th>
-          <th>XXXL</th>
-          <th>XXL</th>
-          <th>XL</th>
-          <th>L</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Rozměr</td>
-          <td>2444 x 1214 mm</td>
-          <td>2444 x 804 mm</td>
-          <td>2444 x 604 mm</td>
-          <td>2444 x 404 mm</td>
-        </tr>
-        <tr>
-          <td>SLIM Basic</td>
-          <td>44 590 Kč</td>
-          <td>29 773 Kč</td>
-          <td>21 985 Kč</td>
-          <td>13 997 Kč</td>
-        </tr>
-        <tr>
-          <td>Easy Wall Mounting</td>
-          <td>67 700 Kč</td>
-          <td>42 533 Kč</td>
-          <td>30 550 Kč</td>
-          <td>18 567 Kč</td>
-        </tr>
-        <tr>
-          <td>Easy Wall Mounting DELUXE</td>
-          <td>74 900 Kč</td>
-          <td>51 900 Kč</td>
-          <td>38 900 Kč</td>
-          <td>25 900 Kč</td>
-        </tr>
-        <tr>
-          <td>Dálkové ovládání</td>
-          <td>2900 Kč</td>
-          <td>2900 Kč</td>
-          <td>2900 Kč</td>
-          <td>2900 Kč</td>
-        </tr>
-        <tr>
-          <td>Teplota podsvícení</td>
-          <td>1500 Kč</td>
-          <td>1400 Kč</td>
-          <td>1300 Kč</td>
-          <td>1200 Kč</td>
-        </tr>
-        <tr>
-          <td>Barva rámu</td>
-          <td>1900 Kč</td>
-          <td>1800 Kč</td>
-          <td>1700 Kč</td>
-          <td>1600 Kč</td>
-        </tr>
-      </tbody>
-    </table>
-   </div>
+    <div class="price-list__container">
+      <div id="priceItems">
+        {products.map((product) => (
+          <PriceItem
+            id={product.id}
+            title={product.title}
+            price={product.price}
+            features={product.features}
+          />
+        ))}
+      </div>
+      <div>
+        <select name="products" id="productSelect">
+          <option value="l">L (2444 x 404)</option>
+          <option value="xl">XL (2444 x 804 mm)</option>
+          <option value="xxl">XXL (2444 x 604 mm)</option>
+          <option value="xxxl">XXXL (2444 x 404 mm)</option>
+        </select>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  import prices from "../../data/prices.json";
+  import type {
+    PricesData,
+    Product,
+    Price,
+  } from "../priceItem/PriceItem.types";
+
+  const productSelect = document.getElementById("productSelect");
+
+  if (productSelect) {
+    productSelect.addEventListener("change", (event) => {
+      const selectedSize: keyof Price = (event.target as HTMLSelectElement)
+        .value as keyof Price;
+      const updatedProducts: (Product & { price: string })[] = (
+        prices as PricesData
+      ).products.map((product) => ({
+        ...product,
+        price: product.prices[selectedSize],
+      }));
+
+      updatedProducts.forEach((product) => {
+        const priceElement = document.querySelector(`#price-${product.id}`);
+        if (priceElement) {
+          priceElement.textContent = product.price;
+        }
+      });
+    });
+  }
+</script>

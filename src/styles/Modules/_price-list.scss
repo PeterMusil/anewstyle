@@ -1,44 +1,69 @@
 @import "../Base/global";
 
-.price {
+.price-list {
+  min-block-size: 100svb;
+  font-family: $font-text;
 
-  &__table-wrapper{
+  &__container {
+    @include grid-columns(grid, var(--price-container_col-template, 1fr $width-mobile-s), $gap-xl, stretch);
+  }
+
+  &__table-wrapper {
     max-inline-size: 100%;
     overflow: auto;
   }
+}
 
-  &__table {
-    inline-size: 100%;
+div:has(> .price-item) {
+  @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-xxl, stretch);
+  + div {
+    @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-xxl, stretch);
+  }
+}
+
+.price-item {
+  color: white;
+
+  @include hover {
+    --price-item_border-color: #{$color-primary};
+  }
+
+  &__header {
+    display: grid;
+    row-gap: $gap-l;
+    text-align: center;
+    transition: border-color 1s ease-in-out;
+    border: 2px solid var(--price-item_border-color, $color-border);
     border-radius: $gap-xl;
+    padding-block: $gap-xl;
+    padding-inline: $gap-xl;
 
-    font-family: $font-text;
-    font-size: clamp($gap-l, 2.5svb, 20px);
-    color: $color-white;
-
-    thead {
-      font-family: $font-title;
+    > strong {
+      font-size: $gap-xl;
       color: $color-primary;
     }
 
-    tbody{
-      tr {
-        background-color: $color-black;
-  
-        &:nth-child(odd) {
-          background-color: $color-bg-trans;
-        }
-      }
+    > span {
+      font-size: $gap-xxl;
+      font-weight: 900;
+    }
+  }
+
+  &__content {
+    padding-block: $gap-xl;
+    padding-inline: $gap-xl;
+
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: $gap-m;
     }
 
-    td,
-    th {
-      padding: $gap-l;
-      text-align: left;
-      white-space: nowrap;
-
-      &:not(:first-child) {
-        text-align: right;
-      }
+    li {
+      @include flex-set(flex, row, nowrap, $gap-l, center);
+      font-size: $gap-l;
     }
   }
 }
