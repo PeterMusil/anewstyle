@@ -9,7 +9,9 @@ const products = await Astro.glob("../../content/products/*.md");
 <section id={id}>
   <div class="container">
     <h2 class="title title--center" data-localize="products_title"></h2>
-    <p class="desc desc--mg-s text-center" data-localize="products_desc_part1"></p>
+    <p class="desc desc--mg-s text-center">
+      <strong data-localize="products_desc_part1"></strong>
+    </p>
     <p class="desc desc--mg-s text-center">
       <span data-localize="products_desc_part2"></span>
       <strong data-localize="products_desc_part3"></strong><span data-localize="products_desc_part4"></span>
