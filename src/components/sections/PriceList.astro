@@ -14,7 +14,7 @@ const products: (Product & { price: string })[] = (
 }));
 ---
 
-<section id={id} class="dark price-list">
+<section id={id} class="price-list">
   <div class="container">
     <h2 class="title title--white text-center" data-localize="price_title"></h2>
     <div class="price-list__container">
@@ -40,7 +40,7 @@ const products: (Product & { price: string })[] = (
           </select>
         </label>
         <div class="price-list__preview">
-          <img id="productImage" src="./images/priceList/l.png" width="288px" height="507px" alt="placeholder">
+          <img id="productImage" src="./images/priceList/l.jpg" width="288px" height="507px" alt="placeholder">
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@ const products: (Product & { price: string })[] = (
       });
 
       if (productImage) {
-        productImage.src = `./images/priceList/${selectedSize}.png`;
+        productImage.src = `./images/priceList/${selectedSize}.jpg`;
       }
     });
   }
