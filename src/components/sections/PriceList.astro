@@ -2,6 +2,7 @@
 import PriceItem from "../priceItem/PriceItem.astro";
 import prices from "../../data/prices.json";
 import type { PricesData, Product, Price } from "../priceItem/PriceItem.types";
+import PriceListFeatures from "../priceListFeatures/PriceListFeatures.astro";
 
 const { id } = Astro.props;
 const selectedSize: keyof Price = "l";
@@ -17,7 +18,9 @@ const products: (Product & { price: string })[] = (
   <div class="container">
     <h2 class="title title--white text-center" data-localize="price_title"></h2>
     <div class="price-list__container">
-      <div id="priceItems">
+    <PriceListFeatures />
+      <div id="priceItems" class="price-list__items">
+        
         {products.map((product) => (
           <PriceItem
             id={product.id}

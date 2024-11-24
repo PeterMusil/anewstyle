@@ -1,0 +1,7 @@
+@import "../Base/global";
+
+select{
+  appearance: none;
+  -webkit-appearance: none;
+  padding-inline: $gap-l;
+}

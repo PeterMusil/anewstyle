@@ -1,28 +1,74 @@
 @import "../Base/global";
 
 .price-list {
+  --row-count: 11;
+  --row-size: 72px;
   min-block-size: 100svb;
   font-family: $font-text;
+  color: $color-white;
 
   &__container {
-    @include grid-columns(grid, var(--price-container_col-template, 1fr $width-mobile-s), $gap-xl, stretch);
+    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-s 1fr $width-mobile-s), 0, stretch);
+    grid-template-rows: auto repeat(var(--row-count), 1fr);
   }
 
-  &__table-wrapper {
-    max-inline-size: 100%;
-    overflow: auto;
-  }
-}
+  &__features {
+    @include grid-row-span(var(--row-count));
+    display: grid;
+    justify-content: stretch;
+    grid-row-start: 2;
+    list-style: none;
+    font-size: larger;
+    padding: 0;
+    margin: 0;
 
-div:has(> .price-item) {
-  @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-xxl, stretch);
-  + div {
-    @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-xxl, stretch);
+    li {
+      display: flex;
+      align-items: center;
+      gap: $gap-l;
+      block-size: var(--row-size);
+      font-size: 20px;
+      padding-inline-start: $gap-l;
+
+      &:nth-child(even) {
+        background-color: $color-row-bg;
+      }
+    }
+  }
+
+  &__icon{
+    inline-size: 50px;
+    block-size: 50px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: $color-white;
+    display: grid;
+    place-items: center;
+
+     > img{
+      display: block;
+      max-inline-size: $gap-xxl;
+      max-block-size: $gap-xxl;
+     }
+
+     > span{
+      color: $color-black;
+      font-size: $gap-l;
+      font-weight: 900;
+     }
+  }
+
+  &__items {
+    @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), 0, stretch);
+    @include grid-row-span(calc(var(--row-count) + 1));
+    grid-template-rows: subgrid;
   }
 }
 
 .price-item {
-  color: white;
+  display: grid;
+  @include grid-row-span(calc(var(--row-count) + 1));
+  grid-template-rows: subgrid;
 
   @include hover {
     --price-item_border-color: #{$color-primary};
@@ -32,38 +78,52 @@ div:has(> .price-item) {
     display: grid;
     row-gap: $gap-l;
     text-align: center;
-    transition: border-color 1s ease-in-out;
+    transition: border-color $trans-time ease-in-out;
     border: 2px solid var(--price-item_border-color, $color-border);
     border-radius: $gap-xl;
-    padding-block: $gap-xl;
-    padding-inline: $gap-xl;
+    padding-block: $gap-l;
+    padding-inline: $gap-l;
+    margin-inline: $gap-l;
 
     > strong {
-      font-size: $gap-xl;
+      font-size: $gap-l;
       color: $color-primary;
     }
 
     > span {
-      font-size: $gap-xxl;
+      font-size: $gap-xl;
       font-weight: 900;
     }
   }
 
   &__content {
-    padding-block: $gap-xl;
-    padding-inline: $gap-xl;
-
-    ul{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: $gap-m;
-    }
+    display: grid;
+    @include grid-row-span(var(--row-count));
+    grid-template-rows: subgrid;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    justify-content: stretch;
 
     li {
-      @include flex-set(flex, row, nowrap, $gap-l, center);
+      @include flex-set(flex, row, nowrap, $gap-l, center, center, center);
       font-size: $gap-l;
+      block-size: var(--row-size);
+
+      &:nth-child(even) {
+        background-color: $color-row-bg;
+      }
+
+      > .icon {
+        &.icon-check {
+          fill: $color-primary;
+        }
+
+        &.icon-close-bold {
+          fill: $color-border;
+        }
+      }
     }
   }
 }
