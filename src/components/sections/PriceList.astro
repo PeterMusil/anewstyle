@@ -18,9 +18,8 @@ const products: (Product & { price: string })[] = (
   <div class="container">
     <h2 class="title title--white text-center" data-localize="price_title"></h2>
     <div class="price-list__container">
-    <PriceListFeatures />
+      <PriceListFeatures />
       <div id="priceItems" class="price-list__items">
-        
         {products.map((product) => (
           <PriceItem
             id={product.id}
@@ -31,18 +30,18 @@ const products: (Product & { price: string })[] = (
         ))}
       </div>
       <div class="price-list__selection">
-      <label>
-        Zvolte velikost
-        <select name="products" id="productSelect">
-          <option value="l">L (2444 x 404 mm)</option>
-          <option value="xl">XL (2444 x 804 mm)</option>
-          <option value="xxl">XXL (2444 x 604 mm)</option>
-          <option value="xxxl">XXXL (2444 x 404 mm)</option>
-        </select>
-      </label>
-      <div class="price-list__preview">
-        <img src="https://picsum.photos/288/776" width="288px" height="776px" alt="placeholder">
-      </div>
+        <label>
+          Zvolte velikost
+          <select name="products" id="productSelect">
+            <option value="l">L (2444 x 404 mm)</option>
+            <option value="xl">XL (2444 x 804 mm)</option>
+            <option value="xxl">XXL (2444 x 604 mm)</option>
+            <option value="xxxl">XXXL (2444 x 404 mm)</option>
+          </select>
+        </label>
+        <div class="price-list__preview">
+          <img id="productImage" src="./images/priceList/l.png" width="288px" height="507px" alt="placeholder">
+        </div>
       </div>
     </div>
   </div>
@@ -50,18 +49,14 @@ const products: (Product & { price: string })[] = (
 
 <script>
   import prices from "../../data/prices.json";
-  import type {
-    PricesData,
-    Product,
-    Price,
-  } from "../priceItem/PriceItem.types";
+  import type { PricesData, Product, Price } from "../priceItem/PriceItem.types";
 
   const productSelect = document.getElementById("productSelect");
+  const productImage = document.getElementById("productImage");
 
   if (productSelect) {
     productSelect.addEventListener("change", (event) => {
-      const selectedSize: keyof Price = (event.target as HTMLSelectElement)
-        .value as keyof Price;
+      const selectedSize: keyof Price = (event.target as HTMLSelectElement).value as keyof Price;
       const updatedProducts: (Product & { price: string })[] = (
         prices as PricesData
       ).products.map((product) => ({
@@ -75,6 +70,10 @@ const products: (Product & { price: string })[] = (
           priceElement.textContent = product.price;
         }
       });
+
+      if (productImage) {
+        productImage.src = `./images/priceList/${selectedSize}.png`;
+      }
     });
   }
 </script>
