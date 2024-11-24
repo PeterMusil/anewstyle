@@ -30,13 +30,19 @@ const products: (Product & { price: string })[] = (
           />
         ))}
       </div>
-      <div>
+      <div class="price-list__selection">
+      <label>
+        Zvolte velikost
         <select name="products" id="productSelect">
-          <option value="l">L (2444 x 404)</option>
+          <option value="l">L (2444 x 404 mm)</option>
           <option value="xl">XL (2444 x 804 mm)</option>
           <option value="xxl">XXL (2444 x 604 mm)</option>
           <option value="xxxl">XXXL (2444 x 404 mm)</option>
         </select>
+      </label>
+      <div class="price-list__preview">
+        <img src="https://picsum.photos/288/776" width="288px" height="776px" alt="placeholder">
+      </div>
       </div>
     </div>
   </div>

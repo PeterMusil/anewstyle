@@ -1,7 +1,40 @@
 @import "../Base/global";
 
-select{
-  appearance: none;
-  -webkit-appearance: none;
-  padding-inline: $gap-l;
+
+label:has(> select) {
+  position: relative;
+  display: grid;
+  font-size: 20px;
+  font-family: $font-text;
+  row-gap: $gap-s;
+  cursor: pointer;
+  vertical-align: middle;
+  align-content: center;
+
+  &:after {
+    content: "▼";
+    position: absolute;
+    inset: auto $gap-l $gap-l auto;
+    color: $color-primary;
+    translate: 0 -100%;
+    font-size: 12px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  > select {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-block: $gap-l;
+    border-radius: $gap-m;
+    background-color: $color-trans;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+    font-family: $font-text;
+    font-size: 20px;
+    padding-inline: $gap-l;
+    position: relative;
+    max-inline-size: unset;
+  }
 }
