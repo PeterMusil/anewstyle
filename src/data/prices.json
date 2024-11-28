@@ -4,10 +4,10 @@
       "id": "1",
       "title": "SLIM Basic",
       "prices": {
-        "l": "13 997 Kč",
-        "xl": "21 985 Kč",
-        "xxl": "29 773 Kč",
-        "xxxl": "44 590 Kč"
+        "l": "13 997",
+        "xl": "21 985",
+        "xxl": "29 773",
+        "xxxl": "44 590"
       },
       "features": {
         "1": true,
@@ -27,10 +27,10 @@
       "id": "2",
       "title": "Easy Wall Mounting",
       "prices": {
-        "l": "18 567 Kč",
-        "xl": "30 550 Kč",
-        "xxl": "42 533 Kč",
-        "xxxl": "67 700 Kč"
+        "l": "18 567",
+        "xl": "30 550",
+        "xxl": "42 533",
+        "xxxl": "67 700"
       },
       "features": {
         "1": false,
@@ -50,10 +50,10 @@
       "id": "3",
       "title": "Easy Wall Mounting DELUXE",
       "prices": {
-        "l": "25 900 Kč",
-        "xl": "38 900 Kč",
-        "xxl": "51 900 Kč",
-        "xxxl": "74 900 Kč"
+        "l": "25 900",
+        "xl": "38 900",
+        "xxl": "51 900",
+        "xxxl": "74 900"
       },
       "features": {
         "1": false,

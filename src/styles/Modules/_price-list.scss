@@ -8,7 +8,7 @@
   color: $color-white;
 
   &__container {
-    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-s 1fr $width-mobile-s), 0, stretch);
+    @include grid-columns(grid, var(--price-container_col-template, 310px 1fr $width-mobile-s), 0, stretch);
     grid-template-rows: auto repeat(var(--row-count), 1fr);
   }
 
@@ -16,34 +16,34 @@
     @include grid-row-span(var(--row-count));
     display: grid;
     justify-content: stretch;
-    grid-row-start: 2;
-    list-style: none;
-    font-size: larger;
     padding: 0;
     margin: 0;
+    font-size: larger;
+    list-style: none;
+    grid-row-start: 2;
 
     li {
       display: flex;
       align-items: center;
-      gap: $gap-l;
       block-size: var(--row-size);
-      font-size: 20px;
+      gap: $gap-l;
       padding-inline-start: $gap-l;
+      font-size: 20px;
 
       &:nth-child(even) {
-        background-color: $color-black--trans;
+        background-color: $color-black--trans-dark;
       }
     }
   }
 
   &__icon{
-    inline-size: 50px;
-    block-size: 50px;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    background-color: $color-white;
     display: grid;
     place-items: center;
+    inline-size: 50px;
+    block-size: 50px;
+    aspect-ratio: 1;
+    background-color: $color-white;
+    border-radius: 50%;
 
      > img{
       display: block;
@@ -52,9 +52,9 @@
      }
 
      > span{
-      color: $color-black;
       font-size: $gap-l;
       font-weight: 900;
+      color: $color-black;
      }
   }
 
@@ -62,18 +62,38 @@
     @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), 0, stretch);
     @include grid-row-span(calc(var(--row-count) + 1));
     grid-template-rows: subgrid;
+    padding-inline-end: $gap-xl;
   }
 
   &__selection{
     @include grid-row-span(calc(var(--row-count) + 1));
     display: grid;
     grid-template-rows: subgrid;
-    padding-inline-start: $gap-xxl;
+    padding-inline-start: $gap-xl;
   }
 
   &__preview{
     @include grid-row-span(var(--row-count));
     margin-block-start: $gap-l;
+    position: relative;
+
+    > img{
+      max-inline-size: 100%;
+      max-block-size: 100%;
+    }
+
+    > svg{
+      position: absolute;
+      inline-size: 37%;
+      aspect-ratio: 318.617 / 1274.705; 
+      fill: $color-primary;
+      translate: 5px 155px;
+
+      path{
+        fill:inherit;
+        stroke: $color-black;
+      }
+    }
   }
 }
 
@@ -89,23 +109,23 @@
 
   &__header {
     display: grid;
-    row-gap: $gap-l;
     align-content: space-between;
-    text-align: center;
-    transition: border-color $trans-time ease-in-out, scale $trans-time ease-in-out;
-    border: 2px solid var(--price-item_border-color, $color-border);
-    border-radius: $gap-xl;
+    row-gap: $gap-l;
     padding-block: $gap-l;
     padding-inline: $gap-l;
     margin-inline: $gap-l;
+    border: 2px solid var(--price-item_border-color, $color-border);
+    border-radius: $gap-xl;
+    text-align: center;
     scale: var(--price-item-header_scale, 1);
+    transition: border-color $trans-time ease-in-out, scale $trans-time ease-in-out;
 
     > strong {
       font-size: $gap-l;
       color: $color-primary;
     }
 
-    > span {
+    span {
       font-size: $gap-xl;
       font-weight: 900;
     }
@@ -113,21 +133,21 @@
 
   &__content {
     display: grid;
-    @include grid-row-span(var(--row-count));
+    display: grid;
     grid-template-rows: subgrid;
-    list-style: none;
+    justify-content: stretch;
     padding: 0;
     margin: 0;
-    display: grid;
-    justify-content: stretch;
+    list-style: none;
+    @include grid-row-span(var(--row-count));
 
     li {
       @include flex-set(flex, row, nowrap, $gap-l, center, center, center);
-      font-size: $gap-l;
       block-size: var(--row-size);
+      font-size: $gap-l;
 
       &:nth-child(even) {
-        background-color: $color-black--trans;
+        background-color: $color-black--trans-dark;
       }
 
       > .icon {
