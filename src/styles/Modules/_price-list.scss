@@ -10,6 +10,7 @@
   &__container {
     @include grid-columns(grid, var(--price-container_col-template, 310px 1fr $width-mobile-s), 0, stretch);
     grid-template-rows: auto repeat(var(--row-count), 1fr);
+    margin-block-start: 5svb;
   }
 
   &__features {
@@ -76,6 +77,8 @@
     @include grid-row-span(var(--row-count));
     margin-block-start: $gap-l;
     position: relative;
+    display: grid;
+    align-items: center;
 
     > img{
       max-inline-size: 100%;
@@ -84,15 +87,9 @@
 
     > svg{
       position: absolute;
-      inline-size: 37%;
-      aspect-ratio: 318.617 / 1274.705; 
-      fill: $color-primary;
-      translate: 5px 155px;
-
-      path{
-        fill:inherit;
-        stroke: $color-black;
-      }
+      inline-size: 35%;
+      aspect-ratio: 88.8 / 355.25; 
+      translate: $gap-m 90px;
     }
   }
 }
