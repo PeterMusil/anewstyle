@@ -14,13 +14,13 @@
   }
 
   &__container {
-    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-m 1fr $width-mobile-m), 0, stretch);
+    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-m minmax($width-tablet, 1fr) $width-mobile-m), 0, stretch);
     grid-template-rows: auto repeat(var(--row-count), 1fr);
     margin-block-start: 5svb;
     min-inline-size: $width-laptop-l;
 
     @include res-max-mobile-l{
-      --price-container_col-template: #{$width-mobile-s} 1fr #{$width-mobile-s};
+      --price-container_col-template: #{$width-mobile-s} $width-tablet #{$width-mobile-s};
     }
   }
 
@@ -78,7 +78,6 @@
     @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), 0, stretch);
     @include grid-row-span(calc(var(--row-count) + 1));
     grid-template-rows: subgrid;
-    padding-inline-end: $gap-xl;
   }
 
   &__preview{
