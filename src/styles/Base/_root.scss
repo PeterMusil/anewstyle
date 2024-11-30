@@ -4,7 +4,7 @@
 :root {
     --color-black: #{$color-black};
     --color-black--trans: #{$color-black--trans};
-    --color-black--trans-dark: #{$color-black--trans-dark};
+    --color-black--trans-dark: #{$color-black--light};
     --color-white: #{$color-white};
     --color-border: var(--color-white);
     --color-trans: #{$color-trans};

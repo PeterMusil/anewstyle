@@ -29,9 +29,7 @@ section:has(> .gallery) {
     var(--gap, #{$gap-l}),
     var(--align-items, flex-start)
   );
-  max-inline-size: $width-laptop-xl;
   margin-block-end: $gap-xxl;
-  margin-inline: auto;
 
   @include res-max-laptop-s {
     --gap: #{$gap-l};

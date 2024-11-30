@@ -6,11 +6,22 @@
   min-block-size: 100svb;
   font-family: $font-text;
   color: $color-white;
+  position: relative;
+
+  .container--l{
+    overflow: auto;
+    max-inline-size: 1024px;
+  }
 
   &__container {
-    @include grid-columns(grid, var(--price-container_col-template, 310px 1fr $width-mobile-s), 0, stretch);
+    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-m 1fr $width-mobile-m), 0, stretch);
     grid-template-rows: auto repeat(var(--row-count), 1fr);
     margin-block-start: 5svb;
+    min-inline-size: $width-laptop-l;
+
+    @include res-max-mobile-l{
+      --price-container_col-template: #{$width-mobile-s} 1fr #{$width-mobile-s};
+    }
   }
 
   &__features {
@@ -22,6 +33,9 @@
     font-size: larger;
     list-style: none;
     grid-row-start: 2;
+    position: sticky;
+    left: 0;
+    z-index: 1;
 
     li {
       display: flex;
@@ -30,9 +44,10 @@
       gap: $gap-l;
       padding-inline-start: $gap-l;
       font-size: 20px;
+      background-color: $color-secondary;
 
       &:nth-child(even) {
-        background-color: $color-black--trans-dark;
+        background-color: $color-black--light;
       }
     }
   }
@@ -66,15 +81,11 @@
     padding-inline-end: $gap-xl;
   }
 
-  &__selection{
-    @include grid-row-span(calc(var(--row-count) + 1));
-    display: grid;
-    grid-template-rows: subgrid;
-    padding-inline-start: $gap-xl;
-  }
-
   &__preview{
     @include grid-row-span(var(--row-count));
+    grid-column-start: 3;
+    grid-row-start: 2;
+    margin-inline-start: $gap-xxl;
     margin-block-start: $gap-l;
     position: relative;
     display: grid;
@@ -87,9 +98,9 @@
 
     > svg{
       position: absolute;
-      inline-size: 35%;
+      inline-size: 33%;
       aspect-ratio: 88.8 / 355.25; 
-      translate: $gap-m 90px;
+      translate: $gap-m 130px;
     }
   }
 }
@@ -112,13 +123,16 @@
     padding-inline: $gap-l;
     margin-inline: $gap-l;
     border: 2px solid var(--price-item_border-color, $color-border);
-    border-radius: $gap-xl;
+    border-radius: $gap-l;
     text-align: center;
     scale: var(--price-item-header_scale, 1);
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
     transition: border-color $trans-time ease-in-out, scale $trans-time ease-in-out;
 
     > strong {
-      font-size: $gap-l;
+      font-size: 20px;
       color: $color-primary;
     }
 
@@ -144,7 +158,7 @@
       font-size: $gap-l;
 
       &:nth-child(even) {
-        background-color: $color-black--trans-dark;
+        background-color: $color-black--light;
       }
 
       > .icon {
