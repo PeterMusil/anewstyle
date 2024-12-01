@@ -4,7 +4,6 @@ title: WILDLIFE
 description: Raritní svítící kamenná deska WILDLIFE, je díky své živé kresbě kamene, vhodná k osvětlení každého interiéru. Její, přírodou vytvořený divoký vzor, Vám nikdy nezevšední.
 descriptionEn: Thanks to its lively veining, the rare luminous stone panel WILDLIFE is suitable for lighting up of every interior. Its natural wild pattern will never  become ordinary to you.
 price: 68900
-reservation: false
 imgDark: Rockfoil_WILDLIFE_dark.webp
 imgFrame: Rockfoil_WILDLIFE_dark_frame.webp
 imgLight: Rockfoil_WILDLIFE_light_frame.webp

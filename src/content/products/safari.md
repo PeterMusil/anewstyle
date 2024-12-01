@@ -4,7 +4,6 @@ title: SAFARI
 description: Přírodou vytvořený exotický vzor svítící kamenné panely SAFARI, je využíván designéry po celém světě, ke zvýraznění jedinečnosti jejich produktu. Stejně tak bude tato kamenná deska působit i ve Vašem interiéru.
 descriptionEn: English version of text.
 price: 74900
-reservation: false
 imgDark: Rockfoil_SAFARI_light_frame_thirds.webp
 imgFrame: Rockfoil_SAFARI_dark_frame.webp
 imgLight: Rockfoil_SAFARI_light_frame.webp

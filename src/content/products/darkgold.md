@@ -4,7 +4,6 @@ title: Darkgold
 description: Tmavá svítící kamenná deska DARKGOLD je jedinečná svou zlatavou kresbou, která podtrhne výjimečnost Vašeho interiéru. Speciálně navržené LED prosvětlení, zvýrazňuje přechody mezi převažující černou a zlatavými ostrůvky kresby kamene.
 descriptionEn: English version of text.
 price: 74900
-reservation: true
 imgDark: Rockfoil_DARKGOLD_dark.webp
 imgFrame: Rockfoil_DARKGOLD_dark_frame.webp
 imgLight: Rockfoil_DARKGOLD_light_frame.webp

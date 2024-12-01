@@ -4,7 +4,6 @@ title: RUSTY
 description: Název svítící kamenné panely RUSTY je odvozen od načervenalých ostrůvků připomínající dekorativní, cortenovou rez. Dekor panely tak vyniká i bez efektního prosvícení.
 descriptionEn: English version of text.
 price: 68900
-reservation: false
 imgDark: Rockfoil_RUSTY_light_frame_thirds.webp
 imgFrame: Rockfoil_RUSTY_dark_frame.webp
 imgLight: Rockfoil_RUSTY_light_frame.webp
