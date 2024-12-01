@@ -21,9 +21,11 @@ const { id, title, price, features } = Astro.props;
   </div>
   <ul class="price-item__content">
     {Object.entries(features).map(([feature, isAvailable], index) => (
-      <li key={index}>
-        <Icon name={isAvailable ? "check" : "close-bold"} />
-      </li>
+      <>
+        <li>
+          <Icon name={isAvailable ? "check" : "close-bold"} />
+        </li>
+      </>
     ))}
   </ul>
 </div>

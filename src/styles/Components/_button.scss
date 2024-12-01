@@ -114,8 +114,8 @@
         > small {
             font-size: .75em;
             font-weight: 500 !important;
-            pointer-events: none;
             text-transform: lowercase;
+            pointer-events: none;
 
             @include res-max-mobile-l {
                 font-size: .65em;
