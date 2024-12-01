@@ -27,12 +27,13 @@
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
+    margin-block-end: $gap-xxl;
   }
 
   &__container {
     @include grid-columns(
       grid,
-      var(--price-container_col-template, $width-mobile-m minmax($width-tablet, 1fr) $width-mobile-m),
+      var(--price-container_col-template, $width-mobile-s minmax($width-tablet, 1fr) $width-mobile-s),
       0,
       stretch
     );
@@ -177,7 +178,7 @@
     position: relative;
     display: grid;
     align-content: space-between;
-    row-gap: var(--price-item-headr_gap, $gap-l);
+    row-gap: $gap-m;
     padding: var(--price-item-headr_padding, $gap-l);
     margin-inline: var(--price-item-header_mg, $gap-l);
     background-color: var(--price-item-header_bg, $color-trans);
@@ -193,7 +194,6 @@
     z-index: 10;
 
     @include res-max-tablet {
-      --price-item-headr_gap: #{$gap-m};
       --price-item-headr_padding: #{$gap-m};
       --price-item-header_mg: #{$gap-m};
     }

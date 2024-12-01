@@ -25,6 +25,6 @@
 	}
 
 	&--l{
-		--container-width: min(calc(100% - calc(#{$gap-xl} * 2)), #{$width-laptop-xl});
+		--container-width: min(calc(100% - calc(#{$gap-xl} * 2)), #{$width-laptop-l});
 	}
 }

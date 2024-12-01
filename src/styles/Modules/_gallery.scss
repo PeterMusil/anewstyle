@@ -30,6 +30,7 @@ section:has(> .gallery) {
     var(--align-items, flex-start)
   );
   margin-block-end: $gap-xxl;
+  inline-size: min(calc(100% - calc(#{$gap-xl} * 2)), #{$width-laptop-xl});
 
   @include res-max-laptop-s {
     --gap: #{$gap-l};
