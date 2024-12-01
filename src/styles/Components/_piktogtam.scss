@@ -6,6 +6,8 @@
         var(--gap, #{$gap-xxl}),
         center
     );
+    scroll-margin-top: var(--nav-height);
+
     @include res-max-laptop-s {
         grid-template-columns: repeat(2, minmax(1rem, 1fr));
     }

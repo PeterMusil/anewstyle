@@ -27,7 +27,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert">
+    <div class="piktogram piktogram--invert" id="quick-mounting">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item2_desc1"></span>
@@ -64,7 +64,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="rf-control">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item4_desc1"></span>
@@ -83,7 +83,7 @@ const { id } = Astro.props;
         </div>
       </div>
     </div>
-    <div class="piktogram piktogram--hidden">
+    <div class="piktogram piktogram--hidden" id="smartphone-control">
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img src="./images/symbols/MobileControl.svg" alt="MobileControl" height="75px" loading="lazy" />
@@ -102,7 +102,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="touch-control">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item15_desc1"></span>
@@ -119,7 +119,7 @@ const { id } = Astro.props;
         </div>
       </div>
     </div>
-    <div class="piktogram piktogram--hidden">
+    <div class="piktogram piktogram--hidden" id="temperature">
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img src="./images/symbols/temperature.png" alt="MobileControl" height="75px" loading="lazy" />
@@ -137,7 +137,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="slim-11mm">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item6_desc1"></span>
@@ -174,7 +174,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="laminated">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item8_desc1"></span>
@@ -227,7 +227,7 @@ const { id } = Astro.props;
         </div>
       </div>
     </div>
-    <div class="piktogram piktogram--hidden">
+    <div class="piktogram piktogram--hidden" id="dimmable">
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img src="./images/symbols/Dimmable.svg" alt="Dimmable" height="75px" loading="lazy" />
@@ -245,7 +245,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="nano-impregnation">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item12_desc1"></span>
@@ -264,7 +264,7 @@ const { id } = Astro.props;
         </div>
       </div>
     </div>
-    <div class="piktogram piktogram--hidden">
+    <div class="piktogram piktogram--hidden" id="easy-repair">
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img src="./images/symbols/Repair.svg" alt="Repair" height="75px" loading="lazy" />
@@ -283,7 +283,7 @@ const { id } = Astro.props;
         </p>
       </div>
     </div>
-    <div class="piktogram piktogram--invert piktogram--hidden">
+    <div class="piktogram piktogram--invert piktogram--hidden" id="color-palette">
       <div class="piktogram__desc">
         <p class="desc">
           <span data-localize="features_item14_desc1"></span>
@@ -319,6 +319,7 @@ const { id } = Astro.props;
 <script>
   const piktogramsBtn = document.getElementById("piktogramsBtn") as HTMLButtonElement;
   const hiddenPiktogtams = document.querySelectorAll(".piktogram--hidden") as NodeListOf<HTMLDivElement>;
+  const productFeatures = document.querySelectorAll(".price-list__features > li > a") as NodeListOf<HTMLAnchorElement>;
 
   const handlePictogramsVisbility = (init: boolean) => {
     piktogramsBtn &&
@@ -335,4 +336,13 @@ const { id } = Astro.props;
     piktogramsBtn.addEventListener("click", () => {
       handlePictogramsVisbility(false);
     });
+
+  productFeatures.forEach((feature) => {
+    feature.addEventListener("click", () => {
+      hiddenPiktogtams.forEach((piktogtam) => {
+        piktogtam.classList.add("visible");
+      });
+      piktogramsBtn.classList.add("show-less");
+    });
+  });
 </script>

@@ -65,21 +65,22 @@
     z-index: 1;
     grid-row-start: 2;
 
-    li {
-      display: flex;
-      align-items: center;
-      block-size: var(--row-size);
-      gap: $gap-l;
-      padding-inline-start: $gap-l;
-      font-size: clamp(14px, 2.5svi, 20px);
-
-      @include res-max-tablet {
-        gap: $gap-m;
-        padding-inline-start: $gap-m;
-      }
+    > li {
+      padding-inline-start: clamp($gap-m, 2.5svi, $gap-l);
 
       &:nth-child(even) {
         background-color: $color-black--light;
+      }
+      > a{
+        display: flex;
+        align-items: center;
+        block-size: var(--row-size);
+        gap: $gap-l;
+        font-size: clamp(14px, 2.5svi, 20px);
+  
+        @include res-max-tablet {
+          gap: $gap-m;
+        }
       }
     }
   }
