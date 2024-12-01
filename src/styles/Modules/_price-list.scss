@@ -140,7 +140,7 @@
     grid-row-start: 2;
 
     @include res-max-mobile-l {
-      --price-list-preview_ai: center;
+      --price-list-preview_ai: start;
       position: sticky;
       left: 190px;
     }
@@ -157,7 +157,7 @@
       translate: var(--price-list-preview_pad-left) var(--price-list-preview_trans-y, 0);
 
       @include res-max-mobile-l {
-        --price-list-preview_trans-y: 20%;
+        --price-list-preview_trans-y: 41%;
       }
     }
   }
