@@ -1,0 +1,73 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Basic slim",
+      "prices": {
+        "l": "13 997",
+        "xl": "21 985",
+        "xxl": "29 773",
+        "xxxl": "44 590"
+      },
+      "features": {
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": false,
+        "5": false,
+        "6": false,
+        "7": false,
+        "8": false,
+        "9": false,
+        "10": false,
+        "11": false
+      }
+    },
+    {
+      "id": "2",
+      "title": "Easy Wall Mounting",
+      "prices": {
+        "l": "18 567",
+        "xl": "30 550",
+        "xxl": "42 533",
+        "xxxl": "67 700"
+      },
+      "features": {
+        "1": false,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": false,
+        "9": false,
+        "10": false,
+        "11": false
+      }
+    },
+    {
+      "id": "3",
+      "title": "Easy Wall Mounting DELUXE",
+      "prices": {
+        "l": "25 900",
+        "xl": "38 900",
+        "xxl": "51 900",
+        "xxxl": "74 900"
+      },
+      "features": {
+        "1": false,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true,
+        "10": true,
+        "11": true
+      }
+    }
+  ]
+}

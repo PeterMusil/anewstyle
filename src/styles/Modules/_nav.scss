@@ -11,7 +11,8 @@ nav {
     background-color: var(--color-bg-nav);
     color: var(--nav-color, #{$color-font});
     z-index: 999;
-
+    backdrop-filter: blur($gap-s);
+    
     @include res-max-tablet {
         --nav-justify-content: space-between;
         --color-bg-nav: #{$color-bg-nav-mobile};

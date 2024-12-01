@@ -1,0 +1,29 @@
+---
+import Icon from "../icons/Icon.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  price: string;
+  features: Record<string, boolean>;
+}
+
+const { id, title, price, features } = Astro.props;
+---
+
+<div class="price-item" html-id={id}>
+  <div class="price-item__header">
+    <strong>{title}</strong>
+    <span>
+      <span id={`price-${id}`}>{price}</span>
+      <span data-localize="price_currency"></span>
+    </span>
+  </div>
+  <ul class="price-item__content">
+    {Object.entries(features).map(([feature, isAvailable], index) => (
+      <li key={index}>
+        <Icon name={isAvailable ? "check" : "close-bold"} />
+      </li>
+    ))}
+  </ul>
+</div>

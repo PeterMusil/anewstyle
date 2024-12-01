@@ -3,6 +3,7 @@
 @include res-min-tablet {
   ::-webkit-scrollbar {
     width: $gap-m;
+    height: $gap-m;
   }
   
   /* Track */
