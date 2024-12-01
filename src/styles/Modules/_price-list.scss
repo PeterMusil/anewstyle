@@ -3,39 +3,65 @@
 .price-list {
   --row-count: 11;
   --row-size: 72px;
+  position: relative;
   min-block-size: 100svb;
   font-family: $font-text;
   color: $color-white;
-  position: relative;
 
-  .container--l{
+  @include res-max-tablet {
+    --icon_size: #{$gap-xxl};
+    --icon-img_size: #{$gap-xl};
+    --row-size: 60px;
+  }
+
+  @include res-max-mobile-l {
+    --row-size: 50px;
+  }
+
+  .container--l {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__scroll-wrapper {
     overflow: auto;
-    max-inline-size: 1024px;
   }
 
   &__container {
-    @include grid-columns(grid, var(--price-container_col-template, $width-mobile-m minmax($width-tablet, 1fr) $width-mobile-m), 0, stretch);
+    @include grid-columns(
+      grid,
+      var(--price-container_col-template, $width-mobile-m minmax($width-tablet, 1fr) $width-mobile-m),
+      0,
+      stretch
+    );
     grid-template-rows: auto repeat(var(--row-count), 1fr);
-    margin-block-start: 5svb;
     min-inline-size: $width-laptop-l;
+    margin-block-start: 5svb;
 
-    @include res-max-mobile-l{
-      --price-container_col-template: #{$width-mobile-s} $width-tablet #{$width-mobile-s};
+    @include res-max-tablet {
+      --price-container_col-template: #{$width-mobile-s} max-content #{$width-mobile-s};
+    }
+
+    @include res-max-mobile-l {
+      --price-container_col-template: 220px auto;
     }
   }
 
   &__features {
     @include grid-row-span(var(--row-count));
+    position: sticky;
+    top: 0;
+    left: 0;
     display: grid;
     justify-content: stretch;
     padding: 0;
     margin: 0;
+    background-color:  $color-secondary;
     font-size: larger;
     list-style: none;
-    grid-row-start: 2;
-    position: sticky;
-    left: 0;
+    overflow: hidden;
     z-index: 1;
+    grid-row-start: 2;
 
     li {
       display: flex;
@@ -43,8 +69,12 @@
       block-size: var(--row-size);
       gap: $gap-l;
       padding-inline-start: $gap-l;
-      font-size: 20px;
-      background-color: $color-secondary;
+      font-size: clamp(14px, 2.5svi, 20px);
+
+      @include res-max-tablet {
+        gap: $gap-m;
+        padding-inline-start: $gap-m;
+      }
 
       &:nth-child(even) {
         background-color: $color-black--light;
@@ -52,26 +82,37 @@
     }
   }
 
-  &__icon{
+  &__icon {
+    --icon_size: 50px;
+    --icon-img_size: #{$gap-xxl};
     display: grid;
     place-items: center;
-    inline-size: 50px;
-    block-size: 50px;
+    inline-size: var(--icon_size);
+    block-size: var(--icon_size);
     aspect-ratio: 1;
     background-color: $color-white;
     border-radius: 50%;
 
-     > img{
-      display: block;
-      max-inline-size: $gap-xxl;
-      max-block-size: $gap-xxl;
-     }
+    @include res-max-tablet {
+      --icon_size: #{$gap-xxl};
+      --icon-img_size: #{$gap-xl};
+    }
 
-     > span{
+    > img {
+      display: block;
+      max-inline-size: var(--icon-img_size);
+      max-block-size: var(--icon-img_size);
+    }
+
+    > span {
       font-size: $gap-l;
       font-weight: 900;
       color: $color-black;
-     }
+
+      @include res-max-tablet {
+        font-size: $gap-m;
+      }
+    }
   }
 
   &__items {
@@ -80,26 +121,30 @@
     grid-template-rows: subgrid;
   }
 
-  &__preview{
+  &__preview {
+    --price-list-preview_pad-left: clamp(#{$gap-m}, 3svi, #{$gap-xl});
     @include grid-row-span(var(--row-count));
-    grid-column-start: 3;
-    grid-row-start: 2;
-    margin-inline-start: $gap-xxl;
-    margin-block-start: $gap-l;
     position: relative;
     display: grid;
-    align-items: center;
+    align-items: end;
+    padding-inline-start: var(--price-list-preview_pad-left);
+    grid-column-start: 3;
+    grid-row-start: 2;
 
-    > img{
+    @include res-max-mobile-l{
+      display: none;
+    }
+
+    > img {
       max-inline-size: 100%;
       max-block-size: 100%;
     }
 
-    > svg{
+    > svg {
       position: absolute;
       inline-size: 33%;
-      aspect-ratio: 88.8 / 355.25; 
-      translate: $gap-m 130px;
+      aspect-ratio: 88.8 / 355.25;
+      translate: var(--price-list-preview_pad-left) 0;
     }
   }
 }
@@ -112,43 +157,54 @@
   @include hover {
     --price-item_border-color: #{$color-primary};
     --price-item-header_scale: 1.05;
+    --price-item-header_bg: #{$color-black--light};
   }
 
   &__header {
+    position: relative;
     display: grid;
     align-content: space-between;
-    row-gap: $gap-l;
-    padding-block: $gap-l;
-    padding-inline: $gap-l;
-    margin-inline: $gap-l;
+    row-gap: var(--price-item-headr_gap, $gap-l);
+    padding: var(--price-item-headr_padding, $gap-l);
+    margin-inline: var(--price-item-header_mg, $gap-l);
     border: 2px solid var(--price-item_border-color, $color-border);
     border-radius: $gap-l;
     text-align: center;
     scale: var(--price-item-header_scale, 1);
-    position: relative;
-    z-index: 10;
+    transition:
+      border-color $trans-time ease-in-out,
+      background-color $trans-time ease-in-out,
+      scale $trans-time ease-in-out;
     isolation: isolate;
-    transition: border-color $trans-time ease-in-out, scale $trans-time ease-in-out;
+    background-color: var(--price-item-header_bg, $color-trans);
+    z-index: 10;
+
+    @include res-max-tablet {
+      --price-item-headr_gap: #{$gap-m};
+      --price-item-headr_padding: #{$gap-m};
+      --price-item-header_mg: #{$gap-m};
+    }
 
     > strong {
-      font-size: 20px;
+      font-size: clamp(14px, 2.5svi, 20px);
       color: $color-primary;
     }
 
     span {
-      font-size: $gap-xl;
+      font-size: clamp($gap-l, 2.5svi, $gap-xl);
       font-weight: 900;
+      white-space: nowrap;
     }
   }
 
   &__content {
-    display: grid;
     display: grid;
     grid-template-rows: subgrid;
     justify-content: stretch;
     padding: 0;
     margin: 0;
     list-style: none;
+
     @include grid-row-span(var(--row-count));
 
     li {
@@ -161,6 +217,11 @@
       }
 
       > .icon {
+
+        @include res-max-mobile-l {
+          --icon-size: #{$gap-l};
+        }
+
         &.icon-check {
           fill: $color-primary;
         }

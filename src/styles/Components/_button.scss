@@ -14,7 +14,7 @@
     padding-block: var(--btn-padding-y);
     padding-inline: var(--btn-padding-x);
     background-color: var(--btn-bg-color);
-    border-radius: 0.25em;
+    border-radius: $gap-m;
     font-family: $font-text;
     font-size: var(--btn-font-size);
     font-weight: var(--btn_font-weight, 600);
@@ -43,7 +43,7 @@
             --btn_trans-y: calc(#{$gap-s} * -1);
         }
     }
-    &:is(.active) {
+    &:is(.active, [data-active="true"]) {
         --btn_shadow-color: #{$color-primary};
         --btn-shadow_size: #{$gap-xxl};
         --btn_font-weight: 900;
@@ -85,5 +85,21 @@
     > :is(span, small) {
         font-weight: inherit;
         white-space: nowrap;
+    }
+}
+
+.btn-group {
+    @include grid-columns(grid, repeat(auto-fit, minmax(5rem, max-content)), $gap-l, center, center, center);
+
+    > .button {
+        @include flex-set(inline-flex, column, nowrap, $gap-s, center, center, center);
+        font-size: clamp($gap-l, 2.5svi, 20px);
+
+        > small {
+            font-size: 0.75em;
+            font-weight: 500 !important;
+            pointer-events: none;
+            text-transform: lowercase;
+        }
     }
 }

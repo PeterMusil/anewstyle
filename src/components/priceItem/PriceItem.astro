@@ -14,8 +14,8 @@ const { id, title, price, features } = Astro.props;
 <div class="price-item" html-id={id}>
   <div class="price-item__header">
     <strong>{title}</strong>
-    <span id={`price-${id}`}>
-      {price}
+    <span>
+      <span id={`price-${id}`}>{price}</span>
       <span data-localize="price_currency"></span>
     </span>
   </div>
