@@ -25,9 +25,9 @@
 
   &__scroll-wrapper {
     position: relative;
+    margin-block-end: $gap-xxl;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-block-end: $gap-xxl;
   }
 
   &__container {

@@ -17,14 +17,14 @@
 	}
 
 	@include res-max-tablet {
-		--container-width: calc(100% - calc(#{$gap-xl} * 2));
+		--container-width: calc(100% - #{$gap-l});
 	}
 
 	&--s {
-		--container-width: min(#{$width-tablet}, calc(100% - calc(#{$gap-xl} * 2)));
+		--container-width: min(#{$width-tablet}, calc(100% - #{$gap-l}));
 	}
 
 	&--l{
-		--container-width: min(calc(100% - calc(#{$gap-xl} * 2)), #{$width-laptop-l});
+		--container-width: min(calc(100% - #{$gap-l}), #{$width-laptop-l});
 	}
 }
