@@ -129,6 +129,11 @@ section:has(> .showcase) {
       margin-block-end: 7vh;
       grid-row-start: 1;
     }
+
+    @include res-max-mobile-l {
+     gap: $gap-m;
+    }
+
     > .button {
       --icon-size: #{$gap-xxl};
       flex-flow: column wrap;
