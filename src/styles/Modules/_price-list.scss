@@ -15,7 +15,7 @@
   }
 
   @include res-max-mobile-l {
-    --row-size: 50px;
+    --row-size: 40px;
   }
 
   .container--l {
@@ -33,7 +33,7 @@
   &__container {
     @include grid-columns(
       grid,
-      var(--price-container_col-template, $width-mobile-s minmax($width-tablet, 1fr) $width-mobile-s),
+      var(--price-container_col-template, 240px minmax($width-tablet, 1fr) $width-mobile-m),
       0,
       stretch
     );
@@ -42,11 +42,11 @@
     margin-block-start: 5svb;
 
     @include res-max-tablet {
-      --price-container_col-template: #{$width-mobile-s} max-content #{$width-mobile-s};
+      --price-container_col-template: 240px max-content #{$width-mobile-s};
     }
 
     @include res-max-mobile-l {
-      --price-container_col-template: 190px max-content 190px;
+      --price-container_col-template: 130px max-content 220px;
     }
   }
 
@@ -130,7 +130,7 @@
   }
 
   &__preview {
-    --price-list-preview_pad-left: clamp(#{$gap-m}, 3svi, #{$gap-xl});
+    --price-list-preview_pad-left: clamp(#{$gap-m}, 5svi, #{$gap-xxl});
     @include grid-row-span(var(--row-count));
     position: relative;
     display: grid;
@@ -139,10 +139,13 @@
     grid-column-start: 3;
     grid-row-start: 2;
 
-    @include res-max-mobile-l {
-      --price-list-preview_ai: start;
+    @include res-max-tablet {
       position: sticky;
-      left: 190px;
+      left: $width-mobile-s;
+    }
+
+    @include res-max-mobile-l {
+      left: 130px;
     }
 
     > img {
@@ -154,11 +157,7 @@
       position: absolute;
       inline-size: 33%;
       aspect-ratio: 88.8 / 355.25;
-      translate: var(--price-list-preview_pad-left) var(--price-list-preview_trans-y, 0);
-
-      @include res-max-mobile-l {
-        --price-list-preview_trans-y: 41%;
-      }
+      translate: var(--price-list-preview_pad-left) 0;
     }
   }
 }
