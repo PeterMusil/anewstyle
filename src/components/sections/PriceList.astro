@@ -27,7 +27,11 @@ const products: (Product & { price: string })[] = (
       <strong data-localize="price_desc3"></strong><br />
       <span data-localize="price_desc4"></span>
     </p>
-    <p class="desc text-center" data-localize="price_select_label"></p>
+    
+    <p class="desc text-center">
+      <span data-localize="price_under-text"></span><br>
+      <span data-localize="price_select_label"></span>
+    </p>
 
     <div class="text-center">
       <div id="productButtons" class="btn-group">
@@ -85,7 +89,9 @@ const products: (Product & { price: string })[] = (
       </div>
     </div>
 
-    <p data-localize="price_under-text" class="desc text-center p--no-mg"></p>
+    <p class="desc text-center desc--no-mg">
+      <small data-localize="price_vat"></small>
+    </p>
   </div>
 </section>
 
