@@ -123,5 +123,12 @@
         > strong {
             color: $color-primary;
         }
+
+        i{
+            display: block;
+            color: $color-border;
+            margin-block-start: $gap-l;
+            font-size: .7em;
+        }
     }
 }

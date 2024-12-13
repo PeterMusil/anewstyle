@@ -48,6 +48,10 @@
         --btn-shadow_size: #{$gap-xxl};
         --btn_font-weight: 900;
         --btn-bg-color: #{$color-primary};
+
+        @include hover {
+            --btn_shadow-color: #{$color-primary};
+        }
     }
 
     &--s {
