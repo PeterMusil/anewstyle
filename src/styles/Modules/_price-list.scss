@@ -169,7 +169,7 @@
   @include grid-row-span(calc(var(--row-count) + 1));
   grid-template-rows: subgrid;
 
-  @include hover {
+  &:hover{
     --price-item_border-color: #{$color-primary};
     --price-item-header_scale: 1.05;
     --price-item-icon_scale: 1.1;
