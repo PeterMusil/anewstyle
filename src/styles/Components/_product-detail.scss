@@ -93,3 +93,13 @@ model-viewer {
     inline-size: 100%;
     block-size: 100%;
 }
+
+.products-illustration {
+    text-align: center;
+    
+    > svg {
+        inline-size: 10rem;
+        block-size: 10rem;
+        display: inline-block;
+    }
+}

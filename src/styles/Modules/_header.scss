@@ -117,16 +117,25 @@ header {
         font-size: clamp($gap-l, 4vi, $gap-xl);
       }
     }
+  }
 
-    > .button {
-      margin-block-start: 2.5vh;
-      opacity: var(--header-btn_opacity, 0);
-      translate: 0 var(--btn_trans-y, -1vh);
-      transition:
-        opacity 0.5s var(--trans-fnc),
-        translate 0.5s var(--trans-fnc),
-        box-shadow var(--trans-time) var(--trans-fnc);
-    }
+  &__buttons {
+    @include flex-set(inline-flex, row, nowrap, $gap-l, stretch, stretch);
+    margin-block-start: 2.5vh;
+    opacity: var(--header-btn_opacity, 0);
+    translate: 0 var(--btn_trans-y, -1vh);
+    transition:
+      opacity 0.5s var(--trans-fnc),
+      translate 0.5s var(--trans-fnc),
+      box-shadow var(--trans-time) var(--trans-fnc);
+
+      @include res-max-mobile-l {
+       flex-direction: column;
+      }
+
+     >  .button{
+        min-block-size: 52px;
+      }
   }
 }
 

@@ -9,7 +9,7 @@
     aspect-ratio: 1;
     fill: currentColor;
 
-    &:is(.icon-ar):not(.icon-nav) {
+    &:is(.icon-ar):not(.icon-nav, .icon-header) {
         --icon-size: clamp(#{$gap-xl}, 10dvi, 4.5rem);
         position: absolute;
         padding: $gap-m;

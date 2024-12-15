@@ -1,11 +1,34 @@
+---
+import Icon from "../icons/Icon.astro";
+---
+
 <header>
-  <video class="header__video" id="headerVideo" aria-label="Anew style header video" preload="metadata" autoplay loop muted></video>
+  <video
+    class="header__video"
+    id="headerVideo"
+    aria-label="Anew style header video"
+    preload="metadata"
+    autoplay
+    loop
+    muted></video>
   <div class="header__content">
     <div>
       <h1>Anew style</h1>
     </div>
     <strong data-localize="header_title"></strong>
-    <a class="button" href="#about" aria-label="Přejít na sekci o nás" rel="noopener" data-localize="header_btn_more"></a>
+    <div class="header__buttons">
+      <a
+      class="button"
+      href="#about"
+      id="headerArButton"
+      aria-label="Přejít na sekci o nás"
+      rel="noopener"
+      data-localize="header_btn_more"></a>
+      <a class="button button--secondary" href="#horizontal3dModel2" aria-label="Kámen jako osvětlení interiéru" data-fancybox="ar-showcase">
+        <span data-localize="header_btn_wall"></span>
+        <Icon name="ar" iconClass="icon-header"/>
+      </a>
+    </div>
   </div>
 </header>
 

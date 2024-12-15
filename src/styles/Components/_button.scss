@@ -9,7 +9,7 @@
     --btn-font-size: clamp(#{$gap-l}, 2vh, 18px);
     --icon-size: #{$gap-m};
     @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
-    @include border("def", 1px, var(--color-trans));
+    @include border("def", 2px, var(--btn_border-color, var(--color-white)));
     min-width: var(--btn-width);
     padding-block: var(--btn-padding-y);
     padding-inline: var(--btn-padding-x);
@@ -48,10 +48,18 @@
         --btn-shadow_size: #{$gap-xxl};
         --btn_font-weight: 900;
         --btn-bg-color: #{$color-primary};
+        --btn_border-color: #{$color-primary};
 
         @include hover {
             --btn_shadow-color: #{$color-primary};
         }
+    }
+
+    &--secondary{
+        --btn-color: #{$color-white};
+        --btn-bg-color: #{$color-black--trans};
+        --btn_border-color: #{$color-white};
+        backdrop-filter: blur($gap-s);
     }
 
     &--s {
