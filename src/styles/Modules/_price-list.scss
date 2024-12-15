@@ -241,8 +241,8 @@
         }
 
         &.icon-check {
-          fill: $color-primary;
          filter: drop-shadow(0 0 var(--price-item-icon_shadow-size) $color-primary);
+          fill: $color-primary;
         }
 
         &.icon-close-bold {
