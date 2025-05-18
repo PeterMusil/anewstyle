@@ -6,13 +6,15 @@ interface Props {
   text: string;
   icon?: string;
   iconClass?: string;
+  target?: string;
+  rel?: string;
 }
 
-const { href, text, icon, iconClass } = Astro.props;
+const { href, text, icon, iconClass, target, rel } = Astro.props;
 ---
 
 <li>
-  <a href={href} rel="noopener">
+  <a href={href} rel={rel} target={target}>
     {icon && <Icon name={icon} iconClass={iconClass} />}
     <span data-localize={text}></span>
   </a>

@@ -11,11 +11,23 @@ import Icon from "../icons/Icon.astro";
     </a>
     <ul class="menu">
       <NavItem href="#about" text="nav_light" icon="bulp" />
-      <NavItem href="#products" text="nav_products" icon="ar" iconClass="icon-nav" />
+      <NavItem
+        href="#products"
+        text="nav_products"
+        icon="ar"
+        iconClass="icon-nav"
+      />
       <NavItem href="#features" text="nav_features" />
       <NavItem href="#price-list" text="nav_price" />
       <NavItem href="#showroom" text="nav_gallery" />
       <NavItem href="#contact" text="nav_contact" />
+      <NavItem
+        href="http://www.anewstyle-eshop.cz/"
+        rel="external"
+        text="nav_eshop"
+        icon="eshop-light"
+        target="_blank"
+      />
       <LangSwitch />
     </ul>
     <button aria-label="Mobile menu" class="burger" id="menuBtn">
@@ -28,7 +40,9 @@ import Icon from "../icons/Icon.astro";
   const menu = document.querySelector(".menu") as HTMLUListElement;
   const burger = document.querySelector("#menuBtn") as HTMLButtonElement;
   const body = document.body as HTMLBodyElement;
-  const navItems = document.querySelectorAll(".menu > li > a") as NodeListOf<HTMLAnchorElement>;
+  const navItems = document.querySelectorAll(
+    ".menu > li > a"
+  ) as NodeListOf<HTMLAnchorElement>;
 
   burger &&
     menu &&
