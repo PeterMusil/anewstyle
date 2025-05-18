@@ -1,7 +1,7 @@
 @import "../Base/global";
 
 .price-list {
-  --row-count: 11;
+  --row-count: 13;
   --row-size: 72px;
   position: relative;
   min-block-size: 100svb;
@@ -72,7 +72,7 @@
       &:nth-child(even) {
         background-color: $color-black--light;
       }
-      > a{
+      > :is(a, span){
         display: flex;
         align-items: center;
         block-size: var(--row-size);
@@ -82,6 +82,10 @@
         @include res-max-tablet {
           gap: $gap-m;
         }
+      }
+
+      > span{
+        text-decoration: none;
       }
     }
   }
