@@ -63,11 +63,11 @@ nav {
 
   @include res-max-tablet {
     --menu-display: none;
-    --menu-height: calc(100vh - var(--nav-height));
+    --menu-height: calc(100svb - var(--nav-height));
     --menu-gap: #{$gap-xxl};
     --menu-align-content: flex-start;
     --menu-bg: var(--color-bg-nav);
-    --menu-pad-top: 15vh;
+    --menu-pad-top: 8svb;
     position: absolute;
     inset: 100% 0 auto 0;
     justify-content: center;
@@ -103,7 +103,7 @@ nav {
       @include flex-set(inline-flex, row, nowrap, $gap-m, center);
       margin-inline: auto;
       font-family: $font-text;
-      font-size: clamp(var(--nav-item-min-font-size), 2vh, 20px);
+      font-size: clamp(var(--nav-item-min-font-size), 2svb, 20px);
       color: var(--nav-color);
       text-decoration: none;
       text-transform: uppercase;
