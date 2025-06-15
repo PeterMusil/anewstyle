@@ -1,8 +1,9 @@
 @import "../Base/global";
 
 .price-list {
+  --image-size: 560px;
   --row-count: 13;
-  --row-size: 72px;
+  --row-size: calc(var(--image-size) / var(--row-count));
   position: relative;
   min-block-size: 100svb;
   font-family: $font-text;
@@ -11,11 +12,6 @@
   @include res-max-tablet {
     --icon_size: #{$gap-xxl};
     --icon-img_size: #{$gap-xl};
-    --row-size: 60px;
-  }
-
-  @include res-max-mobile-l {
-    --row-size: 40px;
   }
 
   .container--l {
@@ -39,6 +35,8 @@
     );
     grid-template-rows: auto repeat(var(--row-count), 1fr);
     min-inline-size: $width-laptop-l;
+    align-content: start;
+    align-items: start;
     margin-block-start: 5svb;
 
     @include res-max-tablet {
@@ -56,6 +54,7 @@
     top: 0;
     left: 0;
     display: grid;
+    grid-template-rows: subgrid;
     justify-content: stretch;
     padding: 0;
     margin: 0;
@@ -67,8 +66,9 @@
     grid-row-start: 2;
 
     > li {
-      padding-inline-start: clamp($gap-m, 2.5svi, $gap-l);
-
+      padding-inline-start: $gap-l;
+      display: grid;
+      align-content: center;
       &:nth-child(even) {
         background-color: $color-black--light;
       }
@@ -110,12 +110,6 @@
       display: none;
     }
 
-    > img {
-      display: block;
-      max-inline-size: var(--icon-img_size);
-      max-block-size: var(--icon-img_size);
-    }
-
     > span {
       font-size: $gap-l;
       font-weight: 900;
@@ -153,8 +147,7 @@
     }
 
     > img {
-      max-inline-size: 100%;
-      max-block-size: 100%;
+      max-block-size: var(--image-size);
       scale: -1 1;
     }
 
@@ -185,9 +178,9 @@
     position: relative;
     display: grid;
     align-content: space-between;
-    row-gap: $gap-m;
+    row-gap: $gap-s;
     padding: var(--price-item-headr_padding, $gap-l);
-    margin-inline: var(--price-item-header_mg, $gap-l);
+    margin-inline: var(--price-item-header_mg, $gap-xxl);
     background-color: var(--price-item-header_bg, $color-trans);
     border: 2px solid var(--price-item_border-color, $color-border);
     border-radius: $gap-l;
@@ -206,12 +199,12 @@
     }
 
     > strong {
-      font-size: clamp(14px, 2.5svi, 20px);
+      font-size: clamp(14px, 2svi, 18px);
       color: $color-primary;
     }
 
     span {
-      font-size: clamp($gap-l, 2.5svi, $gap-xl);
+      font-size: clamp($gap-m, 2svi, $gap-l);
       font-weight: 900;
       white-space: nowrap;
     }

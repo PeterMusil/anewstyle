@@ -117,6 +117,7 @@
     > .button {
         @include flex-set(inline-flex, column, nowrap, $gap-s, center, center, center);
         font-size: clamp($gap-l, 2.5svi, 20px);
+        padding-block: 1rem;
 
         @include res-max-mobile-l {
             --btn-padding-x: #{$gap-l};
