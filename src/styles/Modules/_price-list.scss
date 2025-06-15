@@ -148,13 +148,14 @@
 
     > img {
       max-block-size: var(--image-size);
+      max-inline-size: 100%;
       scale: -1 1;
     }
 
     > svg {
       position: absolute;
-      inline-size: 33%;
-      aspect-ratio: 88.8 / 355.25;
+      inline-size: 25%;
+      aspect-ratio:1.4 / 5.6;
       translate: var(--price-list-preview_pad-left) 0;
       z-index: 2;
     }
