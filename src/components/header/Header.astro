@@ -23,14 +23,28 @@ import Icon from "../icons/Icon.astro";
         id="headerMoreButton"
         aria-label="Přejít na sekci o nás"
         rel="noopener"
-        data-localize="header_btn_more"></a>
+      >
+        <span data-localize="header_btn_more"></span>
+      </a>
+      <!-- E-shop button - visible on desktop only -->
+      <a
+        class="button button--secondary header__eshop-btn"
+        href="https://www.anewstyle-eshop.cz"
+        rel="external"
+        target="_blank"
+        aria-label="Přejít na e-shop"
+      >
+        <span data-localize="header_btn_eshop"></span>
+        <Icon name="eshop" iconClass="icon-header" />
+      </a>
+      <!-- AR button - visible on tablet and mobile only -->
       <button
-        class="button button--secondary"
+        class="button button--secondary header__ar-btn"
         id="headerArButton"
         type="button"
         aria-label="Zobrazit v AR u mě doma"
       >
-        <span>Zobraz u mňe doma</span>
+        <span data-localize="header_btn_ar"></span>
         <Icon name="ar" iconClass="icon-header" />
       </button>
     </div>
@@ -38,88 +52,98 @@ import Icon from "../icons/Icon.astro";
 </header>
 
 <script>
+  import "@google/model-viewer";
+
   document.addEventListener("DOMContentLoaded", () => {
-    const videoElement = document.querySelector("#headerVideo");
+    // Video initialization
+    const videoElement = document.querySelector(
+      "#headerVideo"
+    ) as HTMLVideoElement;
     const screenWidth = window.innerWidth;
 
-    if (screenWidth > 560) {
+    if (screenWidth > 560 && videoElement) {
       const sources = [
         { src: "./videos/main-video.mp4", type: "video/mp4" },
         { src: "./videos/main-video.webm", type: "video/webm" },
         { src: "./videos/main-video.ogv", type: "video/ogg" },
       ];
 
-      videoElement &&
-        sources.forEach((source) => {
-          let sourceElement = document.createElement("source");
-          sourceElement.src = source.src;
-          sourceElement.type = source.type;
-          videoElement.appendChild(sourceElement);
-        });
-    } else {
-      videoElement && videoElement.remove();
+      sources.forEach((source) => {
+        const sourceElement = document.createElement("source");
+        sourceElement.src = source.src;
+        sourceElement.type = source.type;
+        videoElement.appendChild(sourceElement);
+      });
+    } else if (videoElement) {
+      videoElement.remove();
     }
 
     // AR Button functionality
-    const arButton = document.querySelector("#headerArButton");
-    if (arButton) {
-      arButton.addEventListener("click", () => {
-        // Load model-viewer if not already loaded
-        if (
-          !document.querySelector(
-            'script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]'
-          )
-        ) {
-          const script = document.createElement("script");
-          script.type = "module";
-          script.src =
-            "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
-          document.body.appendChild(script);
+    const arButton = document.querySelector(
+      "#headerArButton"
+    ) as HTMLButtonElement;
 
-          // Wait for script to load before creating model-viewer
-          script.onload = () => {
-            createAndShowARModel();
-          };
-        } else {
-          createAndShowARModel();
+    if (arButton) {
+      arButton.addEventListener("click", async () => {
+        try {
+          await activateAR("./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb");
+        } catch (error) {
+          console.error("AR activation failed:", error);
         }
       });
     }
+  });
 
-    function createAndShowARModel() {
-      // Create a temporary model-viewer element
+  // AR functionality
+  async function activateAR(modelPath: string): Promise<void> {
+    try {
+      // Create model-viewer element
       const modelViewer = document.createElement("model-viewer") as any;
-      modelViewer.setAttribute(
-        "src",
-        "./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb"
-      );
+
+      // Set attributes
+      modelViewer.setAttribute("src", modelPath);
       modelViewer.setAttribute("ar", "");
       modelViewer.setAttribute("ar-scale", "auto");
       modelViewer.setAttribute("ar-modes", "webxr scene-viewer quick-look");
       modelViewer.setAttribute("camera-controls", "");
       modelViewer.setAttribute("touch-action", "pan-y");
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
+
+      // Hide the element
       modelViewer.style.position = "fixed";
       modelViewer.style.top = "-9999px";
       modelViewer.style.left = "-9999px";
       modelViewer.style.width = "1px";
       modelViewer.style.height = "1px";
       modelViewer.style.opacity = "0";
+      modelViewer.style.pointerEvents = "none";
 
+      // Add to DOM
       document.body.appendChild(modelViewer);
 
-      // Trigger AR mode immediately
-      setTimeout(() => {
-        if (modelViewer.activateAR) {
-          modelViewer.activateAR();
-        }
-        // Clean up the temporary element after a delay
-        setTimeout(() => {
-          if (document.body.contains(modelViewer)) {
-            document.body.removeChild(modelViewer);
+      // Wait for model-viewer to be ready
+      await new Promise<void>((resolve) => {
+        const checkReady = () => {
+          if (typeof modelViewer.activateAR === "function") {
+            resolve();
+          } else {
+            setTimeout(checkReady, 100);
           }
-        }, 1000);
-      }, 100);
+        };
+        checkReady();
+      });
+
+      // Activate AR
+      modelViewer.activateAR();
+
+      // Clean up after AR session
+      setTimeout(() => {
+        if (document.body.contains(modelViewer)) {
+          document.body.removeChild(modelViewer);
+        }
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to activate AR:", error);
     }
-  });
+  }
 </script>

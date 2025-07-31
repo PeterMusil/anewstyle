@@ -49,6 +49,19 @@ header {
     }
   }
 
+  &__ar-btn {
+    display: none;
+    @include res-max-tablet {
+      display: inline-flex;
+    }
+  }
+
+  &__eshop-btn {
+    @include res-max-tablet {
+      display: none;
+    }
+  }
+
   &__content {
     @include flex-set(flex, column, wrap, var(--c_gap, 3em), center, center);
     animation:
@@ -129,13 +142,13 @@ header {
       translate 0.5s var(--trans-fnc),
       box-shadow var(--trans-time) var(--trans-fnc);
 
-      @include res-max-mobile-l {
-       flex-direction: column;
-      }
+    @include res-max-mobile-l {
+      flex-direction: column;
+    }
 
-     >  .button{
-        min-block-size: 52px;
-      }
+    > .button {
+      min-block-size: 52px;
+    }
   }
 }
 
