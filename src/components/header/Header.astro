@@ -20,20 +20,19 @@ import Icon from "../icons/Icon.astro";
       <a
         class="button"
         href="#about"
-        id="headerArButton"
+        id="headerMoreButton"
         aria-label="Přejít na sekci o nás"
         rel="noopener"
         data-localize="header_btn_more"></a>
-      <a
+      <button
         class="button button--secondary"
-        href="https://www.anewstyle-eshop.cz"
-        rel="external"
-        target="_blank"
-        aria-label="Přejít na e-shop"
+        id="headerArButton"
+        type="button"
+        aria-label="Zobrazit v AR u mě doma"
       >
-        <span data-localize="header_btn_eshop"></span>
-        <Icon name="eshop" iconClass="icon-header" />
-      </a>
+        <span>Zobraz u mňe doma</span>
+        <Icon name="ar" iconClass="icon-header" />
+      </button>
     </div>
   </div>
 </header>
@@ -59,6 +58,68 @@ import Icon from "../icons/Icon.astro";
         });
     } else {
       videoElement && videoElement.remove();
+    }
+
+    // AR Button functionality
+    const arButton = document.querySelector("#headerArButton");
+    if (arButton) {
+      arButton.addEventListener("click", () => {
+        // Load model-viewer if not already loaded
+        if (
+          !document.querySelector(
+            'script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]'
+          )
+        ) {
+          const script = document.createElement("script");
+          script.type = "module";
+          script.src =
+            "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
+          document.body.appendChild(script);
+
+          // Wait for script to load before creating model-viewer
+          script.onload = () => {
+            createAndShowARModel();
+          };
+        } else {
+          createAndShowARModel();
+        }
+      });
+    }
+
+    function createAndShowARModel() {
+      // Create a temporary model-viewer element
+      const modelViewer = document.createElement("model-viewer") as any;
+      modelViewer.setAttribute(
+        "src",
+        "./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb"
+      );
+      modelViewer.setAttribute("ar", "");
+      modelViewer.setAttribute("ar-scale", "auto");
+      modelViewer.setAttribute("ar-modes", "webxr scene-viewer quick-look");
+      modelViewer.setAttribute("camera-controls", "");
+      modelViewer.setAttribute("touch-action", "pan-y");
+      modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
+      modelViewer.style.position = "fixed";
+      modelViewer.style.top = "-9999px";
+      modelViewer.style.left = "-9999px";
+      modelViewer.style.width = "1px";
+      modelViewer.style.height = "1px";
+      modelViewer.style.opacity = "0";
+
+      document.body.appendChild(modelViewer);
+
+      // Trigger AR mode immediately
+      setTimeout(() => {
+        if (modelViewer.activateAR) {
+          modelViewer.activateAR();
+        }
+        // Clean up the temporary element after a delay
+        setTimeout(() => {
+          if (document.body.contains(modelViewer)) {
+            document.body.removeChild(modelViewer);
+          }
+        }, 1000);
+      }, 100);
     }
   });
 </script>
