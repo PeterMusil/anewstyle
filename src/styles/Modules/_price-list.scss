@@ -72,19 +72,19 @@
       &:nth-child(even) {
         background-color: $color-black--light;
       }
-      > :is(a, span){
+      > :is(a, span) {
         display: flex;
         align-items: center;
         block-size: var(--row-size);
         gap: $gap-l;
         font-size: clamp(14px, 2.5svi, 20px);
-  
+
         @include res-max-tablet {
           gap: $gap-m;
         }
       }
 
-      > span{
+      > span {
         text-decoration: none;
       }
     }
@@ -140,6 +140,7 @@
     @include res-max-tablet {
       position: sticky;
       left: $width-mobile-s;
+      align-self: center;
     }
 
     @include res-max-mobile-l {
@@ -154,10 +155,14 @@
 
     > svg {
       position: absolute;
-      inline-size: 25%;
-      aspect-ratio:1.4 / 5.6;
+      inline-size: 23.5%;
+      aspect-ratio: 1.4 / 5.6;
       translate: var(--price-list-preview_pad-left) 0;
       z-index: 2;
+
+      @include res-max-tablet {
+        inline-size: 30.5%;
+      }
     }
   }
 }
@@ -167,7 +172,7 @@
   @include grid-row-span(calc(var(--row-count) + 1));
   grid-template-rows: subgrid;
 
-  &:hover{
+  &:hover {
     --price-item_border-color: #{$color-primary};
     --price-item-header_scale: 1.05;
     --price-item-icon_scale: 1.1;
@@ -200,12 +205,12 @@
     }
 
     > strong {
-      font-size: clamp(14px, 2svi, 18px);
+      font-size: clamp(1rem, 3.5svi, 2.5rem);
       color: $color-primary;
     }
 
     span {
-      font-size: clamp($gap-m, 2svi, $gap-l);
+      font-size: clamp(12px, 1.8svi, $gap-l);
       font-weight: 900;
       white-space: nowrap;
     }
@@ -231,15 +236,17 @@
       }
 
       > .icon {
-        scale: var(--price-item-icon_scale, .9);
-        transition: scale $trans-time ease-in-out, filter $trans-time ease-in-out;
+        scale: var(--price-item-icon_scale, 0.9);
+        transition:
+          scale $trans-time ease-in-out,
+          filter $trans-time ease-in-out;
 
         @include res-max-mobile-l {
           --icon-size: #{$gap-l};
         }
 
         &.icon-check {
-         filter: drop-shadow(0 0 var(--price-item-icon_shadow-size) $color-primary);
+          filter: drop-shadow(0 0 var(--price-item-icon_shadow-size) $color-primary);
           fill: $color-primary;
         }
 

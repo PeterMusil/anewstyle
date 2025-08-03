@@ -34,28 +34,85 @@ interface Props {
     divisibleInto3: boolean;
   };
 }
-const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizontal3d, modelVertical3d, daeFile, reservation, tags } = Astro.props;
+const {
+  id,
+  title,
+  desc,
+  descEn,
+  price,
+  imgDark,
+  imgFrame,
+  imgLight,
+  modelHorizontal3d,
+  modelVertical3d,
+  daeFile,
+  reservation,
+  tags,
+} = Astro.props;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
-  <button type="button" id="closeBtn" class="dialog__close" aria-label="Close product detail" title="Close">
+  <button
+    type="button"
+    id="closeBtn"
+    class="dialog__close"
+    aria-label="Close product detail"
+    title="Close"
+  >
     <Icon name="close" />
   </button>
   <div class="product-detail">
     <strong>{title}</strong>
     <div class="product-detail__img" title="Show in 3D">
-      <a href={`#horizontal3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}>
-        <img src={`./images/products/${imgLight}`} alt={`Kamenná deska ${title}`} width="1024" id="closeImg" />
+      <a
+        href={`#horizontal3dModel${id}`}
+        aria-label="Kámen jako osvětlení interiéru"
+        data-fancybox={`product${id}`}
+      >
+        <img
+          src={`./images/products/${imgLight}`}
+          alt={`Kamenná deska ${title}`}
+          width="1024"
+          id="closeImg"
+        />
         {(modelHorizontal3d || modelVertical3d) && <Icon name="ar" />}
       </a>
     </div>
     <div class="product-detail__hidden">
-      <a href={`#vertical3dModel${id}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <a href={`./images/products/${imgDark}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <a href={`./images/products/${imgFrame}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <a href={`./images/products/${imgLight}`} aria-label="Kámen jako osvětlení interiéru" data-fancybox={`product${id}`}></a>
-      <model-viewer id={`horizontal3dModel${id}`} src={`./3d/products/${modelHorizontal3d}`} ar ar-scale="auto" ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
-      <model-viewer id={`vertical3dModel${id}`} src={`./3d/products/${modelVertical3d}`} ar ar-scale="auto" ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" camera-orbit="0deg 90deg 2.5m"></model-viewer>
+      <a
+        href={`#vertical3dModel${id}`}
+        aria-label="Kámen jako osvětlení interiéru"
+        data-fancybox={`product${id}`}></a>
+      <a
+        href={`./images/products/${imgDark}`}
+        aria-label="Kámen jako osvětlení interiéru"
+        data-fancybox={`product${id}`}></a>
+      <a
+        href={`./images/products/${imgFrame}`}
+        aria-label="Kámen jako osvětlení interiéru"
+        data-fancybox={`product${id}`}></a>
+      <a
+        href={`./images/products/${imgLight}`}
+        aria-label="Kámen jako osvětlení interiéru"
+        data-fancybox={`product${id}`}></a>
+      <model-viewer
+        id={`horizontal3dModel${id}`}
+        src={`./3d/products/${modelHorizontal3d}`}
+        ar
+        ar-scale="auto"
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        touch-action="pan-y"
+        camera-orbit="0deg 90deg 2.5m"></model-viewer>
+      <model-viewer
+        id={`vertical3dModel${id}`}
+        src={`./3d/products/${modelVertical3d}`}
+        ar
+        ar-scale="auto"
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        touch-action="pan-y"
+        camera-orbit="0deg 90deg 2.5m"></model-viewer>
     </div>
     <div class="product-detail__content">
       <p class="desc desc--no-mg" data-language="cs">{desc}</p>
@@ -204,18 +261,26 @@ const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizo
           </li>
         </ul>
       </div>
-      
+
       <div class="product-detail__footer">
         {
           daeFile && (
-            <a href={`./downloads/dae/${daeFile}`} target="_blank" class="link link--light link--uppercase">
+            <a
+              href={`./downloads/dae/${daeFile}`}
+              target="_blank"
+              class="link link--light link--uppercase"
+            >
               <Icon name="download" />
               <span data-localize="products_detail_download" />
             </a>
           )
         }
-        <a class="button button--s" href="mailto:info@anewstyle.cz" aria-disabled={reservation}>
-          <span data-localize="products_detail_btn_interested" />
+        <a
+          class="button button--s"
+          href="mailto:info@anewstyle.cz"
+          aria-disabled={reservation}
+        >
+          <span data-localize="products_detail_btn_interested"></span>
           <Icon name="email" />
         </a>
       </div>
@@ -226,19 +291,32 @@ const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizo
     const products = document.querySelectorAll(".product");
     const body = document.querySelector("body");
     products.forEach((product) => {
-      const productCard = product.querySelector('div[role="button"]') as HTMLButtonElement;
-      const productDetail = product.querySelector("dialog") as HTMLDialogElement;
-      const closeBtn = productDetail.querySelector("#closeBtn") as HTMLButtonElement;
-      const closeImg = productDetail.querySelector("#closeImg") as HTMLButtonElement;
+      const productCard = product.querySelector(
+        'div[role="button"]'
+      ) as HTMLButtonElement;
+      const productDetail = product.querySelector(
+        "dialog"
+      ) as HTMLDialogElement;
+      const closeBtn = productDetail.querySelector(
+        "#closeBtn"
+      ) as HTMLButtonElement;
+      const closeImg = productDetail.querySelector(
+        "#closeImg"
+      ) as HTMLButtonElement;
 
       productCard.addEventListener("click", () => {
         productDetail.showModal();
         body?.style.setProperty("overflow", "hidden");
 
-        if (!document.querySelector('script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]')) {
+        if (
+          !document.querySelector(
+            'script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]'
+          )
+        ) {
           const script = document.createElement("script");
           script.type = "module";
-          script.src = "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
+          script.src =
+            "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
 
           document.body.appendChild(script);
         }
@@ -256,16 +334,26 @@ const { id, title, desc, descEn, price, imgDark, imgFrame, imgLight, modelHorizo
       });
 
       const tagList = productDetail.querySelector(".tags") as HTMLDivElement;
-      const showMoreBtn = tagList.querySelector("button#showMoreTags") as HTMLButtonElement;
-      const spanMore = showMoreBtn.querySelector("span:nth-child(1)") as HTMLSpanElement;
-      const spanLess = showMoreBtn.querySelector("span:nth-child(2)") as HTMLSpanElement;
+      const showMoreBtn = tagList.querySelector(
+        "button#showMoreTags"
+      ) as HTMLButtonElement;
+      const spanMore = showMoreBtn.querySelector(
+        "span:nth-child(1)"
+      ) as HTMLSpanElement;
+      const spanLess = showMoreBtn.querySelector(
+        "span:nth-child(2)"
+      ) as HTMLSpanElement;
 
       spanLess.style.display = "none";
 
       showMoreBtn?.addEventListener("click", () => {
         tagList?.classList.toggle("tags--all");
-        spanMore.style.display = tagList.classList.contains("tags--all") ? "none" : "inline";
-        spanLess.style.display = tagList.classList.contains("tags--all") ? "inline" : "none";
+        spanMore.style.display = tagList.classList.contains("tags--all")
+          ? "none"
+          : "inline";
+        spanLess.style.display = tagList.classList.contains("tags--all")
+          ? "inline"
+          : "none";
       });
     });
   </script>
