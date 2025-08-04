@@ -72,15 +72,16 @@ import Icon from "../icons/Icon.astro";
       modelViewer.setAttribute("touch-action", "pan-y");
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
 
-      // Hide the element
+      // Position element for AR (Android needs visible element)
       modelViewer.style.position = "fixed";
-      modelViewer.style.top = "-9999px";
-      modelViewer.style.left = "-9999px";
-      modelViewer.style.width = "1px";
-      modelViewer.style.height = "1px";
-      modelViewer.style.opacity = "0";
-      modelViewer.style.pointerEvents = "none";
-      modelViewer.style.visibility = "hidden";
+      modelViewer.style.top = "50%";
+      modelViewer.style.left = "50%";
+      modelViewer.style.width = "300px";
+      modelViewer.style.height = "300px";
+      modelViewer.style.transform = "translate(-50%, -50%)";
+      modelViewer.style.zIndex = "9999";
+      modelViewer.style.backgroundColor = "rgba(0,0,0,0.8)";
+      modelViewer.style.borderRadius = "10px";
 
       // Add to DOM
       document.body.appendChild(modelViewer);
@@ -120,19 +121,51 @@ import Icon from "../icons/Icon.astro";
         );
       });
 
-      // Check if AR is available and activate
-      if (typeof modelViewer.activateAR === "function") {
-        await modelViewer.activateAR();
-      } else {
-        throw new Error("AR is not available on this device");
+      // Check if AR is available
+      if (!modelViewer.canActivateAR) {
+        throw new Error("AR is not supported on this device");
       }
 
-      // Clean up after 3 seconds
+      // Activate AR
+      await modelViewer.activateAR();
+
+      // Add loading text
+      const loadingText = document.createElement("div");
+      loadingText.style.position = "absolute";
+      loadingText.style.top = "50%";
+      loadingText.style.left = "50%";
+      loadingText.style.transform = "translate(-50%, -50%)";
+      loadingText.style.color = "white";
+      loadingText.style.fontSize = "16px";
+      loadingText.style.fontWeight = "bold";
+      loadingText.textContent = "Loading AR...";
+      modelViewer.appendChild(loadingText);
+
+      // Add close button
+      const closeButton = document.createElement("button");
+      closeButton.style.position = "absolute";
+      closeButton.style.top = "10px";
+      closeButton.style.right = "10px";
+      closeButton.style.background = "rgba(255,255,255,0.8)";
+      closeButton.style.border = "none";
+      closeButton.style.borderRadius = "50%";
+      closeButton.style.width = "30px";
+      closeButton.style.height = "30px";
+      closeButton.style.cursor = "pointer";
+      closeButton.textContent = "×";
+      closeButton.onclick = () => {
+        if (document.body.contains(modelViewer)) {
+          document.body.removeChild(modelViewer);
+        }
+      };
+      modelViewer.appendChild(closeButton);
+
+      // Clean up after AR activation
       setTimeout(() => {
         if (document.body.contains(modelViewer)) {
           document.body.removeChild(modelViewer);
         }
-      }, 3000);
+      }, 2000);
     } catch (error) {
       console.error("Failed to activate AR:", error);
       throw error;
