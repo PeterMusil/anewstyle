@@ -72,6 +72,9 @@ import Icon from "../icons/Icon.astro";
       modelViewer.setAttribute("touch-action", "pan-y");
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
 
+      // Add CSS class for styling
+      modelViewer.className = "ar-temp-dialog";
+
       // Position element for AR (Android needs visible element)
       modelViewer.style.position = "fixed";
       modelViewer.style.top = "50%";
@@ -80,8 +83,6 @@ import Icon from "../icons/Icon.astro";
       modelViewer.style.height = "300px";
       modelViewer.style.transform = "translate(-50%, -50%)";
       modelViewer.style.zIndex = "9999";
-      modelViewer.style.backgroundColor = "rgba(0,0,0,0.8)";
-      modelViewer.style.borderRadius = "10px";
 
       // Add to DOM
       document.body.appendChild(modelViewer);

@@ -152,6 +152,18 @@ header {
   }
 }
 
+// AR temporary dialog - hidden but properly sized for Android
+.ar-temp-dialog {
+  opacity: 0 !important;
+  pointer-events: none;
+  background-color: transparent !important;
+  border-radius: 10px;
+
+  > div {
+    display: none !important;
+  }
+}
+
 @keyframes headerTitleAnim {
   from {
     --header-title_opacity: 0;
