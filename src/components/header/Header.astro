@@ -171,10 +171,12 @@ import Icon from "../icons/Icon.astro";
     }
 
     arButton.addEventListener("click", async () => {
+      // Capture original content before any modifications
+      const originalContent = arButton.innerHTML;
+
       try {
         // Show loading state
         arButton.disabled = true;
-        const originalContent = arButton.innerHTML;
         arButton.innerHTML = "<span>Loading AR...</span>";
 
         // Activate AR
