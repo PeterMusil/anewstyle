@@ -20,6 +20,7 @@ import Icon from "../icons/Icon.astro";
       <a
         class="button"
         href="#about"
+        data-loading="true"
         id="headerMoreButton"
         aria-label="Přejít na sekci o nás"
         rel="noopener"
@@ -43,6 +44,8 @@ import Icon from "../icons/Icon.astro";
         id="headerArButton"
         type="button"
         aria-label="Zobrazit v AR u mě doma"
+        data-loading="false"
+        data-error="false"
       >
         <span data-localize="header_btn_ar"></span>
         <Icon name="ar" iconClass="icon-header" />
@@ -171,13 +174,10 @@ import Icon from "../icons/Icon.astro";
     }
 
     arButton.addEventListener("click", async () => {
-      // Capture original content before any modifications
-      const originalContent = arButton.innerHTML;
-
       try {
         // Show loading state
         arButton.disabled = true;
-        arButton.innerHTML = "<span>Loading AR...</span>";
+        arButton.setAttribute("data-loading", "true");
 
         // Activate AR
         await activateARForModel(
@@ -186,17 +186,18 @@ import Icon from "../icons/Icon.astro";
 
         // Restore button state
         arButton.disabled = false;
-        arButton.innerHTML = originalContent;
+        arButton.setAttribute("data-loading", "false");
       } catch (error) {
         console.error("AR activation failed:", error);
 
         // Show error state
-        arButton.innerHTML = "<span>AR Failed</span>";
+        arButton.disabled = false;
+        arButton.setAttribute("data-loading", "false");
+        arButton.setAttribute("data-error", "true");
 
-        // Reset after 2 seconds - restore original content with localization
+        // Reset error state after 2 seconds
         setTimeout(() => {
-          arButton.disabled = false;
-          arButton.innerHTML = originalContent;
+          arButton.setAttribute("data-error", "false");
         }, 2000);
       }
     });
