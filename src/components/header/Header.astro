@@ -51,4 +51,152 @@ import Icon from "../icons/Icon.astro";
   </div>
 </header>
 
-<script src="../scripts/header-ar.ts"></script>
+<script>
+  import "@google/model-viewer";
+
+  // AR functionality inlined to avoid import issues
+  async function activateARForModel(modelPath: string): Promise<void> {
+    try {
+      // Create model-viewer element
+      const modelViewer = document.createElement("model-viewer") as any;
+
+      // Set attributes
+      modelViewer.setAttribute("src", modelPath);
+      modelViewer.setAttribute("ar", "");
+      modelViewer.setAttribute("ar-scale", "auto");
+      modelViewer.setAttribute("ar-modes", "webxr scene-viewer quick-look");
+      modelViewer.setAttribute("camera-controls", "");
+      modelViewer.setAttribute("touch-action", "pan-y");
+      modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
+
+      // Hide the element
+      modelViewer.style.position = "fixed";
+      modelViewer.style.top = "-9999px";
+      modelViewer.style.left = "-9999px";
+      modelViewer.style.width = "1px";
+      modelViewer.style.height = "1px";
+      modelViewer.style.opacity = "0";
+      modelViewer.style.pointerEvents = "none";
+      modelViewer.style.visibility = "hidden";
+
+      // Add to DOM
+      document.body.appendChild(modelViewer);
+
+      // Wait for model-viewer to be ready
+      await new Promise<void>((resolve, reject) => {
+        const timeout = setTimeout(() => {
+          reject(new Error("Model load timeout"));
+        }, 10000);
+
+        const checkReady = () => {
+          if (typeof modelViewer.activateAR === "function") {
+            clearTimeout(timeout);
+            resolve();
+          } else {
+            setTimeout(checkReady, 100);
+          }
+        };
+        checkReady();
+
+        modelViewer.addEventListener(
+          "load",
+          () => {
+            clearTimeout(timeout);
+            resolve();
+          },
+          { once: true }
+        );
+
+        modelViewer.addEventListener(
+          "error",
+          (error: any) => {
+            clearTimeout(timeout);
+            reject(error);
+          },
+          { once: true }
+        );
+      });
+
+      // Check if AR is available and activate
+      if (typeof modelViewer.activateAR === "function") {
+        await modelViewer.activateAR();
+      } else {
+        throw new Error("AR is not available on this device");
+      }
+
+      // Clean up after 3 seconds
+      setTimeout(() => {
+        if (document.body.contains(modelViewer)) {
+          document.body.removeChild(modelViewer);
+        }
+      }, 3000);
+    } catch (error) {
+      console.error("Failed to activate AR:", error);
+      throw error;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Video initialization
+    const videoElement = document.querySelector(
+      "#headerVideo"
+    ) as HTMLVideoElement;
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth > 560 && videoElement) {
+      const sources = [
+        { src: "./videos/main-video.mp4", type: "video/mp4" },
+        { src: "./videos/main-video.webm", type: "video/webm" },
+        { src: "./videos/main-video.ogv", type: "video/ogg" },
+      ];
+
+      sources.forEach((source) => {
+        const sourceElement = document.createElement("source");
+        sourceElement.src = source.src;
+        sourceElement.type = source.type;
+        videoElement.appendChild(sourceElement);
+      });
+    } else if (videoElement) {
+      videoElement.remove();
+    }
+
+    // AR button initialization
+    const arButton = document.querySelector(
+      "#headerArButton"
+    ) as HTMLButtonElement;
+
+    if (!arButton) {
+      console.warn("AR button not found");
+      return;
+    }
+
+    arButton.addEventListener("click", async () => {
+      try {
+        // Show loading state
+        arButton.disabled = true;
+        const originalContent = arButton.innerHTML;
+        arButton.innerHTML = "<span>Loading AR...</span>";
+
+        // Activate AR
+        await activateARForModel(
+          "./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb"
+        );
+
+        // Restore button state
+        arButton.disabled = false;
+        arButton.innerHTML = originalContent;
+      } catch (error) {
+        console.error("AR activation failed:", error);
+
+        // Show error state
+        arButton.innerHTML = "<span>AR Failed</span>";
+
+        // Reset after 2 seconds
+        setTimeout(() => {
+          arButton.disabled = false;
+          arButton.innerHTML = "<span>Zobraz u mňe doma</span>";
+        }, 2000);
+      }
+    });
+  });
+</script>
