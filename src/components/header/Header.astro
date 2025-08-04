@@ -52,8 +52,6 @@ import Icon from "../icons/Icon.astro";
 </header>
 
 <script>
-  import "@google/model-viewer";
-
   document.addEventListener("DOMContentLoaded", () => {
     // Video initialization
     const videoElement = document.querySelector(
@@ -94,13 +92,31 @@ import Icon from "../icons/Icon.astro";
     }
   });
 
-  // AR functionality
+  // AR functionality - using same approach as DetailDialog
   async function activateAR(modelPath: string): Promise<void> {
     try {
+      // Load model-viewer script if not already loaded (same as DetailDialog)
+      if (
+        !document.querySelector(
+          'script[src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"]'
+        )
+      ) {
+        const script = document.createElement("script");
+        script.type = "module";
+        script.src =
+          "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
+        document.body.appendChild(script);
+
+        // Wait for script to load
+        await new Promise<void>((resolve) => {
+          script.onload = () => resolve();
+        });
+      }
+
       // Create model-viewer element
       const modelViewer = document.createElement("model-viewer") as any;
 
-      // Set attributes
+      // Set attributes (same as DetailDialog)
       modelViewer.setAttribute("src", modelPath);
       modelViewer.setAttribute("ar", "");
       modelViewer.setAttribute("ar-scale", "auto");
