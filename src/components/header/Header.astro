@@ -44,7 +44,7 @@ import Icon from "../icons/Icon.astro";
         type="button"
         aria-label="Zobrazit v AR u mě doma"
       >
-        <span>Zobraz u mňe doma</span>
+        <span data-localize="header_btn_ar"></span>
         <Icon name="ar" iconClass="icon-header" />
       </button>
     </div>
@@ -191,10 +191,10 @@ import Icon from "../icons/Icon.astro";
         // Show error state
         arButton.innerHTML = "<span>AR Failed</span>";
 
-        // Reset after 2 seconds
+        // Reset after 2 seconds - restore original content with localization
         setTimeout(() => {
           arButton.disabled = false;
-          arButton.innerHTML = "<span>Zobraz u mňe doma</span>";
+          arButton.innerHTML = originalContent;
         }, 2000);
       }
     });

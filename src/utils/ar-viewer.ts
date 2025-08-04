@@ -230,7 +230,7 @@ export function initializeARButton(
       try {
         // Show loading state
         button.disabled = true;
-        const originalText = button.textContent || "Zobraz u mňe doma";
+        const originalText = button.textContent || "Zobraz u mě doma";
         button.textContent = "Loading AR...";
 
         // Activate AR
@@ -251,7 +251,7 @@ export function initializeARButton(
         setTimeout(() => {
           const buttonText = button.textContent || "";
           if (buttonText.includes("AR Failed")) {
-            button.textContent = "Zobraz u mňe doma";
+            button.textContent = "Zobraz u mě doma";
           }
         }, 2000);
       }
