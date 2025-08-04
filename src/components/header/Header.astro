@@ -76,13 +76,8 @@ import Icon from "../icons/Icon.astro";
       modelViewer.className = "ar-temp-dialog";
 
       // Position element for AR (Android needs visible element)
-      modelViewer.style.position = "fixed";
-      modelViewer.style.top = "50%";
-      modelViewer.style.left = "50%";
-      modelViewer.style.width = "300px";
-      modelViewer.style.height = "300px";
-      modelViewer.style.transform = "translate(-50%, -50%)";
-      modelViewer.style.zIndex = "9999";
+      modelViewer.style.width = "0 !important";
+      modelViewer.style.height = "0 !important";
 
       // Add to DOM
       document.body.appendChild(modelViewer);
