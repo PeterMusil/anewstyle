@@ -46,19 +46,41 @@ import Icon from "../icons/Icon.astro";
         data-loading="false"
         data-error="false"
       >
-        <span data-localize="header_btn_ar"></span>
+        <span>Zobraz u mňe doma</span>
         <Icon name="ar" iconClass="icon-header" />
       </button>
     </div>
   </div>
 </header>
 
+<style>
+  /* Android AR compatibility - hide model-viewer from users but keep it functional */
+  model-viewer[style*="position: fixed"] {
+    visibility: hidden !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+</style>
+
 <script>
   import "@google/model-viewer";
 
-  // AR functionality inlined to avoid import issues
+  // AR functionality with Android compatibility
   async function activateARForModel(modelPath: string): Promise<void> {
     try {
+      // Create a container that's positioned off-screen but visible to Android
+      const arContainer = document.createElement("div");
+      arContainer.style.position = "fixed";
+      arContainer.style.top = "-100px"; // Position above viewport
+      arContainer.style.left = "-100px"; // Position left of viewport
+      arContainer.style.width = "50px";
+      arContainer.style.height = "50px";
+      arContainer.style.zIndex = "-9999";
+      arContainer.style.opacity = "0.01"; // Almost invisible but not 0
+      arContainer.style.pointerEvents = "none";
+      arContainer.style.overflow = "hidden";
+      arContainer.style.background = "transparent";
+
       // Create model-viewer element
       const modelViewer = document.createElement("model-viewer") as any;
 
@@ -71,21 +93,22 @@ import Icon from "../icons/Icon.astro";
       modelViewer.setAttribute("touch-action", "pan-y");
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
 
-      // Add CSS class for styling
-      modelViewer.className = "ar-temp-dialog";
+      // Style the model-viewer to fill the container
+      modelViewer.style.width = "100%";
+      modelViewer.style.height = "100%";
+      modelViewer.style.display = "block";
 
-      // Position element for AR (Android needs visible element)
-      modelViewer.style.width = "0 !important";
-      modelViewer.style.height = "0 !important";
+      // Add model-viewer to container
+      arContainer.appendChild(modelViewer);
 
-      // Add to DOM
-      document.body.appendChild(modelViewer);
+      // Add container to DOM
+      document.body.appendChild(arContainer);
 
       // Wait for model-viewer to be ready
       await new Promise<void>((resolve, reject) => {
         const timeout = setTimeout(() => {
           reject(new Error("Model load timeout"));
-        }, 10000);
+        }, 15000);
 
         const checkReady = () => {
           if (typeof modelViewer.activateAR === "function") {
@@ -95,8 +118,11 @@ import Icon from "../icons/Icon.astro";
             setTimeout(checkReady, 100);
           }
         };
+
+        // Start checking immediately
         checkReady();
 
+        // Also listen for load event
         modelViewer.addEventListener(
           "load",
           () => {
@@ -116,51 +142,23 @@ import Icon from "../icons/Icon.astro";
         );
       });
 
+      // Small delay to ensure model is fully loaded
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       // Check if AR is available
-      if (!modelViewer.canActivateAR) {
+      if (modelViewer.canActivateAR === false) {
         throw new Error("AR is not supported on this device");
       }
 
       // Activate AR
-      await modelViewer.activateAR();
+      modelViewer.activateAR();
 
-      // Add loading text
-      const loadingText = document.createElement("div");
-      loadingText.style.position = "absolute";
-      loadingText.style.top = "50%";
-      loadingText.style.left = "50%";
-      loadingText.style.transform = "translate(-50%, -50%)";
-      loadingText.style.color = "white";
-      loadingText.style.fontSize = "16px";
-      loadingText.style.fontWeight = "bold";
-      loadingText.textContent = "Loading AR...";
-      modelViewer.appendChild(loadingText);
-
-      // Add close button
-      const closeButton = document.createElement("button");
-      closeButton.style.position = "absolute";
-      closeButton.style.top = "10px";
-      closeButton.style.right = "10px";
-      closeButton.style.background = "rgba(255,255,255,0.8)";
-      closeButton.style.border = "none";
-      closeButton.style.borderRadius = "50%";
-      closeButton.style.width = "30px";
-      closeButton.style.height = "30px";
-      closeButton.style.cursor = "pointer";
-      closeButton.textContent = "×";
-      closeButton.onclick = () => {
-        if (document.body.contains(modelViewer)) {
-          document.body.removeChild(modelViewer);
-        }
-      };
-      modelViewer.appendChild(closeButton);
-
-      // Clean up after AR activation
+      // Clean up after AR session
       setTimeout(() => {
-        if (document.body.contains(modelViewer)) {
-          document.body.removeChild(modelViewer);
+        if (document.body.contains(arContainer)) {
+          document.body.removeChild(arContainer);
         }
-      }, 2000);
+      }, 3000);
     } catch (error) {
       console.error("Failed to activate AR:", error);
       throw error;
