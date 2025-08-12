@@ -54,37 +54,56 @@ import Icon from "../icons/Icon.astro";
 </header>
 
 <style>
-  /* Android AR compatibility - hide model-viewer from users but keep it functional */
+  /* Desktop: Show e-shop button, hide AR button */
+  @media (min-width: 1024px) {
+    .header__eshop-btn {
+      display: flex;
+    }
+    .header__ar-btn {
+      display: none;
+    }
+  }
+
+  /* Tablet and mobile: Hide e-shop button, show AR button */
+  @media (max-width: 1023px) {
+    .header__eshop-btn {
+      display: none;
+    }
+    .header__ar-btn {
+      display: flex;
+    }
+  }
+
+  /* AR button states */
+  .header__ar-btn[data-loading="true"] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+
+  .header__ar-btn[data-error="true"] {
+    background-color: #ff4444;
+    color: white;
+  }
+
+  /* Ensure AR model-viewer doesn't interfere with page */
   model-viewer[style*="position: fixed"] {
     visibility: hidden !important;
     pointer-events: none !important;
     user-select: none !important;
+    z-index: -9999 !important;
   }
 </style>
 
 <script>
   import "@google/model-viewer";
 
-  // AR functionality with Android compatibility
+  // AR functionality with proper Android support
   async function activateARForModel(modelPath: string): Promise<void> {
     try {
-      // Create a container that's positioned off-screen but visible to Android
-      const arContainer = document.createElement("div");
-      arContainer.style.position = "fixed";
-      arContainer.style.top = "-100px"; // Position above viewport
-      arContainer.style.left = "-100px"; // Position left of viewport
-      arContainer.style.width = "50px";
-      arContainer.style.height = "50px";
-      arContainer.style.zIndex = "-9999";
-      arContainer.style.opacity = "0.01"; // Almost invisible but not 0
-      arContainer.style.pointerEvents = "none";
-      arContainer.style.overflow = "hidden";
-      arContainer.style.background = "transparent";
-
       // Create model-viewer element
       const modelViewer = document.createElement("model-viewer") as any;
 
-      // Set attributes
+      // Set attributes for AR
       modelViewer.setAttribute("src", modelPath);
       modelViewer.setAttribute("ar", "");
       modelViewer.setAttribute("ar-scale", "auto");
@@ -92,73 +111,75 @@ import Icon from "../icons/Icon.astro";
       modelViewer.setAttribute("camera-controls", "");
       modelViewer.setAttribute("touch-action", "pan-y");
       modelViewer.setAttribute("camera-orbit", "0deg 90deg 2.5m");
+      modelViewer.setAttribute("loading", "eager");
 
-      // Style the model-viewer to fill the container
-      modelViewer.style.width = "100%";
-      modelViewer.style.height = "100%";
-      modelViewer.style.display = "block";
+      // Position off-screen but keep it accessible for AR
+      modelViewer.style.position = "fixed";
+      modelViewer.style.top = "-1px";
+      modelViewer.style.left = "-1px";
+      modelViewer.style.width = "1px";
+      modelViewer.style.height = "1px";
+      modelViewer.style.opacity = "0";
+      modelViewer.style.pointerEvents = "none";
+      modelViewer.style.zIndex = "-1";
 
-      // Add model-viewer to container
-      arContainer.appendChild(modelViewer);
+      // Add to DOM
+      document.body.appendChild(modelViewer);
 
-      // Add container to DOM
-      document.body.appendChild(arContainer);
-
-      // Wait for model-viewer to be ready
+      // Wait for model to load
       await new Promise<void>((resolve, reject) => {
         const timeout = setTimeout(() => {
           reject(new Error("Model load timeout"));
-        }, 15000);
+        }, 10000);
 
-        const checkReady = () => {
-          if (typeof modelViewer.activateAR === "function") {
-            clearTimeout(timeout);
-            resolve();
-          } else {
-            setTimeout(checkReady, 100);
-          }
+        const onLoad = () => {
+          clearTimeout(timeout);
+          resolve();
         };
 
-        // Start checking immediately
-        checkReady();
+        const onError = (error: any) => {
+          clearTimeout(timeout);
+          reject(error);
+        };
 
-        // Also listen for load event
-        modelViewer.addEventListener(
-          "load",
-          () => {
-            clearTimeout(timeout);
-            resolve();
-          },
-          { once: true }
-        );
+        // Listen for load events
+        modelViewer.addEventListener("load", onLoad, { once: true });
+        modelViewer.addEventListener("error", onError, { once: true });
 
-        modelViewer.addEventListener(
-          "error",
-          (error: any) => {
-            clearTimeout(timeout);
-            reject(error);
-          },
-          { once: true }
-        );
+        // Also check if already loaded
+        if (modelViewer.loaded) {
+          clearTimeout(timeout);
+          resolve();
+        }
       });
 
-      // Small delay to ensure model is fully loaded
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      // Check if AR is available
-      if (modelViewer.canActivateAR === false) {
-        throw new Error("AR is not supported on this device");
-      }
+      // Wait a bit more to ensure everything is ready
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
       // Activate AR
-      modelViewer.activateAR();
+      if (typeof modelViewer.activateAR === "function") {
+        modelViewer.activateAR();
+      } else {
+        throw new Error("AR activation not available");
+      }
 
-      // Clean up after AR session
-      setTimeout(() => {
-        if (document.body.contains(arContainer)) {
-          document.body.removeChild(arContainer);
+      // Set up cleanup when AR session ends
+      const cleanup = () => {
+        if (document.body.contains(modelViewer)) {
+          document.body.removeChild(modelViewer);
         }
-      }, 3000);
+      };
+
+      // Listen for AR session end events
+      modelViewer.addEventListener("ar-status", (event: any) => {
+        if (event.detail.status === "not-presenting") {
+          // AR session ended, clean up after a delay
+          setTimeout(cleanup, 1000);
+        }
+      });
+
+      // Fallback cleanup after 30 seconds (in case AR session doesn't end properly)
+      setTimeout(cleanup, 30000);
     } catch (error) {
       console.error("Failed to activate AR:", error);
       throw error;
