@@ -7,32 +7,56 @@ interface Props {
 }
 const { title } = Astro.props;
 const { description } = Astro.props;
-// Google Tag Manager configuration
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID || "GTM-TB327ZQ";
-const ENABLE_GTM = Boolean(GTM_ID);
+// Google Tag Manager (hardcoded ID)
+const ENABLE_GTM = true;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    {ENABLE_GTM && (
-      // Google Tag Manager (in HEAD)
-      <script is:inline>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    {
+      ENABLE_GTM && (
+        // Google Tag Manager (in HEAD)
+        <script
+          is:inline
+        >{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}</script>
-    )}
+})(window,document,'script','dataLayer','GTM-TB327ZQ');`}</script>
+      )
+    }
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Lukáš Chylík" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta name="keywords" content={description} />
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png" />
-    <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicons/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="./images/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
 
     <link rel="alternate" hreflang="en" href="https://anewstyle.cz/?lang=en" />
     <link rel="alternate" hreflang="cs" href="https://anewstyle.cz/?lang=cs" />
@@ -61,13 +85,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    {ENABLE_GTM && (
-      // Google Tag Manager (noscript)
-      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    )}
+    {
+      ENABLE_GTM && (
+        // Google Tag Manager (noscript)
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TB327ZQ"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          />
+        </noscript>
+      )
+    }
     <IconSet />
     <slot />
     <Footer />
-    <!-- <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module" async></script> -->
   </body>
 </html>
