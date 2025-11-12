@@ -4,6 +4,9 @@ $color-black--trans: hsl(0 0% 0% / 0.5);
 $color-black--light: hsl(0 0% 2%);
 $color-white: hsl(0 0% 100%);
 $color-white--trans: hsl(0 0% 100% / 0.4);
+// extra transparent whites for subtle separators
+$color-white--trans-13: hsl(0 0% 100% / 0.13);
+$color-white--trans-08: hsl(0 0% 100% / 0.08);
 $color-trans: hsl(0 0% 0% / 0);
 $color-primary: hsl(43 33% 48%);
 $color-primary--hover: hsl(from #{$color-primary} h s 58%);
@@ -23,6 +26,16 @@ $color-disabled: hsl(0 0% 50%);
 $color-bg-disabled: hsl(0 0% 83%);
 $color-border: hsl(0 0% 33%);
 $color-row-bg: hsl(0 0% 5%);
+
+// Shadows
+$color-shadow-strong: hsl(0 0% 0% / 0.4);
+
+// Layout widths
+$container-max-width: 1200px;
+$dialog-max-width: 680px;
+
+// Borders
+$border-1: 1px;
 
 $trans-time: 0.25s;
 $animate-all: all ease-in-out var($trans-time);
