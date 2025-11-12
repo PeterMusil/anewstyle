@@ -87,8 +87,15 @@
     cursor: pointer;
   }
 
-  &__content { display: grid; gap: $gap-l; }
-  &__desc { font-size: 1.5rem; line-height: 1.75; opacity: .9; }
+  &__content {
+    display: grid;
+    gap: $gap-l;
+  }
+  &__desc {
+    font-size: 1.5rem;
+    line-height: 1.75;
+    opacity: 0.9;
+  }
 
   &__group {
     margin: 0;
@@ -98,37 +105,61 @@
     gap: $gap-l;
   }
 
-  &__legend { font-weight: 800; font-size: 1.6rem; margin-block: .4rem; font-family: $font-title; }
+  &__legend {
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin-block: 0.4rem;
+    font-family: $font-title;
+  }
 
   .cookie-option {
     @include grid-columns(grid, auto 1fr, $gap-l, start, start, start);
     padding: $gap-m 0;
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    strong { display: block; font-size: 1.7rem; }
-    small { display: block; opacity: .85; font-size: 1.45rem; line-height: 1.6; }
-    &--disabled { opacity: .7; }
+    strong {
+      display: block;
+      font-size: 1.7rem;
+    }
+    small {
+      display: block;
+      opacity: 0.85;
+      font-size: 1.45rem;
+      line-height: 1.6;
+    }
+    &--disabled {
+      opacity: 0.7;
+    }
 
     input[type="checkbox"] {
       inline-size: 1.6rem;
       block-size: 1.6rem;
-      margin-top: .4rem;
+      margin-top: 0.4rem;
       accent-color: $color-primary;
+      cursor: pointer;
     }
+  }
+
+  label.cookie-option {
+    cursor: pointer;
   }
 
   &__footer {
     @include flex-set(flex, row, wrap, $gap-m, center, flex-start);
     padding-top: $gap-l;
     margin-top: $gap-l;
-    border-top: 1px solid rgba(255,255,255,.13);
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
     background: inherit;
   }
 
-  &__spacer { flex: 1 1 auto; }
+  &__spacer {
+    flex: 1 1 auto;
+  }
 
   @include res-max-mobile-l {
-    &__spacer { display: none; }
+    &__spacer {
+      display: none;
+    }
   }
 
   .button--transparent {
@@ -137,5 +168,10 @@
     color: $color-white;
   }
 
-  &__legal p { margin: 0; font-size: 1.3rem; line-height: 1.6; opacity: .85; }
+  &__legal p {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
 }
