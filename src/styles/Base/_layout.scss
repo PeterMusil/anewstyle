@@ -1,5 +1,9 @@
 ﻿@import "global";
 
+:root {
+  scrollbar-gutter: stable;
+}
+
 body {
   display: flex;
   flex-flow: column wrap;
