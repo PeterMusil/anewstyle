@@ -150,5 +150,23 @@
     "contact_btn_write-message": "Write a message",
     "contact_czechia": "Czech Republic",
     "footer_rights": "All rights reserved",
-    "footer_creator": "Created by"
+    "footer_creator": "Created by",
+    "footer_cookie_settings": "Cookie settings"
+    ,
+    "cookie_banner_text": "We use cookies to enhance your browsing experience. Analytics and marketing cookies are optional and used to measure and improve our site.",
+    "cookie_btn_accept_all": "Accept all",
+    "cookie_btn_reject_all": "Reject all",
+    "cookie_btn_customize": "Customize",
+    "cookie_dialog_title": "Cookie preferences",
+    "cookie_dialog_desc": "Choose which optional cookies you want to enable. Necessary cookies are always on because they are essential for the site to function.",
+    "cookie_categories_legend": "Categories",
+    "cookie_category_analytics": "Analytics",
+    "cookie_category_analytics_desc": "Helps us understand how the site is used and improve it.",
+    "cookie_category_marketing": "Marketing",
+    "cookie_category_marketing_desc": "Allows personalized advertising and remarketing features.",
+    "cookie_category_necessary": "Necessary",
+    "cookie_category_necessary_desc": "Required for basic site functionality and security.",
+    "cookie_btn_save_prefs": "Save preferences"
+    ,
+    "cookie_dialog_legal": "Optional cookies are used only with your consent. You can withdraw or change your consent at any time using the Cookie settings link in the footer."
 }

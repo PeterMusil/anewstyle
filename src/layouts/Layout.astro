@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/footer/Footer.astro";
 import IconSet from "../components/icons/IconSet.astro";
+import CookieBar from "../components/cookies/CookieBar.astro";
+import CookieDialog from "../components/cookies/CookieDialog.astro";
 interface Props {
   title: string;
   description: string;
@@ -16,12 +18,74 @@ const ENABLE_GTM = true;
 <html lang="en">
   <head>
     {ENABLE_GTM && (
-      // Google Tag Manager
-      <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WT79RGCG');</script>
+      // Consent Mode v2 + GTM loader
+      <script is:inline>
+        // dataLayer + gtag bootstrap
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+
+        // Simple cookie helpers for consent
+        (function(){
+          const KEY = 'cookie-consent-v1';
+          function readCookieRaw(name){
+            const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g,'\\$1') + '=([^;]*)'));
+            return m ? decodeURIComponent(m[1]) : null;
+          }
+          function read(){
+            try {
+              const raw = readCookieRaw(KEY);
+              if(!raw) return undefined;
+              const obj = JSON.parse(raw);
+              if (typeof obj === 'object' && obj) return obj;
+            } catch(_){ /* ignore */ }
+            return undefined;
+          }
+          function write(value, update){
+            const days = 180; // 6 months
+            const maxAge = days * 24 * 60 * 60;
+            const secure = location.protocol === 'https:' ? '; Secure' : '';
+            document.cookie = KEY + '=' + encodeURIComponent(JSON.stringify(value)) + '; Path=/; Max-Age=' + maxAge + '; SameSite=Lax' + secure;
+            if (update) updateGtag(value);
+          }
+          function toConsentFlags(consent){
+            const analytics = consent?.analytics ? 'granted' : 'denied';
+            const marketing = consent?.marketing ? 'granted' : 'denied';
+            return {
+              ad_storage: marketing,
+              analytics_storage: analytics,
+              ad_user_data: marketing,
+              ad_personalization: marketing,
+              functionality_storage: 'granted',
+              security_storage: 'granted',
+            };
+          }
+          function updateGtag(consent){
+            const flags = toConsentFlags(consent || {});
+            gtag('consent','update', flags);
+          }
+
+          // expose minimal API
+          window.__cookieConsent = { read, write, updateGtag, key: KEY };
+
+          // Set default consent BEFORE loading GTM
+          const existing = read();
+          const defaults = toConsentFlags(existing || {});
+          // If no stored consent, default everything optional to denied
+          if (!existing) {
+            defaults.ad_storage = 'denied';
+            defaults.analytics_storage = 'denied';
+            defaults.ad_user_data = 'denied';
+            defaults.ad_personalization = 'denied';
+          }
+          gtag('consent', 'default', defaults);
+        })();
+
+        // Load GTM after consent defaults are set
+        (function(w,d,s,l,i){
+          w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+          var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:''; j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WT79RGCG');
+      </script>
     )}
     <meta charset="utf-8" />
     <title>{title}</title>
@@ -93,6 +157,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ></iframe>
       </noscript>
     )}
+    <CookieBar />
+    <CookieDialog />
     <IconSet />
     <slot />
     <Footer />

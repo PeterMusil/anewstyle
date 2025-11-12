@@ -1,13 +1,47 @@
 ---
+import Icon from "../icons/Icon.astro";
 let currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <small>
-        ©2022 - {currentYear} anewstyle.cz |
-        <span data-localize="footer_rights"></span>
-        |
-        <span data-localize="footer_creator"></span>
-        <a href="https://lukaschylik.dev/" target="_blank" rel="external" aria-label="Go to creator portfolio website">Lukáš Chylík</a>
-    </small>
+  <small>
+    ©2022 - {currentYear} anewstyle.cz |
+    <span data-localize="footer_rights"></span>
+    |
+    <a
+      href="#"
+      class="link link--s"
+      id="footerCookieSettings"
+      aria-label="Open cookie preferences"
+      rel="nofollow noopener"
+    >
+      <Icon name="cookie" iconClass="footer__cookie-icon" size="0.9em" />
+      <span data-localize="footer_cookie_settings"></span>
+    </a>
+    |
+    <span data-localize="footer_creator"></span>
+    <a
+      href="https://lukaschylik.dev/"
+      target="_blank"
+      rel="external"
+      aria-label="Go to creator portfolio website"
+      >Lukáš Chylík</a
+    >
+  </small>
+
+  <script>
+    const footerCookieLink = document.getElementById('footerCookieSettings') as HTMLAnchorElement | null;
+    footerCookieLink?.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Prefer direct call if available, else broadcast event
+      // @ts-ignore
+      if (typeof window.__openCookieDialog === 'function') {
+        // @ts-ignore
+        window.__openCookieDialog();
+      } else {
+        window.dispatchEvent(new CustomEvent('open-cookie-dialog'));
+      }
+    });
+  </script>
+
 </footer>

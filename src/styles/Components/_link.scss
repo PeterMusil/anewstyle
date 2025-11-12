@@ -4,7 +4,7 @@
     --link-text-decor: none;
     --link-text-trans: none;
     --icon-trans-x: 0;
-    @include flex-set(inline-flex, row, nowrap, 1.2rem);
+    @include flex-set(inline-flex, row, nowrap, 1.2rem, center);
     font-family: $font-text;
     font-size: var(--link-font-size, large);
     color: var(--link-color, inherit);
@@ -28,6 +28,20 @@
 
     &--underline {
         --link-text-decor: underline;
+    }
+
+    &--s {
+        --link-font-size: small;
+        gap: 0.6rem;
+
+        > .icon {
+            --icon-size: 1em;
+            transition: none;
+        }
+
+        &:hover {
+            --icon-trans-x: 0;
+        }
     }
 
     &--picture {

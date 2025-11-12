@@ -2,11 +2,13 @@
 interface Props {
   name: string;
   iconClass?: string;
+  size?: string; // e.g., "1em", "16px"; when omitted, uses CSS default
 }
 
-const { name, iconClass } = Astro.props;
+const { name, iconClass, size } = Astro.props;
 ---
 
-<svg class={`icon icon-${name} ${iconClass}`}>
+<svg class={`icon icon-${name} ${iconClass ?? ''}`}
+     style={size ? `--icon-size: ${size};` : undefined}>
   <use xlink:href={`#icon-${name}`}></use>
 </svg>

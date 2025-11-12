@@ -1,0 +1,123 @@
+---
+// Cookie consent banner component
+---
+
+<div id="cookie-consent-banner" class="cookie-banner" aria-live="polite" role="dialog" aria-modal="false" aria-label="Cookie consent">
+  <div class="cookie-banner__content">
+    <p class="cookie-banner__text">
+      <span data-localize="cookie_banner_text"></span>
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="button button--secondary button--xs" id="cookie-reject-all"><span data-localize="cookie_btn_reject_all"></span></button>
+      <button type="button" class="button button--xs" id="cookie-accept-all"><span data-localize="cookie_btn_accept_all"></span></button>
+      <button type="button" class="button button--transparent button--xs" id="cookie-customize"><span data-localize="cookie_btn_customize"></span></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 9999;
+    display: none; /* default hidden, shown by JS when needed */
+    background: var(--color-bg-nav, rgba(0, 0, 0, 0.85));
+    color: var(--color-white, #fff);
+    border-top: var(--border-width, 1px) solid var(--color-border, #fff1);
+    backdrop-filter: blur(8px);
+  }
+
+  .cookie-banner__content {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: var(--gap-l, 1.6rem);
+    display: grid;
+    align-items: center;
+    gap: var(--gap-l, 1.6rem);
+    grid-template-columns: 1fr auto;
+  }
+
+  .cookie-banner__text {
+    font-size: clamp(1.4rem, 2.2vh, 1.6rem);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cookie-banner__actions {
+    display: inline-flex;
+    gap: var(--gap-m, 0.8rem);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .button--transparent {
+    background: transparent;
+    border: var(--border-width, 1px) solid var(--color-border, #ffffff66);
+    color: var(--color-white, #fff);
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner__content {
+      grid-template-columns: 1fr;
+    }
+    .cookie-banner__actions {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
+<script>
+  const BANNER_ID = "cookie-consent-banner";
+  const banner = document.getElementById(BANNER_ID) as HTMLDivElement;
+  const acceptBtn = document.getElementById("cookie-accept-all") as HTMLButtonElement;
+  const rejectBtn = document.getElementById("cookie-reject-all") as HTMLButtonElement;
+  const customizeBtn = document.getElementById("cookie-customize") as HTMLButtonElement;
+
+  function shouldShowBanner(): boolean {
+    try {
+      // @ts-ignore
+      const hasConsent = !!window.__cookieConsent?.read();
+      return !hasConsent;
+    } catch (_) {
+      return true;
+    }
+  }
+
+  function hideBanner() {
+    banner.style.display = "none";
+    banner.setAttribute("aria-hidden", "true");
+  }
+
+  function showBanner() {
+    banner.style.display = "block";
+    banner.setAttribute("aria-hidden", "false");
+  }
+
+  // Show banner on load if consent missing
+  document.addEventListener("DOMContentLoaded", () => {
+    if (shouldShowBanner()) showBanner();
+  });
+
+  // Also hide when consent is updated elsewhere (e.g., dialog)
+  window.addEventListener("cookie-consent-updated", hideBanner);
+
+  acceptBtn?.addEventListener("click", () => {
+    // @ts-ignore
+    window.__cookieConsent?.write({ necessary: true, analytics: true, marketing: true }, true);
+    hideBanner();
+    window.dispatchEvent(new CustomEvent("cookie-consent-updated"));
+  });
+
+  rejectBtn?.addEventListener("click", () => {
+    // @ts-ignore
+    window.__cookieConsent?.write({ necessary: true, analytics: false, marketing: false }, true);
+    hideBanner();
+    window.dispatchEvent(new CustomEvent("cookie-consent-updated"));
+  });
+
+  customizeBtn?.addEventListener("click", () => {
+    // Let the dialog decide whether to keep banner visible
+    window.dispatchEvent(new CustomEvent("open-cookie-dialog"));
+  });
+</script>

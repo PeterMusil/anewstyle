@@ -1,0 +1,251 @@
+---
+// Cookie preferences dialog using native <dialog>
+---
+
+<dialog id="cookie-preferences-dialog" class="cookie-dialog" aria-labelledby="cookie-dialog-title" aria-describedby="cookie-dialog-desc">
+  <form method="dialog" class="cookie-dialog__box">
+    <div class="cookie-dialog__header" role="group" aria-label="Cookie dialog header">
+      <h2 id="cookie-dialog-title" class="cookie-dialog__title"><span data-localize="cookie_dialog_title"></span></h2>
+      <button type="button" class="cookie-dialog__close" id="cookie-dialog-close" aria-label="Close">
+        ✕
+      </button>
+    </div>
+
+    <div class="cookie-dialog__content">
+      <p id="cookie-dialog-desc" class="cookie-dialog__desc">
+        <span data-localize="cookie_dialog_desc"></span>
+      </p>
+
+      <fieldset class="cookie-dialog__group">
+        <legend class="cookie-dialog__legend" data-localize="cookie_categories_legend"></legend>
+
+        <label class="cookie-option">
+          <input type="checkbox" id="consent-analytics" />
+          <span>
+            <strong data-localize="cookie_category_analytics"></strong>
+            <small data-localize="cookie_category_analytics_desc"></small>
+          </span>
+        </label>
+
+        <label class="cookie-option">
+          <input type="checkbox" id="consent-marketing" />
+          <span>
+            <strong data-localize="cookie_category_marketing"></strong>
+            <small data-localize="cookie_category_marketing_desc"></small>
+          </span>
+        </label>
+
+        <div class="cookie-option cookie-option--disabled" aria-disabled="true">
+          <input type="checkbox" checked disabled />
+          <span>
+            <strong data-localize="cookie_category_necessary"></strong>
+            <small data-localize="cookie_category_necessary_desc"></small>
+          </span>
+        </div>
+      </fieldset>
+
+      <div class="cookie-dialog__legal">
+        <p>
+          <span data-localize="cookie_dialog_legal"></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="cookie-dialog__footer" role="group" aria-label="Cookie dialog actions">
+      <button type="button" class="button button--secondary button--xs" id="cookie-save-prefs"><span data-localize="cookie_btn_save_prefs"></span></button>
+      <div class="cookie-dialog__spacer"></div>
+      <button type="button" class="button button--transparent button--xs" id="cookie-reject-all-dlg"><span data-localize="cookie_btn_reject_all"></span></button>
+      <button type="button" class="button button--xs" id="cookie-accept-all-dlg"><span data-localize="cookie_btn_accept_all"></span></button>
+    </div>
+  </form>
+</dialog>
+
+<style>
+  .cookie-dialog::backdrop {
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(2px);
+  }
+
+  .cookie-dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: min(680px, 92vw);
+    margin: auto;
+    z-index: 10001; /* ensure above page imagery */
+  }
+
+  .cookie-dialog__box {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--gap-xl, 2.4rem);
+    padding: var(--gap-xl, 2.4rem);
+    background: var(--color-bg, #121212);
+    background-image: none !important; /* avoid inherited backgrounds */
+    color: var(--color-white, #fff);
+    border: var(--border-width, 1px) solid #ffffff22;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+  /* Guard against any images leaking into the dialog */
+  .cookie-dialog img,
+  .cookie-dialog picture,
+  .cookie-dialog video,
+  .cookie-dialog figure {
+    display: none !important;
+  }
+
+  .cookie-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-l, 1.6rem);
+  }
+
+  .cookie-dialog__title {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  .cookie-dialog__close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-white, #fff);
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  .cookie-dialog__content { display: grid; gap: var(--gap-l, 1.6rem); }
+  .cookie-dialog__desc { font-size: 1.5rem; line-height: 1.75; opacity: .9; }
+
+  .cookie-dialog__group {
+    margin: 0;
+    padding: var(--gap-s, .4rem) 0 0;
+    border: 0;
+    display: grid;
+    gap: var(--gap-l, 1.6rem);
+  }
+
+  .cookie-dialog__legend { font-weight: 800; font-size: 1.6rem; margin-block: .4rem; font-family: segoe-ui-bold, sans-serif; }
+
+  .cookie-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--gap-l, 1.6rem);
+    align-items: start;
+    padding: var(--gap-m, .8rem) 0;
+    border-top: 1px solid #ffffff14;
+  }
+
+  .cookie-option strong { display: block; font-size: 1.7rem; }
+
+  .cookie-option small { display: block; opacity: .85; font-size: 1.45rem; line-height: 1.6; }
+
+  .cookie-option--disabled { opacity: .7; }
+
+  .cookie-option input[type="checkbox"]{
+    inline-size: 1.6rem;
+    block-size: 1.6rem;
+    margin-top: .4rem;
+    accent-color: var(--color-primary, #a38c52);
+  }
+
+  .cookie-dialog__footer {
+    display: flex;
+    gap: var(--gap-m, .8rem);
+    align-items: center;
+    padding-top: var(--gap-l, 1.6rem);
+    margin-top: var(--gap-l, 1.6rem);
+    border-top: 1px solid #ffffff22;
+    background: inherit;
+  }
+
+  .cookie-dialog__spacer { flex: 1; }
+
+  .button--transparent {
+    background: transparent;
+    border: var(--border-width, 1px) solid var(--color-border, #ffffff66);
+    color: var(--color-white, #fff);
+  }
+
+  .cookie-dialog__legal p {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    opacity: .85;
+  }
+</style>
+
+<script>
+  const dlg = document.getElementById("cookie-preferences-dialog") as HTMLDialogElement;
+  const closeBtn = document.getElementById("cookie-dialog-close") as HTMLButtonElement;
+  const analyticsCb = document.getElementById("consent-analytics") as HTMLInputElement;
+  const marketingCb = document.getElementById("consent-marketing") as HTMLInputElement;
+  const saveBtn = document.getElementById("cookie-save-prefs") as HTMLButtonElement;
+  const rejectAllBtn = document.getElementById("cookie-reject-all-dlg") as HTMLButtonElement;
+  const acceptAllBtn = document.getElementById("cookie-accept-all-dlg") as HTMLButtonElement;
+  let prevBodyOverflow: string | null = null;
+
+  function openDialog() {
+    try {
+      // @ts-ignore
+      const existing = window.__cookieConsent?.read();
+      analyticsCb.checked = !!existing?.analytics;
+      marketingCb.checked = !!existing?.marketing;
+    } catch (_) {
+      analyticsCb.checked = false;
+      marketingCb.checked = false;
+    }
+    dlg.showModal();
+    // lock background scroll
+    const body = document.body as HTMLBodyElement;
+    prevBodyOverflow = body.style.overflow || "";
+    body.style.overflow = "hidden";
+  }
+
+  function savePrefsFromInputs() {
+    const consent = {
+      necessary: true,
+      analytics: !!analyticsCb.checked,
+      marketing: !!marketingCb.checked,
+    };
+    // @ts-ignore
+    window.__cookieConsent?.write(consent, true);
+    window.dispatchEvent(new CustomEvent("cookie-consent-updated"));
+    dlg.close();
+  }
+
+  // External open trigger
+  window.addEventListener("open-cookie-dialog", openDialog);
+  // Provide a simple global hook too
+  // @ts-ignore
+  window.__openCookieDialog = openDialog;
+
+  closeBtn?.addEventListener("click", () => dlg.close());
+  saveBtn?.addEventListener("click", savePrefsFromInputs);
+
+  rejectAllBtn?.addEventListener("click", () => {
+    analyticsCb.checked = false;
+    marketingCb.checked = false;
+    savePrefsFromInputs();
+  });
+
+  acceptAllBtn?.addEventListener("click", () => {
+    analyticsCb.checked = true;
+    marketingCb.checked = true;
+    savePrefsFromInputs();
+  });
+
+  // Restore scroll on all dialog dismiss paths
+  function restoreBodyScroll() {
+    const body = document.body as HTMLBodyElement;
+    body.style.overflow = prevBodyOverflow ?? "";
+  }
+  dlg?.addEventListener("close", restoreBodyScroll);
+  // @ts-ignore
+  dlg?.addEventListener("cancel", (e) => {
+    // Some browsers fire 'cancel' when pressing ESC
+    restoreBodyScroll();
+  });
+</script>

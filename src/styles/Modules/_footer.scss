@@ -5,12 +5,16 @@ footer {
   background-color: $color-black;
 
   > small {
-    display: block;
+    display: inline-flex;
     width: 100%;
     font-family: $font-text;
     font-size: small;
     color: $color-white;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    flex-wrap: wrap;
+    gap: $gap-s;
   }
 
   a {
