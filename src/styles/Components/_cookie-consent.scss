@@ -27,9 +27,9 @@
   }
 
   .button--transparent {
-    @include border("def", $border-1, $color-white--trans);
     background: transparent;
     color: $color-white;
+    border-color: $color-white--trans;
   }
 
   @include res-max-tablet {

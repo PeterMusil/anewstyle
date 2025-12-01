@@ -50,9 +50,9 @@
         display: grid;
         place-items: center;
         inline-size: 110px;
-        aspect-ratio: 1 / 1.33;
+        aspect-ratio: 1 / 2;
         margin-inline: auto;
-        overflow: hidden;
+        overflow: visible;
 
         &:has(> .palette) {
             overflow: initial;
@@ -70,13 +70,15 @@
         border-radius: 50%;
         color: $color-black;
         text-align: center;
+        -webkit-box-reflect: below 2px
+            linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
 
         > img {
             display: block;
             inline-size: auto;
             max-inline-size: 55px;
             block-size: 40px;
-            
+
             &:is([alt="LED"]) {
                 block-size: 65px;
             }
@@ -87,21 +89,6 @@
             font-weight: 800;
             text-transform: uppercase;
             white-space: pre-wrap;
-        }
-
-        + div {
-            position: relative;
-            scale: 1 -1;
-            &:after {
-                position: absolute;
-                inset: 0;
-                content: "";
-                background-image: linear-gradient(
-                    0,
-                    $color-trans,
-                    $color-black 33%
-                );
-            }
         }
     }
 
@@ -124,10 +111,10 @@
             color: $color-primary;
         }
 
-        i{
+        i {
             display: block;
             margin-block-start: $gap-l;
-            font-size: .7em;
+            font-size: 0.7em;
             color: grey;
         }
     }
