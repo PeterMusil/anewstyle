@@ -18,16 +18,16 @@ import Icon from "../icons/Icon.astro";
         iconClass="icon-nav"
       />
       <NavItem href="#features" text="nav_features" />
+      <NavItem href="#technologies" text="nav_technologies" />
       <NavItem href="#price-list" text="nav_price" />
       <NavItem href="#showroom" text="nav_gallery" />
       <NavItem href="#contact" text="nav_contact" />
-      <NavItem
-        href="http://www.anewstyle-eshop.cz/"
-        rel="external"
-        text="nav_eshop"
-        icon="eshop-light"
-        target="_blank"
-      />
+      <li>
+        <a href="http://www.anewstyle-eshop.cz/" target="_blank" rel="external" class="button button--small button--white nav-btn-eshop">
+            <Icon name="eshop-dark" iconClass="icon-nav" />
+            <span data-localize="nav_eshop"></span>
+        </a>
+      </li>
       <LangSwitch />
     </ul>
     <button aria-label="Mobile menu" class="burger" id="menuBtn">
@@ -35,6 +35,44 @@ import Icon from "../icons/Icon.astro";
     </button>
   </div>
 </nav>
+
+<style>
+    @scope (.nav__container) {
+        .nav-btn-eshop {
+            /* Force button appearance, overriding global nav link styles */
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.8rem !important; /* Matches small text in screenshot */
+            font-weight: 700;
+            padding: 0.6em 1.5em !important;
+            margin-left: 1em;
+            background-color: white !important;
+            color: black !important;
+            border-radius: 9999px !important; /* Fully rounded/pill shape */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-btn-eshop:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Ensure icon color override */
+        .nav-btn-eshop :global(svg) {
+             /* Assuming icon is SVG, force it to be dark/black if needed, 
+                though icon-nav class usually handles size and color might be inherited. 
+                If icon is not black by default, we force it. */
+             color: black !important;
+             fill: black !important;
+        }
+    }
+</style>
 
 <script>
   const menu = document.querySelector(".menu") as HTMLUListElement;

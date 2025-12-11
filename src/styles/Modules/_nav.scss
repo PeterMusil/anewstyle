@@ -34,22 +34,20 @@ nav {
     --logo_size: 4rem;
   }
 
-  > img {
+  >img {
     display: block;
     block-size: 100%;
   }
 }
 
 .menu {
-  @include flex-set(
-    var(--menu-display, inline-flex),
+  @include flex-set(var(--menu-display, inline-flex),
     var(--menu-flex-direction, row),
     nowrap,
-    var(--menu-gap, 4em),
+    var(--menu-gap, 2em),
     center,
     center,
-    var(--menu-align-content, center)
-  );
+    var(--menu-align-content, center));
   inline-size: auto;
   block-size: var(--menu-height, auto);
   padding: var(--menu-pad-top, 0) 0 0 0;
@@ -106,7 +104,7 @@ nav {
       font-size: clamp(var(--nav-item-min-font-size), 2svb, 20px);
       color: var(--nav-color);
       text-decoration: none;
-      text-transform: uppercase;
+      text-decoration: none;
       white-space: nowrap;
 
       @include res-max-laptop-s {

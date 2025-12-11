@@ -1,6 +1,7 @@
 {
     "nav_light": "Switch on the Light",
     "nav_features": "Features",
+    "nav_technologies": "Technologies",
     "nav_products": "Products",
     "nav_price": "Price list",
     "nav_gallery": "Gallery",
@@ -166,5 +167,19 @@
     "cookie_category_necessary": "Necessary",
     "cookie_category_necessary_desc": "Required for basic site functionality and security.",
     "cookie_btn_save_prefs": "Save preferences",
-    "cookie_dialog_legal": "Optional cookies are used only with your consent. You can withdraw or change your consent at any time using the Cookie settings link in the footer."
+    "cookie_dialog_legal": "Optional cookies are used only with your consent. You can withdraw or change your consent at any time using the Cookie settings link in the footer.",
+    "tech_title": "TECHNOLOGIES",
+    "tech_desc": "AnewStyle glowing stone panels combine three interesting technologies. The connection of a thin layer of natural stone with side illumination of a light guide plate with uniform full-area light diffusion. This method of illumination allows for easy replacement of the light source if necessary.",
+    "tech_subtitle1": "STONE VENEER COMPOSITION",
+    "tech_subtitle2": "ANEW STYLE GLOWING STONE PANEL CONSTRUCTION",
+    "tech_stone_1": "1. Natural stone (slate and sandstone)",
+    "tech_stone_2": "2. Adhesive layer",
+    "tech_stone_3": "3. Fiberglass",
+    "tech_stone_4": "4. Reinforcing transparent epoxy layer",
+    "tech_panel_1": "1. Stone veneer - ultra-thin layer of natural stone, reinforced with epoxy resin reinforced with fiberglass",
+    "tech_panel_2": "2. Thin supporting plexiglass",
+    "tech_panel_3": "3. Light guide plate LGP",
+    "tech_panel_4": "4. White reflective layer",
+    "tech_panel_5": "5. Aluminum frame",
+    "tech_panel_6": "6. Perimeter LED strip with shifted light temperature and increased luminosity"
 }

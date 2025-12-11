@@ -1,6 +1,7 @@
 {
     "nav_light": "Rozsviť mě",
     "nav_features": "Vlastnosti",
+    "nav_technologies": "Technologie",
     "nav_products": "Produkty",
     "nav_price": "Ceník",
     "nav_gallery": "Galerie",
@@ -165,5 +166,19 @@
     "cookie_category_necessary": "Nezbytné",
     "cookie_category_necessary_desc": "Nutné pro základní funkce webu a zabezpečení.",
     "cookie_btn_save_prefs": "Uložit nastavení",
-    "cookie_dialog_legal": "Volitelné cookies používáme pouze s vaším souhlasem. Svůj souhlas můžete kdykoliv odvolat nebo změnit pomocí odkazu Nastavení cookies v zápatí."
+    "cookie_dialog_legal": "Volitelné cookies používáme pouze s vaším souhlasem. Svůj souhlas můžete kdykoliv odvolat nebo změnit pomocí odkazu Nastavení cookies v zápatí.",
+    "tech_title": "TECHNOLOGIE",
+    "tech_desc": "Svítící kamenné panely AnewStyle jsou kombinací tří zajímavých technologií. Spojení tenké vrstvy přírodního kamene s bočním nasvícením světlovodivé desky s rovnoměrným celoplošným rozptylem světla. Tento způsob nasvícení umožňuje v případě potřeby snadnou výměnu zdroje světla.",
+    "tech_subtitle1": "SKLADBA KAMENNÉ DÝHY",
+    "tech_subtitle2": "KONSTRUKCE SVÍTÍCÍHO KAMENNÉHO PANELU",
+    "tech_stone_1": "1. Přírodní kámen (břidlice a pískovec)",
+    "tech_stone_2": "2. Adhezivní vrstva",
+    "tech_stone_3": "3. Skelné vlákno",
+    "tech_stone_4": "4. Zpevňující průhledná epoxidová vrstva",
+    "tech_panel_1": "1. Kamenná dýha - ultratenká vrstva přírodního kamene, zpevněná epoxidovou pryskyřicí, vyztuženou skelným vláknem",
+    "tech_panel_2": "2. Tenké nosné plexisklo",
+    "tech_panel_3": "3. Světlovodivá deska LGP",
+    "tech_panel_4": "4. Bílá odrazová vrstva",
+    "tech_panel_5": "5. Hliníkový rám",
+    "tech_panel_6": "6. Obvodový LED pásek s posunutou teplotou světla a zvýšenou svítivostí"
 }
