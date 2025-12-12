@@ -34,20 +34,22 @@ nav {
     --logo_size: 4rem;
   }
 
-  >img {
+  > img {
     display: block;
     block-size: 100%;
   }
 }
 
 .menu {
-  @include flex-set(var(--menu-display, inline-flex),
+  @include flex-set(
+    var(--menu-display, inline-flex),
     var(--menu-flex-direction, row),
     nowrap,
     var(--menu-gap, 2em),
     center,
     center,
-    var(--menu-align-content, center));
+    var(--menu-align-content, center)
+  );
   inline-size: auto;
   block-size: var(--menu-height, auto);
   padding: var(--menu-pad-top, 0) 0 0 0;
@@ -95,7 +97,7 @@ nav {
   li {
     text-align: center;
 
-    :is(a, .lang-switch__button) {
+    :is(a:not(.button), .lang-switch__button) {
       --nav-item-min-font-size: #{$gap-l};
       @include transition(color);
       @include flex-set(inline-flex, row, nowrap, $gap-m, center);

@@ -12,16 +12,19 @@ import PriceList from "../components/sections/PriceList.astro";
 import Technologies from "../components/sections/Technologies.astro";
 ---
 
-<Layout title="ANEW STYLE | Svítící kamenné panely" description="Designové interiérové osvětlení.">
+<Layout
+  title="ANEW STYLE | Svítící kamenné panely"
+  description="Designové interiérové osvětlení."
+>
   <Nav />
   <Header />
   <main>
     <Showcase id="about" />
-    <Technologies id="technologies" />
     <Products id="products" />
+    <Technologies id="technologies" />
     <Features id="features" />
     <BeforeAfter />
-    <PriceList id="price-list"/>
+    <PriceList id="price-list" />
     <Showroom id="showroom" />
     <Contact id="contact" />
   </main>
