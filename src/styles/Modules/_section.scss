@@ -48,6 +48,6 @@ section {
     }
 }
 
-.nav + main > section:first-of-type {
+nav + main > section:first-of-type {
     padding-top: calc(var(--sec-pad-y) + var(--nav-height));
 }

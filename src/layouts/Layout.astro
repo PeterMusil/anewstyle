@@ -3,12 +3,13 @@ import Footer from "../components/footer/Footer.astro";
 import IconSet from "../components/icons/IconSet.astro";
 import CookieBar from "../components/cookies/CookieBar.astro";
 import CookieDialog from "../components/cookies/CookieDialog.astro";
+import Nav from "../components/nav/Nav.astro";
 interface Props {
   title: string;
   description: string;
+  showNav?: boolean;
 }
-const { title } = Astro.props;
-const { description } = Astro.props;
+const { title, description, showNav = true } = Astro.props;
 // Google Tag Manager (hardcoded ID)
 const GTM_ID = 'GTM-WT79RGCG';
 const ENABLE_GTM = true;
@@ -160,6 +161,7 @@ const ENABLE_GTM = true;
     <CookieBar />
     <CookieDialog />
     <IconSet />
+    {showNav && <Nav />}
     <slot />
     <Footer />
   </body>

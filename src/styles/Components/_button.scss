@@ -8,7 +8,7 @@
     --btn-width: 20rem;
     --btn-font-size: clamp(#{$gap-l}, 2vh, 18px);
     --icon-size: #{$gap-m};
-    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
+    @include flex-set(inline-flex, row, nowrap, var(--btn-gap, $gap-l), center, center, center);
     @include border("def", 2px, var(--btn_border-color, var(--color-white)));
     min-width: var(--btn-width);
     padding-block: var(--btn-padding-y);
@@ -82,9 +82,15 @@
         --btn-width: unset;
         --btn-text-transform: initial;
         --btn-font-size: small;
+        --btn_trans-y: 0;
+        --btn-gap: #{$gap-m};
 
         @include hover {
-            --btn_trans-y: -2px;
+            --btn_trans-y: 0;
+        }
+
+        > .icon {
+            --icon-size: 14px !important;
         }
     }
 
