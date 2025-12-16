@@ -1,15 +1,22 @@
 ---
-const { id } = Astro.props;
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id={id} class="dark">
   <div class="container container--l">
-    <h2 class="title title--white title--center" data-localize="tech_title">
-    </h2>
+    <h2 class="title title--white title--center">{t("tech.title")}</h2>
 
     <div class="tech-intro">
       <p class="desc desc--center desc--no-mg">
-        <span data-localize="tech_desc"></span>
+        <span>{t("tech.desc")}</span>
       </p>
     </div>
 
@@ -17,19 +24,19 @@ const { id } = Astro.props;
       <!-- Composition Block -->
       <div class="tech-card">
         <img
-          src="./images/technologies/skladba_kamenne_dyhy.avif"
-          alt="Skladba kamenné dýhy"
+          src="/images/technologies/skladba_kamenne_dyhy.avif"
+          alt={t("tech.subtitle1")}
           loading="lazy"
           width="600"
           height="400"
         />
         <div class="tech-card__body">
-          <h3 class="tech-card__title" data-localize="tech_subtitle1"></h3>
+          <h3 class="tech-card__title">{t("tech.subtitle1")}</h3>
           <ul class="tech-card__list">
-            <li data-localize="tech_stone_1"></li>
-            <li data-localize="tech_stone_2"></li>
-            <li data-localize="tech_stone_3"></li>
-            <li data-localize="tech_stone_4"></li>
+            <li>{t("tech.stone1")}</li>
+            <li>{t("tech.stone2")}</li>
+            <li>{t("tech.stone3")}</li>
+            <li>{t("tech.stone4")}</li>
           </ul>
         </div>
       </div>
@@ -37,21 +44,21 @@ const { id } = Astro.props;
       <!-- Construction Block -->
       <div class="tech-card">
         <img
-          src="./images/technologies/konstrukce_sviticiho_panelu.avif"
-          alt="Konstrukce svítícího panelu"
+          src="/images/technologies/konstrukce_sviticiho_panelu.avif"
+          alt={t("tech.subtitle2")}
           loading="lazy"
           width="600"
           height="400"
         />
         <div class="tech-card__body">
-          <h3 class="tech-card__title" data-localize="tech_subtitle2"></h3>
+          <h3 class="tech-card__title">{t("tech.subtitle2")}</h3>
           <ul class="tech-card__list">
-            <li data-localize="tech_panel_1"></li>
-            <li data-localize="tech_panel_2"></li>
-            <li data-localize="tech_panel_3"></li>
-            <li data-localize="tech_panel_4"></li>
-            <li data-localize="tech_panel_5"></li>
-            <li data-localize="tech_panel_6"></li>
+            <li>{t("tech.panel1")}</li>
+            <li>{t("tech.panel2")}</li>
+            <li>{t("tech.panel3")}</li>
+            <li>{t("tech.panel4")}</li>
+            <li>{t("tech.panel5")}</li>
+            <li>{t("tech.panel6")}</li>
           </ul>
         </div>
       </div>

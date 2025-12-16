@@ -1,5 +1,16 @@
-<button class="palette" type="button" aria-label="Show colors">
-  <span data-localize="features_show-colors"></span>
+---
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<button class="palette" type="button" aria-label={t("features.showColors")}>
+  <span>{t("features.showColors")}</span>
   <div class="palette__color" data-text="150M"></div>
   <div class="palette__color" data-text="140M"></div>
   <div class="palette__color" data-text="260M"></div>

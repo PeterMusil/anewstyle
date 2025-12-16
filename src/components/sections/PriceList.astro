@@ -3,8 +3,15 @@ import PriceItem from "../priceItem/PriceItem.astro";
 import prices from "../../data/prices.json";
 import type { PricesData, Product, Price } from "../priceItem/PriceItem.types";
 import PriceListFeatures from "../priceListFeatures/PriceListFeatures.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
-const { id } = Astro.props;
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
 const selectedSize: keyof Price = "l";
 const products: (Product & { price: string })[] = (
   prices as PricesData
@@ -16,21 +23,21 @@ const products: (Product & { price: string })[] = (
 
 <section id={id} class="price-list">
   <div class="container">
-    <h2
-      class="title title--white title--mg-s text-center"
-      data-localize="price_title"
-    >
+    <h2 class="title title--white title--mg-s text-center">
+      {t("price.title")}
     </h2>
-    <p class="desc desc--mg-s text-center" data-localize="price_desc1"></p>
+    <p class="desc desc--mg-s text-center">{t("price.desc1")}</p>
     <p class="desc desc--mg-s text-center">
-      <span data-localize="price_desc2"></span>
-      <strong data-localize="price_desc3"></strong><br />
-      <span data-localize="price_desc4"></span>
+      <span>{t("price.desc2")}</span>
+      <strong>{t("price.desc3")}</strong>
+      <br />
+      <span>{t("price.desc4")}</span>
     </p>
 
     <p class="desc text-center">
-      <span data-localize="price_under-text"></span><br />
-      <span data-localize="price_select_label"></span>
+      <span>{t("price.underText")}</span>
+      <br />
+      <span>{t("price.selectLabel")}</span>
     </p>
 
     <div class="text-center">
@@ -40,7 +47,7 @@ const products: (Product & { price: string })[] = (
           data-active="true"
           class="button"
           type="button"
-          aria-label="Show L size"
+          aria-label={t("price.showL")}
         >
           L
           <small>2400 x 400 mm</small>
@@ -50,7 +57,7 @@ const products: (Product & { price: string })[] = (
           data-active="false"
           class="button"
           type="button"
-          aria-label="Show XL size"
+          aria-label={t("price.showXL")}
         >
           XL
           <small>2400 x 600 mm</small>
@@ -60,7 +67,7 @@ const products: (Product & { price: string })[] = (
           data-active="false"
           class="button"
           type="button"
-          aria-label="Show XXL size"
+          aria-label={t("price.showXXL")}
         >
           XXL
           <small>2400 x 800 mm</small>
@@ -70,7 +77,7 @@ const products: (Product & { price: string })[] = (
           data-active="false"
           class="button"
           type="button"
-          aria-label="Show XXXL size"
+          aria-label={t("price.showXXXL")}
         >
           XXXL
           <small>2400 x 1200 mm</small>
@@ -82,7 +89,7 @@ const products: (Product & { price: string })[] = (
   <div class="container container--l">
     <div class="price-list__scroll-wrapper">
       <div class="price-list__container">
-        <PriceListFeatures />
+        <PriceListFeatures lang={lang} />
         <div id="priceItems" class="price-list__items">
           {
             products.map((product) => (
@@ -91,6 +98,7 @@ const products: (Product & { price: string })[] = (
                 title={product.title}
                 price={product.price}
                 features={product.features}
+                lang={lang}
               />
             ))
           }
@@ -108,17 +116,17 @@ const products: (Product & { price: string })[] = (
           </svg>
           <img
             id="productImage"
-            src="./images/priceList/l.avif"
+            src="/images/priceList/l.avif"
             width="280"
             height="560"
-            alt="placeholder"
+            alt={t("price.previewAlt")}
           />
         </div>
       </div>
     </div>
 
     <p class="desc text-center desc--no-mg">
-      <small data-localize="price_vat"></small>
+      <small>{t("price.vat")}</small>
     </p>
   </div>
 </section>
@@ -168,7 +176,7 @@ const products: (Product & { price: string })[] = (
         });
 
         if (productImage) {
-          productImage.src = `./images/priceList/${selectedSize}.avif`;
+          productImage.src = `/images/priceList/${selectedSize}.avif`;
         }
       });
     });

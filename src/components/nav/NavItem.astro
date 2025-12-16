@@ -16,6 +16,6 @@ const { href, text, icon, iconClass, target, rel } = Astro.props;
 <li>
   <a href={href} rel={rel} target={target}>
     {icon && <Icon name={icon} iconClass={iconClass} />}
-    <span data-localize={text}></span>
+    <span>{text}</span>
   </a>
 </li>

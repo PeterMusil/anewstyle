@@ -4,19 +4,40 @@ import IconSet from "../components/icons/IconSet.astro";
 import CookieBar from "../components/cookies/CookieBar.astro";
 import CookieDialog from "../components/cookies/CookieDialog.astro";
 import Nav from "../components/nav/Nav.astro";
+import {
+  getLangFromUrl,
+  getAlternateLinks,
+  defaultLang,
+  type Lang,
+} from "../i18n/utils";
+
 interface Props {
   title: string;
   description: string;
   showNav?: boolean;
 }
+
 const { title, description, showNav = true } = Astro.props;
+const lang = getLangFromUrl(Astro.url) as Lang;
+const baseSite = Astro.site ?? new URL(Astro.url.origin);
+const canonicalUrl = new URL(Astro.url.pathname, baseSite);
+const alternateLinks = getAlternateLinks(canonicalUrl);
+const xDefaultHref =
+  alternateLinks.find((link) => link.lang === defaultLang)?.href ??
+  canonicalUrl.href;
+const ogLocale = lang === "cs" ? "cs_CZ" : "en_US";
+const ogLocaleAlternate = lang === "cs" ? "en_US" : "cs_CZ";
+const googleImageUrl = new URL("/images/meta/meta-google.webp", baseSite).href;
+const fbImageUrl = new URL("/images/meta/meta-fb.webp", baseSite).href;
+const twitterImageUrl = new URL("/images/meta/meta-twitter.webp", baseSite).href;
+
 // Google Tag Manager (hardcoded ID)
 const GTM_ID = 'GTM-WT79RGCG';
 const ENABLE_GTM = true;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     {ENABLE_GTM && (
       // Consent Mode v2 + GTM loader
@@ -89,6 +110,7 @@ const ENABLE_GTM = true;
       </script>
     )}
     <meta charset="utf-8" />
+    <link rel="canonical" href={canonicalUrl.href} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Lukáš Chylík" />
@@ -100,28 +122,31 @@ const ENABLE_GTM = true;
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./images/favicons/apple-touch-icon.png"
+      href="/images/favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicons/favicon-32x32.png"
+      href="/images/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./images/favicons/favicon-16x16.png"
+      href="/images/favicons/favicon-16x16.png"
     />
     <link
       rel="mask-icon"
-      href="./images/favicons/safari-pinned-tab.svg"
+      href="/images/favicons/safari-pinned-tab.svg"
       color="#5bbad5"
     />
 
-    <link rel="alternate" hreflang="en" href="https://anewstyle.cz/?lang=en" />
-    <link rel="alternate" hreflang="cs" href="https://anewstyle.cz/?lang=cs" />
+    <!-- Alternate language links (hreflang) -->
+    {alternateLinks.map(({ lang: altLang, href }) => (
+      <link rel="alternate" hreflang={altLang} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
 
     <meta name="msapplication-TileColor" content="#111618" />
     <meta name="theme-color" content="#111618" />
@@ -129,24 +154,37 @@ const ENABLE_GTM = true;
     <!-- Schema.org markup for Google -->
     <meta itemprop="name" content={title} />
     <meta itemprop="description" content={description} />
-    <meta itemprop="image" content="./images/meta/meta-google.webp" />
+    <meta itemprop="image" content={googleImageUrl} />
 
     <!-- Open Graph data -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://anewstyle.cz/" />
-    <meta property="og:image" content="./images/meta/meta-fb.webp" />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={fbImageUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
     <!-- Twitter Card data -->
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="./images/meta/meta-twitter.webp" />
+    <meta name="twitter:image" content={twitterImageUrl} />
 
-    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Store current language for client-side scripts -->
+    <script is:inline define:vars={{ lang }}>
+      window.__currentLang = lang;
+      try {
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem("lang", lang);
+        }
+      } catch (_error) {
+      }
+    </script>
   </head>
-  <body>
+  <body data-lang={lang}>
     {ENABLE_GTM && (
       // Google Tag Manager (noscript)
       <noscript>
@@ -158,11 +196,11 @@ const ENABLE_GTM = true;
         ></iframe>
       </noscript>
     )}
-    <CookieBar />
-    <CookieDialog />
+    <CookieBar lang={lang} />
+    <CookieDialog lang={lang} />
     <IconSet />
-    {showNav && <Nav />}
+    {showNav && <Nav lang={lang} />}
     <slot />
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

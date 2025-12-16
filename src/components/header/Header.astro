@@ -1,12 +1,20 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'cs' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <header>
   <video
     class="header__video"
     id="headerVideo"
-    aria-label="Anew style header video"
+    aria-label={t('header.videoLabel')}
     preload="metadata"
     autoplay
     loop
@@ -15,16 +23,16 @@ import Icon from "../icons/Icon.astro";
     <div>
       <h1>Anew style</h1>
     </div>
-    <strong data-localize="header_title"></strong>
+    <strong>{t('header.title')}</strong>
     <div class="header__buttons">
       <a
         class="button"
         href="#about"
         id="headerMoreButton"
-        aria-label="Přejít na sekci o nás"
+        aria-label={t('header.gotoAbout')}
         rel="noopener"
       >
-        <span data-localize="header_btn_more"></span>
+        <span>{t('header.btnMore')}</span>
       </a>
       <!-- E-shop button - visible on desktop only -->
       <a
@@ -32,9 +40,9 @@ import Icon from "../icons/Icon.astro";
         href="https://www.anewstyle-eshop.cz"
         rel="external"
         target="_blank"
-        aria-label="Přejít na e-shop"
+        aria-label={t('header.gotoEshop')}
       >
-        <span data-localize="header_btn_eshop"></span>
+        <span>{t('header.btnEshop')}</span>
         <Icon name="eshop" iconClass="icon-header" />
       </a>
       <!-- AR button - visible on tablet and mobile only -->
@@ -42,11 +50,11 @@ import Icon from "../icons/Icon.astro";
         class="button button--secondary header__ar-btn"
         id="headerArButton"
         type="button"
-        aria-label="Zobrazit v AR u mě doma"
+        aria-label={t('header.btnAr')}
         data-loading="false"
         data-error="false"
       >
-        <span>Zobraz u mňe doma</span>
+        <span>{t('header.btnAr')}</span>
         <Icon name="ar" iconClass="icon-header" />
       </button>
     </div>
@@ -195,9 +203,9 @@ import Icon from "../icons/Icon.astro";
 
     if (screenWidth > 560 && videoElement) {
       const sources = [
-        { src: "./videos/main-video.mp4", type: "video/mp4" },
-        { src: "./videos/main-video.webm", type: "video/webm" },
-        { src: "./videos/main-video.ogv", type: "video/ogg" },
+        { src: "/videos/main-video.mp4", type: "video/mp4" },
+        { src: "/videos/main-video.webm", type: "video/webm" },
+        { src: "/videos/main-video.ogv", type: "video/ogg" },
       ];
 
       sources.forEach((source) => {
@@ -228,7 +236,7 @@ import Icon from "../icons/Icon.astro";
 
         // Activate AR
         await activateARForModel(
-          "./3d/products/Rockfoil_DARKGOLD_3D_vertical.glb"
+          "/3d/products/Rockfoil_DARKGOLD_3D_vertical.glb"
         );
 
         // Restore button state

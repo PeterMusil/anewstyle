@@ -1,5 +1,6 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 interface Props {
   id: number;
   title?: string;
@@ -13,6 +14,7 @@ interface Props {
   daeFile?: string;
   price?: number;
   reservation: boolean;
+  lang?: Lang;
   tags: {
     dimension: string;
     weight: string;
@@ -47,8 +49,13 @@ const {
   modelVertical3d,
   daeFile,
   reservation,
+  lang = "cs",
   tags,
 } = Astro.props;
+
+const t = useTranslations(lang);
+
+const currentDescription = lang === "en" ? descEn : desc;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -56,22 +63,22 @@ const {
     type="button"
     id="closeBtn"
     class="dialog__close"
-    aria-label="Close product detail"
-    title="Close"
+    aria-label={t("products.closeDetail")}
+    title={t("products.closeDetail")}
   >
     <Icon name="close" />
   </button>
   <div class="product-detail">
     <strong>{title}</strong>
-    <div class="product-detail__img" title="Show in 3D">
+    <div class="product-detail__img" title={t("products.showIn3d")}>
       <a
         href={`#horizontal3dModel${id}`}
-        aria-label="Kámen jako osvětlení interiéru"
+        aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}
       >
         <img
-          src={`./images/products/${imgLight}`}
-          alt={`Kamenná deska ${title}`}
+          src={`/images/products/${imgLight}`}
+          alt={`${t("products.stoneAsLighting")} ${title ?? ""}`.trim()}
           width="1024"
           id="closeImg"
         />
@@ -81,23 +88,23 @@ const {
     <div class="product-detail__hidden">
       <a
         href={`#vertical3dModel${id}`}
-        aria-label="Kámen jako osvětlení interiéru"
+        aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}></a>
       <a
-        href={`./images/products/${imgDark}`}
-        aria-label="Kámen jako osvětlení interiéru"
+        href={`/images/products/${imgDark}`}
+        aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}></a>
       <a
-        href={`./images/products/${imgFrame}`}
-        aria-label="Kámen jako osvětlení interiéru"
+        href={`/images/products/${imgFrame}`}
+        aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}></a>
       <a
-        href={`./images/products/${imgLight}`}
-        aria-label="Kámen jako osvětlení interiéru"
+        href={`/images/products/${imgLight}`}
+        aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}></a>
       <model-viewer
         id={`horizontal3dModel${id}`}
-        src={`./3d/products/${modelHorizontal3d}`}
+        src={`/3d/products/${modelHorizontal3d}`}
         ar
         ar-scale="auto"
         ar-modes="webxr scene-viewer quick-look"
@@ -106,7 +113,7 @@ const {
         camera-orbit="0deg 90deg 2.5m"></model-viewer>
       <model-viewer
         id={`vertical3dModel${id}`}
-        src={`./3d/products/${modelVertical3d}`}
+        src={`/3d/products/${modelVertical3d}`}
         ar
         ar-scale="auto"
         ar-modes="webxr scene-viewer quick-look"
@@ -115,14 +122,17 @@ const {
         camera-orbit="0deg 90deg 2.5m"></model-viewer>
     </div>
     <div class="product-detail__content">
-      <p class="desc desc--no-mg" data-language="cs">{desc}</p>
-      <p class="desc desc--no-mg" data-language="en">{descEn}</p>
+      {
+        currentDescription && (
+          <p class="desc desc--no-mg">{currentDescription}</p>
+        )
+      }
       <div class="tags">
         <ul>
           {
             tags.dimension && (
               <li>
-                <span data-localize="products_tag_dimension" />
+                <span>{t("products.tagDimension")}</span>
                 <b>{tags.dimension}</b>
               </li>
             )
@@ -130,7 +140,7 @@ const {
           {
             tags.weight && (
               <li>
-                <span data-localize="products_tag_weight" />
+                <span>{t("products.tagWeight")}</span>
                 <b>{tags.weight}</b>
               </li>
             )
@@ -138,7 +148,7 @@ const {
           {
             tags.maxConsumption && (
               <li>
-                <span data-localize="products_tag_max-cons" />
+                <span>{t("products.tagMaxCons")}</span>
                 <b>{tags.maxConsumption}</b>
               </li>
             )
@@ -146,7 +156,7 @@ const {
           {
             tags.standbyConsumption && (
               <li>
-                <span data-localize="products_tag_standby-cons" />
+                <span>{t("products.tagStandbyCons")}</span>
                 <b>{tags.standbyConsumption}</b>
               </li>
             )
@@ -154,7 +164,7 @@ const {
           {
             tags.brightness && (
               <li>
-                <span data-localize="products_tag_brightness" />
+                <span>{t("products.tagBrightness")}</span>
                 <b>{tags.brightness}</b>
               </li>
             )
@@ -162,7 +172,7 @@ const {
           {
             tags.backlightTempereture && (
               <li>
-                <span data-localize="products_tag_backlight-temp" />
+                <span>{t("products.tagBacklightTemp")}</span>
                 <b>{tags.backlightTempereture}</b>
               </li>
             )
@@ -170,7 +180,7 @@ const {
           {
             tags.powerVoltage && (
               <li>
-                <span data-localize="products_tag_power-voltage" />
+                <span>{t("products.tagPowerVoltage")}</span>
                 <b>{tags.powerVoltage}</b>
               </li>
             )
@@ -178,7 +188,7 @@ const {
           {
             tags.frameColor && (
               <li>
-                <span data-localize="products_tag_frame-color" />
+                <span>{t("products.tagFrameColor")}</span>
                 <b>{tags.frameColor}</b>
               </li>
             )
@@ -186,77 +196,77 @@ const {
           {
             tags.hangingBrackets && (
               <li>
-                <span data-localize="products_tag_hang" />
+                <span>{t("products.tagHang")}</span>
               </li>
             )
           }
           {
             tags.dimmableStoneIllumination && (
               <li>
-                <b data-localize="products_tag_dimmable-stone-ill" />
+                <b>{t("products.tagDimmableStoneIll")}</b>
               </li>
             )
           }
           {
             tags.dimmableIllumination && (
               <li>
-                <b data-localize="products_tag_dimmable-ill" />
+                <b>{t("products.tagDimmableIll")}</b>
               </li>
             )
           }
           {
             tags.phoneControl && (
               <li>
-                <b data-localize="products_tag_phone-control" />
+                <b>{t("products.tagPhoneControl")}</b>
               </li>
             )
           }
           {
             tags.LEDSource && (
               <li>
-                <b data-localize="products_tag_led" />
+                <b>{t("products.tagLed")}</b>
               </li>
             )
           }
           {
             tags.RFIDController && (
               <li>
-                <b data-localize="products_tag_rfid-controller" />
+                <b>{t("products.tagRfidController")}</b>
               </li>
             )
           }
           {
             tags.RFRemoteControl && (
               <li>
-                <b data-localize="products_tag_rf-remote" />
+                <b>{t("products.tagRfRemote")}</b>
               </li>
             )
           }
           {
             tags.nanoImpregnation && (
               <li>
-                <b data-localize="products_tag_impregnation" />
+                <b>{t("products.tagImpregnation")}</b>
               </li>
             )
           }
           {
             tags.divisibleInto2 && (
               <li>
-                <b data-localize="products_tag_divisible-2" />
+                <b>{t("products.tagDivisible2")}</b>
               </li>
             )
           }
           {
             tags.divisibleInto3 && (
               <li>
-                <b data-localize="products_tag_divisible-3" />
+                <b>{t("products.tagDivisible3")}</b>
               </li>
             )
           }
           <li>
             <button id="showMoreTags" type="button" class="button button--xs">
-              <span data-localize="products_detail_btn_more"></span>
-              <span data-localize="products_detail_btn_less"></span>
+              <span>{t("products.detailBtnMore")}</span>
+              <span>{t("products.detailBtnLess")}</span>
             </button>
           </li>
         </ul>
@@ -266,12 +276,12 @@ const {
         {
           daeFile && (
             <a
-              href={`./downloads/dae/${daeFile}`}
+              href={`/downloads/dae/${daeFile}`}
               target="_blank"
               class="link link--light link--uppercase"
             >
               <Icon name="download" />
-              <span data-localize="products_detail_download" />
+              <span>{t("products.detailDownload")}</span>
             </a>
           )
         }
@@ -280,7 +290,7 @@ const {
           href="mailto:info@anewstyle.cz"
           aria-disabled={reservation}
         >
-          <span data-localize="products_detail_btn_interested"></span>
+          <span>{t("products.detailBtnInterested")}</span>
           <Icon name="email" />
         </a>
       </div>

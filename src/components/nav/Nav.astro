@@ -2,26 +2,40 @@
 import NavItem from "./NavItem.astro";
 import LangSwitch from "../langSwitch/LangSwitch.astro";
 import Icon from "../icons/Icon.astro";
+import { useTranslations, getLocalizedPath, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+
+// Get localized paths
+const basePath = lang === "cs" ? "" : "/en";
 ---
 
 <nav>
   <div class="nav__container">
-    <a href="/" class="logo" rel="noopener">
-      <img src="./images/logos/logo.svg" alt="Anew Style Logo" height="96" />
+    <a href={`${basePath}/`} class="logo" rel="noopener">
+      <img src="/images/logos/logo.svg" alt={t("common.logoAlt")} height="96" />
     </a>
     <ul class="menu">
-      <NavItem href="/#about" text="nav_light" icon="bulp" />
+      <NavItem href={`${basePath}/#about`} text={t("nav.light")} icon="bulp" />
       <NavItem
-        href="/#products"
-        text="nav_products"
+        href={`${basePath}/#products`}
+        text={t("nav.products")}
         icon="ar"
         iconClass="icon-nav"
       />
-      <NavItem href="/#technologies" text="nav_technologies" />
-      <NavItem href="/#features" text="nav_features" />
-      <NavItem href="/#price-list" text="nav_price" />
-      <NavItem href="/gallery" text="nav_gallery" />
-      <NavItem href="/#contact" text="nav_contact" />
+      <NavItem
+        href={`${basePath}/#technologies`}
+        text={t("nav.technologies")}
+      />
+      <NavItem href={`${basePath}/#features`} text={t("nav.features")} />
+      <NavItem href={`${basePath}/#price-list`} text={t("nav.price")} />
+      <NavItem href={`${basePath}/gallery`} text={t("nav.gallery")} />
+      <NavItem href={`${basePath}/#contact`} text={t("nav.contact")} />
       <li>
         <a
           href="http://www.anewstyle-eshop.cz/"
@@ -29,13 +43,13 @@ import Icon from "../icons/Icon.astro";
           rel="external"
           class="button button--xs button--white"
         >
+          <span>{t("nav.eshop")}</span>
           <Icon name="eshop" iconClass="icon-nav" />
-          <span data-localize="nav_eshop"></span>
         </a>
       </li>
-      <LangSwitch />
+      <LangSwitch lang={lang} />
     </ul>
-    <button aria-label="Mobile menu" class="burger" id="menuBtn">
+    <button aria-label={t("nav.mobileMenu")} class="burger" id="menuBtn">
       <Icon name="menu" />
     </button>
   </div>
@@ -72,8 +86,8 @@ import Icon from "../icons/Icon.astro";
 
     /* Ensure icon color override */
     .nav-btn-eshop :global(svg) {
-      /* Assuming icon is SVG, force it to be dark/black if needed, 
-                though icon-nav class usually handles size and color might be inherited. 
+      /* Assuming icon is SVG, force it to be dark/black if needed,
+                though icon-nav class usually handles size and color might be inherited.
                 If icon is not black by default, we force it. */
       color: black !important;
       fill: black !important;

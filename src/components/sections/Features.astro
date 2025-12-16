@@ -1,51 +1,61 @@
 ---
 import Palette from "../palette/Palette.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
-const { id } = Astro.props;
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props as Props;
+const t = useTranslations(lang);
+
+const toHtmlBreaks = (value: string): string =>
+  value.replaceAll("\n", "<br />");
+const toAltText = (value: string): string => value.replaceAll("\n", " ");
 ---
 
 <section id={id} class="dark">
   <div class="container container--s">
-    <h2 class="title title--white text-center" data-localize="features_title">
-    </h2>
+    <h2 class="title title--white text-center">{t("features.title")}</h2>
     <div class="piktogram">
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Ligthweight.svg"
-            alt="lightweight"
+            src="/images/symbols/Ligthweight.svg"
+            alt={toAltText(t("features.iconLightweight"))}
             height="75px"
             loading="lazy"
           />
-          <small>Ligth<br />weight</small>
+          <small set:html={toHtmlBreaks(t("features.iconLightweight"))} />
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item1_desc1"></span>
-          <strong data-localize="features_item1_desc2"></strong>
-          <span data-localize="features_item1_desc3"></span>
-          <strong data-localize="features_item1_desc4"></strong>
+          <span>{t("features.item1Desc1")}</span>
+          <strong>{t("features.item1Desc2")}</strong>
+          <span>{t("features.item1Desc3")}</span>
+          <strong>{t("features.item1Desc4")}</strong>
         </p>
       </div>
     </div>
     <div class="piktogram piktogram--invert" id="quick-mounting">
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item2_desc1"></span>
-          <strong data-localize="features_item2_desc2"></strong><span
-            data-localize="features_item2_desc3"></span>
+          <span>{t("features.item2Desc1")}</span>
+          <strong>{t("features.item2Desc2")}</strong>
+          <span>{t("features.item2Desc3")}</span>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Mounting.svg"
-            alt="Mounting"
+            src="/images/symbols/Mounting.svg"
+            alt={toAltText(t("features.iconMounting"))}
             height="75px"
             loading="lazy"
           />
-          <small>Vert/Horiz<br />mounting</small>
+          <small set:html={toHtmlBreaks(t("features.iconMounting"))} />
         </div>
       </div>
     </div>
@@ -53,39 +63,39 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Backlight.svg"
-            alt="Backlight"
+            src="/images/symbols/Backlight.svg"
+            alt={toAltText(t("features.iconBacklight"))}
             height="75px"
             loading="lazy"
           />
-          <small>Backlight<br />control</small>
+          <small set:html={toHtmlBreaks(t("features.iconBacklight"))} />
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item3_desc1"></span>
-          <strong data-localize="features_item3_desc2"></strong>
-          <span data-localize="features_item3_desc3"></span>
+          <span>{t("features.item3Desc1")}</span>
+          <strong>{t("features.item3Desc2")}</strong>
+          <span>{t("features.item3Desc3")}</span>
         </p>
       </div>
     </div>
     <div class="piktogram piktogram--invert piktogram--hidden" id="rf-control">
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item4_desc1"></span>
-          <strong data-localize="features_item4_desc2"></strong>
-          <span data-localize="features_item4_desc3"></span>
+          <span>{t("features.item4Desc1")}</span>
+          <strong>{t("features.item4Desc2")}</strong>
+          <span>{t("features.item4Desc3")}</span>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/RF_control.svg"
-            alt="RF control"
+            src="/images/symbols/RF_control.svg"
+            alt={toAltText(t("features.iconRfWireless"))}
             height="75px"
             loading="lazy"
           />
-          <small>RF Wirless<br />Control</small>
+          <small set:html={toHtmlBreaks(t("features.iconRfWireless"))} />
         </div>
       </div>
     </div>
@@ -93,19 +103,19 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/MobileControl.svg"
-            alt="MobileControl"
+            src="/images/symbols/MobileControl.svg"
+            alt={toAltText(t("features.iconSmartphone"))}
             height="75px"
             loading="lazy"
           />
-          <small>Smartphone<br />control</small>
+          <small set:html={toHtmlBreaks(t("features.iconSmartphone"))} />
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item5_desc1"></span>
-          <strong data-localize="features_item5_desc2"></strong>
-          <span data-localize="features_item5_desc3"></span>
+          <span>{t("features.item5Desc1")}</span>
+          <strong>{t("features.item5Desc2")}</strong>
+          <span>{t("features.item5Desc3")}</span>
         </p>
       </div>
     </div>
@@ -115,19 +125,19 @@ const { id } = Astro.props;
     >
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item15_desc1"></span>
-          <strong data-localize="features_item15_desc2"></strong>
+          <span>{t("features.item15Desc1")}</span>
+          <strong>{t("features.item15Desc2")}</strong>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/touch.svg"
-            alt="Touch control"
+            src="/images/symbols/touch.svg"
+            alt={toAltText(t("features.iconTouch"))}
             height="75px"
             loading="lazy"
           />
-          <small>Touch<br />Control</small>
+          <small set:html={toHtmlBreaks(t("features.iconTouch"))} />
         </div>
       </div>
     </div>
@@ -135,19 +145,19 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/temperature.png"
-            alt="MobileControl"
+            src="/images/symbols/temperature.png"
+            alt={t("features.iconTemperature")}
             height="75px"
             loading="lazy"
           />
-          <small>Temperature</small>
+          <small>{t("features.iconTemperature")}</small>
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item16_desc1"></span>
-          <strong data-localize="features_item16_desc2"></strong>
-          <span data-localize="features_item16_desc3"></span>
+          <span>{t("features.item16Desc1")}</span>
+          <strong>{t("features.item16Desc2")}</strong>
+          <span>{t("features.item16Desc3")}</span>
         </p>
       </div>
     </div>
@@ -157,20 +167,20 @@ const { id } = Astro.props;
     >
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item6_desc1"></span>
-          <strong data-localize="features_item6_desc2"></strong>
-          <span data-localize="features_item6_desc3"></span>
+          <span>{t("features.item6Desc1")}</span>
+          <strong>{t("features.item6Desc2")}</strong>
+          <span>{t("features.item6Desc3")}</span>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/16mm.svg"
-            alt="16mm"
+            src="/images/symbols/16mm.svg"
+            alt={t("features.iconThickness16")}
             height="75px"
             loading="lazy"
           />
-          <small>16 mm</small>
+          <small>{t("features.iconThickness16")}</small>
         </div>
       </div>
     </div>
@@ -178,39 +188,39 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/34mm.svg"
-            alt="34mm"
+            src="/images/symbols/34mm.svg"
+            alt={t("features.iconThickness34")}
             height="75px"
             loading="lazy"
           />
-          <small>34 mm</small>
+          <small>{t("features.iconThickness34")}</small>
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item7_desc1"></span>
-          <strong data-localize="features_item7_desc2"></strong>
-          <span data-localize="features_item7_desc3"></span>
+          <span>{t("features.item7Desc1")}</span>
+          <strong>{t("features.item7Desc2")}</strong>
+          <span>{t("features.item7Desc3")}</span>
         </p>
       </div>
     </div>
     <div class="piktogram piktogram--invert piktogram--hidden" id="laminated">
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item8_desc1"></span>
-          <strong data-localize="features_item8_desc2"></strong>
-          <span data-localize="features_item8_desc3"></span>
+          <span>{t("features.item8Desc1")}</span>
+          <strong>{t("features.item8Desc2")}</strong>
+          <span>{t("features.item8Desc3")}</span>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/laminated.svg"
-            alt="laminated"
+            src="/images/symbols/laminated.svg"
+            alt={t("features.iconLaminated")}
             height="75px"
             loading="lazy"
           />
-          <small>laminated</small>
+          <small>{t("features.iconLaminated")}</small>
         </div>
       </div>
     </div>
@@ -218,35 +228,35 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/CustomSize.svg"
-            alt="CustomSize"
+            src="/images/symbols/CustomSize.svg"
+            alt={toAltText(t("features.iconCustomSize"))}
             height="75px"
             loading="lazy"
           />
-          <small>Custom<br />size</small>
+          <small set:html={toHtmlBreaks(t("features.iconCustomSize"))} />
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item9_desc1"></span>
-          <strong data-localize="features_item9_desc2"></strong>
-          <span data-localize="features_item9_desc3"></span>
+          <span>{t("features.item9Desc1")}</span>
+          <strong>{t("features.item9Desc2")}</strong>
+          <span>{t("features.item9Desc3")}</span>
         </p>
       </div>
     </div>
     <div class="piktogram piktogram--invert piktogram--hidden">
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item10_desc1"></span>
-          <strong data-localize="features_item10_desc2"></strong>
-          <span data-localize="features_item10_desc3"></span>
+          <span>{t("features.item10Desc1")}</span>
+          <strong>{t("features.item10Desc2")}</strong>
+          <span>{t("features.item10Desc3")}</span>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/LED.svg"
-            alt="LED"
+            src="/images/symbols/LED.svg"
+            alt={t("features.iconLed")}
             height="75px"
             loading="lazy"
           />
@@ -257,18 +267,18 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Dimmable.svg"
-            alt="Dimmable"
+            src="/images/symbols/Dimmable.svg"
+            alt={t("features.iconDimmable")}
             height="75px"
             loading="lazy"
           />
-          <small>Dimmable</small>
+          <small>{t("features.iconDimmable")}</small>
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <strong data-localize="features_item11_desc1"></strong>
-          <span data-localize="features_item11_desc2"></span>
+          <strong>{t("features.item11Desc1")}</strong>
+          <span>{t("features.item11Desc2")}</span>
         </p>
       </div>
     </div>
@@ -278,21 +288,21 @@ const { id } = Astro.props;
     >
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item12_desc1"></span>
-          <strong data-localize="features_item12_desc2"></strong>
-          <span data-localize="features_item12_desc3"></span><b></b>
-          <i data-localize="features_item12_desc4"></i>
+          <span>{t("features.item12Desc1")}</span>
+          <strong>{t("features.item12Desc2")}</strong>
+          <span>{t("features.item12Desc3")}</span><b></b>
+          <i>{t("features.item12Desc4")}</i>
         </p>
       </div>
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Waterproof.svg"
-            alt="Waterproof"
+            src="/images/symbols/Waterproof.svg"
+            alt={toAltText(t("features.iconWaterResistant"))}
             height="75px"
             loading="lazy"
           />
-          <small>Water<br />resistant</small>
+          <small set:html={toHtmlBreaks(t("features.iconWaterResistant"))} />
         </div>
       </div>
     </div>
@@ -300,19 +310,19 @@ const { id } = Astro.props;
       <div class="piktogram__box">
         <div class="piktogram__circle">
           <img
-            src="./images/symbols/Repair.svg"
-            alt="Repair"
+            src="/images/symbols/Repair.svg"
+            alt={t("features.iconEasyRepair")}
             height="75px"
             loading="lazy"
           />
-          <small>Easy to repair</small>
+          <small>{t("features.iconEasyRepair")}</small>
         </div>
       </div>
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item13_desc1"></span>
-          <strong data-localize="features_item13_desc2"></strong>
-          <span data-localize="features_item13_desc3"></span>
+          <span>{t("features.item13Desc1")}</span>
+          <strong>{t("features.item13Desc2")}</strong>
+          <span>{t("features.item13Desc3")}</span>
         </p>
       </div>
     </div>
@@ -322,32 +332,32 @@ const { id } = Astro.props;
     >
       <div class="piktogram__desc">
         <p class="desc">
-          <span data-localize="features_item14_desc1"></span>
-          <strong data-localize="features_item14_desc2"></strong>
-          <span data-localize="features_item14_desc3"></span>
+          <span>{t("features.item14Desc1")}</span>
+          <strong>{t("features.item14Desc2")}</strong>
+          <span>{t("features.item14Desc3")}</span>
         </p>
       </div>
-      <div class="piktogram__box"><Palette /></div>
+      <div class="piktogram__box"><Palette lang={lang} /></div>
     </div>
     <div class="text-center">
       <button class="button" id="piktogramsBtn" type="button">
-        <span data-localize="features_btn_more"></span>
-        <span data-localize="features_btn_less"></span>
+        <span data-variant="more">{t("features.btnMore")}</span>
+        <span data-variant="less">{t("features.btnLess")}</span>
       </button>
     </div>
   </div>
 </section>
 
 <style>
-  #piktogramsBtn span[data-localize="features_btn_less"] {
+  #piktogramsBtn span[data-variant="less"] {
     display: none;
   }
 
-  #piktogramsBtn.show-less span[data-localize="features_btn_more"] {
+  #piktogramsBtn.show-less span[data-variant="more"] {
     display: none;
   }
 
-  #piktogramsBtn.show-less span[data-localize="features_btn_less"] {
+  #piktogramsBtn.show-less span[data-variant="less"] {
     display: inline;
   }
 </style>

@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/header/Header.astro";
+import Showcase from "../../components/sections/Showcase.astro";
+import Features from "../../components/sections/Features.astro";
+import BeforeAfter from "../../components/sections/BeforeAfter.astro";
+import Contact from "../../components/sections/Contact.astro";
+import Products from "../../components/sections/Products.astro";
+import PriceList from "../../components/sections/PriceList.astro";
+import Technologies from "../../components/sections/Technologies.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t('meta.title')}
+  description={t('meta.description')}
+>
+  <Header lang={lang} />
+  <main>
+    <Showcase id="about" lang={lang} />
+    <Products id="products" lang={lang} />
+    <Technologies id="technologies" lang={lang} />
+    <Features id="features" lang={lang} />
+    <BeforeAfter lang={lang} />
+    <PriceList id="price-list" lang={lang} />
+    <Contact id="contact" lang={lang} />
+  </main>
+</Layout>

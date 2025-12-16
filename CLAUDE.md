@@ -27,13 +27,57 @@ bun run stylelint
 
 ## Architecture
 
+### Internationalization (i18n)
+
+Uses Astro's built-in i18n with URL-based routing:
+
+**Configuration** (`astro.config.mjs`):
+- Default locale: `cs` (Czech) - no URL prefix
+- Secondary locale: `en` (English) - uses `/en/` prefix
+- Example: `/` (Czech), `/en/` (English), `/gallery` (Czech), `/en/gallery` (English)
+
+**Translation System** (`src/i18n/`):
+- `ui.ts` - All translations as TypeScript objects with dotted keys (e.g., `nav.home`, `cookie.accept`)
+- `utils.ts` - Helper functions:
+  - `getLangFromUrl(url)` - Extract language from URL
+  - `useTranslations(lang)` - Returns `t()` function for translations
+  - `getLanguageSwitchPath(url, targetLang)` - Get path for language switcher
+  - `getAlternateLinks(url)` - Generate hreflang links
+
+**Usage in Components**:
+```astro
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+interface Props { lang?: Lang; }
+const { lang = 'cs' } = Astro.props;
+const t = useTranslations(lang);
+---
+<h1>{t('nav.home')}</h1>
+```
+
+**Page Structure**:
+- `/src/pages/index.astro` - Czech homepage
+- `/src/pages/gallery.astro` - Czech gallery
+- `/src/pages/en/index.astro` - English homepage
+- `/src/pages/en/gallery.astro` - English gallery
+
+**hreflang Tags**: Automatically generated in `Layout.astro` for SEO.
+
+**Components Using i18n** (migrated to `t()` function):
+- Layout, Nav, NavItem, LangSwitch, Footer, CookieBar, CookieDialog
+
+**Components Still Using `data-localize`** (need migration):
+- Header, Showcase, Products, Technologies, Features, BeforeAfter, Showroom, Contact, PriceList, Card, DetailDialog, Palette, PriceItem, PriceListFeatures
+
+To migrate a component: Accept `lang` prop, import `useTranslations`, replace `data-localize="key"` with `{t('key')}`.
+
 ### Styling Pipeline (Hybrid)
 
 Two SCSS processing methods are used:
 
 **1. Global styles** - External SCSS pipeline outputs to `public/css/style.css`:
 - `src/styles/style.scss` → Sass CLI → PostCSS (autoprefixer, cssnano, postcss-preset-env) → `public/css/style.css`
-- Linked from `Layout.astro` via `<link rel="stylesheet" href="./css/style.css">`
+- Linked from `Layout.astro` via `<link rel="stylesheet" href="/css/style.css">`
 - The `bun start` command runs Astro, stylelint, and SCSS watch concurrently
 
 **2. Component-scoped styles** - Astro processes `<style lang="scss">` in components:
@@ -51,13 +95,6 @@ Two SCSS processing methods are used:
 
 Uses `stylelint-order` plugin with comprehensive CSS property ordering. Run `bun run stylelint` to auto-fix.
 
-### Page Structure
-
-- `/` (index.astro) - Landing page with sections: Showcase, Products, Technologies, Features, BeforeAfter, PriceList, Contact
-- `/gallery` (gallery.astro) - Dedicated gallery page with Showroom section
-
-Shared layout (`Layout.astro`) includes Nav and Footer on all pages.
-
 ### Content
 
 Product data lives in `src/content/products/` as Markdown files. Price data is in `src/data/prices.json`.
@@ -72,4 +109,3 @@ Product data lives in `src/content/products/` as Markdown files. Price data is i
 
 - `@google/model-viewer` and `three` - 3D/AR product visualization
 - `@fancyapps/ui` - Image lightbox gallery
-- `locale-essentials` - Internationalization (CS/EN)
