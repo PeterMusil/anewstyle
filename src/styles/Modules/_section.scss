@@ -24,10 +24,10 @@ section {
     }
 
     &.light {
-        --sec-bg: #{$color-white};
+        --sec-bg: hsl(from #{$color-white} h s 90%);
         .title,
         .desc {
-            color: $color-black !important;
+            color: $color-font;
         }
 
         .desc {

@@ -19,16 +19,29 @@ nav {
   }
 }
 
-.nav__container {
-  @include flex-set(flex, row, nowrap, 0, center, var(--nav-justify-content, space-between), center);
-  inline-size: calc(100% - clamp($gap-xxl, 10dvi, 10rem));
-  margin-inline: auto;
+.nav {
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    inline-size: calc(100% - clamp($gap-xxl, 10dvi, 10rem));
+    margin-inline: auto;
+  }
+
+  &__right {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include flex-set(flex, row, nowrap, 2em, center, end, center);
+    justify-self: end;
+  }
 }
 
 .logo {
   display: block;
   block-size: var(--logo_size, 6rem);
   padding: 0;
+  justify-self: start;
 
   @include res-max-tablet {
     --logo_size: 4rem;
@@ -55,6 +68,7 @@ nav {
   padding: var(--menu-pad-top, 0) 0 0 0;
   background-color: var(--menu-bg, var(--color-trans));
   list-style: none;
+  justify-self: center;
 
   @include res-max-laptop-m {
     --menu-gap: #{$gap-xl};

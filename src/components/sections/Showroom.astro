@@ -269,45 +269,4 @@ const t = useTranslations(lang);
       </picture>
     </p>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const elements = document.querySelectorAll("[data-fancybox]");
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            import("@fancyapps/ui").then(({ Fancybox }) => {
-              Fancybox.bind("[data-fancybox]", {});
-
-              if (
-                !document.querySelector(
-                  'link[href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"]'
-                )
-              ) {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href =
-                  "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
-
-                document.head.appendChild(link);
-              }
-            });
-
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      elements.forEach((element) => {
-        observer.observe(element);
-      });
-    });
-  </script>
 </section>

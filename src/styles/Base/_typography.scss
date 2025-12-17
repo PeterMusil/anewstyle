@@ -118,7 +118,10 @@ small {
     line-height: 1.7;
     color: $color-font;
     text-wrap: balance;
+    display: block;
     text-wrap: pretty;
+    margin-inline: auto;
+    inline-size: min($width-laptop-s, 100%);
 
     @include res-max-laptop-s {
         --desc-font-size: medium;

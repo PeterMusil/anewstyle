@@ -36,6 +36,8 @@ const basePath = lang === "cs" ? "" : "/en";
       <NavItem href={`${basePath}/#price-list`} text={t("nav.price")} />
       <NavItem href={`${basePath}/gallery`} text={t("nav.gallery")} />
       <NavItem href={`${basePath}/#contact`} text={t("nav.contact")} />
+    </ul>
+    <ul class="nav__right">
       <li>
         <a
           href="http://www.anewstyle-eshop.cz/"
@@ -48,10 +50,12 @@ const basePath = lang === "cs" ? "" : "/en";
         </a>
       </li>
       <LangSwitch lang={lang} />
+      <li>
+        <button aria-label={t("nav.mobileMenu")} class="burger" id="menuBtn">
+          <Icon name="menu" />
+        </button>
+      </li>
     </ul>
-    <button aria-label={t("nav.mobileMenu")} class="burger" id="menuBtn">
-      <Icon name="menu" />
-    </button>
   </div>
 </nav>
 
@@ -96,26 +100,28 @@ const basePath = lang === "cs" ? "" : "/en";
 </style>
 
 <script>
-  const menu = document.querySelector(".menu") as HTMLUListElement;
-  const burger = document.querySelector("#menuBtn") as HTMLButtonElement;
-  const body = document.body as HTMLBodyElement;
-  const navItems = document.querySelectorAll(
-    ".menu > li > a"
-  ) as NodeListOf<HTMLAnchorElement>;
+  const menu = document.querySelector(".menu");
+  const burger = document.querySelector("#menuBtn");
+  const body = document.body;
+  const navItems = document.querySelectorAll(".menu > li > a");
 
-  burger &&
-    menu &&
-    burger.addEventListener("click", () => {
-      const isOpen = menu.getAttribute("data-open") === "true";
-      menu.setAttribute("data-open", String(!isOpen));
-      body.classList.toggle("overflow-hidden", !isOpen);
-    });
+  const toggleMenu = () => {
+    if (!(menu instanceof HTMLElement)) return;
+    const isOpen = menu.getAttribute("data-open") === "true";
+    menu.setAttribute("data-open", String(!isOpen));
+    body.classList.toggle("overflow-hidden", !isOpen);
+  };
 
-  menu &&
-    navItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        menu.setAttribute("data-open", "false");
-        body.classList.remove("overflow-hidden");
-      });
+  if (burger instanceof HTMLButtonElement) {
+    burger.addEventListener("click", toggleMenu);
+  }
+
+  if (!(menu instanceof HTMLElement)) return;
+  navItems.forEach((item) => {
+    if (!(item instanceof HTMLAnchorElement)) return;
+    item.addEventListener("click", () => {
+      menu.setAttribute("data-open", "false");
+      body.classList.remove("overflow-hidden");
     });
+  });
 </script>

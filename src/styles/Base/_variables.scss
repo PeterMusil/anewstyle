@@ -19,7 +19,7 @@ $color-bg--light: hsl(200 18% 10% / 0.65);
 $color-bg-nav: $color-bg-trans-dark;
 $color-bg-nav-mobile: hsl(200 18% 8%);
 $color-footer-bg: hsl(0 0% 11%);
-$color-font: $color-white;
+$color-font: hsl(from #{$color-white} h s 85%);
 $color-dialog-border: hsl(120 2% 17% / 0.7);
 $color-dialog-backdrop: hsl(0 0% 0% / 0.25);
 $color-disabled: hsl(0 0% 50%);
@@ -46,6 +46,31 @@ $gap-xl: calc($gap-m * 3);
 $gap-xxl: calc($gap-m * 4);
 $font-text: system-ui;
 $font-title: "segoe-ui-bold", sans-serif;
+
+$gap-xxxxl: calc($gap-m * 8);
+
+$border-1r: 0.0625rem;
+$border-2r: 0.125rem;
+$radius-m: 1rem;
+$radius-l: 1.5rem;
+$radius-full: 100vmax;
+$letter-spacing-s: 0.125rem;
+$size-tech-intro-max-inline: 56rem;
+$size-tech-min-column: 10rem;
+$size-tech-image-max-block: 20rem;
+$size-tech-title-inline-percent: 80%;
+$size-tech-title-min-inline: 18.75rem;
+$size-tech-list-inline-percent: 70%;
+$size-tech-list-min-inline: 18.75rem;
+$size-tooltip-max-inline: 36rem;
+$size-tooltip-trigger: 2rem;
+$size-sr-only: 0.0625rem;
+$shadow-tooltip: 0 $gap-xl $gap-xxl $color-shadow-strong;
+
+$font-size-tooltip-trigger: $gap-l;
+$fluid-tech-title: 2.5svb;
+$fluid-tech-list: 1.65svb;
+$fluid-tech-ol: 2svb;
 
 // All devices width for MediaQuery
 $width-mobile-s: 320px;

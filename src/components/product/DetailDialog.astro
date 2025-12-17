@@ -56,6 +56,12 @@ const {
 const t = useTranslations(lang);
 
 const currentDescription = lang === "en" ? descEn : desc;
+
+const primaryFancyboxHref = modelHorizontal3d
+  ? `#horizontal3dModel${id}`
+  : modelVertical3d
+    ? `#vertical3dModel${id}`
+    : `/images/products/${imgLight}`;
 ---
 
 <dialog id={`myDialog${id}`} class="dialog">
@@ -72,7 +78,7 @@ const currentDescription = lang === "en" ? descEn : desc;
     <strong>{title}</strong>
     <div class="product-detail__img" title={t("products.showIn3d")}>
       <a
-        href={`#horizontal3dModel${id}`}
+        href={primaryFancyboxHref}
         aria-label={t("products.stoneAsLighting")}
         data-fancybox={`product${id}`}
       >
@@ -86,40 +92,70 @@ const currentDescription = lang === "en" ? descEn : desc;
       </a>
     </div>
     <div class="product-detail__hidden">
-      <a
-        href={`#vertical3dModel${id}`}
-        aria-label={t("products.stoneAsLighting")}
-        data-fancybox={`product${id}`}></a>
-      <a
-        href={`/images/products/${imgDark}`}
-        aria-label={t("products.stoneAsLighting")}
-        data-fancybox={`product${id}`}></a>
-      <a
-        href={`/images/products/${imgFrame}`}
-        aria-label={t("products.stoneAsLighting")}
-        data-fancybox={`product${id}`}></a>
-      <a
-        href={`/images/products/${imgLight}`}
-        aria-label={t("products.stoneAsLighting")}
-        data-fancybox={`product${id}`}></a>
-      <model-viewer
-        id={`horizontal3dModel${id}`}
-        src={`/3d/products/${modelHorizontal3d}`}
-        ar
-        ar-scale="auto"
-        ar-modes="webxr scene-viewer quick-look"
-        camera-controls
-        touch-action="pan-y"
-        camera-orbit="0deg 90deg 2.5m"></model-viewer>
-      <model-viewer
-        id={`vertical3dModel${id}`}
-        src={`/3d/products/${modelVertical3d}`}
-        ar
-        ar-scale="auto"
-        ar-modes="webxr scene-viewer quick-look"
-        camera-controls
-        touch-action="pan-y"
-        camera-orbit="0deg 90deg 2.5m"></model-viewer>
+      {
+        modelVertical3d && (
+          <a
+            href={`#vertical3dModel${id}`}
+            aria-label={t("products.stoneAsLighting")}
+            data-fancybox={`product${id}`}
+          />
+        )
+      }
+      {
+        imgDark && (
+          <a
+            href={`/images/products/${imgDark}`}
+            aria-label={t("products.stoneAsLighting")}
+            data-fancybox={`product${id}`}
+          />
+        )
+      }
+      {
+        imgFrame && (
+          <a
+            href={`/images/products/${imgFrame}`}
+            aria-label={t("products.stoneAsLighting")}
+            data-fancybox={`product${id}`}
+          />
+        )
+      }
+      {
+        imgLight && (
+          <a
+            href={`/images/products/${imgLight}`}
+            aria-label={t("products.stoneAsLighting")}
+            data-fancybox={`product${id}`}
+          />
+        )
+      }
+      {
+        modelHorizontal3d && (
+          <model-viewer
+            id={`horizontal3dModel${id}`}
+            src={`/3d/products/${modelHorizontal3d}`}
+            ar
+            ar-scale="auto"
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            touch-action="pan-y"
+            camera-orbit="0deg 90deg 2.5m"
+          />
+        )
+      }
+      {
+        modelVertical3d && (
+          <model-viewer
+            id={`vertical3dModel${id}`}
+            src={`/3d/products/${modelVertical3d}`}
+            ar
+            ar-scale="auto"
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            touch-action="pan-y"
+            camera-orbit="0deg 90deg 2.5m"
+          />
+        )
+      }
     </div>
     <div class="product-detail__content">
       {
@@ -300,19 +336,20 @@ const currentDescription = lang === "en" ? descEn : desc;
   <script>
     const products = document.querySelectorAll(".product");
     const body = document.querySelector("body");
+
     products.forEach((product) => {
-      const productCard = product.querySelector(
-        'div[role="button"]'
-      ) as HTMLButtonElement;
-      const productDetail = product.querySelector(
-        "dialog"
-      ) as HTMLDialogElement;
-      const closeBtn = productDetail.querySelector(
-        "#closeBtn"
-      ) as HTMLButtonElement;
-      const closeImg = productDetail.querySelector(
-        "#closeImg"
-      ) as HTMLButtonElement;
+      const productCard = product.querySelector('div[role="button"]');
+      const productDetail = product.querySelector("dialog");
+      if (!(productCard instanceof HTMLElement)) return;
+      if (!(productDetail instanceof HTMLDialogElement)) return;
+
+      const closeBtn = productDetail.querySelector("#closeBtn");
+      if (!(closeBtn instanceof HTMLButtonElement)) return;
+
+      const closeDialog = () => {
+        productDetail.close();
+        body?.style.setProperty("overflow", "initial");
+      };
 
       productCard.addEventListener("click", () => {
         productDetail.showModal();
@@ -332,38 +369,34 @@ const currentDescription = lang === "en" ? descEn : desc;
         }
       });
 
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        productDetail.close();
-        body?.style.setProperty("overflow", "initial");
+      closeBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        closeDialog();
       });
 
-      closeImg.addEventListener("click", () => {
-        productDetail.close();
-        body?.style.setProperty("overflow", "initial");
+      productDetail.addEventListener("click", (event) => {
+        if (event.target !== productDetail) return;
+        closeDialog();
       });
 
-      const tagList = productDetail.querySelector(".tags") as HTMLDivElement;
-      const showMoreBtn = tagList.querySelector(
-        "button#showMoreTags"
-      ) as HTMLButtonElement;
-      const spanMore = showMoreBtn.querySelector(
-        "span:nth-child(1)"
-      ) as HTMLSpanElement;
-      const spanLess = showMoreBtn.querySelector(
-        "span:nth-child(2)"
-      ) as HTMLSpanElement;
+      const tagList = productDetail.querySelector(".tags");
+      if (!(tagList instanceof HTMLElement)) return;
+
+      const showMoreBtn = tagList.querySelector("button#showMoreTags");
+      if (!(showMoreBtn instanceof HTMLButtonElement)) return;
+
+      const spanMore = showMoreBtn.querySelector("span:nth-child(1)");
+      const spanLess = showMoreBtn.querySelector("span:nth-child(2)");
+      if (!(spanMore instanceof HTMLSpanElement)) return;
+      if (!(spanLess instanceof HTMLSpanElement)) return;
 
       spanLess.style.display = "none";
 
-      showMoreBtn?.addEventListener("click", () => {
-        tagList?.classList.toggle("tags--all");
-        spanMore.style.display = tagList.classList.contains("tags--all")
-          ? "none"
-          : "inline";
-        spanLess.style.display = tagList.classList.contains("tags--all")
-          ? "inline"
-          : "none";
+      showMoreBtn.addEventListener("click", () => {
+        tagList.classList.toggle("tags--all");
+        const isAll = tagList.classList.contains("tags--all");
+        spanMore.style.display = isAll ? "none" : "inline";
+        spanLess.style.display = isAll ? "inline" : "none";
       });
     });
   </script>
