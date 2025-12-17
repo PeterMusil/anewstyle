@@ -75,7 +75,7 @@ section:has(> .gallery) {
     --content_backgdrop-filter: blur(0.1em);
   }
 
-  &.hidden{
+  &.hidden {
     display: none;
   }
 
@@ -136,6 +136,6 @@ section:has(> .gallery) {
   }
 }
 
-body .fancybox__content{
+body .fancybox__content {
   --fancybox-content-bg: #{$color-trans};
 }

@@ -224,7 +224,17 @@ const ENABLE_GTM = true;
 
             import("@fancyapps/ui")
               .then(({ Fancybox }) => {
-                Fancybox.bind("[data-fancybox]", {});
+                Fancybox.bind("[data-fancybox]", {
+                  on: {
+                    init: (fancybox) => {
+                      const trigger = fancybox.items[0]?.trigger;
+                      const dialog = trigger?.closest("dialog");
+                      if (dialog) {
+                        fancybox.options.parentEl = dialog;
+                      }
+                    },
+                  },
+                });
                 windowRef.__fancyboxBound = true;
               })
               .catch((error) => {

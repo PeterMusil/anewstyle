@@ -27,7 +27,7 @@ section {
         --sec-bg: hsl(from #{$color-white} h s 90%);
         .title,
         .desc {
-            color: $color-font;
+            color: $color-black;
         }
 
         .desc {
