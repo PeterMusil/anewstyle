@@ -52,6 +52,11 @@
         &.open {
             --lang-pop-up_display: inline-flex;
         }
+
+        a {
+            font-family: $font-text;
+            text-decoration: none;
+        }
     }
 
     &__item {

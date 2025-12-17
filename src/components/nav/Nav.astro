@@ -106,22 +106,22 @@ const basePath = lang === "cs" ? "" : "/en";
   const navItems = document.querySelectorAll(".menu > li > a");
 
   const toggleMenu = () => {
-    if (!(menu instanceof HTMLElement)) return;
+    if (!menu) return;
     const isOpen = menu.getAttribute("data-open") === "true";
     menu.setAttribute("data-open", String(!isOpen));
     body.classList.toggle("overflow-hidden", !isOpen);
   };
 
-  if (burger instanceof HTMLButtonElement) {
+  if (burger) {
     burger.addEventListener("click", toggleMenu);
   }
 
-  if (!(menu instanceof HTMLElement)) return;
-  navItems.forEach((item) => {
-    if (!(item instanceof HTMLAnchorElement)) return;
-    item.addEventListener("click", () => {
-      menu.setAttribute("data-open", "false");
-      body.classList.remove("overflow-hidden");
+  if (menu) {
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        menu.setAttribute("data-open", "false");
+        body.classList.remove("overflow-hidden");
+      });
     });
-  });
+  }
 </script>

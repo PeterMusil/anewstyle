@@ -26,6 +26,11 @@ nav {
     align-items: center;
     inline-size: calc(100% - clamp($gap-xxl, 10dvi, 10rem));
     margin-inline: auto;
+
+    @include res-max-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__right {
@@ -84,6 +89,7 @@ nav {
     --menu-pad-top: 8svb;
     position: absolute;
     inset: 100% 0 auto 0;
+    min-inline-size: 100svi;
     justify-content: center;
     backdrop-filter: blur($gap-m);
   }
@@ -117,10 +123,9 @@ nav {
       @include flex-set(inline-flex, row, nowrap, $gap-m, center);
       margin-inline: auto;
       font-family: $font-text;
+      text-decoration: none;
       font-size: clamp(var(--nav-item-min-font-size), 2svb, 20px);
       color: var(--nav-color);
-      text-decoration: none;
-      text-decoration: none;
       white-space: nowrap;
 
       @include res-max-laptop-s {
