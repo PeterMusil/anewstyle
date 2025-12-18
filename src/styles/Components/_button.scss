@@ -38,7 +38,7 @@
     }
 
     @include hover {
-        &:not([aria-disabled="true"], .button--xs, disabled) {
+        &:not([aria-disabled="true"], .button--xs, .button--s, disabled) {
             --btn_shadow-color: #{$color-white--trans};
             --btn_trans-y: calc(#{$gap-s} * -1);
         }
@@ -65,8 +65,13 @@
     &--s {
         --btn-padding-x: #{$gap-l};
         --btn-padding-y: #{$gap-m};
+        --btn-gap: #{$gap-m};
         --btn-width: unset;
         --btn-font-size: clamp(14px, 2vh, #{$gap-l});
+
+        > .icon {
+            --icon-size: 14px !important;
+        }
 
         @include res-max-mobile-l {
             --btn-font-size: 14px;

@@ -212,42 +212,31 @@ const ENABLE_GTM = true;
         const windowRef = window;
         if (windowRef.__fancyboxBound) return;
 
-        const observerOptions = {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.1,
-        };
+        import("@fancyapps/ui")
+          .then(({ Fancybox }) => {
+            // @ts-ignore - Fancybox callback typing
+            const onFancyboxInit = (fancybox) => {
+              const fb = /** @type {{ items?: Array<{ trigger?: Element | null }>; options: { parentEl?: Element } }} */ (
+                fancybox
+              );
+              const trigger = fb.items?.[0]?.trigger;
+              if (!trigger) return;
+              const dialog = trigger.closest("dialog");
+              if (dialog) {
+                fb.options.parentEl = dialog;
+              }
+            };
 
-        const observer = new IntersectionObserver((entries, observerInstance) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            import("@fancyapps/ui")
-              .then(({ Fancybox }) => {
-                Fancybox.bind("[data-fancybox]", {
-                  on: {
-                    init: (fancybox) => {
-                      const trigger = fancybox.items[0]?.trigger;
-                      const dialog = trigger?.closest("dialog");
-                      if (dialog) {
-                        fancybox.options.parentEl = dialog;
-                      }
-                    },
-                  },
-                });
-                windowRef.__fancyboxBound = true;
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-
-            observerInstance.unobserve(entry.target);
+            Fancybox.bind(document.body, "[data-fancybox]", {
+              on: {
+                init: onFancyboxInit,
+              },
+            });
+            windowRef.__fancyboxBound = true;
+          })
+          .catch((error) => {
+            console.error(error);
           });
-        }, observerOptions);
-
-        elements.forEach((element) => {
-          observer.observe(element);
-        });
       });
     </script>
   </body>

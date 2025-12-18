@@ -6,7 +6,11 @@ declare module "*.scss";
 
 declare module "@fancyapps/ui" {
   export const Fancybox: {
-    bind: (selector: string, options?: Record<string, unknown>) => void;
+    bind: (
+      selectorOrContainer: string | HTMLElement | null,
+      selectorOrOptions?: string | Record<string, unknown>,
+      options?: Record<string, unknown>
+    ) => void;
   };
 }
 

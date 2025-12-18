@@ -39,6 +39,10 @@ nav {
     list-style: none;
     @include flex-set(flex, row, nowrap, 2em, center, end, center);
     justify-self: end;
+
+    a:is(.button) {
+      text-transform: initial !important;
+    }
   }
 }
 
@@ -63,7 +67,7 @@ nav {
     var(--menu-display, inline-flex),
     var(--menu-flex-direction, row),
     nowrap,
-    var(--menu-gap, 2em),
+    var(--menu-gap, $gap-xl),
     center,
     center,
     var(--menu-align-content, center)

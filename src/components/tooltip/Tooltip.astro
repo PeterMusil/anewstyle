@@ -65,7 +65,6 @@ const tooltipId = `tooltip-${
 
     > span {
       font-weight: 700;
-      font-style: italic;
     }
   }
 
@@ -92,9 +91,7 @@ const tooltipId = `tooltip-${
     .tooltip__popover[popover] {
       position: fixed;
       position-anchor: --tooltip-anchor;
-      top: anchor(bottom);
-      left: anchor(center);
-      translate: -50% 0;
+      position-area: top;
       margin-top: $gap-m;
     }
   }

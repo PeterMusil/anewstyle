@@ -2,7 +2,6 @@
 
 .dialog {
     @include border("def", $gap-s, $color-dialog-border);
-    container-type: inline-size;
     inline-size: min($width-tablet, 100%);
     max-block-size: calc(100vh - $gap-xxl);
     padding: 0;
