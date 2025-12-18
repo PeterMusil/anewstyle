@@ -3,4 +3,4 @@ User-agent: *
 Allow: *.js
 Allow: *.css
 
-Sitemap: https://anewstyle.cz/sitemap.xml
+Sitemap: https://anewstyle.cz/sitemap-index.xml

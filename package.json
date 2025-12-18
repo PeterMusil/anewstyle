@@ -7,21 +7,21 @@
   "author": "Lukáš Chylík",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"astro dev\" \"pnpm run stylelint\" \"pnpm run scss:watch\"",
+    "start": "concurrently \"astro dev\" \"bun run stylelint\" \"bun run scss:watch\"",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "scss:build": "sass src/styles/style.scss | postcss -o public/css/style.css",
-    "scss:watch": "nodemon -e scss -x pnpm run scss:build",
+    "scss:watch": "nodemon -e scss -x bun run scss:build",
     "stylelint": "stylelint --fix src/**/*.scss --custom-syntax postcss-scss"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.6.0",
     "@fancyapps/ui": "^5.0.36",
     "@google/model-viewer": "^4.1.0",
     "astro": "^5.7.13",
     "depcheck": "^1.4.7",
-    "locale-essentials": "^1.1.8",
     "three": "^0.172.0",
     "typescript": "^5.8.3"
   },

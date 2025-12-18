@@ -1,0 +1,98 @@
+---
+import type { TooltipProps } from "./types";
+
+/**
+ * Tooltip component using native HTML popover.
+ */
+interface Props extends TooltipProps {}
+
+const { label = "Info" } = Astro.props as Props;
+
+/**
+ * Unique id for linking trigger to popover.
+ */
+const tooltipId = `tooltip-${
+  typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID()
+    : Math.random().toString(36).slice(2)
+}`;
+---
+
+<span class="tooltip">
+  <button
+    class="tooltip__trigger"
+    type="button"
+    commandfor={tooltipId}
+    command="toggle-popover"
+    popovertarget={tooltipId}
+    popovertargetaction="toggle"
+    aria-label={label}
+  >
+    <span aria-hidden="true">i</span>
+  </button>
+  <div class="tooltip__popover" id={tooltipId} popover="auto" role="tooltip">
+    <slot />
+  </div>
+</span>
+
+<style lang="scss">
+  @import "../../styles/Base/global";
+
+  .tooltip {
+    display: inline-block;
+    anchor-scope: --tooltip-anchor;
+  }
+
+  .tooltip__trigger {
+    anchor-name: --tooltip-anchor;
+    font-family: $font-text;
+    font-size: $font-size-tooltip-trigger;
+    line-height: 1;
+    inline-size: $size-tooltip-trigger;
+    block-size: $size-tooltip-trigger;
+    border-radius: $radius-full;
+    border: $border-1r solid $color-primary;
+    background-color: $color-primary;
+    color: $color-black;
+    cursor: pointer;
+    padding: 0;
+    display: inline-grid;
+    place-items: center;
+    transition:
+      border-color $trans-time ease-in-out,
+      background-color $trans-time ease-in-out,
+      color $trans-time ease-in-out;
+
+    > span {
+      font-weight: 700;
+    }
+  }
+
+  .tooltip__trigger:focus-visible {
+    outline: $border-2r solid $color-primary;
+    outline-offset: $gap-s;
+  }
+
+  .tooltip__popover[popover] {
+    padding: $gap-l;
+    border-radius: $radius-m;
+    border: $border-1r solid $color-primary--hover;
+    background-color: $color-primary;
+    color: $color-black;
+    box-shadow: $shadow-tooltip;
+    font-weight: 400;
+    max-inline-size: min(
+      $size-tooltip-max-inline,
+      calc(100svi - (2 * $gap-xl))
+    );
+  }
+
+  @supports (anchor-scope: --tooltip-anchor) and (top: anchor(bottom)) {
+    .tooltip__popover[popover] {
+      position: fixed;
+      position-anchor: --tooltip-anchor;
+      position-area: top;
+      margin-top: $gap-m;
+    }
+  }
+</style>

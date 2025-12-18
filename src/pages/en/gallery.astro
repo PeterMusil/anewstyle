@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Showroom from "../../components/sections/Showroom.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t('meta.titleGallery')}
+  description={t('meta.descriptionGallery')}
+>
+  <main>
+    <Showroom id="gallery" lang={lang} />
+  </main>
+</Layout>

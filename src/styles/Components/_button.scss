@@ -8,7 +8,7 @@
     --btn-width: 20rem;
     --btn-font-size: clamp(#{$gap-l}, 2vh, 18px);
     --icon-size: #{$gap-m};
-    @include flex-set(inline-flex, row, nowrap, $gap-l, center, center, center);
+    @include flex-set(inline-flex, row, nowrap, var(--btn-gap, $gap-l), center, center, center);
     @include border("def", 2px, var(--btn_border-color, var(--color-white)));
     min-width: var(--btn-width);
     padding-block: var(--btn-padding-y);
@@ -26,6 +26,8 @@
     translate: 0 var(--btn_trans-y, 0);
     transition:
         box-shadow var(--trans-time) var(--trans-fnc),
+        background-color var(--trans-time) var(--trans-fnc),
+        border-color var(--trans-time) var(--trans-fnc),
         translate var(--trans-time) var(--trans-fnc);
     cursor: pointer;
     box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
@@ -38,7 +40,9 @@
     }
 
     @include hover {
-        &:not([aria-disabled="true"], disabled) {
+        --btn-bg-color: hsl(from #{$color-white} h s 90%);
+        --btn_border-color: hsl(from #{$color-white} h s 90%);
+        &:not([aria-disabled="true"], .button--xs, .button--s, disabled) {
             --btn_shadow-color: #{$color-white--trans};
             --btn_trans-y: calc(#{$gap-s} * -1);
         }
@@ -65,8 +69,13 @@
     &--s {
         --btn-padding-x: #{$gap-l};
         --btn-padding-y: #{$gap-m};
+        --btn-gap: #{$gap-m};
         --btn-width: unset;
         --btn-font-size: clamp(14px, 2vh, #{$gap-l});
+
+        > .icon {
+            --icon-size: 14px !important;
+        }
 
         @include res-max-mobile-l {
             --btn-font-size: 14px;
@@ -82,9 +91,10 @@
         --btn-width: unset;
         --btn-text-transform: initial;
         --btn-font-size: small;
+        --btn-gap: #{$gap-m};
 
-        @include hover {
-            --btn_trans-y: -2px;
+        > .icon {
+            --icon-size: 14px !important;
         }
     }
 

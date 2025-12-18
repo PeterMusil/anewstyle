@@ -1,64 +1,73 @@
+---
+import {
+  useTranslations,
+  getLanguageSwitchPath,
+  getLangShortLabel,
+  type Lang,
+} from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+
+// Get switch paths for each language
+const csPath = getLanguageSwitchPath(Astro.url, "cs");
+const enPath = getLanguageSwitchPath(Astro.url, "en");
+---
+
 <li>
-    <div id="langSwitch" class="lang-switch">
-        <button type="button" aria-label="Select language" class="lang-switch__button" id="langSwitchBtn">
-            <span data-localize="lang_selected"></span>
-            <small>▼</small>
-        </button>
-        <div class="lang-switch__pop-up">
-            <button type="button" data-lang="cs" class="lang-switch__item" data-localize="lang_cs"></button>
-            <button type="button" data-lang="en" class="lang-switch__item" data-localize="lang_en"></button>
-        </div>
+  <div id="langSwitch" class="lang-switch">
+    <button
+      type="button"
+      title={t("lang.select")}
+      aria-label={t("lang.select")}
+      class="button button--s button--white"
+      id="langSwitchBtn"
+    >
+      <span>{getLangShortLabel(lang)}</span>
+    </button>
+    <div class="lang-switch__pop-up">
+      <a
+        href={csPath}
+        class={`lang-switch__item ${lang === "cs" ? "active" : ""}`}
+      >
+        {t("lang.cs")}
+      </a>
+      <a
+        href={enPath}
+        class={`lang-switch__item ${lang === "en" ? "active" : ""}`}
+      >
+        {t("lang.en")}
+      </a>
     </div>
+  </div>
 </li>
 
 <script>
-    import { localize } from "locale-essentials";
-    const setDetailLang = () => {
-        const lang = localStorage.getItem("language");
-        const enDesc = document.querySelectorAll('[data-language="en"]') as NodeListOf<HTMLParagraphElement>;
-        const csDesc = document.querySelectorAll('[data-language="cs"]') as NodeListOf<HTMLParagraphElement>;
+  document.addEventListener("DOMContentLoaded", () => {
+    const langSwitchElem = document.querySelector(
+      ".lang-switch__pop-up"
+    ) as HTMLDivElement;
+    const langSwitchBtn = document.getElementById(
+      "langSwitchBtn"
+    ) as HTMLButtonElement;
 
-        if (lang === "en") {
-            enDesc.forEach((el) => (el.style.display = "block"));
-            csDesc.forEach((el) => (el.style.display = "none"));
-        } else if (lang === "cs") {
-            csDesc.forEach((el) => (el.style.display = "block"));
-            enDesc.forEach((el) => (el.style.display = "none"));
+    if (langSwitchBtn && langSwitchElem) {
+      langSwitchBtn.addEventListener("click", () => {
+        langSwitchElem.classList.toggle("open");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          e.target !== langSwitchBtn &&
+          !langSwitchBtn.contains(e.target as Node)
+        ) {
+          langSwitchElem.classList.remove("open");
         }
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const langSwitchElem = document.querySelector(".lang-switch__pop-up") as HTMLDivElement;
-        const langSwitchBtn = document.getElementById("langSwitchBtn") as HTMLButtonElement;
-        const langSwitchItems = document.querySelectorAll(".lang-switch__item") as NodeListOf<HTMLButtonElement>;
-
-        const localizeOptions = {
-            langDirectory: "./text/",
-            defaultLanguage: "cs",
-            langSwitch: langSwitchElem,
-        };
-        localize(localizeOptions);
-
-        langSwitchBtn.addEventListener("click", () => {
-            langSwitchElem.classList.toggle("open");
-        });
-
-        document.addEventListener("click", (e) => {
-            if (e.target !== langSwitchBtn) {
-                langSwitchElem.classList.remove("open");
-            }
-        });
-
-        setDetailLang();
-
-        langSwitchItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                langSwitchItems.forEach((item) => item.classList.remove("active"));
-                item.classList.add("active");
-                setTimeout(() => {
-                    setDetailLang();
-                }, 200);
-            });
-        });
-    });
+      });
+    }
+  });
 </script>

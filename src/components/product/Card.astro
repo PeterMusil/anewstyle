@@ -1,23 +1,37 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
 interface Props {
   id: number;
   title: string;
   imgLight: string;
   has3D: boolean;
+  lang?: Lang;
 }
 
-const { id, title, imgLight, has3D } = Astro.props;
+const { id, title, imgLight, has3D, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<div id={`productCard${id}`} role="button" class="card" aria-label="Zobrazit detail produktu">
+<div
+  id={`productCard${id}`}
+  role="button"
+  class="card"
+  aria-label={t("products.showProductDetail")}
+>
   <strong>
     {title}
   </strong>
-  <img src={`./images/products/${imgLight}`} alt={title} loading="lazy" width="304" height="165" />
+  <img
+    src={`/images/products/${imgLight}`}
+    alt={title}
+    loading="lazy"
+    width="304"
+    height="165"
+  />
   <div class="text-center">
-    <div class="button button--s" data-localize="products_btn_show-detail"></div>
+    <div class="button button--s">{t("products.btnShowDetail")}</div>
   </div>
   {has3D && <Icon name="ar" />}
 </div>

@@ -1,14 +1,17 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
-interface Props {
+export interface Props {
   id: string;
   title: string;
   price: string;
   features: Record<string, boolean>;
+  lang?: Lang;
 }
 
-const { id, title, price, features } = Astro.props;
+const { id, title, price, features, lang = "cs" } = Astro.props as Props;
+const t = useTranslations(lang);
 ---
 
 <div class="price-item" html-id={id}>
@@ -16,16 +19,18 @@ const { id, title, price, features } = Astro.props;
     <strong>{title}</strong>
     <span>
       <span id={`price-${id}`}>{price}</span>
-      <span data-localize="price_currency"></span>
+      <span>{t("price.currency")}</span>
     </span>
   </div>
   <ul class="price-item__content">
-    {Object.entries(features).map(([feature, isAvailable], index) => (
-      <>
-        <li>
-          <Icon name={isAvailable ? "check" : "close-bold"} />
-        </li>
-      </>
-    ))}
+    {
+      Object.entries(features).map(([feature, isAvailable], index) => (
+        <>
+          <li>
+            <Icon name={isAvailable ? "check" : "close-bold"} />
+          </li>
+        </>
+      ))
+    }
   </ul>
 </div>

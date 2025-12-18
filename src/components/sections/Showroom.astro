@@ -1,25 +1,54 @@
 ---
 import Icon from "../icons/Icon.astro";
-const { id } = Astro.props;
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id={id} class="light">
   <div class="container">
-    <h2 class="title text-center title--mg-s" data-localize="gallery_title"></h2>
+    <h2 class="title text-center title--mg-s">{t("gallery.title")}</h2>
     <p class="desc text-center">
-      <span data-localize="gallery_desc_part1"></span>
-      <strong data-localize="gallery_desc_part2"></strong><span data-localize="gallery_desc_part3"></span>
-      <strong data-localize="gallery_desc_part4"></strong>
-      <span data-localize="gallery_desc_part5"></span>
+      <span>{t("gallery.descPart1")}</span>
+      <strong>{t("gallery.descPart2")}</strong>
+      <span>{t("gallery.descPart3")}</span>
+      <strong>{t("gallery.descPart4")}</strong>
+      <span>{t("gallery.descPart5")}</span>
     </p>
   </div>
   <div class="container gallery">
-    <a href="./videos/Rock_sheet_animation_background.mp4" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/videos/Rock_sheet_animation_background.mp4"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
         <picture>
-          <source type="image/webp" sizes="(min-width: 426px)" srcset="./images/gallery/Rockfoil_viz1_video_768.webp" />
-          <source type="image/webp" sizes="(max-width: 425px)" srcset="./images/gallery/Rockfoil_viz1_video_425.webp" />
-          <img src="./images/gallery/Rockfoil_viz1_video_425.webp" loading="lazy" width="768" height="446" alt="Demonstrační video" />
+          <source
+            type="image/webp"
+            sizes="(min-width: 426px)"
+            srcset="/images/gallery/Rockfoil_viz1_video_768.webp"
+          />
+          <source
+            type="image/webp"
+            sizes="(max-width: 425px)"
+            srcset="/images/gallery/Rockfoil_viz1_video_425.webp"
+          />
+          <img
+            src="/images/gallery/Rockfoil_viz1_video_425.webp"
+            loading="lazy"
+            width="768"
+            height="446"
+            alt={t("gallery.demoVideo")}
+          />
         </picture>
       </div>
       <div class="gitem__content">
@@ -27,122 +56,217 @@ const { id } = Astro.props;
       </div>
     </a>
 
-    <a href="https://www.theasys.io/viewer/52yTAK9fAdceRkI8KoRZLYYkLgPkaq" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener" data-type="iframe">
+    <a
+      href="https://www.theasys.io/viewer/52yTAK9fAdceRkI8KoRZLYYkLgPkaq"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+      data-type="iframe"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/360-day.webp" loading="lazy" width="425" height="247" alt="360 náhled - den" />
+        <img
+          src="/images/gallery/360-day.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("gallery.preview360Day")}
+        />
       </div>
       <div class="gitem__content">
         <Icon name="360" />
       </div>
     </a>
-    <a href="https://www.theasys.io/viewer/BRgTqQK9OimeTDIPcLmzi4WLP3OIBU" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener" data-type="iframe">
+    <a
+      href="https://www.theasys.io/viewer/BRgTqQK9OimeTDIPcLmzi4WLP3OIBU"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+      data-type="iframe"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/360-night.webp" loading="lazy" width="425" height="247" alt="360 náhled - Noc" />
+        <img
+          src="/images/gallery/360-night.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("gallery.preview360Night")}
+        />
       </div>
       <div class="gitem__content">
         <Icon name="360" />
       </div>
     </a>
 
-    <a href="./images/gallery/Rockfoil_viz2_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz2_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz2_425.webp" loading="lazy" width="425" height="247" alt="Kámen 2" />
+        <img
+          src="/images/gallery/Rockfoil_viz2_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>PINK</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz3_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz3_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz3_425.webp" loading="lazy" width="425" height="247" alt="Kámen 3" />
+        <img
+          src="/images/gallery/Rockfoil_viz3_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>DARKGOLD</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz4_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz4_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz4_425.webp" loading="lazy" width="425" height="247" alt="Kámen 4" />
+        <img
+          src="/images/gallery/Rockfoil_viz4_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>SUNLIGHT</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz8_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz8_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz8_425.webp" loading="lazy" width="425" height="247" alt="Kámen 8" />
+        <img
+          src="/images/gallery/Rockfoil_viz8_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>SUNLIGHT</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz9_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz9_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz9_425.webp" loading="lazy" width="425" height="247" alt="Kámen 9" />
+        <img
+          src="/images/gallery/Rockfoil_viz9_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>GOLDENBARK</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz7_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz7_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem"
+      rel="noopener"
+    >
       <div class="gitem__photo">
-        <img src="./images/gallery/Rockfoil_viz7_425.webp" loading="lazy" width="425" height="247" alt="Kámen 7" />
+        <img
+          src="/images/gallery/Rockfoil_viz7_425.webp"
+          loading="lazy"
+          width="425"
+          height="247"
+          alt={t("products.stoneAsLighting")}
+        />
       </div>
       <div class="gitem__content">
         <strong>SUNLIGHT</strong>
       </div>
     </a>
-    <a href="./images/gallery/Rockfoil_viz5_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem hidden" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz5_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem hidden"
+      rel="noopener"
+    >
     </a>
-    <a href="./images/gallery/Rockfoil_viz6_1440.webp" aria-label="Kámen jako osvětlení interiéru" data-fancybox="gallery" class="gitem hidden" rel="noopener">
+    <a
+      href="/images/gallery/Rockfoil_viz6_1440.webp"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      class="gitem hidden"
+      rel="noopener"
+    >
     </a>
   </div>
   <div class="container">
     <p class="desc desc--mg-s desc--center">
-      <span data-localize="gallery_under-text"></span>
-      <a href="https://www.designatak.cz/" aria-label="Go to ATAK Design web" class="link" style="text-decoration: underline;" rel="external">ATAK Design</a>.
+      <span>{t("gallery.underText")}</span>
+      <a
+        href="https://www.designatak.cz/"
+        aria-label={t("gallery.gotoAtakDesign")}
+        class="link"
+        style="text-decoration: underline;"
+        rel="external"
+      >
+        ATAK Design
+      </a>.
       <br /><br />
       <picture>
-        <source type="image/avif" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.avif" />
-        <source type="image/webp" sizes="(min-width: 100px)" srcset="./images/logos/atak-logo.webp" />
-        <img src="./images/logos/atak-logo.webp" loading="lazy" width="250" alt="Logo společnosti ATAK Design" />
+        <source
+          type="image/avif"
+          sizes="(min-width: 100px)"
+          srcset="/images/logos/atak-logo.avif"
+        />
+        <source
+          type="image/webp"
+          sizes="(min-width: 100px)"
+          srcset="/images/logos/atak-logo.webp"
+        />
+        <img
+          src="/images/logos/atak-logo.webp"
+          loading="lazy"
+          width="250"
+          alt={t("common.atakLogoAlt")}
+        />
       </picture>
     </p>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const elements = document.querySelectorAll("[data-fancybox]");
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            import("@fancyapps/ui").then(({ Fancybox }) => {
-              Fancybox.bind("[data-fancybox]", {});
-
-              if (!document.querySelector('link[href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"]')) {
-                const link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css";
-
-                document.head.appendChild(link);
-              }
-            });
-
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      elements.forEach((element) => {
-        observer.observe(element);
-      });
-    });
-  </script>
 </section>

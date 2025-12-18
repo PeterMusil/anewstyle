@@ -1,0 +1,181 @@
+---
+import Tooltip from "../tooltip/Tooltip.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id={id} class="dark">
+  <div class="container">
+    <h2 class="title title--white title--center">{t("tech.title")}</h2>
+
+    <p class="desc desc--center">
+      {t("tech.desc")}
+    </p>
+
+    <div class="tech-grid">
+      <!-- Composition Block -->
+      <div class="tech-card">
+        <img
+          src="/images/technologies/skladba_kamenne_dyhy.avif"
+          alt={t("tech.subtitle1")}
+          loading="lazy"
+          width="600"
+          height="400"
+        />
+        <h3 class="tech-card__title">{t("tech.subtitle1")}</h3>
+        <ul class="tech-card__list">
+          <li>{t("tech.stone1")}</li>
+          <li>{t("tech.stone2")}</li>
+          <li>{t("tech.stone3")}</li>
+          <li>{t("tech.stone4")}</li>
+        </ul>
+      </div>
+
+      <!-- Construction Block -->
+      <div class="tech-card">
+        <img
+          src="/images/technologies/konstrukce_sviticiho_panelu.avif"
+          alt={t("tech.subtitle2")}
+          loading="lazy"
+          width="600"
+          height="400"
+        />
+        <h3 class="tech-card__title">{t("tech.subtitle2")}</h3>
+        <ul class="tech-card__list">
+          <li>
+            {t("tech.panel1Label")}
+            <Tooltip
+              label={`${t("tech.tooltipAria")}: ${t("tech.panel1Label")}`}
+            >
+              {t("tech.panel1Tooltip")}
+            </Tooltip>
+          </li>
+          <li>{t("tech.panel2")}</li>
+          <li>{t("tech.panel3")}</li>
+          <li>{t("tech.panel4")}</li>
+          <li>{t("tech.panel5")}</li>
+          <li>
+            {t("tech.panel6Label")}
+            <Tooltip
+              label={`${t("tech.tooltipAria")}: ${t("tech.panel6Label")}`}
+            >
+              {t("tech.panel6Tooltip")}
+            </Tooltip>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/Base/global";
+
+  .tech-grid {
+    display: grid;
+    @include grid-columns(
+      grid,
+      repeat(2, minmax($size-tech-min-column, 1fr)),
+      calc($gap-xl * 2),
+      stretch
+    );
+    grid-template-rows: auto min-content 1fr;
+
+    @include res-max-tablet {
+      grid-template-columns: minmax($size-tech-min-column, 1fr);
+      grid-template-rows: initial;
+      row-gap: $gap-xl;
+    }
+  }
+
+  .tech-card {
+    @include grid-row-span(3);
+    display: grid;
+    gap: $gap-xl;
+    grid-template-rows: subgrid;
+    translate: 0 0;
+    background-color: $color-bg;
+    border: $border-2r solid var(--card-border-color, $color-border);
+    border-radius: $radius-l;
+    scale: 1;
+    text-align: center;
+    padding-block: calc(2 * $gap-xl);
+    transition:
+      border-color $trans-time ease-in-out,
+      scale $trans-time ease-in-out;
+
+    @include hover {
+      scale: 1.025;
+      --card-border-color: #{$color-primary};
+    }
+
+    > img {
+      inline-size: 100%;
+      block-size: auto;
+      max-block-size: $size-tech-image-max-block;
+      display: block;
+      object-fit: contain;
+      margin-inline: auto;
+      margin-block-end: $gap-xl;
+
+      @include res-max-tablet {
+        max-block-size: 15rem;
+      }
+    }
+
+    &__title {
+      font-family: $font-title;
+      font-size: clamp($gap-l, $fluid-tech-title, $gap-xl);
+      line-height: 1.3;
+      color: $color-primary;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-s;
+      font-weight: 700;
+      line-height: 1.5;
+      text-wrap: balance;
+      text-align: center;
+      display: block;
+      margin-inline: auto;
+      inline-size: max(
+        $size-tech-title-inline-percent,
+        $size-tech-title-min-inline
+      );
+    }
+
+    &__list {
+      list-style: none;
+      margin: 0;
+      display: inline-flex;
+      text-align: left;
+      flex-direction: column;
+      gap: $gap-l;
+      margin-inline: auto;
+      padding: 0;
+
+      li {
+        position: relative;
+        display: flex;
+        align-items: baseline;
+        gap: $gap-l;
+        font-family: $font-text;
+        color: $color-font;
+        font-size: clamp($gap-l, $fluid-tech-list, $gap-xl);
+        font-weight: 300;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      li::before {
+        content: "•";
+        color: $color-primary;
+      }
+    }
+  }
+</style>

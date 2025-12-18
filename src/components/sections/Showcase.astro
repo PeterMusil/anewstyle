@@ -1,45 +1,75 @@
 ---
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
-const { id } = Astro.props;
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id={id} class="dark inline-container h-100">
   <div class="showcase">
     <div class="tablet-content">
-      <h2><span data-localize="showcase_title_part1"></span><small data-localize="showcase_title_part2"></small></h2>
-      <p>
-        <span data-localize="showcase_desc_part1"></span>
-        <strong data-localize="showcase_desc_part2"></strong>
-        <span data-localize="showcase_desc_part3"></span>
+      <h2>
+        <span>{t("showcase.titlePart1")}</span>
+        <small>{t("showcase.titlePart2")}</small>
+      </h2>
+      <p class="desc m-0">
+        <span>{t("showcase.descPart1")}</span>
+        <strong>{t("showcase.descPart2")}</strong>
+        <span>{t("showcase.descPart3")}</span>
       </p>
     </div>
     <div class="showcase__img">
-      <img src="./images/showcase/rockfoil_pink_dark_mirror.webp" alt="Kamenná deska Goldenbark" width="1200" />
-      <img src="./images/showcase/rockfoil_pink_dark_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícený rám" width="1200" />
-      <img src="./images/showcase/rockfoil_pink_light_frame_mirror.webp" alt="Kamenná deska Goldenbark - rozsvícená" class="active" width="1200" />
+      <img
+        src="/images/showcase/rockfoil_pink_dark_mirror.webp"
+        alt={t("products.stoneAsLighting")}
+        width="1200"
+      />
+      <img
+        src="/images/showcase/rockfoil_pink_dark_frame_mirror.webp"
+        alt={t("products.stoneAsLighting")}
+        width="1200"
+      />
+      <img
+        src="/images/showcase/rockfoil_pink_light_frame_mirror.webp"
+        alt={t("products.stoneAsLighting")}
+        class="active"
+        width="1200"
+      />
     </div>
     <div class="showcase__content">
       <div class="not-tablet-content">
-        <h2><span data-localize="showcase_title_part1"></span><small data-localize="showcase_title_part2"></small></h2>
-        <p>
-          <span data-localize="showcase_desc_part1"></span>
-          <strong data-localize="showcase_desc_part2"></strong>
-          <span data-localize="showcase_desc_part3"></span>
+        <h2>
+          <span>{t("showcase.titlePart1")}</span>
+          <small>{t("showcase.titlePart2")}</small>
+        </h2>
+        <p class="desc m-0">
+          <span>{t("showcase.descPart1")}</span>
+          <strong>{t("showcase.descPart2")}</strong>
+          <span>{t("showcase.descPart3")}</span>
         </p>
       </div>
       <div class="showcase__buttons">
-        <button class="button" type="button" aria-label="Light off">
+        <button class="button" type="button" aria-label={t("showcase.btn1")}>
           <Icon name="turn-off" />
-          <small data-localize="showcase_btn1"></small>
+          <small>{t("showcase.btn1")}</small>
         </button>
-        <button class="button" type="button" aria-label="Light the Frame">
+        <button class="button" type="button" aria-label={t("showcase.btn2")}>
           <Icon name="frame" />
-          <small data-localize="showcase_btn2"></small>
+          <small>{t("showcase.btn2")}</small>
         </button>
-        <button class="button active" type="button" aria-label="Light the Panel">
+        <button
+          class="button active"
+          type="button"
+          aria-label={t("showcase.btn3")}
+        >
           <Icon name="bulp" />
-          <small data-localize="showcase_btn3"></small>
+          <small>{t("showcase.btn3")}</small>
         </button>
       </div>
     </div>
@@ -47,8 +77,12 @@ const { id } = Astro.props;
 </section>
 
 <script>
-  const buttons = document.querySelectorAll(".showcase__buttons > button") as NodeListOf<HTMLButtonElement>;
-  const images = document.querySelectorAll(".showcase__img > img") as NodeListOf<HTMLImageElement>;
+  const buttons = document.querySelectorAll(
+    ".showcase__buttons > button"
+  ) as NodeListOf<HTMLButtonElement>;
+  const images = document.querySelectorAll(
+    ".showcase__img > img"
+  ) as NodeListOf<HTMLImageElement>;
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {

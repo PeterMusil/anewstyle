@@ -1,5 +1,12 @@
 ---
-// Cookie preferences dialog using native <dialog>
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'cs' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <dialog
@@ -13,19 +20,19 @@
     <div
       class="cookie-dialog__header"
       role="group"
-      aria-label="Cookie dialog header"
+      aria-label={t('cookie.dialogHeader')}
     >
       <h2 id="cookie-dialog-title" class="cookie-dialog__title">
-        <span data-localize="cookie_dialog_title"></span>
+        <span>{t('cookie.dialogTitle')}</span>
       </h2>
       <button
         type="button"
         class="cookie-dialog__close"
         id="cookie-dialog-close"
-        aria-label="Close"
+        aria-label={t('cookie.close')}
         aria-controls="cookie-preferences-dialog"
         aria-keyshortcuts="Escape"
-        title="Zavřít"
+        title={t('cookie.close')}
       >
         ✕
       </button>
@@ -33,42 +40,40 @@
 
     <div class="cookie-dialog__content">
       <p id="cookie-dialog-desc" class="cookie-dialog__desc">
-        <span data-localize="cookie_dialog_desc"></span>
+        <span>{t('cookie.dialogDesc')}</span>
       </p>
 
       <fieldset class="cookie-dialog__group">
-        <legend
-          class="cookie-dialog__legend"
-          data-localize="cookie_categories_legend"></legend>
+        <legend class="cookie-dialog__legend">{t('cookie.categoriesLegend')}</legend>
 
         <label class="cookie-option">
           <input type="checkbox" id="consent-analytics" />
           <span>
-            <strong data-localize="cookie_category_analytics"></strong>
-            <small data-localize="cookie_category_analytics_desc"></small>
+            <strong>{t('cookie.categoryAnalytics')}</strong>
+            <small>{t('cookie.categoryAnalyticsDesc')}</small>
           </span>
         </label>
 
         <label class="cookie-option">
           <input type="checkbox" id="consent-marketing" />
           <span>
-            <strong data-localize="cookie_category_marketing"></strong>
-            <small data-localize="cookie_category_marketing_desc"></small>
+            <strong>{t('cookie.categoryMarketing')}</strong>
+            <small>{t('cookie.categoryMarketingDesc')}</small>
           </span>
         </label>
 
         <div class="cookie-option cookie-option--disabled" aria-disabled="true">
           <input type="checkbox" checked disabled />
           <span>
-            <strong data-localize="cookie_category_necessary"></strong>
-            <small data-localize="cookie_category_necessary_desc"></small>
+            <strong>{t('cookie.categoryNecessary')}</strong>
+            <small>{t('cookie.categoryNecessaryDesc')}</small>
           </span>
         </div>
       </fieldset>
 
       <div class="cookie-dialog__legal">
         <p>
-          <span data-localize="cookie_dialog_legal"></span>
+          <span>{t('cookie.dialogLegal')}</span>
         </p>
       </div>
     </div>
@@ -76,23 +81,23 @@
     <div
       class="cookie-dialog__footer"
       role="group"
-      aria-label="Cookie dialog actions"
+      aria-label={t('cookie.dialogHeader')}
     >
       <button
         type="button"
         class="button button--secondary button--xs"
         id="cookie-save-prefs"
-        ><span data-localize="cookie_btn_save_prefs"></span></button
+        ><span>{t('cookie.btnSavePrefs')}</span></button
       >
       <div class="cookie-dialog__spacer"></div>
       <button
         type="button"
         class="button button--xs"
         id="cookie-reject-all-dlg"
-        ><span data-localize="cookie_btn_reject_all"></span></button
+        ><span>{t('cookie.btnRejectAll')}</span></button
       >
       <button type="button" class="button button--xs" id="cookie-accept-all-dlg"
-        ><span data-localize="cookie_btn_accept_all"></span></button
+        ><span>{t('cookie.btnAcceptAll')}</span></button
       >
     </div>
   </form>
@@ -179,7 +184,7 @@
   }
   dlg?.addEventListener("close", restoreBodyScroll);
   // @ts-ignore
-  dlg?.addEventListener("cancel", (e) => {
+  dlg?.addEventListener("cancel", () => {
     // Some browsers fire 'cancel' when pressing ESC
     restoreBodyScroll();
   });

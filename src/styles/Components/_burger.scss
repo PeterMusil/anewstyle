@@ -1,18 +1,23 @@
 @import "../Base/global";
-.burger {  
+
+li:has(> .burger) {
   --burger-display: none;
-    position: relative;
-    display: var(--burger-display);
-    place-items: center;
-    inline-size: $gap-xl;
-    aspect-ratio: 1;
-    padding: 0;
-    background: none;
-    border-color: var(--color-trans);
-    color: var(--color-white);
-    cursor: pointer;
-    
-    @include res-max-tablet {
-        --burger-display: grid;
-    }
+  display: var(--burger-display);
+
+  @include res-max-tablet {
+    --burger-display: grid;
   }
+}
+
+.burger {
+  position: relative;
+
+  place-items: center;
+  inline-size: $gap-xl;
+  aspect-ratio: 1;
+  padding: 0;
+  background: none;
+  border-color: var(--color-trans);
+  color: var(--color-white);
+  cursor: pointer;
+}

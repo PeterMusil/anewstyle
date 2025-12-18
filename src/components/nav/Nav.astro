@@ -2,61 +2,85 @@
 import NavItem from "./NavItem.astro";
 import LangSwitch from "../langSwitch/LangSwitch.astro";
 import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+
+const basePath = lang === "cs" ? "" : "/en";
 ---
 
 <nav>
   <div class="nav__container">
-    <a href="/" class="logo" rel="noopener">
-      <img src="./images/logos/logo.svg" alt="Anew Style Logo" height="96" />
+    <a href={`${basePath}/`} class="logo" rel="noopener">
+      <img src="/images/logos/logo.svg" alt={t("common.logoAlt")} height="96" />
     </a>
     <ul class="menu">
-      <NavItem href="#about" text="nav_light" icon="bulp" />
+      <NavItem href={`${basePath}/#about`} text={t("nav.light")} icon="bulp" />
       <NavItem
-        href="#products"
-        text="nav_products"
+        href={`${basePath}/#products`}
+        text={t("nav.products")}
         icon="ar"
         iconClass="icon-nav"
       />
-      <NavItem href="#features" text="nav_features" />
-      <NavItem href="#price-list" text="nav_price" />
-      <NavItem href="#showroom" text="nav_gallery" />
-      <NavItem href="#contact" text="nav_contact" />
       <NavItem
-        href="http://www.anewstyle-eshop.cz/"
-        rel="external"
-        text="nav_eshop"
-        icon="eshop-light"
-        target="_blank"
+        href={`${basePath}/#technologies`}
+        text={t("nav.technologies")}
       />
-      <LangSwitch />
+      <NavItem href={`${basePath}/#faq`} text={t("nav.faq")} />
+      <NavItem href={`${basePath}/#price-list`} text={t("nav.price")} />
+      <NavItem href={`${basePath}/#contact`} text={t("nav.contact")} />
     </ul>
-    <button aria-label="Mobile menu" class="burger" id="menuBtn">
-      <Icon name="menu" />
-    </button>
+    <ul class="nav__right">
+      <li>
+        <a
+          href="http://www.anewstyle-eshop.cz/"
+          target="_blank"
+          rel="external"
+          class="button button--s button--white"
+        >
+          <span>{t("nav.eshop")}</span>
+          <Icon name="eshop" iconClass="icon-nav" />
+        </a>
+      </li>
+      <LangSwitch lang={lang} />
+      <li>
+        <button aria-label={t("nav.mobileMenu")} class="burger" id="menuBtn">
+          <Icon name="menu" />
+        </button>
+      </li>
+    </ul>
   </div>
 </nav>
 
 <script>
-  const menu = document.querySelector(".menu") as HTMLUListElement;
-  const burger = document.querySelector("#menuBtn") as HTMLButtonElement;
-  const body = document.body as HTMLBodyElement;
-  const navItems = document.querySelectorAll(
-    ".menu > li > a"
-  ) as NodeListOf<HTMLAnchorElement>;
+  const initNav = () => {
+    const menu = document.querySelector("nav .menu");
+    const burger = document.getElementById("menuBtn");
+    const navItems = document.querySelectorAll("nav .menu > li > a");
 
-  burger &&
-    menu &&
-    burger.addEventListener("click", () => {
+    if (!menu || !burger) return;
+
+    const toggleMenu = () => {
       const isOpen = menu.getAttribute("data-open") === "true";
       menu.setAttribute("data-open", String(!isOpen));
-      body.classList.toggle("overflow-hidden", !isOpen);
-    });
+      document.body.classList.toggle("overflow-hidden", !isOpen);
+    };
 
-  menu &&
+    burger.onclick = toggleMenu;
+
     navItems.forEach((item) => {
       item.addEventListener("click", () => {
         menu.setAttribute("data-open", "false");
-        body.classList.remove("overflow-hidden");
+        document.body.classList.remove("overflow-hidden");
       });
     });
+  };
+
+  initNav();
+  document.addEventListener("astro:page-load", initNav);
 </script>
