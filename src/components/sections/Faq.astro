@@ -63,11 +63,11 @@ const questions = [1, 2, 3, 4, 5, 6, 7, 8];
 
   details {
     --icon-rotation: 0deg;
+    background-color: transparent;
+    border: $border-1 solid $color-border;
 
     border-radius: $radius-m;
     overflow: clip;
-    border: $border-1 solid $color-border;
-    background-color: transparent;
 
     &[open] {
       --icon-rotation: 45deg;
@@ -95,15 +95,15 @@ const questions = [1, 2, 3, 4, 5, 6, 7, 8];
   }
 
   summary {
-    background-color: transparent;
-    padding: $gap-xl;
-    cursor: pointer;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    list-style: none;
+    justify-content: space-between;
     gap: $gap-m;
+    padding: $gap-xl;
+    background-color: transparent;
+    list-style: none;
     transition: background-color $trans-time;
+    cursor: pointer;
 
     @include res-max-tablet {
       padding: $gap-l;
@@ -114,8 +114,8 @@ const questions = [1, 2, 3, 4, 5, 6, 7, 8];
     }
 
     &::marker {
-      content: "";
       display: none;
+      content: "";
     }
 
     h3 {
@@ -125,12 +125,12 @@ const questions = [1, 2, 3, 4, 5, 6, 7, 8];
 
     .icon-state {
       display: flex;
+      flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
-      transform: rotate(var(--icon-rotation));
       color: $color-primary;
-      flex-shrink: 0;
+      transform: rotate(var(--icon-rotation));
+      transition: transform 0.3s ease;
 
       :global(svg) {
         width: 24px;

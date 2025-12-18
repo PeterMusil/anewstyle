@@ -14,4 +14,13 @@ export default defineConfig({
     },
   },
   integrations: [sitemap()],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          silenceDeprecations: ["import", "legacy-js-api"],
+        },
+      },
+    },
+  },
 });

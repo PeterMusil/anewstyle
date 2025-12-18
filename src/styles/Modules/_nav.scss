@@ -9,9 +9,9 @@ nav {
   width: 100%;
   height: var(--nav-height);
   background-color: var(--color-bg-nav);
+  backdrop-filter: blur($gap-s);
   color: var(--nav-color, #{$color-font});
   z-index: 999;
-  backdrop-filter: blur($gap-s);
 
   @include res-max-tablet {
     --nav-justify-content: space-between;
@@ -32,29 +32,28 @@ nav {
       justify-content: space-between;
     }
   }
-
-  ul {
-    list-style: none;
-  }
-
   &__right {
     @include flex-set(flex, row, nowrap, 2em, center, end, center);
-    margin: 0;
-    padding: 0;
-    list-style: none;
     justify-self: end;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 
     a:is(.button) {
       text-transform: initial !important;
     }
   }
+
+  ul {
+    list-style: none;
+  }
 }
 
 .logo {
   display: block;
+  justify-self: start;
   block-size: var(--logo_size, 6rem);
   padding: 0;
-  justify-self: start;
 
   @include res-max-tablet {
     --logo_size: 4rem;
@@ -76,12 +75,12 @@ nav {
     center,
     var(--menu-align-content, center)
   );
+  justify-self: center;
   inline-size: auto;
   block-size: var(--menu-height, auto);
   padding: var(--menu-pad-top, 0) 0 0 0;
   background-color: var(--menu-bg, var(--color-trans));
   list-style: none;
-  justify-self: center;
 
   @include res-max-laptop-m {
     --menu-gap: #{$gap-xl};
@@ -97,8 +96,8 @@ nav {
     --menu-pad-top: 8svb;
     position: absolute;
     inset: 100% 0 auto 0;
-    min-inline-size: 100svi;
     justify-content: center;
+    min-inline-size: 100svi;
     backdrop-filter: blur($gap-m);
   }
 
@@ -131,11 +130,11 @@ nav {
       @include flex-set(inline-flex, row, nowrap, $gap-m, center);
       margin-inline: auto;
       font-family: $font-text;
-      text-decoration: none;
       font-size: clamp(var(--nav-item-min-font-size), 2svb, 20px);
-      color: var(--nav-color);
-      white-space: nowrap;
       font-weight: 500;
+      color: var(--nav-color);
+      text-decoration: none;
+      white-space: nowrap;
 
       @include res-max-laptop-s {
         font-size: medium;

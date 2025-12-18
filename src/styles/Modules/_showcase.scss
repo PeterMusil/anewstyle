@@ -71,8 +71,8 @@ section:has(> .showcase) {
       font-size: clamp($gap-xxl, 5vh, 6rem);
       font-weight: 900;
       line-height: 1.25;
-      grid-column-start: 2;
       text-wrap: pretty;
+      grid-column-start: 2;
 
       @include res-max-laptop-m {
         font-size: clamp($gap-xl, 4vh, 4rem);

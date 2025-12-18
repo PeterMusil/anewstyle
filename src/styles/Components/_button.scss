@@ -125,15 +125,15 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            animation: spin 0.2s forwards;
-            rotate: 0;
-            translate: -50% -50%;
             content: "";
-            border-radius: 100vmax;
             inline-size: $gap-l;
             block-size: $gap-l;
             border: 2px solid currentColor;
+            border-radius: 100vmax;
             border-inline-end-color: $color-trans;
+            animation: spin 0.2s forwards;
+            translate: -50% -50%;
+            rotate: 0;
         }
     }
 }
@@ -154,8 +154,8 @@
 
     > .button {
         @include flex-set(inline-flex, column, nowrap, $gap-s, center, center, center);
-        font-size: clamp($gap-l, 2.5svi, 20px);
         padding-block: 1rem;
+        font-size: clamp($gap-l, 2.5svi, 20px);
 
         @include res-max-mobile-l {
             --btn-padding-x: #{$gap-l};

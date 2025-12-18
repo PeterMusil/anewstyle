@@ -39,29 +39,29 @@ const tooltipId = `tooltip-${
   @import "../../styles/Base/global";
 
   .tooltip {
-    display: inline-block;
     anchor-scope: --tooltip-anchor;
+    display: inline-block;
   }
 
   .tooltip__trigger {
     anchor-name: --tooltip-anchor;
+    display: inline-grid;
+    place-items: center;
+    inline-size: $size-tooltip-trigger;
+    block-size: $size-tooltip-trigger;
+    padding: 0;
+    background-color: $color-primary;
+    border: $border-1r solid $color-primary;
+    border-radius: $radius-full;
     font-family: $font-text;
     font-size: $font-size-tooltip-trigger;
     line-height: 1;
-    inline-size: $size-tooltip-trigger;
-    block-size: $size-tooltip-trigger;
-    border-radius: $radius-full;
-    border: $border-1r solid $color-primary;
-    background-color: $color-primary;
     color: $color-black;
-    cursor: pointer;
-    padding: 0;
-    display: inline-grid;
-    place-items: center;
     transition:
       border-color $trans-time ease-in-out,
       background-color $trans-time ease-in-out,
       color $trans-time ease-in-out;
+    cursor: pointer;
 
     > span {
       font-weight: 700;
@@ -74,17 +74,17 @@ const tooltipId = `tooltip-${
   }
 
   .tooltip__popover[popover] {
-    padding: $gap-l;
-    border-radius: $radius-m;
-    border: $border-1r solid $color-primary--hover;
-    background-color: $color-primary;
-    color: $color-black;
-    box-shadow: $shadow-tooltip;
-    font-weight: 400;
     max-inline-size: min(
       $size-tooltip-max-inline,
       calc(100svi - (2 * $gap-xl))
     );
+    padding: $gap-l;
+    background-color: $color-primary;
+    border: $border-1r solid $color-primary--hover;
+    border-radius: $radius-m;
+    font-weight: 400;
+    color: $color-black;
+    box-shadow: $shadow-tooltip;
   }
 
   @supports (anchor-scope: --tooltip-anchor) and (top: anchor(bottom)) {

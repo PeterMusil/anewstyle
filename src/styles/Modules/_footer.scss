@@ -6,15 +6,15 @@ footer {
 
   > small {
     display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    gap: $gap-s;
     font-family: $font-text;
     font-size: small;
     color: $color-white;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    flex-wrap: wrap;
-    gap: $gap-s;
   }
 
   a {

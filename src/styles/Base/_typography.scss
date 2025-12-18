@@ -111,17 +111,17 @@ small {
     --mg-b: 5rem;
     --desc-font-size: clamp(#{$gap-l}, 3svb, #{$gap-xl});
     @include border("left", var(--border-width), $color-font);
+    display: block;
+    inline-size: min($width-laptop-s, 100%);
     padding-left: var(--desc-pad-left);
     margin-block-end: var(--mg-b);
+    margin-inline: auto;
     font-family: $font-text;
     font-size: var(--desc-font-size);
     line-height: 1.7;
     color: $color-font;
     text-wrap: balance;
-    display: block;
     text-wrap: pretty;
-    margin-inline: auto;
-    inline-size: min($width-laptop-s, 100%);
 
     @include res-max-laptop-s {
         --desc-font-size: medium;

@@ -101,10 +101,10 @@ section:has(> .gallery) {
     place-items: center;
     padding: #{$gap-xl};
     background-color: hsla(0, 0%, 0%, 0.3);
+    backdrop-filter: var(--content_backgdrop-filter);
     font-size: clamp($gap-l, 8cqi, 5vh);
     color: $color-white;
     transition: backdrop-filter 0.2s linear;
-    backdrop-filter: var(--content_backgdrop-filter);
 
     > strong {
       display: block;

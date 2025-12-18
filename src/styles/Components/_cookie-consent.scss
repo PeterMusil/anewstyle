@@ -4,17 +4,17 @@
   @include border("top", $border-1, $color-border);
   position: fixed;
   inset: auto 0 0 0;
-  z-index: 9999;
   display: none;
   background: $color-bg-nav;
-  color: $color-white;
   backdrop-filter: blur($gap-l / 2);
+  color: $color-white;
+  z-index: 9999;
 
   &__content {
     @include grid-columns(grid, repeat(2, minmax($gap-xxl, 1fr)), $gap-l, center, center, start);
-    margin: 0 auto;
     max-width: $container-max-width;
     padding: $gap-l;
+    margin: 0 auto;
   }
 
   &__text {
@@ -28,8 +28,8 @@
 
   .button--transparent {
     background: transparent;
-    color: $color-white;
     border-color: $color-white--trans;
+    color: $color-white;
   }
 
   @include res-max-tablet {
@@ -48,12 +48,12 @@
     background: $color-dialog-backdrop;
     backdrop-filter: blur($gap-s);
   }
+  max-width: min($dialog-max-width, 92vw);
+  padding: 0;
+  margin: auto;
+  background: transparent;
 
   border: 0;
-  padding: 0;
-  background: transparent;
-  max-width: min($dialog-max-width, 92vw);
-  margin: auto;
   z-index: 10001;
 
   &__box {
@@ -63,8 +63,8 @@
     gap: $gap-xl;
     padding: $gap-xl;
     background: $color-bg;
-    color: $color-white;
     border-radius: $gap-m;
+    color: $color-white;
     box-shadow: 0 $gap-l $gap-xxl $color-shadow-strong;
   }
 
@@ -73,18 +73,18 @@
   }
 
   &__title {
+    margin: 0;
     font-family: $font-title;
     font-size: 2.2rem;
-    margin: 0;
   }
 
   &__close {
-    appearance: none;
-    border: 0;
     background: transparent;
-    color: $color-white;
+    border: 0;
     font-size: 1.6rem;
+    color: $color-white;
     cursor: pointer;
+    appearance: none;
   }
 
   &__content {
@@ -92,24 +92,24 @@
     gap: $gap-l;
   }
   &__desc {
+    opacity: 0.9;
     font-size: 1.5rem;
     line-height: 1.75;
-    opacity: 0.9;
   }
 
   &__group {
-    margin: 0;
-    padding: $gap-s 0 0;
-    border: 0;
     display: grid;
     gap: $gap-l;
+    padding: $gap-s 0 0;
+    margin: 0;
+    border: 0;
   }
 
   &__legend {
-    font-weight: 800;
-    font-size: 1.6rem;
     margin-block: 0.4rem;
     font-family: $font-title;
+    font-size: 1.6rem;
+    font-weight: 800;
   }
 
   .cookie-option {
@@ -170,8 +170,8 @@
 
   &__legal p {
     margin: 0;
+    opacity: 0.85;
     font-size: 1.3rem;
     line-height: 1.6;
-    opacity: 0.85;
   }
 }

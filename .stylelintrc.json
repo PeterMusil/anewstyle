@@ -1,14 +1,18 @@
 {
-  "plugins": [
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-order"],
   "defaultSeverity": "warning",
-  "customSyntax": "postcss-scss",
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/*.astro"],
+      "customSyntax": "postcss-html"
+    }
+  ],
   "rules": {
-    "order/order": [
-      "custom-properties",
-      "declarations"
-    ],
+    "order/order": ["custom-properties", "declarations"],
     "order/properties-order": [
       [
         "@at-rules",

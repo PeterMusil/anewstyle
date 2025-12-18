@@ -34,9 +34,9 @@
       stretch
     );
     grid-template-rows: auto repeat(var(--row-count), 1fr);
-    min-inline-size: $width-laptop-l;
-    align-content: start;
     align-items: start;
+    align-content: start;
+    min-inline-size: $width-laptop-l;
     margin-block-start: 5svb;
 
     @include res-max-tablet {
@@ -66,9 +66,9 @@
     grid-row-start: 2;
 
     > li {
-      padding-inline-start: $gap-l;
       display: grid;
       align-content: center;
+      padding-inline-start: $gap-l;
       &:nth-child(even) {
         background-color: $color-black--light;
       }
@@ -148,8 +148,8 @@
     }
 
     > img {
-      max-block-size: var(--image-size);
       max-inline-size: 100%;
+      max-block-size: var(--image-size);
       scale: -1 1;
     }
 

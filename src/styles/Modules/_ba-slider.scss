@@ -2,10 +2,10 @@
   --ba-position: 50%;
   position: relative;
   display: grid;
+  place-content: center;
   max-height: 80vh;
   border-radius: $gap-l;
   overflow: hidden;
-  place-content: center;
 
   @include res-max-mobile-l {
     max-height: 215px;

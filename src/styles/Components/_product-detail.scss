@@ -1,9 +1,9 @@
 @import "../Base/global";
 .product-detail {
     @include grid-columns(grid, minmax(1rem, 1fr), 0, flex-start, stretch);
+    container-type: inline-size;
     align-items: center;
     max-inline-size: 100%;
-    container-type: inline-size;
     padding-block: clamp($gap-xl, 8dvi, 5rem);
     padding-inline: clamp($gap-xl, 8dvi, 5rem);
     background-color: inherit;
@@ -17,8 +17,8 @@
         line-height: 1;
         letter-spacing: 0.1em;
         text-align: center;
-        text-transform: uppercase;
         text-wrap: pretty;
+        text-transform: uppercase;
 
         @include res-max-mobile-l {
             font-size: $gap-xl;
