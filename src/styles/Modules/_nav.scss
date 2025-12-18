@@ -33,11 +33,15 @@ nav {
     }
   }
 
+  ul {
+    list-style: none;
+  }
+
   &__right {
+    @include flex-set(flex, row, nowrap, 2em, center, end, center);
     margin: 0;
     padding: 0;
     list-style: none;
-    @include flex-set(flex, row, nowrap, 2em, center, end, center);
     justify-self: end;
 
     a:is(.button) {
