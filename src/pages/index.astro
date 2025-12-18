@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/header/Header.astro";
 import Showcase from "../components/sections/Showcase.astro";
 import Features from "../components/sections/Features.astro";
+import Faq from "../components/sections/Faq.astro";
 import BeforeAfter from "../components/sections/BeforeAfter.astro";
 import Contact from "../components/sections/Contact.astro";
 import Products from "../components/sections/Products.astro";
@@ -14,10 +15,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout
-  title={t('meta.title')}
-  description={t('meta.description')}
->
+<Layout title={t("meta.title")} description={t("meta.description")}>
   <Header lang={lang} />
   <main>
     <Showcase id="about" lang={lang} />
@@ -25,6 +23,7 @@ const t = useTranslations(lang);
     <Technologies id="technologies" lang={lang} />
     <Features id="features" lang={lang} />
     <BeforeAfter lang={lang} />
+    <Faq id="faq" lang={lang} />
     <PriceList id="price-list" lang={lang} />
     <Contact id="contact" lang={lang} />
   </main>

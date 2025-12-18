@@ -2,7 +2,7 @@
 import NavItem from "./NavItem.astro";
 import LangSwitch from "../langSwitch/LangSwitch.astro";
 import Icon from "../icons/Icon.astro";
-import { useTranslations, getLocalizedPath, type Lang } from "../../i18n/utils";
+import { useTranslations, type Lang } from "../../i18n/utils";
 
 interface Props {
   lang?: Lang;
@@ -31,9 +31,8 @@ const basePath = lang === "cs" ? "" : "/en";
         href={`${basePath}/#technologies`}
         text={t("nav.technologies")}
       />
-      <NavItem href={`${basePath}/#features`} text={t("nav.features")} />
+      <NavItem href={`${basePath}/#faq`} text={t("nav.faq")} />
       <NavItem href={`${basePath}/#price-list`} text={t("nav.price")} />
-      <NavItem href={`${basePath}/gallery`} text={t("nav.gallery")} />
       <NavItem href={`${basePath}/#contact`} text={t("nav.contact")} />
     </ul>
     <ul class="nav__right">

@@ -121,4 +121,4 @@ export const getLangShortLabel = (lang: Lang): string => {
   return labels[lang];
 };
 
-export { defaultLang, languages, type Lang };
+export { defaultLang, languages, type Lang, type TranslationKey };

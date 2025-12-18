@@ -26,6 +26,8 @@
     translate: 0 var(--btn_trans-y, 0);
     transition:
         box-shadow var(--trans-time) var(--trans-fnc),
+        background-color var(--trans-time) var(--trans-fnc),
+        border-color var(--trans-time) var(--trans-fnc),
         translate var(--trans-time) var(--trans-fnc);
     cursor: pointer;
     box-shadow: 0 0 var(--btn-shadow_size, $gap-m) 0 var(--btn_shadow-color, var(--color-trans));
@@ -38,6 +40,8 @@
     }
 
     @include hover {
+        --btn-bg-color: hsl(from #{$color-white} h s 90%);
+        --btn_border-color: hsl(from #{$color-white} h s 90%);
         &:not([aria-disabled="true"], .button--xs, .button--s, disabled) {
             --btn_shadow-color: #{$color-white--trans};
             --btn_trans-y: calc(#{$gap-s} * -1);

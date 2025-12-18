@@ -1,0 +1,148 @@
+---
+import {
+  useTranslations,
+  type Lang,
+  type TranslationKey,
+} from "../../i18n/utils";
+import Icon from "../icons/Icon.astro";
+
+interface Props {
+  id: string;
+  lang?: Lang;
+}
+
+const { id, lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+
+const questions = [1, 2, 3, 4, 5, 6, 7, 8];
+---
+
+<section id={id} class="dark">
+  <div class="container container--s">
+    <h2 class="title title--white title--mg-s text-center">{t("faq.title")}</h2>
+    <p class="desc desc--mg-s text-center">
+      {t("faq.desc" as TranslationKey)}
+    </p>
+
+    <div class="faq-list">
+      {
+        questions.map((q) => (
+          <details name="faq">
+            <summary>
+              <h3 class="desc">{t(`faq.q${q}` as TranslationKey)}</h3>
+              <span class="icon-state">
+                <Icon name="plus" />
+              </span>
+            </summary>
+            <div class="content">
+              <p
+                class="desc desc--s"
+                set:html={t(`faq.a${q}` as TranslationKey)}
+              />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  :root {
+    interpolate-size: allow-keywords;
+  }
+</style>
+
+<style lang="scss">
+  @import "../../styles/Base/global";
+
+  .faq-list {
+    display: grid;
+    gap: $gap-l;
+  }
+
+  details {
+    --icon-rotation: 0deg;
+
+    border-radius: $radius-m;
+    overflow: clip;
+    border: $border-1 solid $color-border;
+    background-color: transparent;
+
+    &[open] {
+      --icon-rotation: 45deg;
+      --details-content-block-size: max-content;
+      --details-content-pad-block: #{$gap-xl};
+
+      @include res-max-tablet {
+        --details-content-pad-block: #{$gap-l};
+      }
+    }
+
+    &::details-content {
+      block-size: var(--details-content-block-size, 0);
+      padding-block: var(--details-content-pad-block, 0);
+      padding-inline: $gap-xl;
+      transition: block-size, padding-block, content-visibility;
+      transition-duration: 0.3s;
+      transition-timing-function: linear;
+      transition-behavior: allow-discrete;
+
+      @include res-max-tablet {
+        padding-inline: $gap-l;
+      }
+    }
+  }
+
+  summary {
+    background-color: transparent;
+    padding: $gap-xl;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: $gap-m;
+    transition: background-color $trans-time;
+
+    @include res-max-tablet {
+      padding: $gap-l;
+    }
+
+    &:hover {
+      background-color: $color-bg--light;
+    }
+
+    &::marker {
+      content: "";
+      display: none;
+    }
+
+    h3 {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .icon-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      transform: rotate(var(--icon-rotation));
+      color: $color-primary;
+      flex-shrink: 0;
+
+      :global(svg) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .content {
+    .desc {
+      margin: 0;
+      color: $color-font;
+    }
+  }
+</style>

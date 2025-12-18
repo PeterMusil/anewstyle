@@ -33,7 +33,7 @@ small {
     --title-justify-content: flex-start;
     --title-font-size: 7em;
     --title-color: #{$color-font};
-    --title-mg-bottom: clamp(#{$gap-xxl}, 8vh, 10rem);
+    --title-mg-bottom: clamp(#{$gap-xxl}, 8svb, 10rem);
     @include flex-set(flex, row, wrap, 0, center, var(--title-justify-content));
     display: block;
     margin-bottom: var(--title-mg-bottom);
@@ -102,14 +102,14 @@ small {
         --title-font-size: #{$gap-l};
         --title-mg-bottom: #{$gap-l};
         --title-color: #{$color-primary};
-        margin-block-start: 5vh;
+        margin-block-start: 5svb;
     }
 }
 
 .desc {
     --border-width: 0;
     --mg-b: 5rem;
-    --desc-font-size: clamp(#{$gap-l}, 3vh, #{$gap-xl});
+    --desc-font-size: clamp(#{$gap-l}, 3svb, #{$gap-xl});
     @include border("left", var(--border-width), $color-font);
     padding-left: var(--desc-pad-left);
     margin-block-end: var(--mg-b);
@@ -130,6 +130,18 @@ small {
     @include res-max-mobile-l {
         --desc-font-size: #{$gap-l};
         --mg-b: #{$gap-xxl};
+    }
+
+    &--s {
+        --desc-font-size: clamp(#{$gap-l}, 2svb, 20px);
+
+        @include res-max-laptop-s {
+            --desc-font-size: medium;
+        }
+
+        @include res-max-mobile-l {
+            --desc-font-size: #{$gap-l};
+        }
     }
 
     &--line {
@@ -169,7 +181,7 @@ small {
 
 address {
     font-family: $font-text;
-    font-size: clamp($gap-l, 2vh, $gap-xl);
+    font-size: clamp($gap-l, 2svb, $gap-xl);
     color: $color-font;
 }
 

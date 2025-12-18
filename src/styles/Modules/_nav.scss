@@ -24,7 +24,7 @@ nav {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    inline-size: calc(100% - clamp($gap-xxl, 10dvi, 10rem));
+    inline-size: calc(100% - clamp($gap-xl, 8svi, 5rem));
     margin-inline: auto;
 
     @include res-max-tablet {
@@ -131,6 +131,7 @@ nav {
       font-size: clamp(var(--nav-item-min-font-size), 2svb, 20px);
       color: var(--nav-color);
       white-space: nowrap;
+      font-weight: 500;
 
       @include res-max-laptop-s {
         font-size: medium;
@@ -140,6 +141,10 @@ nav {
         --nav-item-min-font-size: 18px;
         font-size: x-large;
         text-align: center;
+      }
+
+      > span {
+        font-weight: inherit;
       }
 
       &:hover {
