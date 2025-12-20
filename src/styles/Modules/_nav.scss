@@ -42,6 +42,10 @@ nav {
     a:is(.button) {
       text-transform: initial !important;
     }
+
+    @include res-max-tablet {
+      gap: $gap-m;
+    }
   }
 
   ul {
