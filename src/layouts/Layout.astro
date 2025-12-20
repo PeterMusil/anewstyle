@@ -7,6 +7,7 @@ import IconSet from "../components/icons/IconSet.astro";
 import CookieBar from "../components/cookies/CookieBar.astro";
 import CookieDialog from "../components/cookies/CookieDialog.astro";
 import Nav from "../components/nav/Nav.astro";
+import StructuredData from "../components/seo/StructuredData.astro";
 import {
   getLangFromUrl,
   getAlternateLinks,
@@ -18,9 +19,19 @@ interface Props {
   title: string;
   description: string;
   showNav?: boolean;
+  metaImageUrl?: string;
+  pageType?: "WebPage" | "CollectionPage" | "AboutPage" | "ContactPage";
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description, showNav = true } = Astro.props;
+const {
+  title,
+  description,
+  showNav = true,
+  metaImageUrl,
+  pageType,
+  breadcrumbs,
+} = Astro.props;
 const lang = getLangFromUrl(Astro.url) as Lang;
 const baseSite = Astro.site ?? new URL(Astro.url.origin);
 const canonicalUrl = new URL(Astro.url.pathname, baseSite);
@@ -30,9 +41,10 @@ const xDefaultHref =
   canonicalUrl.href;
 const ogLocale = lang === "cs" ? "cs_CZ" : "en_US";
 const ogLocaleAlternate = lang === "cs" ? "en_US" : "cs_CZ";
-const googleImageUrl = new URL("/images/meta/meta-google.webp", baseSite).href;
-const fbImageUrl = new URL("/images/meta/meta-fb.webp", baseSite).href;
-const twitterImageUrl = new URL("/images/meta/meta-twitter.webp", baseSite).href;
+const fbImageUrl = new URL("/images/meta/meta-facebook.webp", baseSite).href;
+const resolvedMetaImageUrl = metaImageUrl
+  ? new URL(metaImageUrl, baseSite).href
+  : fbImageUrl;
 
 // Google Tag Manager (hardcoded ID)
 const GTM_ID = 'GTM-WT79RGCG';
@@ -157,20 +169,30 @@ const ENABLE_GTM = true;
     <!-- Schema.org markup for Google -->
     <meta itemprop="name" content={title} />
     <meta itemprop="description" content={description} />
-    <meta itemprop="image" content={googleImageUrl} />
+    <meta itemprop="image" content={resolvedMetaImageUrl} />
 
     <!-- Open Graph data -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl.href} />
-    <meta property="og:image" content={fbImageUrl} />
+    <meta property="og:image" content={resolvedMetaImageUrl} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
     <!-- Twitter Card data -->
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={twitterImageUrl} />
+    <meta name="twitter:image" content={resolvedMetaImageUrl} />
+
+    <StructuredData
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl.href}
+      lang={lang}
+      metaImageUrl={resolvedMetaImageUrl}
+      pageType={pageType}
+      breadcrumbs={breadcrumbs}
+    />
 
     <meta name="generator" content={Astro.generator} />
 

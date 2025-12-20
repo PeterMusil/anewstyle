@@ -1,0 +1,138 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  lang: string;
+  metaImageUrl: string;
+  pageType?: "WebPage" | "CollectionPage" | "AboutPage" | "ContactPage";
+  breadcrumbs?: BreadcrumbItem[];
+  additionalGraph?: unknown[];
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  lang,
+  metaImageUrl,
+  pageType = "WebPage",
+  breadcrumbs,
+  additionalGraph,
+} = Astro.props;
+
+const baseSite = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(canonicalUrl);
+
+const organizationId = new URL("#organization", baseSite).href;
+const websiteId = new URL("#website", baseSite).href;
+const webpageId = new URL("#webpage", canonical).href;
+const primaryImageId = new URL("#primaryimage", canonical).href;
+
+const organization = {
+  "@type": "Organization",
+  "@id": organizationId,
+  name: "ANEW STYLE",
+  alternateName: "Anew Style",
+  legalName: "OSM s.r.o.",
+  url: new URL("/", baseSite).href,
+  logo: new URL("/images/logos/logo.svg", baseSite).href,
+  image: metaImageUrl,
+  email: "info@anewstyle.cz",
+  sameAs: [
+    "https://www.anewstyle-eshop.cz",
+    "https://www.facebook.com/profile.php?id=100088855596654",
+    "https://www.instagram.com/anewstyle.cz/",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Hudcova 86/54",
+    postalCode: "621 00",
+    addressLocality: "Brno",
+    addressCountry: "CZ",
+  },
+  location: {
+    "@type": "Place",
+    name: "Showroom",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Hybešova 61",
+      postalCode: "602 00",
+      addressLocality: "Brno",
+      addressCountry: "CZ",
+    },
+  },
+  taxID: "47903180",
+  vatID: "CZ47903180",
+};
+
+const website = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: new URL("/", baseSite).href,
+  name: "ANEW STYLE",
+  inLanguage: lang,
+  publisher: {
+    "@id": organizationId,
+  },
+};
+
+const primaryImage = {
+  "@type": "ImageObject",
+  "@id": primaryImageId,
+  url: metaImageUrl,
+  contentUrl: metaImageUrl,
+};
+
+const webpage = {
+  "@type": pageType,
+  "@id": webpageId,
+  url: canonical.href,
+  name: title,
+  description,
+  inLanguage: lang,
+  isPartOf: {
+    "@id": websiteId,
+  },
+  about: {
+    "@id": organizationId,
+  },
+  primaryImageOfPage: {
+    "@id": primaryImageId,
+  },
+};
+
+const breadcrumbList =
+  breadcrumbs && breadcrumbs.length > 0
+    ? {
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: crumb.name,
+          item: new URL(crumb.url, baseSite).href,
+        })),
+      }
+    : undefined;
+
+const graph = [
+  organization,
+  website,
+  primaryImage,
+  webpage,
+  ...(breadcrumbList ? [breadcrumbList] : []),
+  ...(additionalGraph ?? []),
+];
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": graph,
+}).replaceAll("<", "\\u003c");
+---
+
+<script type="application/ld+json" is:inline set:html={jsonLd} />

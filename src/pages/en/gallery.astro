@@ -10,6 +10,13 @@ const t = useTranslations(lang);
 <Layout
   title={t('meta.titleGallery')}
   description={t('meta.descriptionGallery')}
+  metaImageUrl="/images/meta/meta-facebook.webp"
+  pageType="CollectionPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "English", url: "/en/" },
+    { name: "Gallery", url: "/en/gallery" },
+  ]}
 >
   <main>
     <Showroom id="gallery" lang={lang} />
