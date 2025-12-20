@@ -4,3 +4,4 @@ Allow: *.js
 Allow: *.css
 
 Sitemap: https://anewstyle.cz/sitemap-index.xml
+Sitemap: https://anewstyle.cz/sitemap.xml

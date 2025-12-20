@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"astro dev\" \"bun run stylelint:watch\"",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node scripts/postbuild-sitemap-alias.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "stylelint": "stylelint --fix \"src/**/*.scss\" \"src/**/*.astro\"",
