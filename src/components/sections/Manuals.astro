@@ -1,0 +1,76 @@
+---
+import Icon from "../icons/Icon.astro";
+import { useTranslations, type Lang } from "../../i18n/utils";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "cs" } = Astro.props;
+const t = useTranslations(lang);
+
+const manuals =
+  lang === "cs"
+    ? [
+        {
+          href: "/downloads/Manual_CZ_AnewStyle_Basic_Deluxe.pdf",
+          badge: "CZ",
+          language: t("manual.langCs"),
+          size: "735 KB",
+          aria: t("contact.downloadManualCs"),
+        },
+      ]
+    : [
+        {
+          href: "/downloads/Manual_EN_AnewStyle_Basic_Deluxe.pdf",
+          badge: "EN",
+          language: t("manual.langEn"),
+          size: "712 KB",
+          aria: t("contact.downloadManualEn"),
+        },
+      ];
+---
+
+<section id="manual">
+  <div class="container">
+    <h1 class="title text-center title--mg-s">{t("manual.title")}</h1>
+    <p class="desc text-center">{t("manual.intro")}</p>
+  </div>
+  <div class="container manual-list">
+    {
+      manuals.map((m) => (
+        <a
+          href={m.href}
+          class="manual-tile"
+          target="_blank"
+          rel="noopener"
+          aria-label={m.aria}
+        >
+          <div class="manual-tile__cover">
+            <img
+              src="/downloads/Manual_AnewStyle_Basic_Deluxe.jpg"
+              alt=""
+              loading="lazy"
+            />
+            <span class="manual-tile__badge">{m.badge}</span>
+            <Icon name="pdf" iconClass="manual-tile__icon" />
+          </div>
+          <div class="manual-tile__body">
+            <strong class="manual-tile__title">{t("manual.cardTitle")}</strong>
+            <span class="manual-tile__meta">
+              <span>{m.language}</span>
+              <span aria-hidden="true">·</span>
+              <span>PDF</span>
+              <span aria-hidden="true">·</span>
+              <span>{m.size}</span>
+            </span>
+            <span class="manual-tile__cta">
+              <Icon name="download" />
+              <span>{t("manual.cardCta")}</span>
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

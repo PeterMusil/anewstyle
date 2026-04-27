@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Manuals from "../components/sections/Manuals.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t("meta.titleManual")}
+  description={t("meta.descriptionManual")}
+  metaImageUrl="/images/meta/meta-facebook.webp"
+  pageType="WebPage"
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Manual", url: "/manual" },
+  ]}
+>
+  <main>
+    <Manuals lang={lang} />
+  </main>
+</Layout>

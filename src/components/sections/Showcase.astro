@@ -54,22 +54,37 @@ const t = useTranslations(lang);
           <span>{t("showcase.descPart3")}</span>
         </p>
       </div>
-      <div class="showcase__buttons">
-        <button class="button" type="button" aria-label={t("showcase.btn1")}>
+      <div
+        class="segment-filter showcase__buttons"
+        role="group"
+        aria-label={t("showcase.titlePart1")}
+      >
+        <button
+          class="segment-filter__btn"
+          type="button"
+          aria-pressed="false"
+          aria-label={t("showcase.btn1")}
+        >
           <Icon name="turn-off" />
-          <small>{t("showcase.btn1")}</small>
-        </button>
-        <button class="button" type="button" aria-label={t("showcase.btn2")}>
-          <Icon name="frame" />
-          <small>{t("showcase.btn2")}</small>
+          <span>{t("showcase.btn1")}</span>
         </button>
         <button
-          class="button active"
+          class="segment-filter__btn"
           type="button"
+          aria-pressed="false"
+          aria-label={t("showcase.btn2")}
+        >
+          <Icon name="frame" />
+          <span>{t("showcase.btn2")}</span>
+        </button>
+        <button
+          class="segment-filter__btn"
+          type="button"
+          aria-pressed="true"
           aria-label={t("showcase.btn3")}
         >
           <Icon name="bulp" />
-          <small>{t("showcase.btn3")}</small>
+          <span>{t("showcase.btn3")}</span>
         </button>
       </div>
     </div>
@@ -78,7 +93,7 @@ const t = useTranslations(lang);
 
 <script>
   const buttons = document.querySelectorAll(
-    ".showcase__buttons > button"
+    ".showcase__buttons > .segment-filter__btn"
   ) as NodeListOf<HTMLButtonElement>;
   const images = document.querySelectorAll(
     ".showcase__img > img"
@@ -86,16 +101,11 @@ const t = useTranslations(lang);
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      buttons.forEach((btn) => {
-        btn.classList.remove("active");
-      });
+      if (button.getAttribute("aria-pressed") === "true") return;
+      buttons.forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+      button.setAttribute("aria-pressed", "true");
 
-      button.classList.add("active");
-
-      images.forEach((image) => {
-        image.classList.remove("active");
-      });
-
+      images.forEach((image) => image.classList.remove("active"));
       images[index].classList.add("active");
     });
   });

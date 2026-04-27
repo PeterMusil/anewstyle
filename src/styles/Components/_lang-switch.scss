@@ -46,7 +46,7 @@
         text-align: left;
         translate: -50% 0;
         overflow: hidden;
-        @include res-max-tablet {
+        @include res-max-laptop-s {
             inline-size: auto;
         }
         &.open {
@@ -68,7 +68,7 @@
         color: var(--lang-switch-item_color, $color-white);
         text-align: left;
         cursor: pointer;
-        @include res-max-tablet {
+        @include res-max-laptop-s {
             --lang-switch-item_bg-color: #{$color-secondary};
             text-align: center;
         }

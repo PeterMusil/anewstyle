@@ -1,56 +1,251 @@
 @import "../Base/global";
 
 .contact {
-    &__wrapper {
-        --logo_size: 150px;
-        @include grid-columns(
-            grid,
-            var(--contact_col-temp, var(--logo_size) minmax(#{$gap-l}, 1fr)),
-            var(--contact_gap, 10vw),
-            flex-start
-        );
+  &__wrapper {
+    --logo_size: 150px;
+    @include grid-columns(
+      grid,
+      var(--contact_col-temp, var(--logo_size) minmax(#{$gap-l}, 1fr)),
+      var(--contact_gap, 10vw),
+      flex-start
+    );
 
-        @include res-max-tablet {
-            --logo_size: 100px;
-            --contact_gap: #{$gap-xl};
-        }
-
-        @include res-max-mobile-l {
-            --logo_size: 100px;
-            --contact_col-temp: minmax(#{$gap-l}, 1fr);
-        }
-
-        > img {
-            max-inline-size: var(--logo_size);
-            @include res-max-mobile-l {
-                margin-inline: auto;
-            }
-        }
+    @include res-max-tablet {
+      --logo_size: 100px;
+      --contact_gap: #{$gap-xl};
     }
-    &__grid {
-        @include grid-columns(
-            grid,
-            var(--col-temp, minmax(#{$gap-l}, 8fr) minmax(#{$gap-l}, 5fr)),
-            var(--contact-inner_gap, 5vw),
-            flex-start
-        );
 
-        @include res-max-tablet {
-            --col-temp: minmax(#{$gap-l}, 1fr);
-            --contact-inner_gap: #{$gap-xxl};
-        }
-
-        address {
-            display: block;
-            margin-block: $gap-l;
-            font-size: $gap-l;
-            font-weight: 600;
-        }
-
-        img {
-            display: block;
-            max-inline-size: 100%;
-            border-radius: $gap-m;
-        }
+    @include res-max-mobile-l {
+      --logo_size: 100px;
+      --contact_col-temp: minmax(#{$gap-l}, 1fr);
     }
+
+    > img {
+      max-inline-size: var(--logo_size);
+      @include res-max-mobile-l {
+        margin-inline: auto;
+      }
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: $gap-xxl var(--contact-inner_gap, $gap-xl);
+
+    @include res-max-tablet {
+      grid-template-columns: 1fr;
+      gap: $gap-xl;
+    }
+
+    > .contact__intro,
+    > .contact-form {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__intro {
+    @include grid-columns(
+      grid,
+      minmax(#{$gap-l}, 1fr),
+      $gap-xl,
+      flex-start,
+      stretch
+    );
+  }
+}
+
+.contact-tile {
+  --tile_translate-y: 0;
+  --tile_shadow-color: hsl(0 0% 0% / 0.4);
+  --tile_shadow-spread: #{$gap-m};
+  --tile_border-color: #{$color-dialog-border};
+  --tile_title-color: #{$color-white};
+  @include flex-set(flex, column, nowrap, $gap-l, flex-start);
+  padding: $gap-xl;
+  background-color: hsl(0 0% 100% / 0.04);
+  border: 1px solid var(--tile_border-color);
+  border-radius: $radius-l;
+  color: $color-font;
+  translate: 0 var(--tile_translate-y);
+  transition:
+    translate $trans-time ease-in-out,
+    box-shadow $trans-time ease-in-out,
+    border-color $trans-time ease-in-out;
+  box-shadow: 0 #{$gap-m} var(--tile_shadow-spread) var(--tile_shadow-color);
+
+  @include hover {
+    --tile_translate-y: calc(#{$gap-s} * -1);
+    --tile_shadow-spread: #{$gap-xl};
+    --tile_border-color: #{$color-primary};
+    --tile_title-color: #{$color-primary};
+  }
+
+  &__title {
+    font-family: $font-title;
+    font-size: clamp($gap-l, 2.5vh, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--tile_title-color);
+    text-transform: uppercase;
+    transition: color $trans-time ease-in-out;
+  }
+
+  &__subtitle {
+    margin-block-start: $gap-m;
+    font-family: $font-title;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: $font-text;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: $color-font;
+  }
+
+  &__address {
+    display: block;
+    font-family: $font-text;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $color-font;
+    font-style: normal;
+  }
+
+  &__link {
+    display: block;
+
+    &--phone {
+      @include flex-set(inline-flex, row, nowrap, $gap-s, center);
+      margin-block-start: $gap-m;
+    }
+  }
+
+  &__image {
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 16 / 10;
+    margin-block-start: auto;
+    border-radius: $gap-m;
+    object-fit: cover;
+  }
+
+  &__downloads {
+    @include flex-set(flex, column, nowrap, $gap-m, flex-start);
+  }
+}
+
+.contact-form {
+  @include grid-columns(
+    grid,
+    minmax(#{$gap-l}, 1fr),
+    $gap-l,
+    flex-start,
+    stretch
+  );
+  inline-size: 100%;
+  padding: $gap-xl;
+  background-color: $color-row-bg;
+  border: 1px solid $color-white--trans-13;
+  border-radius: $radius-m;
+
+  @include res-max-mobile-l {
+    padding: $gap-l;
+  }
+
+  &__field {
+    @include grid-columns(
+      grid,
+      minmax(#{$gap-l}, 1fr),
+      $gap-s,
+      flex-start,
+      stretch
+    );
+  }
+
+  &__label {
+    font-family: $font-text;
+    font-size: small;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: $color-font;
+    text-transform: uppercase;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    inline-size: 100%;
+    padding: $gap-m $gap-l;
+    background-color: $color-black--trans;
+    border: 1px solid $color-white--trans-13;
+    border-radius: $gap-m;
+    font-family: $font-text;
+    font-size: clamp($gap-l, 2vh, 16px);
+    line-height: 1.4;
+    color: $color-white;
+    transition:
+      border-color $trans-time ease-in-out,
+      background-color $trans-time ease-in-out,
+      box-shadow $trans-time ease-in-out;
+
+    &::placeholder {
+      color: $color-disabled;
+    }
+
+    &:focus-visible {
+      background-color: hsl(0 0% 0% / 0.65);
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px hsl(from $color-primary h s l / 0.25);
+      outline: none;
+    }
+
+    &:user-invalid {
+      border-color: hsl(0 60% 55%);
+    }
+  }
+
+  textarea {
+    min-block-size: 8rem;
+    resize: vertical;
+  }
+
+  &__honeypot {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  &__submit {
+    justify-self: flex-start;
+    margin-block-start: $gap-s;
+  }
+
+  &__status {
+    min-block-size: 1.4em;
+    margin: 0;
+    font-size: small;
+    line-height: 1.4;
+    color: $color-font;
+
+    &[data-state="success"] {
+      color: $color-primary--lighten;
+    }
+
+    &[data-state="error"] {
+      color: hsl(0 65% 70%);
+    }
+  }
 }

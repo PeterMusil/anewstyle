@@ -45,6 +45,12 @@ section:has(> .gallery) {
     --col-count: 1;
     --gap: #{$gap-xl};
   }
+
+  &[data-filter="video"] .gitem:not([data-media="video"]),
+  &[data-filter="image"] .gitem:not([data-media="image"]),
+  &[data-filter="360"] .gitem:not([data-media="360"]) {
+    display: none;
+  }
 }
 
 .gitem {

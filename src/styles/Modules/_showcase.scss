@@ -121,33 +121,13 @@ section:has(> .showcase) {
   }
 
   &__buttons {
-    @include grid-columns(grid, repeat(3, minmax($gap-xl, 1fr)), $gap-l, stretch, stretch);
-    container-type: inline-size;
+    align-self: start;
 
     @include res-max-laptop-s {
+      align-self: center;
       margin-block-start: -0.25vh;
       margin-block-end: 7vh;
       grid-row-start: 1;
-    }
-
-    @include res-max-mobile-l {
-     gap: $gap-m;
-    }
-
-    > .button {
-      --icon-size: #{$gap-xxl};
-      flex-flow: column wrap;
-
-      @container (inline-size <= 600px) {
-        --btn-padding-x: #{$gap-s};
-        --btn-padding-y: #{$gap-m};
-        --btn-font-size: small;
-        --btn-width: unset;
-      }
-
-      &--s {
-        --icon-size: #{$gap-l};
-      }
     }
   }
 }

@@ -1,7 +1,12 @@
 @import "../Base/global";
 
 .product-list {
-  @include grid-columns(grid, repeat(4, minmax($gap-l, 1fr)), clamp($gap-xl, 5dvi, 5rem), stretch);
+  @include grid-columns(
+    grid,
+    repeat(4, minmax($gap-l, 1fr)),
+    clamp($gap-xl, 5dvi, 5rem),
+    stretch
+  );
   margin-block-start: 10vh;
 
   @include res-max-laptop-s {
@@ -14,8 +19,16 @@
 }
 
 .card {
-  @include grid-columns(grid, minmax($gap-l, 1fr), $gap-l, flex-start, center, center);
+  @include grid-columns(
+    grid,
+    minmax($gap-l, 1fr),
+    $gap-l,
+    flex-start,
+    center,
+    center
+  );
   border-radius: $gap-m;
+  text-decoration: none;
   scale: var(--card_scale, 1);
   transition: scale $trans-time ease-in-out;
   cursor: pointer;

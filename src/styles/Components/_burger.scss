@@ -4,7 +4,7 @@ li:has(> .burger) {
   --burger-display: none;
   display: var(--burger-display);
 
-  @include res-max-tablet {
+  @include res-max-laptop-s {
     --burger-display: grid;
   }
 }

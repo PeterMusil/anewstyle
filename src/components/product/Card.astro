@@ -6,18 +6,52 @@ interface Props {
   id: number;
   title: string;
   imgLight: string;
+  imgDark?: string;
+  imgFrame?: string;
+  modelHorizontal3d?: string;
+  modelVertical3d?: string;
   has3D: boolean;
   lang?: Lang;
 }
 
-const { id, title, imgLight, has3D, lang = "cs" } = Astro.props;
+const {
+  id,
+  title,
+  imgLight,
+  imgDark,
+  imgFrame,
+  modelHorizontal3d,
+  modelVertical3d,
+  has3D,
+  lang = "cs",
+} = Astro.props;
 const t = useTranslations(lang);
+
+const groupName = `product-${id}`;
+const hasHorizontalModel = Boolean(modelHorizontal3d);
+const hasVerticalModel = Boolean(modelVertical3d);
+const primaryFancyboxHref = hasHorizontalModel
+  ? `#horizontal3dModel${id}`
+  : hasVerticalModel
+    ? `#vertical3dModel${id}`
+    : `/images/products/${imgLight}`;
+
+const extraFancyboxHrefs = [
+  hasHorizontalModel && hasVerticalModel ? `#vertical3dModel${id}` : null,
+  imgDark ? `/images/products/${imgDark}` : null,
+  imgFrame ? `/images/products/${imgFrame}` : null,
+  hasHorizontalModel || hasVerticalModel
+    ? `/images/products/${imgLight}`
+    : null,
+].filter((src): src is string => Boolean(src));
 ---
 
-<div
+<a
   id={`productCard${id}`}
-  role="button"
   class="card"
+  href={primaryFancyboxHref}
+  data-fancybox={groupName}
+  data-caption={title}
   aria-label={t("products.showProductDetail")}
 >
   <strong>
@@ -34,4 +68,46 @@ const t = useTranslations(lang);
     <div class="button button--s">{t("products.btnShowDetail")}</div>
   </div>
   {has3D && <Icon name="ar" />}
+</a>
+{
+  extraFancyboxHrefs.map((src) => (
+    <a
+      href={src}
+      data-fancybox={groupName}
+      data-caption={title}
+      aria-hidden="true"
+      tabindex="-1"
+      hidden
+    />
+  ))
+}
+<div class="product-models" hidden>
+  {
+    hasHorizontalModel && (
+      <model-viewer
+        id={`horizontal3dModel${id}`}
+        src={`/3d/products/${modelHorizontal3d}`}
+        ar
+        ar-scale="auto"
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        touch-action="pan-y"
+        camera-orbit="0deg 90deg 2.5m"
+      />
+    )
+  }
+  {
+    hasVerticalModel && (
+      <model-viewer
+        id={`vertical3dModel${id}`}
+        src={`/3d/products/${modelVertical3d}`}
+        ar
+        ar-scale="auto"
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        touch-action="pan-y"
+        camera-orbit="0deg 90deg 2.5m"
+      />
+    )
+  }
 </div>

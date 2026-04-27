@@ -22,11 +22,76 @@ const t = useTranslations(lang);
       <span>{t("gallery.descPart5")}</span>
     </p>
   </div>
+  <div class="container segment-filter-wrap">
+    <div
+      class="segment-filter"
+      role="group"
+      aria-label={t("gallery.filterAriaLabel")}
+    >
+      <button
+        type="button"
+        class="segment-filter__btn"
+        data-filter=""
+        aria-pressed="true"
+      >
+        <span>{t("gallery.filterAll")}</span>
+      </button>
+      <button
+        type="button"
+        class="segment-filter__btn"
+        data-filter="video"
+        aria-pressed="false"
+      >
+        <Icon name="play" />
+        <span>{t("gallery.filterVideos")}</span>
+      </button>
+      <button
+        type="button"
+        class="segment-filter__btn"
+        data-filter="image"
+        aria-pressed="false"
+      >
+        <span>{t("gallery.filterImages")}</span>
+      </button>
+      <button
+        type="button"
+        class="segment-filter__btn"
+        data-filter="360"
+        aria-pressed="false"
+      >
+        <Icon name="360" />
+        <span>{t("gallery.filter360")}</span>
+      </button>
+    </div>
+  </div>
   <div class="container gallery">
+    <a
+      href="/assets/ATAK_bazen_2.webm"
+      aria-label={t("products.stoneAsLighting")}
+      data-fancybox="gallery"
+      data-media="video"
+      class="gitem"
+      rel="noopener"
+    >
+      <div class="gitem__photo">
+        <img
+          src="/assets/ATAK_bazen_2.avif"
+          loading="lazy"
+          width="768"
+          height="446"
+          alt={t("gallery.demoVideo")}
+        />
+      </div>
+      <div class="gitem__content">
+        <Icon name="play" />
+      </div>
+    </a>
+
     <a
       href="/videos/Rock_sheet_animation_background.mp4"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="video"
       class="gitem"
       rel="noopener"
     >
@@ -60,6 +125,7 @@ const t = useTranslations(lang);
       href="https://www.theasys.io/viewer/52yTAK9fAdceRkI8KoRZLYYkLgPkaq"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="360"
       class="gitem"
       rel="noopener"
       data-type="iframe"
@@ -81,6 +147,7 @@ const t = useTranslations(lang);
       href="https://www.theasys.io/viewer/BRgTqQK9OimeTDIPcLmzi4WLP3OIBU"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="360"
       class="gitem"
       rel="noopener"
       data-type="iframe"
@@ -103,6 +170,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz2_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -123,6 +191,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz3_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -143,6 +212,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz4_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -163,6 +233,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz8_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -183,6 +254,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz9_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -203,6 +275,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz7_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem"
       rel="noopener"
     >
@@ -223,6 +296,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz5_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem hidden"
       rel="noopener"
     >
@@ -231,6 +305,7 @@ const t = useTranslations(lang);
       href="/images/gallery/Rockfoil_viz6_1440.webp"
       aria-label={t("products.stoneAsLighting")}
       data-fancybox="gallery"
+      data-media="image"
       class="gitem hidden"
       rel="noopener"
     >
@@ -270,3 +345,35 @@ const t = useTranslations(lang);
     </p>
   </div>
 </section>
+
+<script>
+  const initGalleryFilter = () => {
+    const gallery = document.querySelector<HTMLElement>(".gallery");
+    const filter = gallery
+      ?.closest("section")
+      ?.querySelector<HTMLElement>(".segment-filter");
+    if (!filter || !gallery) return;
+
+    const buttons = filter.querySelectorAll<HTMLButtonElement>(
+      ".segment-filter__btn"
+    );
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (btn.getAttribute("aria-pressed") === "true") return;
+        buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+
+        const filter = btn.dataset.filter ?? "";
+        if (filter) {
+          gallery.setAttribute("data-filter", filter);
+        } else {
+          gallery.removeAttribute("data-filter");
+        }
+      });
+    });
+  };
+
+  initGalleryFilter();
+  document.addEventListener("astro:page-load", initGalleryFilter);
+</script>

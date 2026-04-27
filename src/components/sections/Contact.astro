@@ -23,8 +23,8 @@ const t = useTranslations(lang);
       <div>
         <h2 class="title title--white">{t("contact.title")}</h2>
         <div class="contact__grid">
-          <div>
-            <p class="desc desc--mg-s">
+          <div class="contact__intro">
+            <p class="desc desc--no-mg">
               <span>{t("contact.descPart1")}</span>
               <strong>
                 <a href="mailto:info@anewstyle.cz" class="link"
@@ -52,83 +52,208 @@ const t = useTranslations(lang);
               </a>
             </div>
           </div>
-          <div>
-            <a class="button" href="mailto:info@anewstyle.cz">
-              <span>{t("contact.btnWriteMessage")}</span>
-              <Icon name="email" />
-            </a>
-          </div>
 
-          <div>
-            <h3 class="title title--s">{t("contact.showroomTitle")}</h3>
-            <p class="desc desc--no-mg">
-              <span>{t("contact.showroomDesc")}</span>
-              <address>
-                <a
-                  href="https://www.google.cz/maps/place/Hybe%C5%A1ova+308%2F61,+602+00+Brno-st%C5%99ed/@49.1887768,16.5968647,17z/data=!3m1!4b1!4m5!3m4!1s0x471294529732ae65:0x75c148bfafac76!8m2!3d49.1887733!4d16.5990534"
-                  rel="external"
-                  aria-label={t("contact.showroomAddress")}
-                  target="_blank"
-                  class="link"
-                  style="display: block;"
-                >
-                  Hybešova 61<br />
-                  602 00 Brno<br />
-                  <span>{t("contact.czechia")}</span>
-                </a>
-                <a
-                  href="tel:+420601221551"
-                  class="link"
-                  style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem;"
-                >
-                  <Icon name="phone" />
-                  <span>+420 601 221 551</span>
-                </a>
-              </address>
-              <img
-                src="/images/backgrounds/showroom.webp"
-                alt={t("contact.showroomTitle")}
-                width="250px"
-                loading="lazy"
+          <form
+            class="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="f48bcfa0-bfd9-4098-9a68-6116fd0b952f"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="AnewStyle – nová zpráva z webu"
+            />
+            <input type="hidden" name="from_name" value="AnewStyle web" />
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="contact-form__honeypot"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <label class="contact-form__field">
+              <span class="contact-form__label">
+                {t("contact.formName")}
+              </span>
+              <input
+                type="text"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder={t("contact.formNamePlaceholder")}
               />
+            </label>
+
+            <label class="contact-form__field">
+              <span class="contact-form__label">
+                {t("contact.formEmail")}
+              </span>
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder={t("contact.formEmailPlaceholder")}
+              />
+            </label>
+
+            <label class="contact-form__field">
+              <span class="contact-form__label">
+                {t("contact.formMessage")}
+              </span>
+              <textarea
+                name="message"
+                required
+                rows="5"
+                placeholder={t("contact.formMessagePlaceholder")}></textarea>
+            </label>
+
+            <button type="submit" class="button contact-form__submit">
+              <span>{t("contact.formSubmit")}</span>
+              <Icon name="email" />
+            </button>
+
+            <p
+              class="contact-form__status"
+              role="status"
+              aria-live="polite"
+              data-status-success={t("contact.formSuccess")}
+              data-status-error={t("contact.formError")}
+            >
             </p>
-          </div>
-          <div>
-            <h3 class="title title--s">{t("contact.addressTitle")}</h3>
-            <address>
+          </form>
+
+          <article class="contact-tile">
+            <h3 class="contact-tile__title">{t("contact.showroomTitle")}</h3>
+            <p class="contact-tile__text">{t("contact.showroomDesc")}</p>
+            <address class="contact-tile__address">
+              <a
+                href="https://www.google.cz/maps/place/Hybe%C5%A1ova+308%2F61,+602+00+Brno-st%C5%99ed/@49.1887768,16.5968647,17z/data=!3m1!4b1!4m5!3m4!1s0x471294529732ae65:0x75c148bfafac76!8m2!3d49.1887733!4d16.5990534"
+                rel="external"
+                aria-label={t("contact.showroomAddress")}
+                target="_blank"
+                class="link contact-tile__link"
+              >
+                Hybešova 61<br />
+                602 00 Brno<br />
+                <span>{t("contact.czechia")}</span>
+              </a>
+              <a
+                href="tel:+420601221551"
+                class="link contact-tile__link contact-tile__link--phone"
+              >
+                <Icon name="phone" />
+                <span>+420 601 221 551</span>
+              </a>
+            </address>
+            <img
+              src="/images/backgrounds/showroom.webp"
+              alt={t("contact.showroomTitle")}
+              class="contact-tile__image"
+              loading="lazy"
+            />
+          </article>
+
+          <article class="contact-tile">
+            <h3 class="contact-tile__title">{t("contact.addressTitle")}</h3>
+            <address class="contact-tile__address">
               OSM s.r.o.<br />
               Hudcova 86/54<br />
               621 00 Brno<br />
-              <span>{t("contact.czechia")}</span><br /><br />
+              <span>{t("contact.czechia")}</span>
+              <br /><br />
               IČ: 47903180<br />
-              DIČ: CZ47903180<br />
+              DIČ: CZ47903180
             </address>
-
-            <h4 class="title title--xs">{t("contact.materialsTitle")}</h4>
-            <a
-              href="/downloads/Manual_CZ_AnewStyle_Basic_Deluxe.pdf"
-              class="link link--light"
-              target="_blank"
-              rel="noopener"
-              aria-label={t("contact.downloadManualCs")}
-            >
-              <Icon name="pdf" />
-              <span>{t("contact.materialsLink1")}</span>
-            </a>
-            <br /><br />
-            <a
-              href="/downloads/Manual_EN_AnewStyle_Basic_Deluxe.pdf"
-              class="link link--light"
-              target="_blank"
-              rel="noopener"
-              aria-label={t("contact.downloadManualEn")}
-            >
-              <Icon name="pdf" />
-              <span>{t("contact.materialsLink2")}</span>
-            </a>
-          </div>
+            <h4 class="contact-tile__subtitle">
+              {t("contact.materialsTitle")}
+            </h4>
+            <div class="contact-tile__downloads">
+              <a
+                href="/downloads/Manual_CZ_AnewStyle_Basic_Deluxe.pdf"
+                class="link link--light"
+                target="_blank"
+                rel="noopener"
+                aria-label={t("contact.downloadManualCs")}
+              >
+                <Icon name="pdf" />
+                <span>{t("contact.materialsLink1")}</span>
+              </a>
+              <a
+                href="/downloads/Manual_EN_AnewStyle_Basic_Deluxe.pdf"
+                class="link link--light"
+                target="_blank"
+                rel="noopener"
+                aria-label={t("contact.downloadManualEn")}
+              >
+                <Icon name="pdf" />
+                <span>{t("contact.materialsLink2")}</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(".contact-form");
+  if (form) {
+    const status = form.querySelector<HTMLElement>(".contact-form__status");
+    const submitBtn = form.querySelector<HTMLButtonElement>(
+      ".contact-form__submit",
+    );
+    const successMessage = status?.dataset.statusSuccess ?? "";
+    const errorMessage = status?.dataset.statusError ?? "";
+
+    const setStatus = (
+      state: "idle" | "success" | "error",
+      message: string,
+    ): void => {
+      if (!status) return;
+      if (state === "idle") {
+        status.removeAttribute("data-state");
+      } else {
+        status.dataset.state = state;
+      }
+      status.textContent = message;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      setStatus("idle", "");
+      if (submitBtn) submitBtn.dataset.loading = "true";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        const data = (await response.json()) as { success?: boolean };
+
+        if (response.ok && data.success) {
+          setStatus("success", successMessage);
+          form.reset();
+        } else {
+          setStatus("error", errorMessage);
+        }
+      } catch {
+        setStatus("error", errorMessage);
+      } finally {
+        if (submitBtn) delete submitBtn.dataset.loading;
+      }
+    });
+  }
+</script>

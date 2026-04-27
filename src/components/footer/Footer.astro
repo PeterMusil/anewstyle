@@ -6,7 +6,7 @@ interface Props {
   lang?: Lang;
 }
 
-const { lang = 'cs' } = Astro.props;
+const { lang = "cs" } = Astro.props;
 const t = useTranslations(lang);
 let currentYear = new Date().getFullYear();
 ---
@@ -14,42 +14,41 @@ let currentYear = new Date().getFullYear();
 <footer>
   <small>
     ©2022 - {currentYear} anewstyle.cz |
-    <span>{t('footer.rights')}</span>
-    |
-    <a
+    <span>{t("footer.rights")}</span>
+    | <a
       href="#"
       class="link link--s"
       id="footerCookieSettings"
-      aria-label={t('cookie.openPreferences')}
+      aria-label={t("cookie.openPreferences")}
       rel="nofollow noopener"
     >
       <Icon name="cookie" iconClass="footer__cookie-icon" size="0.9em" />
-      <span>{t('footer.cookieSettings')}</span>
+      <span>{t("footer.cookieSettings")}</span>
     </a>
     |
-    <span>{t('footer.creator')}</span>
+    <span>{t("footer.creator")}</span>
     <a
       href="https://lukaschylik.dev/"
       target="_blank"
       rel="external"
-      aria-label={t('footer.gotoCreator')}
-      >Lukáš Chylík</a
+      aria-label={t("footer.gotoCreator")}>Lukáš Chylík</a
     >
   </small>
-
-  <script>
-    const footerCookieLink = document.getElementById('footerCookieSettings') as HTMLAnchorElement | null;
-    footerCookieLink?.addEventListener('click', (e) => {
-      e.preventDefault();
-      // Prefer direct call if available, else broadcast event
-      // @ts-ignore
-      if (typeof window.__openCookieDialog === 'function') {
-        // @ts-ignore
-        window.__openCookieDialog();
-      } else {
-        window.dispatchEvent(new CustomEvent('open-cookie-dialog'));
-      }
-    });
-  </script>
-
 </footer>
+
+<script>
+  const footerCookieLink = document.getElementById(
+    "footerCookieSettings",
+  ) as HTMLAnchorElement | null;
+  footerCookieLink?.addEventListener("click", (e) => {
+    e.preventDefault();
+    // Prefer direct call if available, else broadcast event
+    // @ts-ignore
+    if (typeof window.__openCookieDialog === "function") {
+      // @ts-ignore
+      window.__openCookieDialog();
+    } else {
+      window.dispatchEvent(new CustomEvent("open-cookie-dialog"));
+    }
+  });
+</script>

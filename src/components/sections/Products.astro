@@ -1,6 +1,5 @@
 ---
 import Card from "../product/Card.astro";
-import DetailDialog from "../product/DetailDialog.astro";
 import {
   useTranslations,
   type Lang,
@@ -35,6 +34,29 @@ const products = await Astro.glob("../../content/products/*.md");
       <strong>{t("products.descPart6")}</strong>
       <span>{t("products.descPart7")}</span>
     </p>
+    <h3 class="title title--center title--white title--s title--mg-s">
+      {t("products.illustrative" as TranslationKey)}
+    </h3>
+    <p class="desc desc--s desc--mg-s text-center">
+      <span>{t("products.availableSamplesPart1" as TranslationKey)}</span>
+      <a
+        class="link link--light"
+        href="https://eu.zonerama.com/AnewStylecz/Album/14722155"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t("products.availableSamplesLink" as TranslationKey)}
+      </a>
+      <span>.</span>
+    </p>
+    <p class="desc desc--s desc--mg-s text-center">
+      <span>{t("products.needMoreInfo" as TranslationKey)}</span>
+    </p>
+    <div class="text-center">
+      <a href={`${basePath}/#contact`} class="button button--s">
+        <span>{t("products.btnWriteUs" as TranslationKey)}</span>
+      </a>
+    </div>
 
     <div class="products-illustration">
       <svg
@@ -69,23 +91,13 @@ const products = await Astro.glob("../../content/products/*.md");
                   id={data.id}
                   title={data.title}
                   imgLight={data.imgLight}
-                  has3D={data.modelHorizontal3d || data.modelVertical3d}
-                  lang={lang}
-                />
-                <DetailDialog
-                  id={data.id}
-                  title={data.title}
-                  desc={data.description}
-                  descEn={data.descriptionEn}
-                  tags={data.tags}
-                  price={data.price}
                   imgDark={data.imgDark}
                   imgFrame={data.imgFrame}
-                  imgLight={data.imgLight}
                   modelHorizontal3d={data.modelHorizontal3d}
                   modelVertical3d={data.modelVertical3d}
-                  daeFile={data.daeFile}
-                  reservation={data.reservation}
+                  has3D={Boolean(
+                    data.modelHorizontal3d || data.modelVertical3d,
+                  )}
                   lang={lang}
                 />
               </div>
@@ -105,3 +117,30 @@ const products = await Astro.glob("../../content/products/*.md");
     </div>
   </div>
 </section>
+
+<script>
+  const ensureModelViewerLoaded = (): void => {
+    if (typeof document === "undefined") return;
+    if (document.querySelector('script[data-model-viewer-loader="true"]'))
+      return;
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src =
+      "https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js";
+    script.dataset.modelViewerLoader = "true";
+    document.head.appendChild(script);
+  };
+
+  const productCards = document.querySelectorAll<HTMLAnchorElement>(
+    ".product-list .card",
+  );
+  productCards.forEach((card) => {
+    card.addEventListener(
+      "click",
+      () => {
+        ensureModelViewerLoaded();
+      },
+      { once: true },
+    );
+  });
+</script>
