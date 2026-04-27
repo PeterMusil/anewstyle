@@ -39,24 +39,11 @@ const products = await Astro.glob("../../content/products/*.md");
     </h3>
     <p class="desc desc--s desc--mg-s text-center">
       <span>{t("products.availableSamplesPart1" as TranslationKey)}</span>
-      <a
-        class="link link--light"
-        href="https://eu.zonerama.com/AnewStylecz/Album/14722155"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a class="link link--light" href={`${basePath}/#contact`}>
         {t("products.availableSamplesLink" as TranslationKey)}
       </a>
       <span>.</span>
     </p>
-    <p class="desc desc--s desc--mg-s text-center">
-      <span>{t("products.needMoreInfo" as TranslationKey)}</span>
-    </p>
-    <div class="text-center">
-      <a href={`${basePath}/#contact`} class="button button--s">
-        <span>{t("products.btnWriteUs" as TranslationKey)}</span>
-      </a>
-    </div>
 
     <div class="products-illustration">
       <svg

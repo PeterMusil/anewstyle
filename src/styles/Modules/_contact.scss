@@ -60,45 +60,87 @@
   --tile_shadow-color: hsl(0 0% 0% / 0.4);
   --tile_shadow-spread: #{$gap-m};
   --tile_border-color: #{$color-dialog-border};
-  --tile_title-color: #{$color-white};
-  @include flex-set(flex, column, nowrap, $gap-l, flex-start);
-  padding: $gap-xl;
+  --tile_image-scale: 1;
+  display: flex;
+  flex-direction: column;
   background-color: hsl(0 0% 100% / 0.04);
   border: 1px solid var(--tile_border-color);
   border-radius: $radius-l;
   color: $color-font;
+  text-decoration: none;
   translate: 0 var(--tile_translate-y);
   transition:
     translate $trans-time ease-in-out,
     box-shadow $trans-time ease-in-out,
     border-color $trans-time ease-in-out;
+  overflow: hidden;
   box-shadow: 0 #{$gap-m} var(--tile_shadow-spread) var(--tile_shadow-color);
 
   @include hover {
     --tile_translate-y: calc(#{$gap-s} * -1);
     --tile_shadow-spread: #{$gap-xl};
     --tile_border-color: #{$color-primary};
-    --tile_title-color: #{$color-primary};
+    --tile_image-scale: 1.05;
   }
 
-  &__title {
-    font-family: $font-title;
-    font-size: clamp($gap-l, 2.5vh, 1.5rem);
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--tile_title-color);
-    text-transform: uppercase;
-    transition: color $trans-time ease-in-out;
+  &__cover {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: $color-secondary;
+    overflow: hidden;
+
+    > img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      scale: var(--tile_image-scale);
+      transition: scale 0.5s ease-in-out;
+      object-fit: cover;
+    }
+
+    &--accent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(
+          circle at 30% 20%,
+          hsl(from $color-primary h s l / 0.35),
+          transparent 60%
+        ),
+        linear-gradient(135deg, hsl(0 0% 100% / 0.05), hsl(0 0% 100% / 0.01));
+    }
   }
 
-  &__subtitle {
-    margin-block-start: $gap-m;
-    font-family: $font-title;
-    font-size: 1rem;
+  &__cover-icon {
+    --icon-size: 4rem;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 $gap-m hsl(0 0% 0% / 0.6));
+    fill: $color-primary--lighten;
+  }
+
+  &__badge {
+    position: absolute;
+    inset: auto auto $gap-m $gap-m;
+    padding: $gap-s $gap-m;
+    background-color: $color-primary;
+    border-radius: $radius-full;
+    font-family: $font-text;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: $color-primary;
+    letter-spacing: 0.18em;
+    color: $color-white;
     text-transform: uppercase;
+  }
+
+  &__body {
+    @include flex-set(flex, column, nowrap, $gap-l, stretch);
+    flex: 1;
+    padding: $gap-xl;
+
+    @include res-max-mobile-l {
+      padding: $gap-l;
+    }
   }
 
   &__text {
@@ -110,34 +152,138 @@
   }
 
   &__address {
-    display: block;
+    @include flex-set(flex, column, nowrap, $gap-s, flex-start);
     font-family: $font-text;
     font-size: 0.9375rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: $color-font;
     font-style: normal;
-  }
 
-  &__link {
-    display: block;
-
-    &--phone {
-      @include flex-set(inline-flex, row, nowrap, $gap-s, center);
-      margin-block-start: $gap-m;
+    > strong {
+      font-family: $font-title;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: $color-white;
+      text-transform: uppercase;
     }
   }
 
-  &__image {
-    display: block;
-    inline-size: 100%;
-    aspect-ratio: 16 / 10;
-    margin-block-start: auto;
-    border-radius: $gap-m;
-    object-fit: cover;
+  &__link {
+    @include flex-set(flex, column, nowrap, calc($gap-s / 2), flex-start);
+    color: $color-font;
+    text-decoration: none;
+    transition: color $trans-time ease-in-out;
+
+    @include hover {
+      color: $color-primary--lighten;
+    }
+
+    > strong {
+      font-family: $font-title;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: $color-white;
+      text-transform: uppercase;
+      transition: color $trans-time ease-in-out;
+    }
+
+    &--phone {
+      @include flex-set(inline-flex, row, nowrap, $gap-s, center);
+      margin-block-start: $gap-s;
+      font-weight: 600;
+
+      > .icon {
+        --icon-size: 1em;
+        fill: $color-primary;
+      }
+    }
+  }
+
+  &__meta {
+    @include grid-columns(grid, repeat(auto-fit, minmax(8rem, 1fr)), $gap-m);
+    margin: 0;
+
+    > div {
+      @include flex-set(flex, column, nowrap, calc($gap-s / 2), flex-start);
+      padding: $gap-s $gap-m;
+      background-color: hsl(0 0% 100% / 0.04);
+      border-radius: $gap-m;
+    }
+
+    dt {
+      font-family: $font-text;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: $color-disabled;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 0;
+      font-family: $font-text;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: $color-white;
+    }
+  }
+
+  &__divider {
+    block-size: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      $color-white--trans-13,
+      transparent
+    );
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-family: $font-title;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: $color-primary;
+    text-transform: uppercase;
   }
 
   &__downloads {
-    @include flex-set(flex, column, nowrap, $gap-m, flex-start);
+    @include flex-set(flex, column, nowrap, $gap-s, stretch);
+  }
+
+  &__download {
+    @include flex-set(flex, row, nowrap, $gap-m, center, flex-start);
+    padding: $gap-m;
+    background-color: hsl(0 0% 100% / 0.04);
+    border: 1px solid $color-white--trans-13;
+    border-radius: $gap-m;
+    font-family: $font-text;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $color-white;
+    text-decoration: none;
+    transition:
+      background-color $trans-time ease-in-out,
+      border-color $trans-time ease-in-out,
+      color $trans-time ease-in-out;
+
+    > span {
+      flex: 1;
+    }
+
+    > .icon {
+      --icon-size: 1.125rem;
+      fill: currentColor;
+    }
+
+    @include hover {
+      background-color: hsl(from $color-primary h s l / 0.15);
+      border-color: $color-primary;
+      color: $color-primary--lighten;
+    }
   }
 }
 
