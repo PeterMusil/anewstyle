@@ -40,46 +40,51 @@ const products: (Product & { price: string })[] = (
       <span>{t("price.selectLabel")}</span>
     </p>
 
-    <div class="text-center">
-      <div id="productButtons" class="btn-group">
+    <div class="segment-filter-wrap">
+      <div
+        id="productButtons"
+        class="segment-filter"
+        role="group"
+        aria-label={t("price.selectLabel")}
+      >
         <button
           value="l"
-          data-active="true"
-          class="button"
+          aria-pressed="true"
+          class="segment-filter__btn"
           type="button"
           aria-label={t("price.showL")}
         >
-          L
+          <span>L</span>
           <small>2400 x 400 mm</small>
         </button>
         <button
           value="xl"
-          data-active="false"
-          class="button"
+          aria-pressed="false"
+          class="segment-filter__btn"
           type="button"
           aria-label={t("price.showXL")}
         >
-          XL
+          <span>XL</span>
           <small>2400 x 600 mm</small>
         </button>
         <button
           value="xxl"
-          data-active="false"
-          class="button"
+          aria-pressed="false"
+          class="segment-filter__btn"
           type="button"
           aria-label={t("price.showXXL")}
         >
-          XXL
+          <span>XXL</span>
           <small>2400 x 800 mm</small>
         </button>
         <button
           value="xxxl"
-          data-active="false"
-          class="button"
+          aria-pressed="false"
+          class="segment-filter__btn"
           type="button"
           aria-label={t("price.showXXXL")}
         >
-          XXXL
+          <span>XXXL</span>
           <small>2400 x 1200 mm</small>
         </button>
       </div>
@@ -140,26 +145,24 @@ const products: (Product & { price: string })[] = (
   } from "../priceItem/PriceItem.types";
 
   const productButtons = document.getElementById(
-    "productButtons"
+    "productButtons",
   ) as HTMLDivElement;
   const productImage = document.getElementById(
-    "productImage"
+    "productImage",
   ) as HTMLImageElement;
 
   if (productButtons) {
     const buttons = productButtons.querySelectorAll("button");
     buttons.forEach((button) => {
       button.addEventListener("click", (event) => {
-        const target = event.target as HTMLButtonElement;
+        const target = event.currentTarget as HTMLButtonElement;
         const selectedSize: keyof Price = target.value as keyof Price;
 
-        // Remove active state from all buttons
         buttons.forEach((btn) => {
-          btn.setAttribute("data-active", "false");
+          btn.setAttribute("aria-pressed", "false");
         });
 
-        // Set active state to the clicked button
-        target.setAttribute("data-active", "true");
+        target.setAttribute("aria-pressed", "true");
 
         const updatedProducts: (Product & { price: string })[] = (
           prices as PricesData

@@ -1,32 +1,10 @@
 @import "../Base/global";
 
 .contact {
-  &__wrapper {
-    --logo_size: 150px;
-    @include grid-columns(
-      grid,
-      var(--contact_col-temp, var(--logo_size) minmax(#{$gap-l}, 1fr)),
-      var(--contact_gap, 10vw),
-      flex-start
-    );
+  display: block;
+  inline-size: min($width-laptop-s, 100%);
+  margin-inline: auto;
 
-    @include res-max-tablet {
-      --logo_size: 100px;
-      --contact_gap: #{$gap-xl};
-    }
-
-    @include res-max-mobile-l {
-      --logo_size: 100px;
-      --contact_col-temp: minmax(#{$gap-l}, 1fr);
-    }
-
-    > img {
-      max-inline-size: var(--logo_size);
-      @include res-max-mobile-l {
-        margin-inline: auto;
-      }
-    }
-  }
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -55,8 +33,12 @@
   }
 
   &__intro-text {
-    margin-inline: 0;
-    text-align: left;
+    text-align: center;
+  }
+
+  &__intro .social {
+    justify-content: center;
+    justify-items: center;
   }
 }
 
@@ -412,7 +394,7 @@
   }
 
   &__submit {
-    justify-self: flex-start;
+    justify-self: center;
     margin-block-start: $gap-s;
   }
 
