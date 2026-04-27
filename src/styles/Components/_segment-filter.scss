@@ -5,6 +5,7 @@
   justify-content: center;
   inline-size: min(calc(100% - #{$gap-l}), #{$width-laptop-xl});
   margin-block: $gap-xl $gap-l;
+  margin-inline: auto;
 }
 
 .segment-filter {
@@ -16,6 +17,7 @@
   --segment-filter_active-text: #{$color-white};
   @include flex-set(inline-flex, row, nowrap, 0, center, center, center);
   padding: $gap-s;
+  margin-inline: auto;
   background-color: var(--segment-filter_bg);
   border: 1px solid var(--segment-filter_border);
   border-radius: $radius-full;
@@ -26,8 +28,8 @@
   }
 
   &__btn {
-    @include flex-set(inline-flex, row, nowrap, $gap-s, center, center, center);
-    padding-block: $gap-m;
+    @include flex-set(inline-flex, column, nowrap, 2px, center, center, center);
+    padding-block: $gap-s;
     padding-inline: $gap-l;
     background-color: var(--btn-bg, transparent);
     border: 0;
@@ -36,6 +38,7 @@
     font-size: medium;
     font-weight: 500;
     color: var(--btn-color, var(--segment-filter_text));
+    text-align: center;
     white-space: nowrap;
     transition:
       background-color $trans-time ease-in-out,
@@ -44,7 +47,16 @@
 
     @include res-max-mobile-l {
       flex: 1;
-      padding-inline: $gap-m;
+      padding-inline: $gap-s;
+    }
+
+    > small {
+      opacity: 0.75;
+      font-size: 0.75em;
+
+      @include res-max-mobile-l {
+        font-size: 0.625rem;
+      }
     }
 
     > .icon {
