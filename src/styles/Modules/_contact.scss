@@ -53,6 +53,11 @@
       stretch
     );
   }
+
+  &__intro-text {
+    margin-inline: 0;
+    text-align: left;
+  }
 }
 
 .contact-tile {
@@ -126,7 +131,7 @@
     background-color: $color-primary;
     border-radius: $radius-full;
     font-family: $font-text;
-    font-size: 0.75rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     color: $color-white;
@@ -143,10 +148,42 @@
     }
   }
 
+  &__title {
+    margin: 0;
+    font-family: $font-title;
+    font-size: clamp(1.25rem, 2.75vh, 1.5625rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+
+  &--showroom {
+    display: grid;
+    grid-template-columns: minmax(40%, 18rem) 1fr;
+    align-items: stretch;
+
+    .contact-tile__cover {
+      block-size: 100%;
+      min-block-size: 100%;
+      aspect-ratio: auto;
+    }
+
+    @include res-max-tablet {
+      grid-template-columns: 1fr;
+
+      .contact-tile__cover {
+        block-size: auto;
+        min-block-size: 0;
+        aspect-ratio: 16 / 9;
+      }
+    }
+  }
+
   &__text {
     margin: 0;
     font-family: $font-text;
-    font-size: 0.9375rem;
+    font-size: 1.1875rem;
     line-height: 1.55;
     color: $color-font;
   }
@@ -154,14 +191,14 @@
   &__address {
     @include flex-set(flex, column, nowrap, $gap-s, flex-start);
     font-family: $font-text;
-    font-size: 0.9375rem;
+    font-size: 1.1875rem;
     line-height: 1.5;
     color: $color-font;
     font-style: normal;
 
     > strong {
       font-family: $font-title;
-      font-size: 1.125rem;
+      font-size: 1.4375rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       color: $color-white;
@@ -181,7 +218,7 @@
 
     > strong {
       font-family: $font-title;
-      font-size: 1.125rem;
+      font-size: 1.4375rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       color: $color-white;
@@ -214,7 +251,7 @@
 
     dt {
       font-family: $font-text;
-      font-size: 0.6875rem;
+      font-size: 0.8125rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       color: $color-disabled;
@@ -224,7 +261,7 @@
     dd {
       margin: 0;
       font-family: $font-text;
-      font-size: 0.9375rem;
+      font-size: 1.1875rem;
       font-weight: 600;
       color: $color-white;
     }

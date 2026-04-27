@@ -24,7 +24,7 @@ const t = useTranslations(lang);
         <h2 class="title title--white">{t("contact.title")}</h2>
         <div class="contact__grid">
           <div class="contact__intro">
-            <p class="desc desc--no-mg">
+            <p class="desc desc--no-mg contact__intro-text">
               <span>{t("contact.descPart1")}</span>
               <strong>
                 <a href="mailto:info@anewstyle.cz" class="link"
@@ -143,6 +143,7 @@ const t = useTranslations(lang);
               </span>
             </div>
             <div class="contact-tile__body">
+              <h3 class="contact-tile__title">{t("contact.showroomTitle")}</h3>
               <p class="contact-tile__text">{t("contact.showroomDesc")}</p>
               <address class="contact-tile__address">
                 <a
@@ -167,13 +168,8 @@ const t = useTranslations(lang);
           </article>
 
           <article class="contact-tile contact-tile--billing">
-            <div class="contact-tile__cover contact-tile__cover--accent">
-              <Icon name="email" iconClass="contact-tile__cover-icon" />
-              <span class="contact-tile__badge">
-                {t("contact.addressTitle")}
-              </span>
-            </div>
             <div class="contact-tile__body">
+              <h3 class="contact-tile__title">{t("contact.addressTitle")}</h3>
               <address class="contact-tile__address">
                 <strong>OSM s.r.o.</strong>
                 <span>Hudcova 86/54</span>
@@ -189,34 +185,6 @@ const t = useTranslations(lang);
                   <dd>CZ47903180</dd>
                 </div>
               </dl>
-              <div class="contact-tile__divider" aria-hidden="true"></div>
-              <h4 class="contact-tile__subtitle">
-                {t("contact.materialsTitle")}
-              </h4>
-              <div class="contact-tile__downloads">
-                <a
-                  href="/downloads/Manual_CZ_AnewStyle_Basic_Deluxe.pdf"
-                  class="contact-tile__download"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={t("contact.downloadManualCs")}
-                >
-                  <Icon name="pdf" />
-                  <span>{t("contact.materialsLink1")}</span>
-                  <Icon name="download" />
-                </a>
-                <a
-                  href="/downloads/Manual_EN_AnewStyle_Basic_Deluxe.pdf"
-                  class="contact-tile__download"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={t("contact.downloadManualEn")}
-                >
-                  <Icon name="pdf" />
-                  <span>{t("contact.materialsLink2")}</span>
-                  <Icon name="download" />
-                </a>
-              </div>
             </div>
           </article>
         </div>
