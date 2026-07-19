@@ -5,27 +5,8 @@ header {
   display: grid;
   place-items: center;
   min-block-size: 100svh;
-  background-image: image-set(
-    url("/images/backgrounds/header-bg.webp") type("image/webp") 1x,
-    url("/images/backgrounds/header-bg_1440.webp") type("image/webp") 1.5x,
-    url("/images/backgrounds/header-bg_1366.webp") type("image/webp") 2x,
-    url("/images/backgrounds/header-bg_1024.webp") type("image/webp") 2.5x,
-    url("/images/backgrounds/header-bg_768.webp") type("image/webp") 3x
-  );
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+  background-color: $color-black;
   overflow: clip;
-
-  @supports not (image-set: url("/images/backgrounds/header-bg.webp") 1x) {
-    background-image: -webkit-image-set(
-      url("/images/backgrounds/header-bg.webp") type("image/webp") 1x,
-      url("/images/backgrounds/header-bg_1440.webp") type("image/webp") 1.5x,
-      url("/images/backgrounds/header-bg_1366.webp") type("image/webp") 2x,
-      url("/images/backgrounds/header-bg_1024.webp") type("image/webp") 2.5x,
-      url("/images/backgrounds/header-bg_768.webp") type("image/webp") 3x
-    );
-  }
 }
 
 .header {
@@ -33,7 +14,7 @@ header {
     position: absolute;
     inset: 0;
     inline-size: 100lvi;
-    background-color: $color-secondary;
+    background-color: $color-black;
     opacity: var(--video-opacity, 0);
     transition: opacity 0.5s linear;
     z-index: 1;
