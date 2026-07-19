@@ -73,6 +73,10 @@
         -webkit-box-reflect: below 2px
             linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
 
+        @include res-max-tablet {
+            -webkit-box-reflect: below 0px linear-gradient(transparent, transparent);
+        }
+
         > img {
             display: block;
             inline-size: auto;

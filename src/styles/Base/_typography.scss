@@ -27,6 +27,10 @@ span,
 small {
     font-family: $font-text;
     font-weight: 100;
+
+    @include res-max-tablet {
+        font-weight: 300;
+    }
 }
 
 .title {
@@ -122,6 +126,10 @@ small {
     color: $color-font;
     text-wrap: balance;
     text-wrap: pretty;
+
+    @include res-max-tablet {
+        color: hsl(0 0% 82%);
+    }
 
     @include res-max-laptop-s {
         --desc-font-size: medium;

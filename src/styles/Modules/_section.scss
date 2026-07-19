@@ -25,9 +25,18 @@ section {
 
     &.light {
         --sec-bg: hsl(from #{$color-white} h s 90%);
+
+        @include res-max-tablet {
+            --sec-bg: hsl(from #{$color-white} h s 85%);
+        }
+
         .title,
         .desc {
             color: $color-black;
+
+            @include res-max-tablet {
+                color: hsl(0 0% 15%);
+            }
         }
 
         .desc {
