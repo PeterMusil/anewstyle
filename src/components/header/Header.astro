@@ -202,18 +202,10 @@ const t = useTranslations(lang);
     const screenWidth = window.innerWidth;
 
     if (screenWidth > 560 && videoElement) {
-      const sources = [
-        { src: "/videos/main-video.mp4", type: "video/mp4" },
-        { src: "/videos/main-video.webm", type: "video/webm" },
-        { src: "/videos/main-video.ogv", type: "video/ogg" },
-      ];
-
-      sources.forEach((source) => {
-        const sourceElement = document.createElement("source");
-        sourceElement.src = source.src;
-        sourceElement.type = source.type;
-        videoElement.appendChild(sourceElement);
-      });
+      const sourceElement = document.createElement("source");
+      sourceElement.src = "/videos/main-video.mp4";
+      sourceElement.type = "video/mp4";
+      videoElement.appendChild(sourceElement);
     } else if (videoElement) {
       videoElement.remove();
     }
