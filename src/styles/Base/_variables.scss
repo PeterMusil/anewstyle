@@ -38,7 +38,7 @@ $dialog-max-width: 680px;
 $border-1: 1px;
 
 $trans-time: 0.25s;
-$animate-all: all ease-in-out var($trans-time);
+$animate-all: all ease-in-out var(--trans-time);
 $gap-m: 0.8rem;
 $gap-s: calc($gap-m / 2);
 $gap-l: calc($gap-m * 2);

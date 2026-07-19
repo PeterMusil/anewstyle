@@ -15,7 +15,23 @@ const { id, lang = "cs" } = Astro.props;
 const t = useTranslations(lang);
 
 const basePath = lang === "cs" ? "" : "/en";
-const products = await Astro.glob("../../content/products/*.md");
+
+interface ProductFrontmatter {
+  id: number;
+  title: string;
+  imgLight: string;
+  imgDark: string;
+  imgFrame: string;
+  modelHorizontal3d?: string;
+  modelVertical3d?: string;
+}
+
+const products = Object.values(
+  import.meta.glob<{ frontmatter: ProductFrontmatter }>(
+    "../../content/products/*.md",
+    { eager: true },
+  ),
+);
 ---
 
 <section id={id}>
