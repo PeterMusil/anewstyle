@@ -28,7 +28,7 @@
   }
 
   &__btn {
-    @include flex-set(inline-flex, column, nowrap, 2px, center, center, center);
+    @include flex-set(inline-flex, row, nowrap, 2px, center, center, center);
     padding-block: $gap-s;
     padding-inline: $gap-l;
     background-color: var(--btn-bg, transparent);
@@ -48,20 +48,6 @@
     @include res-max-mobile-l {
       flex: 1;
       padding-inline: $gap-s;
-    }
-
-    > small {
-      opacity: 0.75;
-      font-size: 0.75em;
-
-      @include res-max-mobile-l {
-        font-size: 0.625rem;
-      }
-    }
-
-    > .icon {
-      --icon-size: 1em;
-      fill: currentColor;
     }
 
     &[aria-pressed="true"] {

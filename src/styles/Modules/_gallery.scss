@@ -16,6 +16,19 @@ section:has(> .gallery) {
   }
 }
 
+.atak-logo {
+  display: inline-block;
+
+  @include res-max-tablet {
+    max-inline-size: 160px;
+
+    img {
+      inline-size: 100%;
+      block-size: auto;
+    }
+  }
+}
+
 .is-compact .fancybox__footer {
   @include res-max-tablet {
     display: none !important;

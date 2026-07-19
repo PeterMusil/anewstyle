@@ -9,6 +9,14 @@ interface Props {
 
 const { id, lang = "cs" } = Astro.props;
 const t = useTranslations(lang);
+
+const youtubeVideos = [
+  "PggSmLChjYw",
+  "GUiX1ZVmJac",
+  "ppa7Y319nE8",
+  "XTukH1ix6Fo",
+  "LJwBvcEK06M",
+];
 ---
 
 <section id={id} class="light">
@@ -42,7 +50,6 @@ const t = useTranslations(lang);
         data-filter="video"
         aria-pressed="false"
       >
-        <Icon name="play" />
         <span>{t("gallery.filterVideos")}</span>
       </button>
       <button
@@ -59,7 +66,6 @@ const t = useTranslations(lang);
         data-filter="360"
         aria-pressed="false"
       >
-        <Icon name="360" />
         <span>{t("gallery.filter360")}</span>
       </button>
     </div>
@@ -120,6 +126,32 @@ const t = useTranslations(lang);
         <Icon name="play" />
       </div>
     </a>
+
+    {
+      youtubeVideos.map((videoId) => (
+        <a
+          href={`https://youtu.be/${videoId}`}
+          aria-label={t("gallery.youtubeVideo")}
+          data-fancybox="gallery"
+          data-media="video"
+          class="gitem"
+          rel="noopener"
+        >
+          <div class="gitem__photo">
+            <img
+              src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+              loading="lazy"
+              width="480"
+              height="360"
+              alt={t("gallery.youtubeVideo")}
+            />
+          </div>
+          <div class="gitem__content">
+            <Icon name="play" />
+          </div>
+        </a>
+      ))
+    }
 
     <a
       href="https://www.theasys.io/viewer/52yTAK9fAdceRkI8KoRZLYYkLgPkaq"
@@ -324,7 +356,7 @@ const t = useTranslations(lang);
         ATAK Design
       </a>.
       <br /><br />
-      <picture>
+      <picture class="atak-logo">
         <source
           type="image/avif"
           sizes="(min-width: 100px)"
