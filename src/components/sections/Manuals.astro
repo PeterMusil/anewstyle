@@ -29,6 +29,11 @@ const manuals =
           aria: t("contact.downloadManualEn"),
         },
       ];
+
+const videos = [
+  { id: "LNqzOWaAFGY", title: t("manual.videoDeluxeTitle") },
+  { id: "lO5PBh_ZTyA", title: t("manual.videoSlimTitle") },
+];
 ---
 
 <section id="manual">
@@ -72,5 +77,29 @@ const manuals =
         </a>
       ))
     }
+  </div>
+  <div class="container manual-videos">
+    <h3 class="title title--center title--white title--s title--mg-s">
+      {t("manual.videosTitle")}
+    </h3>
+    <div class="manual-video-list">
+      {
+        videos.map((v) => (
+          <div class="manual-video-tile">
+            <div class="manual-video-tile__frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${v.id}`}
+                title={v.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              />
+            </div>
+            <strong class="manual-video-tile__title">{v.title}</strong>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

@@ -123,3 +123,50 @@
     }
   }
 }
+
+.manual-videos {
+  margin-block-end: $gap-xxl;
+}
+
+.manual-video-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp($gap-l, 4dvi, $gap-xxl);
+
+  @include res-max-tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.manual-video-tile {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-m;
+
+  &__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: $color-secondary;
+    border: 1px solid $color-dialog-border;
+    border-radius: $radius-l;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      border: 0;
+    }
+  }
+
+  &__title {
+    font-family: $font-title;
+    font-size: clamp($gap-l, 2.5vh, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: $color-white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
