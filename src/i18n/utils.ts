@@ -22,7 +22,7 @@ export function getLangFromUrl(url: URL): Lang {
  */
 export function useTranslations(lang: Lang) {
   return function t(key: TranslationKey): string {
-    return ui[lang][key] || ui[defaultLang][key] || key;
+    return ui[lang][key] ?? ui[defaultLang][key] ?? key;
   };
 }
 
